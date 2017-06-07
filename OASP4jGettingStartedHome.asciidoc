@@ -14,6 +14,6 @@
 
 == link:OASP4jWithCobigen[Cobigen]
 
-== link:OASP4jDeploying[Cobigen]
+== link:OASP4jDeployment[Deployment]
 
 
