@@ -1,6 +1,6 @@
 = OASP4Js Getting Started
 
-== link:Angularintro[Angularintro]
+== link:Angularintro[Angular intro]
 
 == link:AnAngularApplication[An Angular application]
 
