@@ -21,7 +21,7 @@ As mentioned before, Oasp4j is not only a framework but a set of tools and conve
 
 - https://projects.spring.io/spring-boot/[Spring Boot] as project accelerator.
 
-- https://maven.apache.org/[Maven] as project and dependencies management tool.
+- https://maven.apache.org/[Maven] as project and dependencies management tool. The _Maven_ projects use the _POM_ file to store all the necessary information for building the project (project configuration, dependencies, plugins, etc.). You can get more details about _POM_ files https://maven.apache.org/pom.html#What_is_the_POM[here].
 
 
 Some of the main features of _Spring Boot_ are
