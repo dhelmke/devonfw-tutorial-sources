@@ -1,0 +1,34 @@
+:toc: macro
+toc::[]
+
+== OASP4Js
+
+Created to support the development of Angular applications, https://github.com/oasp/oasp4Js[_OASP4Js_] includes Google Material Design as main visual language to take at maximum the advantage of Angular possibilities and Material components, making possible the building of modular, well-designed, responsive front-end applications.
+
+=== Oasp4Js Technology stack
+
+OASP4Js works on top of Angular but also, it provides several tools, libraries and code conventions to make your Angular apps easier to develop based on the following technologies:
+
+- http://angular.io/[Angular Framework] as the main development framework
+
+- https://github.com/angular/material2[Google Material2] as visual language and components.
+
+- https://github.com/Teradata/covalent[Covalent Teradata] as Component and utilities library working with Google Material.
+
+- https://yarnpkg.com/en/[Yarn] as Project dependencies management tool.
+
+The main advantages of this technologies are:
+
+- Teradata provides:
+* 4 available layouts that fits nowadays design necessities.
+* Several tools and utilities regarding style conventions such as text size, padding, margins...
+* Complex components as: Data tables, Chips with autocomplete, pagination...
+- Google Material component library is composed by a number of fancy components like tabs, cards, buttons...
+- Yarn is quite faster than NPM and provides some more functionalities to manage dependencies.
+
+=== Oasp4Js tools
+
+==== IDE
+There is no integrated IDE with the framework, that means you are free to work with whatever IDE fits better with you. Event though, we fully recommend the use of https://code.visualstudio.com/[Visual Studio Code], along with a guide of the most interesting plugins to make even easier your development.
+
+=== Oasp4Js architecture overview
