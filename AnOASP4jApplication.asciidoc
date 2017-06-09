@@ -28,4 +28,15 @@ The main features of the app are:
 
 == My Thai Star Oasp4j Backend overview
 
-My Thai Star project is hosted https://github.com/devonfw/my-thai-star[on github] and includes different technologies such as _Java_, _.Net_ and _Node_ as backends and Angular and Xamarin clients. 
+My Thai Star project is hosted https://github.com/devonfw/my-thai-star[on github] and includes different technologies such as _Java_, _.Net_ and _Node_ for backend solutions and _Angular_ and _Xamarin_ as default clients.
+
+[NOTE]
+====
+*Where are we going to store the mythaistar app? in the Devon distribution? in a public repo?*
+====
+
+Using the OASP4J approach for the Java backend project we will have a structure of a Maven project formed by two projects
+
+image::images/mythaistar/project_modules.png[,width="450", link="images/mythaistar/project_modules.png"]
+
+In the _core_ project we will store all the logic and functionality of the application
