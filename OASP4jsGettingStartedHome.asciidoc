@@ -1,8 +1,10 @@
 = OASP4Js Getting Started
 
-== link:Angularintro[Angular intro]
+Table of contents of this tutorial for understanding, creating from scratch and deploying apps based on OASP4js. Using Angular as front-end framework using Google Material as visual language.
 
-== link:AnAngularApplication[An Angular application]
+== link:Angularintro[OASP4Js technologies]
+
+== link:AnAngularApplication[An OASP4Js application]
 
 == link:AngularComponents[The Angular Components]
 
