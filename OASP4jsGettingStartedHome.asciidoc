@@ -2,7 +2,7 @@
 
 == link:Angularintro[Angularintro]
 
-== link:AnOASP4jsApplication[An OASP4Js application]
+== link:AnAngularApplication[An Angular application]
 
 == link:AngularComponents[The Angular Components]
 
