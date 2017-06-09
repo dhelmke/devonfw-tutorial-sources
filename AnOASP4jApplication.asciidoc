@@ -1,1 +1,31 @@
+:toc: macro
+toc::[]
+
 = An OASP4J Application
+
+== My Thai Star basics
+As an example of how an OASP4J application is built we are going to show the _My Thai Star_ application backend project, that can be found https://github.com/devonfw/my-thai-star[in github].
+
+The _My Thai Star_ application is a solution for managing the online booking and orders of a restaurant, it is addressed as a showcase app but designed with real requirements although trying to serve as example of common use cases in web apps (master-detail model, login, authorization based on roles, pagination, search with filters, etc.).
+
+image::images/mythaistar/mts.png[,width="450", link="images/mythaistar/mts.png"]
+
+The main features of the app are:
+
+- anonymous users can book a table.
+
+- anonymous users can create an event and invite some friends to the restaurant.
+
+- users can visit the food catalog and see information about the available dishes (name, ingredients, picture, price). 
+
+- both, the host and the guests, can order food for the event based on the food catalog and can select dishes with extra ingredients.
+
+- all the booking and order creation / cancellation operations are related to mail notifications sent by the application to warn the involved users about the changes.
+
+- only users with role _waiter_ are able to access to a restricted area of the application to have access to a list with all of the bookings and orders and can access to the details of each one.
+
+- the waiters can filter the bookings/orders results to manage the list.
+
+== My Thai Star Oasp4j Backend overview
+
+My Thai Star project is hosted https://github.com/devonfw/my-thai-star[on github] and includes different technologies such as _Java_, _.Net_ and _Node_ as backends and Angular and Xamarin clients. 
