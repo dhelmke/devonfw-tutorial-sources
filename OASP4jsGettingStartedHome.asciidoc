@@ -10,6 +10,6 @@
 
 == link:AngularServerConnection[Connection with OASP backend]
 
-== link:OASP4jDeployment[Deployment]
+== link:AngularDeployment[Deployment]
 
 
