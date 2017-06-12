@@ -199,4 +199,4 @@ image::images/mythaistar/get_request.png[,width="450", link="images/mythaistar/g
 
 == Creating your own Oasp4j backend app
 
-Once we have seen what we can achieve using _Oasp4j_ as our backend solution, we are going to see how to create our own _Oasp4j_ project step by step.
+Once we have seen what we can achieve using _Oasp4j_ as our backend solution, in next sections we are going to see how to create our own _Oasp4j_ project step by step, starting from how to create a new _Oasp4j_ project and explaining how to generate each element of the application.
