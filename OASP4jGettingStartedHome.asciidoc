@@ -2,7 +2,7 @@
 
 == link:OASPintro[OASP intro]
 
-== link:devonfwintro[devonfw intro (alterante)]
+== link:devonfwintro[devonfw intro (alternate)]
 
 == link:AnOASP4jApplication[An OASP4J application]
 
