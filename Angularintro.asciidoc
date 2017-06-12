@@ -37,7 +37,7 @@ This https://github.com/angular/angular-cli[CLI] helps the developer to automati
 === Oasp4Js architecture overview
 As Angular is the main framework for Oasp4Js, the architecture of the applications that is going to be used is the same as https://angular.io/docs/ts/latest/guide/architecture.html[Angular]:
 
-image::images/oasp4js/architecture_overview.png[, link="images/oasp4js/1.Intro/architecture_overview.png"]
+image::images/oasp4js/1.Intro/architecture_overview.png[, link="images/oasp4js/1.Intro/architecture_overview.png"]
 
 This architecture will be enhanced with some functionalities from Covalent Teradata and Angular Material:
 
