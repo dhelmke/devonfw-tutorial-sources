@@ -121,5 +121,6 @@ image::images/oasp4js/2.Example_app/webpack.JPG[, link="images/oasp4js/2.Example
 
 Now yo can go to your browser to: `localhost:4200` and there will be MyThaiStar client runnning.
 
-== Creating your own Oasp4js app
 Now we know what can be done with OASP4Js, we are going to see step by step how to make from scratch your own app, explaining every process to create components, services, routing and each element of the application.
+
+== BuildOASP4JsApplication[Next chapter: create your own OASP4Js app]
