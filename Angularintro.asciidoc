@@ -35,7 +35,7 @@ There is no integrated IDE with the framework, that means you are free to work w
 This https://github.com/angular/angular-cli[CLI] helps the developer to automatize some common processes. It is widely used in the Angular community thanks to the boost of productivity it provides at the time of creating new projects from scratch, serving and testing the project, creating new components, services, directives...
 
 ==== Testing
-There are many options to test an Angular app, the default option is https://github.com/karma-runner/karma[Karma] and https://github.com/jasmine/jasmine[Jasmine]. Testing help to be sure that all the typescript in services and components works properly, but also, it can test HTML tags and properties.
+Testing helps the developers to be sure that all the typescript in services and components works properly, but also, it can test HTML tags and properties. There are many options to test an Angular app, the default option is https://github.com/karma-runner/karma[Karma] and https://github.com/jasmine/jasmine[Jasmine].
 
 === Oasp4Js architecture overview
 As Angular is the main framework for Oasp4Js, the architecture of the applications that is going to be used is the same as https://angular.io/docs/ts/latest/guide/architecture.html[Angular]:
