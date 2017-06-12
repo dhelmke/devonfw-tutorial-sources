@@ -34,10 +34,10 @@ Using the _Oasp4js_ approach for the client project we will have a structure of 
 
 image::images/oasp4js/2.Example_app/project_main_files.JPG[, link="images/oasp4js/2.Example_app/project_main_files.JPG"]
 
-In the _node modules_ folder, all installed dependencies will be stored.
-
 In the _e2e_ folder will be all end-to-end tests.
+
+In the _node modules_ folder, all installed dependencies will be stored.
 
 The _src_ folder contains all the application code.
 
-finally, the rest of the files are config files for the different technologies involved in the project.
+Finally, the rest of the files are config files for the different technologies involved in the project.
