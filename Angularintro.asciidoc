@@ -47,7 +47,7 @@ image::images/oasp4js/theming.png[,width="450", link="images/oasp4js/1.Intro/the
 
 - Flex-box: Along with other https://teradata.github.io/covalent/#/style-guide/utility-styles[CSS Utility Styles & Classes], Covalent Teradata comes with flex-box, useful for styling and organizing components inside of a view, which also has been extended by Covalent Teradata to achieve responsiveness. You can declare styles that change, hide or transform the component depending on the screen resolution of the device.
 
-image::images/oasp4js/flex_box.png[,width="450", link="images/oasp4js/1.Intro/flex_box.png"]
+image::images/oasp4js/flex_box.png[,width="450", link="images/oasp4js/1.Intro/flex_box.jpeg"]
 
 In the following chapters we are going to see an example of a finished Oasp4Js application, how to build your own Oasp4Js app from the scratch and all you need to know about about each part of the architecture in order to start building your own applications.
 
