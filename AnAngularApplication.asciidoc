@@ -8,7 +8,7 @@ As an example of how an OASP4J application is built we are going to show the _My
 
 _My Thai Star_ application is a solution for managing the online booking and orders of a restaurant, it is addressed as a showcase app but designed with real requirements and, moreover, trying to serve as an example of common use cases in web apps (Routing with and without guards, use of flex-box, theming, re-usable components, mock back end...).
 
-image::images/mythaistar/mts.png[,width="450", link="images/mythaistar/mts.png"]
+image::images/mythaistar/mts.png[, link="images/mythaistar/mts.png"]
 
 The main features of the app are:
 
