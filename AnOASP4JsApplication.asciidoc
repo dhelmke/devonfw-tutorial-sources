@@ -90,6 +90,8 @@ Even though, there are also components that are an element of a template that ha
 <public-menu-card *ngFor="let menu of menus" [menu]="menu"></public-menu-card>
 ----
 
+image::images/oasp4js/2.Example_app/menu_cards.JPG[, link="images/oasp4js/2.Example_app/menu_cards.JPG"]
+
 To interact and navigate between the main views, Angular provides a *Router* that provides with functionalities to move between URL's in the same app, in addition, it provides an HTML tag `<router-outlet></router-outlet>` that will show the component that has been navigated to. This router tag is placed in the main app component, at the same level as the sidenav and the header, this means that this two components are on top of whatever the router shows, that is why we can always see the header no matter what component we are displaying through the router.
 
 === Services
@@ -103,7 +105,11 @@ image::images/oasp4js/2.Example_app/authentication.JPG[, link="images/oasp4js/2.
 
 Guards are services that implements _CanActivate_ function which returns a Boolean indicating if the navigation is valid or forbidden. If is forbidden, the router stands still where it is, and if it is valid, it navigates correctly. The authentication service serves as a storage and a validator of certain data regarding username, role, permissions and JWT token.
 
-HttpClient is an envelop of Http that implement the management of headers, this is needed to add and remove the JWT token on every call to the server.
+HttpClient is an envelop of Http that implement the management of headers. The workflow is exact the same as the standard Http but as the project needed to incorporate a token to every call to a specific secured services, then, this token needed to be added and removed depending on call to the server, also, it has been extended to handle the error in case the token has expired or corrupted.
+
+image::images/oasp4js/2.Example_app/authorization_header.JPG[, link="images/oasp4js/2.Example_app/authorization_header.JPG"]
 
 === Modules
+Through modules you can encapsulate whole functionalities or part of the application. All Angular apps have, at least, one module: _app.module_. But Angular encourages the use of more modules to organize all the components and services. In MyThaiStar every component and service is inside a module, making the _app.module_ composed only by other smaller modules.
+
 == Running MyThaiStar client
