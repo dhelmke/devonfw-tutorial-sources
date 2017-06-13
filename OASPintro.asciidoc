@@ -1,8 +1,21 @@
 :toc: macro
 toc::[]
 
-= The Open Application Standard Platform; an introduction
+= The Open Application Standard Platform
 
 The http://oasp.github.io/index.html[Open Application Standard] Platform is a solution for the development of business applications that combines a set of tools and libraries with best practices and code conventions.
 
-So Oasp is not only a framework but a combination of IDEs, plugins, libraries and customized tools with the recommended procedures for implementing stable and maintainable web applications.
+So OASP is not only a framework but a combination of IDEs, plugins, libraries and customized tools with the recommended procedures for implementing stable and maintainable web applications.
+
+
+== OASP solutions
+
+- https://github.com/oasp/oasp4j[_Oasp4j_]: server implemented with Java. The OASP platform provides an implementation for Java based on https://spring.io/[Spring] and https://projects.spring.io/spring-boot/[Spring Boot].
+
+- https://github.com/oasp/oasp4js[_Oasp4js_]: client implemented with JavaScript.  OASP also provides a solution for client apps based on https://angular.io/[Angular] framework.
+
+Upcoming technologies:
+
+- https://github.com/oasp/oasp4fn[_Oasp4Fn_]: serverless implementation based on https://nodejs.org/en/[node.js].
+
+- _Dot Net_ implementation.

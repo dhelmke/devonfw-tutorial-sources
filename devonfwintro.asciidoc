@@ -1,1 +1,52 @@
-= devonfw; an introduction
+:toc: macro
+toc::[]
+
+= devonfw introduction
+
+image::images/devon/devonfw.png[,width="250", link="images/devon/devonfw.png"]
+
+http://devonfw.github.io/index.html[Devon framework] is a development platform that provides a standardized architecture blueprint for Java/JavaScript applications, alongside a set of tools to provide an fully functional _out-of-the-box_ development environment.
+
+== Zip
+
+The Devonfw distributions can be obtained from the https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[TeamForge releases library] and are packaged in a _zip_ file that includes all the needed tools, software and configurations.
+
+== No installation, no configuration
+
+Having all the dependencies serf-contained in the distribution's _zip_ file, users don't need to install or configure anything. Just extracting the _zip_ content is enough to have a fully functional _Devonfw_.
+
+== Pre installed software
+
+The list of software pre-installed with Devonfw distributions is:
+
+- _Eclipse_: pre-configured and fully functional IDE to develop Java based apps.
+
+- _Java_: all the Java environment configured and ready to be used within the distribution.
+
+- _Maven_: to manage project dependencies.
+
+- _Node_: a Node js environment configured and ready to be used within the distribution.
+
+- _Sencha_: Devonfw also includes a installation of the _Sencha Cmd_ tool.
+
+- _Sonarqube_: a code quality tool.
+
+- _Tomcat_: a web server ready to test the deploy of our artifacts.
+
+== Server solutions
+
+For backend solutions _Devonfw_ provides the https://github.com/oasp/oasp4j[_Oasp4j_] platform as main implementation. With _Oasp4j_, users will find a standardized architecture blueprint for a Java applications based on _Spring_, and a set of best-of-breed technologies alongside a compendium of best practices and code conventions to build solid and reliable web applications.
+
+== Client solutions
+
+For client applications _Devonfw_ includes two possible solutions, both based on _JavaScript_:
+
+- https://github.com/oasp/oasp4js-ng-project-seed[oasp4js]: the _OASP_ implementation based on https://angular.io/[Angular] framework.
+
+- https://github.com/devonfw/devon4sencha[devon4sencha]: a client solution based on the https://www.sencha.com/[Sencha] framework.
+
+== custom tools
+
+For project management (create new projects, run, build, deploy) and other life-cycle related tasks _Devonfw_ provides also https://github.com/devonfw/devcon[Devcon], a command line and graphic user interface cross platform tool   
+
+== ip modules
