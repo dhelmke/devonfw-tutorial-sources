@@ -2,3 +2,68 @@
 toc::[]
 
 == Build your own OASP4Js application
+In this chapter we are going to see how to build a new OASP4Js from scratch. The proposal of this tutorial is to end having enough knowledge of Angular and the rest of technologies regarding OASP4Js to know how to start developing on it and if you want more advanced and specific functionalities see them on the cookbook.
+
+== Installing global tools
+=== Visual Code: 
+To install the editor download the installer from https://code.visualstudio.com/Download[the official page] and install it.
+
+Once installed, the first thing you should do is install the extensions that will help you during the development, to do that follow this steps:
+
+1. Install Settings Sync extension.
+
+2. Open the command palette (Ctrl+Shift+P) and introduce the command: *Sync: Download Settings*.
+
+Provide GIST ID: *d976bc200f0403d8045b7e4ee39d4361*.
+
+In the case that you are unable to set up the extensions using the method mentioned, you can also use the scripts provided in https://github.com/oasp/oasp-vscode-ide[this repository].
+
+=== Node.js
+
+Go to the https://nodejs.org/en/[node.js official page] and download the version you like the most, the LTS or the Current, as you wish.
+
+The recommendation is to install the latest version of your election, but keep in mind that to use Angular CLI your version must be at least 6.9, so if you have a node.js already installed in your computer this is a good moment to check your version and upgrade it if it's necessary.
+
+=== TypeScript
+
+Let’s install what is going to be the main language during development: TypeScript. This ES6 superset is tightly coupled to the Angular framework and will help us to get a final clean and distributable JavaScript code. This is installed globally with npm, the package manager used to install and create javascript modules in Node.js, that is installed along with Node, so for install typescript you don’t have to install npm explicitly, only run this command:
+
+`npm install –g typescript`
+
+=== Yarn
+
+As npm, https://yarnpkg.com/en/[Yarn] is a package manager, the differences are that Yarn is quite more faster and usable, so we decided to use it to manage the dependencies of Oasp4Js projects.
+
+To install it you only have to go to https://yarnpkg.com/en/docs/install[the official installation page] and follow the instructions.
+
+Even though, if you feel more confortable with npm, you can remain using npm, there is no problem regarding this point.
+
+=== Angular/CLI
+CLI specially built for make Angular projects easier to develop, maintain and deploy, so we are going to make use of it.
+
+To install it you have to run this command in your console prompt: `npm install –g @angular/cli`
+
+Then, you should be able to run `ng version` and this will appear in the console:
+
+image::images/oasp4js/3.BuildYourOwn/angularcli.JPG[, link="images/oasp4js/3.BuildYourOwn/angularcli.JPG"]
+
+In addition, you can set Yarn as the default package manager to use with Angular/CLI running this command: 
+
+`ng set --global packageManager=yarn`
+
+Finally, once all this tools have been installed successfully, you are ready to create a new project.
+
+== Creating basic new project
+
+One of the best reasons to install Angular/CLI is because it has a feature that creates a whole new basic project where you want just running in the folder you want to store the app:
+
+`ng new <project name>`
+
+Where <project name> is the name of the project you want to create. In this case, we are going to call it Oasp4JsSample.
+
+
+== Adding Google Material and Covalent Teradata
+== Start the development
+=== Creating components
+=== Creating services
+== Making calls to server
