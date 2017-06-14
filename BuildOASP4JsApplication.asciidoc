@@ -59,10 +59,63 @@ One of the best reasons to install Angular/CLI is because it has a feature that 
 
 `ng new <project name>`
 
-Where <project name> is the name of the project you want to create. In this case, we are going to call it Oasp4JsSample.
+Where <project name> is the name of the project you want to create. In this case, we are going to call it Oasp4JsSample. This command will create the basic files and install the dependencies stored in `package.json`
 
+image::images/oasp4js/3.BuildYourOwn/ngnew.JPG[, link="images/oasp4js/3.BuildYourOwn/ngnew.JPG"]
+
+Then, if we move to the folder of the project we have just created and open visual code we will have something like this:
+
+image::images/oasp4js/3.BuildYourOwn/filesnew.JPG[, link="images/oasp4js/3.BuildYourOwn/filesnew.JPG"]
+
+Finally, it is time to check if the created project works properly. To do this, move to the projects root folder and run: `ng serve -o`
+
+And... it worked:
+
+image::images/oasp4js/3.BuildYourOwn/appnew.JPG[, link="images/oasp4js/3.BuildYourOwn/appnew.JPG"]
 
 == Adding Google Material and Covalent Teradata
+
+First, we are going to add *Google Material* to project dependencies running the following commands:
+
+  `yarn add @angular/material`
+
+Then we are going to add animations:
+
+  `yarn add @angular/animations`
+
+Finally, some material components need gestures support, so we need to add this dependency:
+
+  `yarn add hammerjs`
+
+That is all regarding Angular/Material. We are now going to install *Covalent Teradata* dependency:
+
+  `yarn add @covalent/core` 
+
+Now that we have all dependencies we can check in the project's package.json file if everything has been correctly added:
+
+image::images/oasp4js/3.BuildYourOwn/installedpackages.JPG[, link="images/oasp4js/3.BuildYourOwn/installedpackages.JPG"]
+
+Now let's continue to make some config modifications to have all the styles and modules imported to use Material and Teradata:
+
+1. Angular Material need this two modules to work: `MaterialModule`, `BrowserAnimationsModule`. So make sure you import them in the _imports array_ inside of _app.module.ts_. Coming from @angular/material and @angular/platform-browser/animations respectively.
+
+2. Create theming.scss, a file to config themes on the app, we will use one _primary_ color, one secondary, called _accent_ and another one for _warning_. Also Teradata accepts a foreground and background color. Go to _/src_ into the project and create a file called *theme.scss* and it content will be like this:
+
+[source, javascript]
+----
+      "styles": [
+        "styles.css",
+        "theme.scss",
+        "../node_modules/@covalent/core/common/platform.css"
+      ],
+----
+
+== ng-seed
+
+Another option to get this basic project structure with all its dependencies and styles already set is to clone the develop-covalent branch of https://github.com/oasp/oasp4js-ng-project-seed/tree/develop-covalent[ng-project-seed].
+
+Once you have cloned it, move to the project root folder and run a `yarn` to install all dependencies from package.json. The project serves as an example which also comes with some common functionalities already implemented if you want to use them.
+
 == Start the development
 === Creating components
 === Creating services
