@@ -119,6 +119,10 @@ HttpClient is an envelop of Http that implement the management of headers. The w
 
 image::images/oasp4js/2.Example_app/authorization_header.JPG[, link="images/oasp4js/2.Example_app/authorization_header.JPG"]
 
+When all of this correctly setup, we can do a log-in to the waiter cockpit, and if entered the correct credentials, the logged state will set to true, the login to the server will be correct returning the token and the header with this token will be setted giving as a result the correct navigation to the waiter cockpit:
+
+image::images/oasp4js/2.Example_app/waiter_cockpit.JPG[, link="images/oasp4js/2.Example_app/waiter_cockpit.JPG"]
+
 === Modules
 Through modules you can encapsulate whole functionalities or part of the application. All Angular apps have, at least, one module: _app.module_. But Angular encourages the use of more modules to organize all the components and services. In MyThaiStar every component and service is inside a module, making the _app.module_ composed only by other smaller modules.
 
