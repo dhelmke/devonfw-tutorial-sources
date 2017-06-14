@@ -17,4 +17,16 @@ _Yet services are fundamental to any Angular application. Components are big con
 
 Services are often created in a shared folder, with the purpose of containing all the logic regarding a component or a complex type of operation. As an example, in the case of MyThaiStar, all the components which call to the server or have methods with more complex logic have their own service to implement them, but also there are services which instead of being related to just one component, they are needed several times trough the code in many components, like the price-calculator.
 
+== Dependency Injection
+
+From https://angular.io/guide/architecture#dependency-injection[ Angular architecture docs]:
+
+_"Dependency injection is a way to supply a new instance of a class with the fully-formed dependencies it requires. Most dependencies are services. Angular uses dependency injection to provide new components with the services they need._
+
+_When Angular creates a component, it first asks an injector for the services that the component requires._
+
+image::images/oasp4js/5.Angular_Services/injector.png[, link="images/oasp4js/5.Angular_Services/injector.png"]
+
+_An injector maintains a container of service instances that it has previously created. If a requested service instance is not in the container, the injector makes one and adds it to the container before returning the service to Angular. When all requested services have been resolved and returned, Angular can call the component's constructor with those services as arguments. This is dependency injection."_
+
 == Create a new service
