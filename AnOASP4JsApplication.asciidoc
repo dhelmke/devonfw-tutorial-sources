@@ -97,6 +97,10 @@ To interact and navigate between the main views, Angular provides a *Router* tha
 === Services
 Ideally, all the logic should be taken out of the component, and let there only the calls to the services and minimal script interaction. Services is where all the logic should be, including calling the server.
 
+MyThaiStar components consume this services, as could be the price-calculator when a costumer makes an order:
+
+image::images/oasp4js/2.Example_app/price_calculator.JPG[, link="images/oasp4js/2.Example_app/price_calculator.JPG"]
+
 There are two excepcional cases in MyThaiStar of services that serve with a different proposal than serve to a specific component: *Authentication and AuthGuard* and *HttpClient*.
 
 To secure the access to waiter cockpit, which is a forbidden area to anyone who is not a waiter, MyThaiStar counts with a service of authentication and a Router Guard.
