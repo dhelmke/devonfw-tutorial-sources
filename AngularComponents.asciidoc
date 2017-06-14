@@ -15,7 +15,7 @@ _Components are the most basic building block of an UI in an Angular application
 
 HTML is the language of the Angular template. Almost all HTML syntax is valid template syntax. The <script> element is a notable exception; it is forbidden, eliminating the risk of script injection attacks. In practice, <script> is ignored and a warning appears in the browser console. See the Security page for details.
 
-Some legal HTML doesn't make much sense in a template. The <html>, <body>, and <base> elements have no useful role. Pretty much everything else is fair game. Moreover, Angular has some extended HTML functionalities, involving data binding, loops, if's and property bindings.
+Some legal HTML doesn't make much sense in a template. The <html>, <body>, and <base> elements have no useful role. Pretty much everything else is fair game. Moreover, Angular has some extended HTML functionalities, involving data binding, structural directives like loops or if's and property bindings.
 
 _A component must belong to an NgModule in order for it to be usable by another component or application. To specify that a component is a member of an NgModule, you should list it in the declarations field of that NgModule."_
 
