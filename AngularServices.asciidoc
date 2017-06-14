@@ -17,6 +17,8 @@ _Yet services are fundamental to any Angular application. Components are big con
 
 Services are often created in a shared folder, with the purpose of containing all the logic regarding a component or a complex type of operation. As an example, in the case of MyThaiStar, all the components which call to the server or have methods with more complex logic have their own service to implement them, but also there are services which instead of being related to just one component, they are needed several times trough the code in many components, like the price-calculator.
 
+Like components, services have to be declared in a NgModule too, in this case, in the _providers_ array.
+
 == Dependency Injection
 
 From https://angular.io/guide/architecture#dependency-injection[ Angular architecture docs]:
