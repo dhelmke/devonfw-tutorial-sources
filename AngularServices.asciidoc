@@ -31,4 +31,6 @@ image::images/oasp4js/5.Angular_Services/injector.png[, link="images/oasp4js/5.A
 
 _An injector maintains a container of service instances that it has previously created. If a requested service instance is not in the container, the injector makes one and adds it to the container before returning the service to Angular. When all requested services have been resolved and returned, Angular can call the component's constructor with those services as arguments. This is dependency injection."_
 
+For more information: https://angular.io/guide/dependency-injection[Angular DI]
+
 == Create a new service
