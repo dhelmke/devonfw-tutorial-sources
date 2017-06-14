@@ -112,9 +112,9 @@ Now let's continue to make some config modifications to have all the styles and 
 
 == ng-seed
 
-Another option to get this basic project structure with all its dependencies ans styles already set is to clone https://github.com/oasp/oasp4js-ng-project-seed/tree/develop-covalent[ng-project-seed] in the develop-covalent branch of the respository.
+Another option to get this basic project structure with all its dependencies and styles already set is to clone the develop-covalent branch of https://github.com/oasp/oasp4js-ng-project-seed/tree/develop-covalent[ng-project-seed].
 
-One you have cloned it, move to the project root folder and run a `yarn`to install all dependencies from package.json. The project also comes with some common functionalities.
+Once you have cloned it, move to the project root folder and run a `yarn` to install all dependencies from package.json. The project serves as an example which also comes with some common functionalities already implemented if you want to use them.
 
 == Start the development
 === Creating components
