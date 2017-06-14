@@ -1,0 +1,22 @@
+:toc: macro
+toc::[]
+
+= Angular Components
+In this chapter we are going to see how components work and how we can work with them.
+
+== What are Angular Components
+From https://angular.io/[Angular's main page]:
+
+_"A component controls a patch of screen called a view."_
+
+_"You define a component's application logic—what it does to support the view—inside a class. The class interacts with the view through an API of properties and methods._
+
+_Components are the most basic building block of an UI in an Angular application. An Angular application is a tree of Angular components. They are internally composed by a HTML template and a class with all the methods needed to handle that template._
+
+_A component must belong to an NgModule in order for it to be usable by another component or application. To specify that a component is a member of an NgModule, you should list it in the declarations field of that NgModule."_
+
+Every Angular application is composed by components pending on the root component: _app.component.ts_. You can route from one component to another, use their selector to instantiate a component inside of another components template, take inputs or outputs from child components and so on.
+
+Basically, *without components, there is no Angular application.*
+
+== Create a new component
