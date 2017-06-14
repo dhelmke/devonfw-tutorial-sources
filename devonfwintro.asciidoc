@@ -5,17 +5,17 @@ toc::[]
 
 image::images/devon/devonfw.png[,width="250", link="images/devon/devonfw.png"]
 
-http://devonfw.github.io/index.html[Devon framework] is a development platform that provides a standardized architecture blueprint for Java/JavaScript applications, alongside a set of tools to provide an fully functional _out-of-the-box_ development environment.
+http://devonfw.github.io/index.html[Devon framework] is a development platform aiming for standardization of processes and productivity boost, that provides an architecture blueprint for Java/JavaScript applications, alongside a set of tools to provide a fully functional _out-of-the-box_ development environment.
 
-== Zip
+== zip
 
 The Devonfw distributions can be obtained from the https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[TeamForge releases library] and are packaged in a _zip_ file that includes all the needed tools, software and configurations.
 
-== No installation, no configuration
+== no need of installation, nor configuration
 
 Having all the dependencies serf-contained in the distribution's _zip_ file, users don't need to install or configure anything. Just extracting the _zip_ content is enough to have a fully functional _Devonfw_.
 
-== Pre installed software
+== pre installed software
 
 The list of software pre-installed with Devonfw distributions is:
 
@@ -33,11 +33,13 @@ The list of software pre-installed with Devonfw distributions is:
 
 - _Tomcat_: a web server ready to test the deploy of our artifacts.
 
-== Server solutions
+== server solutions
 
 For backend solutions _Devonfw_ provides the https://github.com/oasp/oasp4j[_Oasp4j_] platform as main implementation. With _Oasp4j_, users will find a standardized architecture blueprint for a Java applications based on _Spring_, and a set of best-of-breed technologies alongside a compendium of best practices and code conventions to build solid and reliable web applications.
 
-== Client solutions
+With _Devonfw_/_Oasp4j_ developers have at their disposal an archetype to generate new server projects with all _Oasp4j_ modules and pre-configurations ready to start to develop applications in a fully functional environment. 
+
+== client solutions
 
 For client applications _Devonfw_ includes two possible solutions, both based on _JavaScript_:
 
@@ -47,6 +49,30 @@ For client applications _Devonfw_ includes two possible solutions, both based on
 
 == custom tools
 
-For project management (create new projects, run, build, deploy) and other life-cycle related tasks _Devonfw_ provides also https://github.com/devonfw/devcon[Devcon], a command line and graphic user interface cross platform tool   
+For project management and other life-cycle related tasks, _Devonfw_ provides also https://github.com/devonfw/devcon[Devcon], a command line and graphic user interface cross platform tool.
+
+With _Devcon_ users can automate the creation of new projects (both server and client), build and run those and even, for server projects, deploy locally on Tomcat.
+
+image::images/devon/devcon.png[,width="450", link="images/devon/devcon.png"]
+
+All those tasks can be done manually using _Maven_, _Tomcat_, _Sencha Cmd_, _Bower_, _Gulp_, etc. but with _Devcon_ users have the possibility of managing the projects without the necessity of dealing with all those different tools.
 
 == ip modules
+
+As part of the goal of productivity boosting, _Devonfw_ provides also to developers a set of _modules_, created from real projects requirements, that can be connected to projects saving all the work of a new implementation.
+
+The current available modules are:
+
+- _async_: module to manage asynchronous web calls in a _Spring_ based server app.
+
+- _i18n_: module for internationalization.
+
+- _integration_: implementation of https://projects.spring.io/spring-integration/[_Spring Integration_].
+
+- _microservices_: a set of archetypes to create a complete microservices infrastructure based on https://cloud.spring.io/spring-cloud-netflix/[_Spring Cloud_Netflix].
+
+- _reporting_: a module to create reports based on http://community.jaspersoft.com/project/jasperreports-library[_Jasper Reports_] library.
+
+- _winauth active directory_: a module to authenticate users against an _Active Directory_.
+
+- _winauth single sign on_: module that allows applications to authenticate the users by the Windows credentials.
