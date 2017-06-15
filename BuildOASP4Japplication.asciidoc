@@ -147,7 +147,7 @@ Creating _Oasp4j_ based apps we get the following main features _out-of-the-box_
 
 ** _server_ project ready to package the app for the deployment
 
-image::images/oasp4j/emptyapp_projects.png[ width="250", link="images/oasp4j/emptyapp_projects.png"]
+image::images/oasp4j/emptyapp_project.png[ width="250", link="images/oasp4j/emptyapp_project.png"]
 
 
 * Data base ready environment with an _h2_ instance
