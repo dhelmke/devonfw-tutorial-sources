@@ -2,3 +2,29 @@
 toc::[]
 
 = OASP4Fn Introduction
+
+**Serverless** is a framework that allows developers to build auto-scalable applications, pay-per-execution, event-driven apps on AWS Lambda, Microsoft Azure, IBM OpenWhisk and Google Cloud Platform.
+ 
+**OASP4Fn** is a npm package full of functionality independent of the goal of the developments made over this framework. It provides many different features following this approach in order to allow the developers use the ones that fit in their needs to build, test and deploy applications in an easy, fast and clean way using Serverless framework.
+
+== Serverless computing
+
+Serverless computing consists in the following concepts and benefits:
+
+* **Functions as a Service** (FaaS).
+* **Cloud provider automatically manages** starting, stopping and scaling instances for functions.
+* More **cost-efficient**. 
+* The business or person that owns the system does not have to **purchase**, **rent** or **provision** servers or virtual machines for the back-end code to run on.
+* It can be used in conjunction with code written in traditional server style, such as **microservices**.
+* Functions in FaaS are **triggered by event types** defined by the provider. For example:
+** HTTP requests.
+** AWS S3 updates.
+** Messages added to a message bus.
+
+Besides the automatic horizontal scaling, the biggest benefit is that you only pay for the compute that you need. Depending on your traffic scale and shape this may be a huge economic win in many projects.
+
+It solves common and inefficient situations like **occasional requests**, where an application with a few small requests per minute makes the CPU idle most of time, or like **inconsistent traffic** where the traffic profile of an application is very _speaky_. For example:
+
+image::images/oasp4fn/1.Introduction/inconsistent-traffic-pattern.png[, link="images/oasp4fn/1.Introduction/inconsistent-traffic-pattern.png"]
+
+In a traditional environment you may need to increase your total hardware capability by a factor of 10 to handle the spikes, even though they only account for less than 4% of total machine uptime.
