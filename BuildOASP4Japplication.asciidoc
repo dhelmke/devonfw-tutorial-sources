@@ -153,31 +153,31 @@ image::images/oasp4j/3.BuildYourOwn/emptyapp_project.png[ width="250", link="ima
 * Data base ready environment with an _h2_ instance
 * Spring profiles ready for different data bases
 
-image::images/oasp4j/emptyapp_dbprofile.png[ width="650", link="images/oasp4j/emptyapp_dbprofile.png"]
+image::images/oasp4j/3.BuildYourOwn/emptyapp_dbprofile.png[ width="650", link="images/oasp4j/3.BuildYourOwn/emptyapp_dbprofile.png"]
 
 
 * Data model schema
 * Mock data schema
 * Data base version control with Flyway
 
-image::images/oasp4j/emptyapp_dbmodel.png[ width="650", link="images/oasp4j/emptyapp_dbmodel.png"]
+image::images/oasp4j/3.BuildYourOwn/emptyapp_dbmodel.png[ width="650", link="images/oasp4j/3.BuildYourOwn/emptyapp_dbmodel.png"]
 
 
 * Bean mapper ready
 
-image::images/oasp4j/emptyapp_beanmapper.png[ width="650", link="images/oasp4j/emptyapp_beanmapper.png"]
+image::images/oasp4j/3.BuildYourOwn/emptyapp_beanmapper.png[ width="650", link="images/oasp4j/3.BuildYourOwn/emptyapp_beanmapper.png"]
 
 
 * Cxf services pre-configuration
 
-image::images/oasp4j/emptyapp_cxfconfig.png[ width="650", link="images/oasp4j/emptyapp_cxfconfig.png"]
+image::images/oasp4j/3.BuildYourOwn/emptyapp_cxfconfig.png[ width="650", link="images/oasp4j/3.BuildYourOwn/emptyapp_cxfconfig.png"]
 
 
 * Basic security enabled (based on _Spring Security_)
 
-image::images/oasp4j/emptyapp_security.png[ width="650", link="images/oasp4j/emptyapp_security.png"]
+image::images/oasp4j/3.BuildYourOwn/emptyapp_security.png[ width="650", link="images/oasp4j/3.BuildYourOwn/emptyapp_security.png"]
 
 
 * Unit test support and model
 
-image::images/oasp4j/emptyapp_test.png[ width="650", link="images/oasp4j/emptyapp_test.png"]
+image::images/oasp4j/3.BuildYourOwn/emptyapp_test.png[ width="650", link="images/oasp4j/3.BuildYourOwn/emptyapp_test.png"]
