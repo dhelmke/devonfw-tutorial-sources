@@ -141,8 +141,10 @@ You are redirected to the login screen because, by default, the new _Oasp4j_ app
 
 Creating _Oasp4j_ based apps we get the following main features _out-of-the-box_:
 
-*_Maven_ project with _core_ project and _server_ project:
+* _Maven_ project with _core_ project and _server_ project:
+
 ** _core_ project for the app implementation
+
 ** _server_ project ready to package the app for the deployment
 
 image::images/oasp4j/emptyapp_projects.png[ width="250", link="images/oasp4j/emptyapp_projects.png"]
@@ -151,31 +153,31 @@ image::images/oasp4j/emptyapp_projects.png[ width="250", link="images/oasp4j/emp
 * Data base ready environment with an _h2_ instance
 * Spring profiles ready for different data bases
 
-image::images/oasp4j/emptyapp_dbprofiles.png[ width="450", link="images/oasp4j/emptyapp_dbprofiles.png"]
+image::images/oasp4j/emptyapp_dbprofile.png[ width="650", link="images/oasp4j/emptyapp_dbprofile.png"]
 
 
 * Data model schema
 * Mock data schema
 * Data base version control with Flyway
 
-image::images/oasp4j/emptyapp_dbmodel.png[ width="450", link="images/oasp4j/emptyapp_dbmodel.png"]
+image::images/oasp4j/emptyapp_dbmodel.png[ width="650", link="images/oasp4j/emptyapp_dbmodel.png"]
 
 
 * Bean mapper ready
 
-image::images/oasp4j/emptyapp_beanmapper.png[ width="450", link="images/oasp4j/emptyapp_beanmapper.png"]
+image::images/oasp4j/emptyapp_beanmapper.png[ width="650", link="images/oasp4j/emptyapp_beanmapper.png"]
 
 
 * Cxf services pre-configuration
 
-image::images/oasp4j/emptyapp_cxfconfig.png[ width="450", link="images/oasp4j/emptyapp_cxfconfig.png"]
+image::images/oasp4j/emptyapp_cxfconfig.png[ width="650", link="images/oasp4j/emptyapp_cxfconfig.png"]
 
 
 * Basic security enabled (based on _Spring Security_)
 
-image::images/oasp4j/emptyapp_security.png[ width="450", link="images/oasp4j/emptyapp_security.png"]
+image::images/oasp4j/emptyapp_security.png[ width="650", link="images/oasp4j/emptyapp_security.png"]
 
 
 * Unit test support and model
 
-image::images/oasp4j/emptyapp_test.png[ width="450", link="images/oasp4j/emptyapp_test.png"]
+image::images/oasp4j/emptyapp_test.png[ width="650", link="images/oasp4j/emptyapp_test.png"]
