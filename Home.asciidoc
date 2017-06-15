@@ -1,11 +1,19 @@
+:toc: macro
+toc::[]
+
 = OASP Tutorial sources
 
-== link:OASP4jGettingStartedHome[OASP4J Getting Started]
+== Backend Technologies
 
-== link:OASP4jsGettingStartedHome[OASP4js Getting Started]
+- link:OASP4jGettingStartedHome[OASP4J Getting Started]
+- link:OASP4FnGettingStartedHome[OASP4Fn Getting Started]
+
+== Frontend Technologies
+
+- link:OASP4jsGettingStartedHome[OASP4Js Getting Started]
 
 == General concept
 
 The idea of the Getting Started Guides is to function as an introduction & tutorial. 
 
-The idea is to show how a real applciation, my-thai-star, is build up. From general overview & architecture to detailing individual layers, my-thai-star is shown to hgighloght how to create a devonfw app. For each part a practical part is included. This is based on a(n extremely) minimal application, "snatch-a-snack". This app consists of a single view offering a single function, doing a single db operation. 
+The idea is to show how a real applciation, my-thai-star, is built up. From general overview & architecture to detailing individual layers, my-thai-star is shown to hightlight how to create a devonfw app. For each part a practical part is included. This is based on a(n extremely) minimal application, "snatch-a-snack". This app consists of a single view offering a single function, doing a single db operation. 

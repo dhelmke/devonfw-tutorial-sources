@@ -94,8 +94,18 @@ image::images/oasp4js/2.Example_app/menu_cards.JPG[, link="images/oasp4js/2.Exam
 
 To interact and navigate between the main views, Angular provides a *Router* that provides with functionalities to move between URL's in the same app, in addition, it provides an HTML tag `<router-outlet></router-outlet>` that will show the component that has been navigated to. This router tag is placed in the main app component, at the same level as the sidenav and the header, this means that this two components are on top of whatever the router shows, that is why we can always see the header no matter what component we are displaying through the router.
 
+Also, Angular Material provides a _tab_ component, which can show content depending on which tab you clicked, but they are in the same component, an example of usage of this kind of components can be seen in the book-table view:
+
+image::images/oasp4js/2.Example_app/book_table.JPG[, link="images/oasp4js/2.Example_app/book_table.JPG"]
+
+This component view shows a card that can show an instant reservation or the creation of an event.
+
 === Services
 Ideally, all the logic should be taken out of the component, and let there only the calls to the services and minimal script interaction. Services is where all the logic should be, including calling the server.
+
+MyThaiStar components consume this services, as could be the price-calculator when a costumer makes an order:
+
+image::images/oasp4js/2.Example_app/price_calculator.JPG[, link="images/oasp4js/2.Example_app/price_calculator.JPG"]
 
 There are two excepcional cases in MyThaiStar of services that serve with a different proposal than serve to a specific component: *Authentication and AuthGuard* and *HttpClient*.
 
@@ -108,6 +118,10 @@ Guards are services that implements _CanActivate_ function which returns a Boole
 HttpClient is an envelop of Http that implement the management of headers. The workflow is exact the same as the standard Http but as the project needed to incorporate a token to every call to a specific secured services, then, this token needed to be added and removed depending on call to the server, also, it has been extended to handle the error in case the token has expired or corrupted.
 
 image::images/oasp4js/2.Example_app/authorization_header.JPG[, link="images/oasp4js/2.Example_app/authorization_header.JPG"]
+
+When all of this correctly setup, we can do a log-in to the waiter cockpit, and if entered the correct credentials, the logged state will set to true, the login to the server will be correct returning the token and the header with this token will be setted giving as a result the correct navigation to the waiter cockpit:
+
+image::images/oasp4js/2.Example_app/waiter_cockpit.JPG[, link="images/oasp4js/2.Example_app/waiter_cockpit.JPG"]
 
 === Modules
 Through modules you can encapsulate whole functionalities or part of the application. All Angular apps have, at least, one module: _app.module_. But Angular encourages the use of more modules to organize all the components and services. In MyThaiStar every component and service is inside a module, making the _app.module_ composed only by other smaller modules.
