@@ -4,7 +4,8 @@ toc::[]
 = Build your own OASP4J application
 
 In this chapter we are going to show how to create a new _Oasp4j_ application from scratch. The app that we are going to create is _Jump the Queue_ a simple app to avoid queues with following flow:
-image::images/jumpthequeue/JumpTheQueueFlow.png[, link="images/jumpthequeue/JumpTheQueueFlow.png"]
+
+image::images/jumpthequeue/JumpTheQueueFlow.png[width="450", link="images/jumpthequeue/JumpTheQueueFlow.png"]
 
 
 [TODO]
@@ -22,7 +23,7 @@ To see what is included in a _Devonfw_ please visit the link:devonfwintro[Devonf
 
 Once the download is done extract the _zip_ file and you will get the distribution's content.
 
-image::images/devon/devon_dist.png[, link="images/devon/devon_dist.png"]
+image::images/devon/devon_dist.png[width="450", link="images/devon/devon_dist.png"]
 
 == Initialize the distribution
 
@@ -61,19 +62,22 @@ devcon -g
 
 You should see the _Devcon_'s graphic interface. Select `oasp4j` and `create`
 
-image::images/oasp4j/newapp1.png[, link="images/oasp4j/newapp1.png"]
+image::images/oasp4j/newapp1.png[width="450", link="images/oasp4j/newapp1.png"]
 
 Then we only need to define our server app _path_ (for the location of the app select our just created _jumpthequeue_ directory), _name_, _groupid_, _package_ and _version_. Finally click on _Start_ button.
 
-image::images/oasp4j/newapp2.png[, link="images/oasp4j/newapp2.png"]
+image::images/oasp4j/newapp2.png[width="450", link="images/oasp4j/newapp2.png"]
 
 Once you see the `BUILD SUCCESS` info message your new app is ready.
 
 [NOTE]
 ====
 You can also create new projects:
+
 - manually from command line *see how* (TODO: link to new app creation with command line).
+
 - from Eclipse *see how* (TODO: link to new app creation with Eclipse).
+
 ====
 
 == Import and run the app
@@ -140,25 +144,38 @@ Creating _Oasp4j_ based apps we get the following main features _out-of-the-box_
 *_Maven_ project with _core_ project and _server_ project:
 ** _core_ project for the app implementation
 ** _server_ project ready to package the app for the deployment
+
 image::images/oasp4j/emptyapp_projects.png[ width="250", link="images/oasp4j/emptyapp_projects.png"]
+
 
 * Data base ready environment with an _h2_ instance
 * Spring profiles ready for different data bases
+
 image::images/oasp4j/emptyapp_dbprofiles.png[ width="450", link="images/oasp4j/emptyapp_dbprofiles.png"]
+
 
 * Data model schema
 * Mock data schema
 * Data base version control with Flyway
+
 image::images/oasp4j/emptyapp_dbmodel.png[ width="450", link="images/oasp4j/emptyapp_dbmodel.png"]
 
+
 * Bean mapper ready
+
 image::images/oasp4j/emptyapp_beanmapper.png[ width="450", link="images/oasp4j/emptyapp_beanmapper.png"]
 
+
 * Cxf services pre-configuration
+
 image::images/oasp4j/emptyapp_cxfconfig.png[ width="450", link="images/oasp4j/emptyapp_cxfconfig.png"]
 
+
 * Basic security enabled (based on _Spring Security_)
+
 image::images/oasp4j/emptyapp_security.png[ width="450", link="images/oasp4j/emptyapp_security.png"]
 
+
 * Unit test support and model
+
 image::images/oasp4j/emptyapp_test.png[ width="450", link="images/oasp4j/emptyapp_test.png"]
