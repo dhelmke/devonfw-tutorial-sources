@@ -59,7 +59,7 @@ Apart from all the methodologies regarding the mentioned frameworks, inside the 
 
 Oasp4j provides a solution for industrialized web apps based on _components_ and a three-layers architecture.
 
-image::images/oasp4j/oasp4j_architecture.png[,width="450", link="images/oasp4j/oasp4j_architecture.png"]
+image::images/oasp4j/1.Overview/oasp4j_architecture.png[,width="450", link="images/oasp4j/1.Overview/oasp4j_architecture.png"]
 
 A _component_ is a package that contains the services and logic related to one feature of the app.
 

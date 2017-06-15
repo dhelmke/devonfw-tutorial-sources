@@ -62,11 +62,11 @@ devcon -g
 
 You should see the _Devcon_'s graphic interface. Select `oasp4j` and `create`
 
-image::images/oasp4j/newapp1.png[width="450", link="images/oasp4j/newapp1.png"]
+image::images/oasp4j/3.BuildYourOwn/newapp1.png[width="450", link="images/oasp4j/3.BuildYourOwn/newapp1.png"]
 
 Then we only need to define our server app _path_ (for the location of the app select our just created _jumpthequeue_ directory), _name_, _groupid_, _package_ and _version_. Finally click on _Start_ button.
 
-image::images/oasp4j/newapp2.png[width="450", link="images/oasp4j/newapp2.png"]
+image::images/oasp4j/3.BuildYourOwn/newapp2.png[width="450", link="images/oasp4j/3.BuildYourOwn/newapp2.png"]
 
 Once you see the `BUILD SUCCESS` info message your new app is ready.
 
@@ -98,11 +98,11 @@ Now import our new project with `File > Import`.
 
 Select _Maven/Existing Maven Projects_ 
 
-image::images/oasp4j/newapp3.png[, link="images/oasp4j/newapp3.png"]
+image::images/oasp4j/3.BuildYourOwn/newapp3.png[, link="images/oasp4j/3.BuildYourOwn/newapp3.png"]
 
 Browse for the _jumpthequeue_ project
 
-image::images/oasp4j/newapp4.png[, link="images/oasp4j/newapp4.png"]
+image::images/oasp4j/3.BuildYourOwn/newapp4.png[, link="images/oasp4j/3.BuildYourOwn/newapp4.png"]
 
 Click `Finish` and wait while the dependencies of the project are resolved to complete the import process.
 
@@ -119,7 +119,7 @@ You can also change the port where the application will be available with the pr
 
 Finally, using _Spring Boot_ features (that provides us with an embedded Tomcat), we can run the app in an easy way. Look for the `SpringBootApp.java` class and click right button and select `Run As > Java Application`.
 
-image::images/oasp4j/run.png[, link="images/oasp4j/run.png"]
+image::images/oasp4j/3.BuildYourOwn/run.png[, link="images/oasp4j/3.BuildYourOwn/run.png"]
 
 If everything is ok you will see a messages in the _Console_ window like
 
@@ -130,7 +130,7 @@ INFO [main] com.cap.jumpthequeue.SpringBootApp       : Started SpringBootApp in 
 
 The app will be available at 'http://localhost:8081/jumpthequeue'
 
-image::images/oasp4j/login.png[, link="images/oasp4j/login.png"]
+image::images/oasp4j/3.BuildYourOwn/login.png[, link="images/oasp4j/3.BuildYourOwn/login.png"]
 
 [NOTE]
 ====
@@ -147,7 +147,7 @@ Creating _Oasp4j_ based apps we get the following main features _out-of-the-box_
 
 ** _server_ project ready to package the app for the deployment
 
-image::images/oasp4j/emptyapp_project.png[ width="250", link="images/oasp4j/emptyapp_project.png"]
+image::images/oasp4j/3.BuildYourOwn/emptyapp_project.png[ width="250", link="images/oasp4j/3.BuildYourOwn/emptyapp_project.png"]
 
 
 * Data base ready environment with an _h2_ instance

@@ -8,7 +8,7 @@ As an example of how an OASP4J application is built we are going to show the _My
 
 The _My Thai Star_ application is a solution for managing the online booking and orders of a restaurant, it is addressed as a showcase app but designed with real requirements although trying to serve as example of common use cases in web apps (master-detail model, login, authorization based on roles, pagination, search with filters, etc.).
 
-image::images/mythaistar/mts.png[,width="450", link="images/mythaistar/mts.png"]
+image::images/oasp4j/2.Example_app/mts.png[,width="450", link="images/oasp4j/2.Example_app/mts.png"]
 
 The main features of the app are:
 
@@ -43,7 +43,7 @@ My Thai Star project is hosted https://github.com/devonfw/my-thai-star[on github
 
 Using the _Oasp4j_ approach for the Java backend project we will have a structure of a main _Maven_ project formed by two sub-projects:
 
-image::images/mythaistar/project_modules.png[,width="250", link="images/mythaistar/project_modules.png"]
+image::images/oasp4j/2.Example_app/project_modules.png[,width="250", link="images/oasp4j/2.Example_app/project_modules.png"]
 
 In the _core_ project we will store all the logic and functionality of the application.
 
@@ -63,7 +63,7 @@ The components, as part of the logic of the app, are located in the _core_ proje
 
 E.g. in My Thai Star we need to show the different available *dishes*, we need to manage the *booking* and the *orders* and we need to create new *users*. So the application will be divided in the following components:
 
-image::images/mythaistar/project_components.png[,width="250", link="images/mythaistar/project_components.png"]
+image::images/oasp4j/2.Example_app/project_components.png[,width="250", link="images/oasp4j/2.Example_app/project_components.png"]
 
 - dishmanagement: This component will manage the dishes information retrieving it from the db and serving it to the client. It also could be used to create new menus.
 
@@ -85,7 +85,7 @@ Apart from that components we will have other _packages_ for the cross-cutting c
 
 Each component of the app is internally divided following the three-layer architecture that Oasp4j proposes. So we will have three different packages to order our component's elements:
 
-image::images/mythaistar/component_layers.png[,width="250", link="images/mythaistar/component_layers.png"]
+image::images/oasp4j/2.Example_app/component_layers.png[,width="250", link="images/oasp4j/2.Example_app/component_layers.png"]
 
 - Service Layer: will expose the REST api to exchange information with client applications.
 
@@ -99,13 +99,13 @@ image::images/mythaistar/component_layers.png[,width="250", link="images/mythais
 
 The communication between layers is solved using _Dependency Injection_ pattern, based on _Spring_ and the _Java_ standards: _java.inject_ (JSR330) combined with JSR250.
 
-image::images/oasp4j/dependency_injection.png[,width="250", link="images/mythaistar/dependency_injection.png"]
+image::images/oasp4j/2.Example_app/dependency_injection.png[,width="250", link="images/oasp4j/2.Example_app/dependency_injection.png"]
 
 Following the https://github.com/oasp/oasp4j/wiki/guide-dependency-injection[Oasp4j recommendations] for _Dependency Injection_ in MyThaiStar's layers we will find:
 
 - Separation of API and implementation: Inside each layer we will separate the elements in different packages: _api_ and _impl_. The _api_ will store the _interface_ with the methods definition and inside the _impl_ we will store the class that implements the _interface_.
 
-image::images/mythaistar/layer_api_impl.png[, link="images/mythaistar/layer_api_impl.png"]
+image::images/oasp4j/2.Example_app/layer_api_impl.png[, link="images/oasp4j/2.Example_app/layer_api_impl.png"]
 
 - Usage of JSR330: The Java standard set of annotations for _dependency injection_ (`@Named`, `@Inject`, `@PostConstruct`, `@PreDestroy`, etc.) provides us with all the needed annotations to define our beans and inject them.
 
@@ -130,7 +130,7 @@ public class MyBeanImpl implements MyBean {
 
 The connection between layers, to access to the functionalities of each one, is solved using the _dependency injection_ and the JSR330 annotations.
 
-image::images/mythaistar/layers_impl.png[, link="images/mythaistar/layers_impl.png"]
+image::images/oasp4j/2.Example_app/layers_impl.png[, link="images/oasp4j/2.Example_app/layers_impl.png"]
 
 *Connection Service - Logic*
 [source,java]
@@ -178,13 +178,11 @@ public class BookingmanagementImpl extends AbstractComponentFacade implements Bo
 
 Using _Spring Boot_ features, we can easily run our _Java_ backend applications using the _Run as > Java application_ over the _SpringBootApp.java_ main class 
 
-image::images/mythaistar/run.png[,width="450", link="images/mythaistar/run.png"]
+image::images/oasp4j/2.Example_app/run.png[,width="450", link="images/oasp4j/2.Example_app/run.png"]
 
 Once we see console messages like
 
 ----
-...
-
 Tomcat started on port(s): 8081 (http)
 Started SpringBootApp in 15.985 seconds (JVM running for 16.833)
 ----
@@ -195,7 +193,7 @@ To show the backend services results we are going to use https://chrome.google.c
 
 Now, with _Postman_, we can do a simple _GET_ request to obtain the info of a _dish_ with _id=1_ (`http://localhost:8081/mythaistar/services/rest/dishmanagement/v1/dish/1`). And we obtain a result like this
 
-image::images/mythaistar/get_request.png[,width="450", link="images/mythaistar/get_request.png"]
+image::images/oasp4j/2.Example_app/get_request.png[,width="450", link="images/oasp4j/2.Example_app/get_request.png"]
 
 == Creating your own Oasp4j backend app
 
