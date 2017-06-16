@@ -124,6 +124,9 @@ $warn:    mat-palette($mat-red, 600);
 
 $theme: mat-light-theme($primary, $accent, $warn);
 
+$foreground: map-get($theme, foreground);
+$background: map-get($theme, background);
+
 @include angular-material-theme($theme);
 @include covalent-theme($theme);
 ----
@@ -159,7 +162,7 @@ First, we are going to develop the views of the app, trough its components, and 
 
 The app consists in 3 main views:
 
-* Login
+* Access
 * Code viewer
 * List of the queue
 
@@ -170,9 +173,19 @@ To see our progress, move to the root folder of the project and run `ng serve` t
 ==== Root component
 _app.component_ will be our Root component, so we do not have to create any component yet, we are going to use it to add to the app the elements that will be common no matter in what view we are.
 
+[NOTE]
+====
+Learn more about the root component in OASP4Js LINK: HERE
+====
+
 This is the case of a header element, which will be on top of the window and on top of all the components, let's build it:
 
 The first thing to know is about https://teradata.github.io/covalent/#/layouts[Covalent Layouts] because we are going to use it a lot, one for every view component.
+
+[NOTE]
+====
+Learn more about layouts in OASP4Js LINK: HERE
+====
 
 As we do not really need nothing more than a header we are going to use the simplest layout: *nav view*
 
@@ -217,13 +230,23 @@ Now we can use layouts, so lets use it on _app.component.html_ to make it look l
 </td-layout-nav>
 ----
 
+[NOTE]
+====
+Learn more about toolbars in OASP4Js LINK: HERE
+====
+
 Once this done, our app should have a header and the "app works!" should remain in the body of the page:
 
 image::images/oasp4js/3.BuildYourOwn/root_header.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/root_header.JPG"]
 
 The thing is the body of the Root component should be the *output of the router*, so now it is time to prepare the routing system.
 
-First we need to create a component to show as default, that will be our login view, later on we will modify it on it's section of this tutorial, but for now we just need to have it: stop the `ng serve` and run `ng generate component login`. It will add a folder to our project with all the files needed for a component. Now we can move on to the router task again. Run `ng serve` again to continue the development.
+First we need to create a component to show as default, that will be our access view, later on we will modify it on it's section of this tutorial, but for now we just need to have it: stop the `ng serve` and run `ng generate component access`. It will add a folder to our project with all the files needed for a component. Now we can move on to the router task again. Run `ng serve` again to continue the development.
+
+[NOTE]
+====
+Learn more about creating new components in OASP4Js LINK: HERE
+====
 
 Let's create the file when the Router check for routes to navigate between components.
 
@@ -234,8 +257,8 @@ Let's create the file when the Router check for routes to navigate between compo
 imports...
 
 const routes: Routes = [  // Routes string, where Router will check the navigation and its properties.
-  { path: 'login', component: LoginComponent},               // Redirect if url path is /login.
-  { path: '**', redirectTo: '/login', pathMatch: 'full' }];  // Redirect if url path do not match with any other route.
+  { path: 'access', component: AccessComponent},               // Redirect if url path is /access.
+  { path: '**', redirectTo: '/access', pathMatch: 'full' }];  // Redirect if url path do not match with any other route.
 
 export const appRoutes: ModuleWithProviders = RouterModule.forRoot(routes); // Export of the routing module.
 ----
@@ -252,19 +275,89 @@ Time to add this _appRoutes_ routing module to the app module:
 ...
 ----
 
+[NOTE]
+====
+Learn more about routing in OASP4Js LINK: HERE
+====
+
 Finally, we remove the "app works" of _app.component.html_ and in its place we put a `<router-outlet></router-outlet>` tag. So the final result of our Root component will look like this:
 
 image::images/oasp4js/3.BuildYourOwn/root_router.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/root_router.JPG"]
 
-As you can see, now what is in the body is the html of *LoginComponent*, this is because we told the Router to redirect to Login when the path is /Login, but also, redirect to Login as default if any of the other routes match with the path introduced.
+As you can see, now what is in the body is the html of *AccessComponent*, this is because we told the Router to redirect to Access when the path is /access, but also, redirect to it as default if any of the other routes match with the path introduced.
 
 We will definitely going to modify the header in the future to add some options like log-out or navigation arrows but, for the moment, this is all regarding Root Component.
 
-==== Login component
+==== AccessComponent
+
+As we have already created this component from the section before, let's move on to the creation of the access view.
+
+First, we need to add the Covalent Layout and the card:
+
+[source, html]
+----
+<td-layout>
+  <md-card>
+    <md-card-title>Access</md-card-title>
+  </md-card>
+</td-layout>
+----
+
+This will add a grey background to the view and a card on of it with the title: "Access", now that we have the basic structure of the view, lets add the form with the information to access to our queue number:
+
+* Name of the person
+* Email
+* Telephone number
+
+One simple text field, one text field with email validation and a number field. So the final code with the form added will look like this:
+
+[source, html]
+----
+<td-layout>
+  <md-card>
+    <md-card-title>Access</md-card-title>
+    <form layout="column" class="pad" #accessForm="ngForm">
+
+      <md-input-container>
+        <input mdInput placeholder="Name" ngModel name="name" required>
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput placeholder="Email" ngModel email name="email" required>
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput placeholder="Phone" type="number" ngModel name="phone" required>
+      </md-input-container>
+
+    <md-card-actions>
+      <button md-raised-button color="primary" [disabled]="!accessForm.form.valid" class="text-upper">Request it</button>
+    </md-card-actions>
+
+    </form>
+  </md-card>
+</td-layout>
+----
+
+This forms contains three input container from Material and inside of them, the input with the properties to make them from each type listed above and to be all required.
+
+Also, we need to add the button to send the information and redirect to code viewer or show an error if something went wrong in the process, but for the moment, as we neither have another component nor the auth service yet, we will implement the button visually and the validator to disable it if the form is not correct, but not the click event, we will come back later to make this working.
+
+[NOTE]
+====
+Learn more about forms in OASP4Js LINK: HERE
+====
+
+This code will give us as a result something similar to this:
+
+image::images/oasp4js/3.BuildYourOwn/access_form.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/access_form.JPG"]
+
+Now lets continue with the second component: Code viewer.
+
 ==== Code viewer component
 ==== Queue component
 === Creating services
-==== Login service
+==== Access service
 ==== Auth service
 ==== Guard service
 ==== Queue service
