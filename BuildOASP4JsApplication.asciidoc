@@ -175,7 +175,7 @@ _app.component_ will be our Root component, so we do not have to create any comp
 
 [NOTE]
 ====
-Learn more about the root component in OASP4Js LINK: HERE
+Learn more about the root component in OASP4Js link:AngularComponents#root-component[HERE]
 ====
 
 This is the case of a header element, which will be on top of the window and on top of all the components, let's build it:
@@ -184,7 +184,7 @@ The first thing to know is about https://teradata.github.io/covalent/#/layouts[C
 
 [NOTE]
 ====
-Learn more about layouts in OASP4Js LINK: HERE
+Learn more about layouts in OASP4Js link:AngularComponents#teradata-layouts[HERE]
 ====
 
 As we do not really need nothing more than a header we are going to use the simplest layout: *nav view*
@@ -232,7 +232,7 @@ Now we can use layouts, so lets use it on _app.component.html_ to make it look l
 
 [NOTE]
 ====
-Learn more about toolbars in OASP4Js LINK: HERE
+Learn more about toolbars in OASP4Js link:AngularComponents#toolbars[HERE]
 ====
 
 Once this done, our app should have a header and the "app works!" should remain in the body of the page:
@@ -245,7 +245,7 @@ First we need to create a component to show as default, that will be our access 
 
 [NOTE]
 ====
-Learn more about creating new components in OASP4Js LINK: HERE
+Learn more about creating new components in OASP4Js link:AngularComponents#create-a-new-component[HERE]
 ====
 
 Let's create the file when the Router check for routes to navigate between components.
@@ -277,7 +277,7 @@ Time to add this _appRoutes_ routing module to the app module:
 
 [NOTE]
 ====
-Learn more about routing in OASP4Js LINK: HERE
+Learn more about routing in OASP4Js link:AngularComponents#routing[HERE]
 ====
 
 Finally, we remove the "app works" of _app.component.html_ and in its place we put a `<router-outlet></router-outlet>` tag. So the final result of our Root component will look like this:
@@ -345,7 +345,7 @@ Also, we need to add the button to send the information and redirect to code vie
 
 [NOTE]
 ====
-Learn more about forms in OASP4Js LINK: HERE
+Learn more about forms in OASP4Js link:AngularComponents#forms[HERE]
 ====
 
 This code will give us as a result something similar to this:
