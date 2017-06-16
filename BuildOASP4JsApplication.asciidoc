@@ -117,8 +117,8 @@ Now let's continue to make some config modifications to have all the styles and 
 
 @include mat-core();
 
-$primary: mat-palette($mat-orange, 800);
-$accent:  mat-palette($mat-light-blue, 600, A100, A400);
+$primary: mat-palette($mat-blue, 700);
+$accent:  mat-palette($mat-orange, 800);
 
 $warn:    mat-palette($mat-red, 600);
 
