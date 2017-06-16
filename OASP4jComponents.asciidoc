@@ -5,7 +5,7 @@ toc::[]
 
 == OASP4j Components
 
-image::images/oasp4j/4.Components/oasp4j_architecture.png[width="250", link="images/oasp4j/4.Components/oasp4j_architecture.png"]
+image::images/oasp4j/4.Components/oasp4j_architecture.png[width="450", link="images/oasp4j/4.Components/oasp4j_architecture.png"]
 
 When working with _Oasp4j_ the recommended approach for the design of the applications is the _Component Oriented Design_. Each component will represent a significant part (or feature) of our application related to _CRUD_ operations. Internally, the components will be divided in three layers (_service_, _logic_, and _dataaccess_) and will communicate in two directions: service with database or, in the _logic_ layer, a component with other component.
 
@@ -28,11 +28,9 @@ The benefits of dividing our application in components are:
 === Naming
 
 In _Oasp4j_, as a convention, we will name our components with the name of the target entity followed by `management` term.
-
-E.g.
 ----
 Foomanagement
----- 
+----
 
 == OASP4j component example
 
@@ -74,7 +72,19 @@ Apart from that the components will have a fourth package _common.api_ to store 
 
 As we mentioned earlier, each component will be related to a functionality and this functionality will be represented in code by an _Entity_ that will define all the properties needed to wrap the logic of that feature.
 
-An _Entity_ is simply a https://en.wikipedia.org/wiki/Plain_old_Java_object[POJO]
+The naming convention in _Oasp4j_ for these entities is
+
+----
+[Target]Entity
+----
+
+The 'Target' should match the table name in the data base although is not mandatory.
+
+image::images/oasp4j/4.Components/mythaistar_component_core1.png[width="250", link="images/oasp4j/4.Components/mythaistar_component_core1.png"]
+
+Basically an _Entity_ is simply a https://en.wikipedia.org/wiki/Plain_old_Java_object[POJO] that will be mapped to a table in the data base, and that reflects each table column with a suitable property.
+
+image::images/oasp4j/4.Components/mythaistar_component_core2.png[, link="images/oasp4j/4.Components/mythaistar_component_core2.png"] 
 
 == Create your component
 

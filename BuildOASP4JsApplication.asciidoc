@@ -5,7 +5,7 @@ toc::[]
 In this chapter we are going to see how to build a new OASP4Js from scratch. The proposal of this tutorial is to end having enough knowledge of Angular and the rest of technologies regarding OASP4Js to know how to start developing on it and if you want more advanced and specific functionalities see them on the cookbook.
 
 == Result of the tutorial: Jump The Query
-This mock-up images shows what you are going to have as a result when the tutorial is finished. An app to manage codes assigned to queuers in order to easy the management of the queue, with a code, you can jump positions in queue and know everywhere, which is your position.
+This mock-up images shows what you are going to have as a result when the tutorial is finished. An app to manage codes assigned to queuers in order to easy the management of the queue, with a code, you can jump positions in queue and know everywhere which is your position.
 
 image::images/oasp4js/3.BuildYourOwn/JTQ_register.png[,width="250", link="images/oasp4js/3.BuildYourOwn/JTQ_register.png"]
 image::images/oasp4js/3.BuildYourOwn/JTQ_codeview.png[,width="250", link="images/oasp4js/3.BuildYourOwn/JTQ_codeview.png"]
@@ -147,7 +147,7 @@ Another option to get this basic project structure with all its dependencies and
 
 Once you have cloned it, move to the project root folder and run a `yarn` to install all dependencies from package.json. The project serves as an example which also comes with some common functionalities already implemented if you want to use them.
 
-In order to make the task easier, we are going to avoid the removal of unused components, so we will use the project that we created on the previous point to build the app.
+In order to make the task easier, we are going to avoid the removal of unused components, so we will use the project created on the previous point to build the app.
 
 == Start the development
 
@@ -156,5 +156,116 @@ Now we have a fully functional blank project, all we have to do now is just crea
 First, we are going to develop the views of the app, trough its components, and then we will create the services with the logic, security and back-end connection.
 
 === Creating components
+
+The app consists in 3 main views:
+
+* Login
+* Code viewer
+* List of the queue
+
+To navigate between them we are going to implement routes to the components in order to use Angular Router.
+
+To see our progress, move to the root folder of the project and run `ng serve` this will serve our client app in _localhost:4200_ and keeps watching for changing, so whenever we modify the code, the app will automatically reload.
+
+==== Root component
+_app.component_ will be our Root component, so we do not have to create any component yet, we are going to use it to add to the app the elements that will be common no matter in what view we are.
+
+This is the case of a header element, which will be on top of the window and on top of all the components, let's build it:
+
+The first thing to know is about https://teradata.github.io/covalent/#/layouts[Covalent Layouts] because we are going to use it a lot, one for every view component.
+
+As we do not really need nothing more than a header we are going to use the simplest layout: *nav view*
+
+Remember that we need to add to _app.module_ every component of Covalent Teradata we use, for layouts it is CovalentLayoutModule:
+
+[source, javascript]
+----
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    CovalentLayoutModule, // Covalent Teradata Layout Module
+    MaterialModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+----
+
+[NOTE]
+====
+Remember this step because you will have to repeat it for every other component from Teradata you use in your app.
+====
+
+Now we can use layouts, so lets use it on _app.component.html_ to make it look like this:
+
+[source, html]
+----
+<td-layout-nav>               // Layout tag
+  <div td-toolbar-content>
+    Jump The Queue            // Header container
+  </div>
+  <h1>
+    {{title}}                 // Main content
+  </h1>
+</td-layout-nav>
+----
+
+Once this done, our app should have a header and the "app works!" should remain in the body of the page:
+
+image::images/oasp4js/3.BuildYourOwn/root_header.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/root_header.JPG"]
+
+The thing is the body of the Root component should be the *output of the router*, so now it is time to prepare the routing system.
+
+First we need to create a component to show as default, that will be our login view, later on we will modify it on it's section of this tutorial, but for now we just need to have it: stop the `ng serve` and run `ng generate component login`. It will add a folder to our project with all the files needed for a component. Now we can move on to the router task again. Run `ng serve` again to continue the development.
+
+Let's create the file when the Router check for routes to navigate between components.
+
+1. Create a file called _app.routes.ts_ and add the following code:
+
+[source, typescript]
+----
+imports...
+
+const routes: Routes = [  // Routes string, where Router will check the navigation and its properties.
+  { path: 'login', component: LoginComponent},               // Redirect if url path is /login.
+  { path: '**', redirectTo: '/login', pathMatch: 'full' }];  // Redirect if url path do not match with any other route.
+
+export const appRoutes: ModuleWithProviders = RouterModule.forRoot(routes); // Export of the routing module.
+----
+
+Time to add this _appRoutes_ routing module to the app module:
+
+[source, typescript]
+----
+...
+  imports: [
+    BrowserModule,
+    appRoutes,
+    CovalentLayoutModule,
+...
+----
+
+Finally, we remove the "app works" of _app.component.html_ and in its place we put a `<router-outlet></router-outlet>` tag. So the final result of our Root component will look like this:
+
+image::images/oasp4js/3.BuildYourOwn/root_router.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/root_router.JPG"]
+
+As you can see, now what is in the body is the html of *LoginComponent*, this is because we told the Router to redirect to Login when the path is /Login, but also, redirect to Login as default if any of the other routes match with the path introduced.
+
+We will definitely going to modify the header in the future to add some options like log-out or navigation arrows but, for the moment, this is all regarding Root Component.
+
+==== Login component
+==== Code viewer component
+==== Queue component
 === Creating services
+==== Login service
+==== Auth service
+==== Guard service
+==== Queue service
 == Making calls to server
