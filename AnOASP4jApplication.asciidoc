@@ -51,49 +51,17 @@ The _server_ project configures the packaging of the application.
 
 === The components
 
-In early chapters we have mentioned that the Oasp4j applications should be divided in different components that will provide the functionality for the different features of the application. The naming convention to define a Oasp4j component will be
+In early chapters we have mentioned that the Oasp4j applications should be divided in different components that will provide the functionality for the different features of the application. Following the naming convention `[Target]management` being the _Target_ the main _entity_ that we want to manage.
 
-----
-[Target]management
-----
-
-Being the _Target_ the main _entity_ that we want to manage.
-
-The components, as part of the logic of the app, are located in the _core_ project of the app.
-
-E.g. in My Thai Star we need to show the different available *dishes*, we need to manage the *booking* and the *orders* and we need to create new *users*. So the application will be divided in the following components:
+The components, as part of the logic of the app, are located in the _core_ project of the app. In the case of _My Thai Star_ we need to show the different available *dishes*, we need to manage the *booking* and the *orders* and we need to create new *users*. So the application will be divided in the following components:
 
 image::images/oasp4j/2.Example_app/project_components.png[,width="250", link="images/oasp4j/2.Example_app/project_components.png"]
 
-- dishmanagement: This component will manage the dishes information retrieving it from the db and serving it to the client. It also could be used to create new menus.
-
-- bookingmanagement: Manages the booking part of the application. With this component the users (anonymous/logged in) can create new reservations or cancel an existing reservation. The users with waiter role can see all scheduled reservations.
-
-- ordermanagement: This component handles the process to order dishes (related to reservations). A user (as a host or as a guest) can create orders (that contain dishes) or cancel an existing one. The users with waiter role can see all ordered orders.
-
-- usermanagement: Takes care of the User Profile management, allowing to create and update the data profiles.
-
-Apart from that components we will have other _packages_ for the cross-cutting concerns:
-
-- general: is a package that stores the common elements or configurations of the app, like _security_ configuration.
-
-- imagemanagement: in case of functionalities that will be used in several components, instead of duplicate the functionality (code) we can extract it to a component that the other components will consume. In the case of the images, as both _dishmanagement_ and _usermanagement_ components are going to need to manage images, this _imagecomponent_ will be used for that purpose.
-
-- mailservice: with this service we will provide the functionality for sending email notifications. This is a shared service between different app components such as _bookingmanagement_ or _ordercomponent_.
-
 === The component structure (layers)
 
-Each component of the app is internally divided following the three-layer architecture that Oasp4j proposes. So we will have three different packages to order our component's elements:
+Each component of the app is internally divided following the three-layer architecture (_service_, _logic_ and _dataaccess_) that Oasp4j proposes. So we will have three different packages to order our component's elements:
 
 image::images/oasp4j/2.Example_app/component_layers.png[,width="250", link="images/oasp4j/2.Example_app/component_layers.png"]
-
-- Service Layer: will expose the REST api to exchange information with client applications.
-
-- Logic Layer: the layer in charge of hosting the business logic of the application.
-
-- Data Access Layer: the layer to communicate with the data base.
-
-- _common.api_ package: this package will store the common elements that will be used by the different layers of the component. This is the place will contain common _interfaces_, constants, exceptions or _enums_.
 
 === Communication between layers
 
