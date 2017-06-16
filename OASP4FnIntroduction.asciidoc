@@ -45,11 +45,11 @@ $ yarn add @oasp/oasp4fn
 
 The following picture shows what OASP4Fn offers in order to facilitate Serverless development.
 
-image::images/oasp4fn/1.Introduction/oasp4fn_adds.png[, link="images/oasp4fn/1.Introduction/oasp4fn_adds.png"]
+image::images/oasp4fn/1.Introduction/oasp4fn_adds.PNG[, link="images/oasp4fn/1.Introduction/oasp4fn_adds.PNG"]
 
 Currently, the **OASP4Fn architecture** defines a series of adapters to help developers to build applications and make use of different cloud providers. 
 
-image::images/oasp4fn/1.Introduction/oasp4fn_available.png[, link="images/oasp4fn/1.Introduction/oasp4fn_available.png"]
+image::images/oasp4fn/1.Introduction/oasp4fn_available.PNG[, link="images/oasp4fn/1.Introduction/oasp4fn_available.PNG"]
 
 === TypeScript
 
