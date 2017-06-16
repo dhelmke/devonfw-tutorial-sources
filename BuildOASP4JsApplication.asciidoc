@@ -219,7 +219,7 @@ Now we can use layouts, so lets use it on _app.component.html_ to make it look l
 
 Once this done, our app should have a header and the "app works!" should remain in the body of the page:
 
-image::images/oasp4js/3.BuildYourOwn/root_header.JPG[, link="images/oasp4js/3.BuildYourOwn/root_header.JPG"]
+image::images/oasp4js/3.BuildYourOwn/root_header.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/root_header.JPG"]
 
 The thing is the body of the Root component should be the *output of the router*, so now it is time to prepare the routing system.
 
@@ -254,7 +254,7 @@ Time to add this _appRoutes_ routing module to the app module:
 
 Finally, we remove the "app works" of _app.component.html_ and in its place we put a `<router-outlet></router-outlet>` tag. So the final result of our Root component will look like this:
 
-image::images/oasp4js/3.BuildYourOwn/root_router.JPG[, link="images/oasp4js/3.BuildYourOwn/root_router.JPG"]
+image::images/oasp4js/3.BuildYourOwn/root_router.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/root_router.JPG"]
 
 As you can see, now what is in the body is the html of *LoginComponent*, this is because we told the Router to redirect to Login when the path is /Login, but also, redirect to Login as default if any of the other routes match with the path introduced.
 
