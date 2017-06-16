@@ -28,11 +28,9 @@ The benefits of dividing our application in components are:
 === Naming
 
 In _Oasp4j_, as a convention, we will name our components with the name of the target entity followed by `management` term.
-
-E.g.
 ----
 Foomanagement
----- 
+----
 
 == OASP4j component example
 
