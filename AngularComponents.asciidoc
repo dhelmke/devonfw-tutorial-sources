@@ -24,3 +24,9 @@ Every Angular application is composed by components pending on the root componen
 Basically, *without components, there is no Angular application.*
 
 == Create a new component
+== Toolbars
+== Root Component
+== Routing
+== Forms
+== Teradata Layouts
+
