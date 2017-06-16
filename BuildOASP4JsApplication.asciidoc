@@ -309,7 +309,7 @@ This will add a grey background to the view and a card on of it with the title: 
 * Email
 * Telephone number
 
-One simple text field, one text field with email validation and a number field. So the final code with the form added will look like this:
+One simple text field, one text field with email validation (and the legal information regarding emails) and a number field. So the final code with the form added will look like this:
 
 [source, html]
 ----
@@ -325,6 +325,7 @@ One simple text field, one text field with email validation and a number field. 
       <md-input-container>
         <input mdInput placeholder="Email" ngModel email name="email" required>
       </md-input-container>
+      <span class="text-sm">Filling this, I acccept to receive commercial information.</span>
 
       <md-input-container>
         <input mdInput placeholder="Phone" type="number" ngModel name="phone" required>
