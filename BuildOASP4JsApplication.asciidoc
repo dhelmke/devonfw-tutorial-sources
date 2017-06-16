@@ -158,6 +158,7 @@ First, we are going to develop the views of the app, trough its components, and 
 === Creating components
 
 The app consists in 3 main views:
+
 * Login
 * Code viewer
 * List of the queue
@@ -202,7 +203,7 @@ export class AppModule { }
 Remember this step because you will have to repeat it for every other component from Teradata you use in your app.
 ====
 
-Now we can use layouts lets use it on _app.component.html_ to make it look like this:
+Now we can use layouts, so lets use it on _app.component.html_ to make it look like this:
 
 [source, javascript]
 ----
@@ -220,11 +221,11 @@ Once this done, our app should have a header and the "app works!" should remain 
 
 image::images/oasp4js/3.BuildYourOwn/root_header.JPG[, link="images/oasp4js/3.BuildYourOwn/root_header.JPG"]
 
-The thing is the body of the Root component should be the output of the router, so now it is time to prepare the routing system.
+The thing is the body of the Root component should be the *output of the router*, so now it is time to prepare the routing system.
 
-First we need to create a component to show as default, that will be our login view, later on we will modify it on it's section of this tutorial, but for now we just need to have it: stop the `ng serve` and run `ng generate component login`. It will add a folder to out project with all the files needed for a component. Now we can move on to the router task again. Run `ng serve` again to continue the development.
+First we need to create a component to show as default, that will be our login view, later on we will modify it on it's section of this tutorial, but for now we just need to have it: stop the `ng serve` and run `ng generate component login`. It will add a folder to our project with all the files needed for a component. Now we can move on to the router task again. Run `ng serve` again to continue the development.
 
-Let's create the file when the Router check for routes to route between components.
+Let's create the file when the Router check for routes to navigate between components.
 
 1. Create a file called _app.routes.ts_ and add the following code:
 
@@ -257,7 +258,7 @@ image::images/oasp4js/3.BuildYourOwn/root_router.JPG[, link="images/oasp4js/3.Bu
 
 As you can see, now what is in the body is the html of *LoginComponent*, this is because we told the Router to redirect to Login when the path is /Login, but also, redirect to Login as default if any of the other routes match with the path introduced.
 
-We will definitely going to modify the header code to add logout and turn back options, but for the moment this is all regarding Root Component.
+We will definitely going to modify the header in the future to add some options like log-out or navigation arrows but, for the moment, this is all regarding Root Component.
 
 ==== Login component
 ==== Code viewer component
