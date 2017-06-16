@@ -205,7 +205,7 @@ Remember this step because you will have to repeat it for every other component 
 
 Now we can use layouts, so lets use it on _app.component.html_ to make it look like this:
 
-[source, javascript]
+[source, html]
 ----
 <td-layout-nav>               // Layout tag
   <div td-toolbar-content>
