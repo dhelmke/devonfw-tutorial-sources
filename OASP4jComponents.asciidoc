@@ -5,7 +5,7 @@ toc::[]
 
 == OASP4j Components
 
-image::images/oasp4j/4.Components/oasp4j_architecture.png[width="250", link="images/oasp4j/4.Components/oasp4j_architecture.png"]
+image::images/oasp4j/4.Components/oasp4j_architecture.png[width="450", link="images/oasp4j/4.Components/oasp4j_architecture.png"]
 
 When working with _Oasp4j_ the recommended approach for the design of the applications is the _Component Oriented Design_. Each component will represent a significant part (or feature) of our application related to _CRUD_ operations. Internally, the components will be divided in three layers (_service_, _logic_, and _dataaccess_) and will communicate in two directions: service with database or, in the _logic_ layer, a component with other component.
 
