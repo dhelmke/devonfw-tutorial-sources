@@ -21,7 +21,7 @@ Serverless computing consists in the following concepts and benefits:
 ** AWS S3 updates.
 ** Messages added to a message bus.
 
-Besides the automatic horizontal scaling, the biggest benefit is that you only pay for the compute that you need. Depending on your traffic scale and shape this may be a huge economic win in many projects.
+Besides the automatic horizontal scaling, the biggest benefit is that **you only pay for the compute that you need**. Depending on your traffic scale and shape this may be a huge economic win in many projects.
 
 It solves common and inefficient situations like **occasional requests**, where an application with a few small requests per minute makes the CPU idle most of time, or like **inconsistent traffic** where the traffic profile of an application is very _speaky_. For example:
 
@@ -97,5 +97,37 @@ export async function getAttachment (event: HttpEvent, context: Context, callbac
 ----
 
 These annotations will be only interpreted by the framework, so they do not inject or add any kind of functionality to the actual handler.
+
+== Cloud adapters
+
+OASP4Fn also comes with a simple interface that allows the user to have access to different services of cloud providers using adapters.
+
+That interface makes use of this adapters to retrieve data to the user through **Promises**, and let the user query that retrieved data.
+
+Currently available adapters:
+
+* **AWS**
+** AWS DynamoDB
+** AWS S3
+** AWS Cognito
+
+== Command Line Interface 
+
+OASP4Fn provides a simple command line interface, that using the resources and the information provided by Infrastructure as Code, will help the user generate the proper files to build, deploy and test our application.
+
+[source,bash]
+----
+Usage: oasp4fn [provider] [options]
+   or: fun [provider] [options]
+
+Supported Providers: aws (by default aws)
+
+Options:
+  -o, --opts file       file with the options for the yml generation
+  -p, --path directory  directory where the handlers are stored
+  -e, --express         generates an express app.ts file
+  -h, --help            display the help
+----
+
 
  
