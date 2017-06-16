@@ -160,6 +160,11 @@ First, we are going to develop the views of the app, trough its components, and 
 
 === Creating components
 
+[NOTE]
+====
+Learn more about creating new components in OASP4Js link:AngularComponents#create-a-new-component[HERE]
+====
+
 The app consists in 3 main views:
 
 * Access
@@ -242,11 +247,6 @@ image::images/oasp4js/3.BuildYourOwn/root_header.JPG[,width="250", link="images/
 The thing is the body of the Root component should be the *output of the router*, so now it is time to prepare the routing system.
 
 First we need to create a component to show as default, that will be our access view, later on we will modify it on it's section of this tutorial, but for now we just need to have it: stop the `ng serve` and run `ng generate component access`. It will add a folder to our project with all the files needed for a component. Now we can move on to the router task again. Run `ng serve` again to continue the development.
-
-[NOTE]
-====
-Learn more about creating new components in OASP4Js link:AngularComponents#create-a-new-component[HERE]
-====
 
 Let's create the file when the Router check for routes to navigate between components.
 
