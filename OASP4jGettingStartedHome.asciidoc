@@ -10,6 +10,11 @@
 
 == link:BuildOASP4Japplication[Build your own OASP4J application]
 
+== link:OASP4jComponents[OASP4J application components]
+
+== link:OASP4jLayers[OASP4J layers]
+
+-----
 == link:OASP4jServiceLayer[The Service Layer]
 
 == link:OASP4jBusinessLayer[The Business Layer]
