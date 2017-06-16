@@ -87,11 +87,13 @@ Furthermore of the specified before, in the file **oasp4fn.config.js**, it is sp
 
 In addition to the configuration file, we can specify to each handler a **concrete configuration**, related to the event that triggers the handler, using a **dummy function** that adds or modifies the configuration specified in OASP4Fn configuration file.
 
-[source,typecript]
+[source,typescript]
 ----
 // ...
 oasp4fn.config({path: 'attachments/{id}'});
-export async function getAttachment (event: HttpEvent, context: Context, callback: Function) {...}
+export async function getAttachment (event: HttpEvent, context: Context, callback: Function) {
+    // ...
+}
 ----
 
 These annotations will be only interpreted by the framework, so they do not inject or add any kind of functionality to the actual handler.
