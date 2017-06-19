@@ -534,9 +534,218 @@ This will be the result:
 image::images/oasp4js/3.BuildYourOwn/queue_viewer.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/queue_viewer.JPG"]
 
 === Creating services
+
+[NOTE]
+====
+Learn more about services in OASP4Js link:AngularServices[HERE]
+====
+
+At the moment we had developed all the basic structure and workflow of our application templates, but there is still some more work to do regarding security, calls to services and logic functionalities, this will be the objective of this second part of the tutorial. We will use angular/cli to generate our services as we did to create our components.
+
+[NOTE]
+====
+Learn more about creating new services in OASP4Js link:AngularServices#create-a-new-service[HERE]
+====
+
 ==== Auth service
+
+We will start with the *security*, implementing the service that will store our state and username in the application, this services will have setters and getters of these two properties. This service will be useful to check when the user is logged or not, to show or hide certain elements of the headers and to tell the guard (service that we will do next) if the navigation is permitted or not.
+
+To create the service we run: `ng generate service shared\authentication\auth`.
+
+We navigate into this new service and we add this code as described above:
+
+[source, typescript]
+----
+export class AuthService {
+    private logged = false;   // state of the user
+    private user = '';        //username of the user
+
+    public isLogged(): boolean {
+        return this.logged;
+    }
+
+    public setLogged(login: boolean): void {
+        this.logged = login;
+    }
+
+    public getUser(): string {
+        return this.user;
+    }
+
+    public setUser(username: string): void {
+        this.user = username;
+    }
+}
+----
+
+When the access service will be done, it will call for this setters to set them with real information, and when we log off, this information will be set accordingly.
+
+As an example of use of this information service, we will move to _app.component.ts_ and will add in the constructor the AuthService to inject it and have access to its methods.
+
+Now on the template we are going to use and special property from Angular *ngIf* to show or hide the log-off depending on the state of the session of the user:
+
+[source, html]
+----
+<button *ngIf="auth.isLogged()" md-icon-button mdTooltip="Log out"><md-icon>exit_to_app</md-icon></button>
+----
+
+[NOTE]
+====
+Learn more about authentication in OASP4Js link:AngularServices#authentication[HERE]
+====
+
 ==== Guard service
+
+With AuthService we have a service providing information about the state of the session for a user, so we can now establish a guard checking if the user can pass or not trough the login page. We create it exactly the same way than the AuthService: `ng generate service shared\authentication\auth-guard`.
+
+This services will be a bit different, because we have to implement an interface called CanActivate, which has a method call canActivate returning a boolean, this method will be called when navigating to a specified routes and depending on the return of this implemented method, the navigation will be done or rejected.
+
+[NOTE]
+====
+Learn more about guards in OASP4Js link:AngularServices#guards[HERE]
+====
+
+The code should be as follows:
+
+[source, typescript]
+----
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { AuthService } from './auth.service';
+
+@Injectable()
+export class AuthGuard implements CanActivate {
+  constructor(private authService: AuthService,
+              private router: Router) {}
+
+  canActivate(): boolean {
+
+    if (this.authService.isLogged()) {   // if logged, return true and exit, allowing the navigation
+      return true;
+    }
+
+    if (this.router.url === '/') {
+      this.router.navigate(['access']); // if not logged, recheck the navigation to resend to login page in case the user tried to navigate modifying directly the URL in the browser.
+    }
+
+    return false;  // and blocking the navigation.
+  }
+}
+----
+
+Now we have to add them to our _app.module.ts_ providers array:
+
+[source, typescript]
+----
+...
+  providers: [
+    AuthGuard,
+    AuthService,
+  ],
+  bootstrap: [AppComponent]
+...
+----
+
+Finally, we have to specify what routes are secured by this guard, so we move to _app.routes.ts_ and add the option "canActivate" to the paths to code-viewer and queue-viewer:
+
+[source, typescript]
+----
+const routes: Routes = [
+  { path: 'access', component: AccessComponent},
+  { path: 'code', component: CodeViewerComponent, canActivate: [AuthGuard]},
+  { path: 'queue', component: QueueViewerComponent, canActivate: [AuthGuard]},
+  { path: '**', redirectTo: '/access', pathMatch: 'full' }];
+----
+
+If you save all the changes, you will realize you can not go trough access anymore, that is because we need to implement first our login function in the access service, which will change the value in AuthService and will let us navigate freely.
+
 ==== Access service
+
+As we need to have this service in order to access again to our application, this will be the first service to be created. As always, `ng generate service access/shared/access` will do the job. Also remember to *add the service to providers in app module*.
+
+This service will contain two functions, one for login when the button is pressed and other to log off when the icon button in the header is pressed. This functions will manage to set the values of the session and navigate properly. For now we are going to use a simple if to check if the user credentials are correct, in the future a server will do this for us.
+
+[source, typescript]
+----
+export class AccessService {
+
+  constructor(private auth: AuthService,
+              public snackBar: MdSnackBar,  // Angular Material component to show when an error ocurred
+              private router: Router) { }
+
+  login(name, email, phone) {
+    if (name === 'user' && email === 'asd@asd.com' && phone === 123456789) { //check the credentials introduced
+      this.auth.setLogged(true);                                             // if correct, values set and navigation made
+      this.auth.setUser(name);
+      this.router.navigate(['code']);
+    } else {
+      this.snackBar.open('access error', 'OK', {                             // if incorrect, snackbar with an error message is shown.
+        duration: 2000,
+      });
+    }
+  }
+
+  logoff() {                                   //remove the values, set logged to false and redirected to access view
+      this.auth.setLogged(false);
+      this.auth.setUser('');
+      this.router.navigate(['access']);
+  }
+
+}
+----
+
+image::images/oasp4js/3.BuildYourOwn/login_error.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/login_error.JPG"]
+
+Now we have to inject this service in out AccessComponent in order to consume it. We inject the dependency into the component and we change our submit function to get the values from the form and to call the service instead of just redirecting anyway:
+
+[source, typescript]
+----
+export class AccessComponent implements OnInit {
+
+  constructor(private router: Router,
+              private accessService: AccessService) { }
+
+  ngOnInit() {
+  }
+
+  submitAccess(formValue) {
+    this.accessService.login(formValue.value.name, formValue.value.email, formValue.value.phone);
+    formValue.reset();
+  }
+
+}
+----
+
+This also has to be added to the template in order to pass the parameter into the function:
+
+[source, html]
+----
+    <form layout="column" class="pad" (ngSubmit)="submitAccess(accessForm.form)" #accessForm="ngForm">
+----
+
+ngSubmit now passes as parameter the ngForm with the values introduced by the user.
+
+Having this working should be enough to have again working our access component and grant access to the code and queue viewer if we introduce the correct credentials and we do not, the error message would be shown and the access not permitted, staying still in the access view.
+
+Last thing to do regarding security is to make functional our log-off icon button in the header, we move to _app.component.html_ and add the correspondent (click) event calling for a function, in my case, called "logoff()". The name has to correspond with the one used in _app.component.ts_, where we inject AccessService so we can call its logoff function where the one from this components is called:
+
+[source, typescript]
+----
+export class AppComponent {
+
+  constructor(private auth: AuthService,
+              private accesService: AccessService) {}
+
+  logoff() {
+    this.accesService.logoff();
+  }
+
+}
+----
+
+Once all of this finished and saved, we should have all the workflow and navigation of the app working fine. Now it is time to receive the data of the user from a service in order to, in the future, call a server for this information.
+
 ==== Code Service
 ==== Queue service
 == Making calls to server
