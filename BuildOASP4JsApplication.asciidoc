@@ -362,7 +362,8 @@ image::images/oasp4js/3.BuildYourOwn/access_form.JPG[,width="250", link="images/
 
 Now lets continue with the second component: Code viewer.
 
-Out first step will be create the component in the exact same way we did with the access component: `ng generate component code-viewer` and we add the route in the app.routes.ts:
+==== Code viewer component
+Our first step will be create the component in the exact same way we did with the access component: `ng generate component code-viewer` and we add the route in the app.routes.ts:
 
 [source, typescript]
 ----
@@ -444,11 +445,98 @@ Giving this as a result:
 
 image::images/oasp4js/3.BuildYourOwn/code_viewer.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/code_viewer.JPG"]
 
-==== Code viewer component
+Finally, we are going to add an icon button to the header to log out, we are not able to log out or to hide the icon yet, we are just letting it prepared for the future when the auth service is implemented. Modify _app.component.html_  div tag as follows:
+
+[source, html]
+----
+  <div layout="row" layout-align="center center" td-toolbar-content flex>
+    Jump The Queue
+    <span flex></span>
+    <button md-icon-button mdTooltip="Log out"><md-icon>exit_to_app</md-icon></button>
+  </div>
+----
+
+If everything goes correctly, you should now have an icon at the right of the header no matter which view you are at.
+
 ==== Queue component
+
+For our last view component we are going to use a component from Covalent Teradata: the *data table*. Let's begin.
+
+As always: `ng generate component queue-viewer` and add a route in _app.routes.ts_ to that component `{ path: 'queue', component: QueueViewerComponent},`
+
+Now we have the component created, let's take a bit of time to complete `navigateQueue()`function in code-viewer to point to this new component: 
+
+[source, typescript]
+----
+  navigateQueue() {
+    this.router.navigate(['queue']);
+  }
+----
+
+Back to our recently created component, it will be quite similar to the 2 others, but in this case, the body of the card will be a data table from covalent:
+
+[source, html]
+----
+<td-layout>
+  <md-card>
+    <img md-card-image src="assets/images/jumpthequeue.png">
+    <md-card-title>Queue view:</md-card-title>
+
+    <td-data-table
+      [data]="basicData"
+      [columns]="columns">
+    </td-data-table>
+
+    <div class="text-center pad-lg">
+      <button md-raised-button (click)="navigateCode()" color="primary" class="text-upper">Go back</button>
+    </div>
+
+  </md-card>
+</td-layout>
+----
+
+[NOTE]
+====
+Learn more about Teradata data tables in OASP4Js link:AngularComponents#teradata-data-table[HERE]
+====
+
+What we did here is create the component by its selector, and give the needed inputs to build the table: *columns* to read in the data object and labels to show in the view of the table, and *data* to show. Also, a button to return to the code view has been added following the same system as the navigation in code, but pointing to code:
+
+[source, typescript]
+----
+export class QueueViewerComponent implements OnInit {
+
+    columns: ITdDataTableColumn[] = [
+    { name: 'code',  label: 'Code'},
+    { name: 'hour', label: 'Hour' },
+    { name: 'name', label: 'Name'}];
+
+  basicData: any[] = [
+      {code: 'Q04', hour: '14:30', name: 'Elrich'},
+      {code: 'Q05', hour: '14:40', name: 'Richard'},
+      {code: 'Q06', hour: '14:50', name: 'Gabin'},
+    ];
+
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+  }
+
+  navigateCode() {
+    this.router.navigate(['code']);
+  }
+
+}
+----
+
+This will be the result:
+
+image::images/oasp4js/3.BuildYourOwn/queue_viewer.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/queue_viewer.JPG"]
+
 === Creating services
-==== Access service
 ==== Auth service
 ==== Guard service
+==== Access service
+==== Code Service
 ==== Queue service
 == Making calls to server
