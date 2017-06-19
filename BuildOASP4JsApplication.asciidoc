@@ -280,7 +280,7 @@ Time to add this _appRoutes_ routing module to the app module:
 Learn more about routing in OASP4Js link:AngularComponents#routing[HERE]
 ====
 
-Finally, we remove the "app works" of _app.component.html_ and in its place we put a `<router-outlet></router-outlet>` tag. So the final result of our Root component will look like this:
+Finally, we remove the "{{title}}" from _app.component.html_ and in its place we put a `<router-outlet></router-outlet>` tag. So the final result of our Root component will look like this:
 
 image::images/oasp4js/3.BuildYourOwn/root_router.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/root_router.JPG"]
 
@@ -309,12 +309,17 @@ This will add a grey background to the view and a card on of it with the title: 
 * Email
 * Telephone number
 
-One simple text field, one text field with email validation (and the legal information regarding emails) and a number field. So the final code with the form added will look like this:
+One simple text field, one text field with email validation (and the legal information regarding emails) and a number field. Moreover, we are going to add this image:
+
+image::images/oasp4js/3.BuildYourOwn/jumpthequeue.png[,width="250", link="images/oasp4js/3.BuildYourOwn/jumpthequeue.png"]
+
+So the final code with the form added will look like this:
 
 [source, html]
 ----
 <td-layout>
   <md-card>
+    <img md-card-image src="assets/images/jumpthequeue.png">
     <md-card-title>Access</md-card-title>
     <form layout="column" class="pad" #accessForm="ngForm">
 
@@ -354,6 +359,84 @@ This code will give us as a result something similar to this:
 image::images/oasp4js/3.BuildYourOwn/access_form.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/access_form.JPG"]
 
 Now lets continue with the second component: Code viewer.
+
+Out first step will be create the component in the exact same way we did with the access component: `ng generate component code-viewer` and we add the route in the app.routes.ts:
+
+[source, typescript]
+----
+const routes: Routes = [
+  { path: 'access', component: AccessComponent},
+  { path: 'code', component: CodeViewerComponent}, //code-viewer route added
+  { path: '**', redirectTo: '/access', pathMatch: 'full' }];
+----
+
+With two components already created we need to use the router to navigate between them. Following the application flow of events, we are going to add a navigate function to the submit button of our access form button, so when we press it, we will be redirected our code viewer.
+
+Turning back to _access.component.html_ we add this to the code:
+
+[source, html]
+----
+<form layout="column" class="pad" (ngSubmit)="submitAccess()" #accessForm="ngForm"> // added a ngSubmit event
+ ...
+<button md-raised-button type="submit" color="primary" ... </button> // added type="submit"
+----
+
+This means that when the user press enter or click the button, ngSubmit will send an event to the function `submitAccess()` that should be in the _access.component.ts_, which is going to be created now:
+
+[source, typescript]
+----
+  constructor(private router: Router) { }
+
+  submitAccess() {
+    this.router.navigate(['code']);
+  }
+----
+
+We inject an instance of Router object and declare it into the name _router_ in order to use it into the code, as we did on submitAccess(), using the navigate function and redirecting to the next view, in our case, the code-viewer we just created using the route we defined in _app.routes.ts_.
+
+Now we have a minimum of navigation flow into our application, this specific navigation will be secured later on to check the access data and to forbid any navigation trough the URL of the browser.
+
+Let's move on to _code-viewer_ to made the template of the component. We need a big code in the middle and a button to move to the queue:
+
+[source, html]
+----
+<td-layout>
+  <md-card>
+    <img md-card-image src="assets/images/jumpthequeue.png">
+    <md-card-title>Queue code for {{name}} is:</md-card-title> // interpolation of the variable name which corresponds with the person who requested the code
+
+    <h1 style="font-size: 100px" class="text-center text-xxl push-lg">{{code}}</h1> // queue code for that person
+
+    <div class="text-center pad-bottom-lg">
+      <button md-raised-button (click)="navigateQueue()" color="primary" class="text-upper">Watch the queue</button> // navigation function like access
+    </div>
+
+  </md-card>
+</td-layout>
+----
+
+And the implementation of the _code-viewer.component.ts_ should be something like: 
+
+[source, typescript]
+----
+imports...
+
+export class CodeViewerComponent implements OnInit {
+
+  code: string; // declaration of vars used in the template
+  name: string;
+
+  constructor(private router: Router) { } // instance of Router
+
+  ngOnInit() {
+    this.code = 'Q06';
+    this.name = 'Someone';
+  }
+
+  navigateQueue() {
+                           // this will be filled with the router navigate function when we have created the queue component
+  }
+----
 
 ==== Code viewer component
 ==== Queue component
