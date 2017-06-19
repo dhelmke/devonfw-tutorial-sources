@@ -313,6 +313,8 @@ One simple text field, one text field with email validation (and the legal infor
 
 image::images/oasp4js/3.BuildYourOwn/jumpthequeue.png[,width="250", link="images/oasp4js/3.BuildYourOwn/jumpthequeue.png"]
 
+In order to have it available in the project to show, save it in the following path of the project: _/src/assets/images/_ and it has been named: _jumpthequeue.png_
+
 So the final code with the form added will look like this:
 
 [source, html]
@@ -429,7 +431,7 @@ export class CodeViewerComponent implements OnInit {
   constructor(private router: Router) { } // instance of Router
 
   ngOnInit() {
-    this.code = 'Q06';
+    this.code = 'Q06';        //This values in the future will be loaded from a service making a call for server information
     this.name = 'Someone';
   }
 
@@ -437,6 +439,10 @@ export class CodeViewerComponent implements OnInit {
                            // this will be filled with the router navigate function when we have created the queue component
   }
 ----
+
+Giving this as a result:
+
+image::images/oasp4js/3.BuildYourOwn/code_viewer.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/code_viewer.JPG"]
 
 ==== Code viewer component
 ==== Queue component
