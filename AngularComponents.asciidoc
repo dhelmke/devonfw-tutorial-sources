@@ -28,5 +28,7 @@ Basically, *without components, there is no Angular application.*
 == Root Component
 == Routing
 == Forms
+= Teradata components
 == Teradata Layouts
+== Teradata Data Table
 
