@@ -2,6 +2,9 @@
 
 * link:OASPintro[OASP intro]
 
+* **Jump The Queue**
+** link:JumpTheQueueDesign[Jump The Queue Design]
+
 * **OASP Backend Technologies**
 ** link:OASP4jGettingStartedHome[OASP4J Getting Started]
 *** link:OASP4J-overview[Oasp4j overview]
