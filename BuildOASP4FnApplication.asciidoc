@@ -7,12 +7,16 @@ In this chapter we are going to build a serverless backend with OASP4Fn. The mai
 == Result of the tutorial: Jump the Queue
 == Install tools
 In this section we’re going to introduce all the necessary tools we’re gonna need to start programming and a initial configuration if necessary.
+
 === Visual Studio Code
 Download the installer from the https://code.visualstudio.com/Download[official page] and install it.
 Once installed, the first thing you should do is install the extensions that will help you during the development, to do that follow this steps:
-. Install https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync[Settings Sync] extension.
-. Open the command palette (Ctrl+Shift+P) and introduce the command: *Sync: Download Settings*.
-. Provide GIST ID: *d976bc200f0403d8045b7e4ee39d4361*.
+
+1. Install https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync[Settings Sync] extension.
+2. Open the command palette (Ctrl+Shift+P) and introduce the command: *Sync: Download Settings*.
+3. Provide GIST ID: *d976bc200f0403d8045b7e4ee39d4361*.
+
 In the case that you are unable to set up the extensions using the method mentioned, you can also use the scripts provided in https://github.com/oasp/oasp-vscode-ide[this] repository.
+
 === Node.js
 Go to the https://nodejs.org/en/[node.js] official page and download the version you like the most, the LTS or the Current as you wish.
