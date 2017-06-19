@@ -64,11 +64,11 @@ Finally, once all this tools have been installed successfully, you are ready to 
 
 == Creating basic new project
 
-One of the best reasons to install Angular/CLI is because it has a feature that creates a whole new basic project where you want just running in the folder you want to store the app:
+One of the best reasons to install Angular/CLI is because it has a feature that creates a whole new basic project where you want just running:
 
 `ng new <project name>`
 
-Where <project name> is the name of the project you want to create. In this case, we are going to call it Oasp4JsSample. This command will create the basic files and install the dependencies stored in `package.json`
+Where <project name> is the name of the project you want to create. In this case, we are going to call it JumpTheQueue. This command will create the basic files and install the dependencies stored in `package.json`
 
 image::images/oasp4js/3.BuildYourOwn/ngnew.JPG[, link="images/oasp4js/3.BuildYourOwn/ngnew.JPG"]
 
