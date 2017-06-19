@@ -311,9 +311,9 @@ This will add a grey background to the view and a card on of it with the title: 
 
 One simple text field, one text field with email validation (and the legal information regarding emails) and a number field. Moreover, we are going to add this image:
 
-image::images/oasp4js/3.BuildYourOwn/jumpthequeue.png[,width="250", link="images/oasp4js/3.BuildYourOwn/jumpthequeue.png"]
+image::images/oasp4js/3.BuildYourOwn/jumptheq.png[,width="250", link="images/oasp4js/3.BuildYourOwn/jumptheq.png"]
 
-In order to have it available in the project to show, save it in the following path of the project: _/src/assets/images/_ and it has been named: _jumpthequeue.png_
+In order to have it available in the project to show, save it in the following path of the project: _/src/assets/images/_ and it has been named: _jumptheq.png_
 
 So the final code with the form added will look like this:
 
@@ -321,7 +321,7 @@ So the final code with the form added will look like this:
 ----
 <td-layout>
   <md-card>
-    <img md-card-image src="assets/images/jumpthequeue.png">
+    <img md-card-image src="assets/images/jumptheq.png">
     <md-card-title>Access</md-card-title>
     <form layout="column" class="pad" #accessForm="ngForm">
 
@@ -405,7 +405,7 @@ Let's move on to _code-viewer_ to made the template of the component. We need a 
 ----
 <td-layout>
   <md-card>
-    <img md-card-image src="assets/images/jumpthequeue.png">
+    <img md-card-image src="assets/images/jumptheq.png">
     <md-card-title>Queue code for {{name}} is:</md-card-title> // interpolation of the variable name which corresponds with the person who requested the code
 
     <h1 style="font-size: 100px" class="text-center text-xxl push-lg">{{code}}</h1> // queue code for that person
@@ -479,7 +479,7 @@ Back to our recently created component, it will be quite similar to the 2 others
 ----
 <td-layout>
   <md-card>
-    <img md-card-image src="assets/images/jumpthequeue.png">
+    <img md-card-image src="assets/images/jumptheq.png">
     <md-card-title>Queue view:</md-card-title>
 
     <td-data-table
