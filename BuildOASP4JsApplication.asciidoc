@@ -390,7 +390,7 @@ This means that when the user press enter or click the button, ngSubmit will sen
 ----
   constructor(private router: Router) { }
 
-  submitAccess() {
+  submitAccess(): void {
     this.router.navigate(['code']);
   }
 ----
@@ -431,12 +431,12 @@ export class CodeViewerComponent implements OnInit {
 
   constructor(private router: Router) { } // instance of Router
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.code = 'Q06';        //This values in the future will be loaded from a service making a call for server information
     this.name = 'Someone';
   }
 
-  navigateQueue() {
+  navigateQueue(): void {
                            // this will be filled with the router navigate function when we have created the queue component
   }
 ----
@@ -468,7 +468,7 @@ Now we have the component created, let's take a bit of time to complete `navigat
 
 [source, typescript]
 ----
-  navigateQueue() {
+  navigateQueue(): void {
     this.router.navigate(['queue']);
   }
 ----
@@ -519,10 +519,10 @@ export class QueueViewerComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  navigateCode() {
+  navigateCode(): void {
     this.router.navigate(['code']);
   }
 
@@ -674,7 +674,7 @@ export class AccessService {
               public snackBar: MdSnackBar,  // Angular Material component to show when an error ocurred
               private router: Router) { }
 
-  login(name, email, phone) {
+  login(name, email, phone): void {
     if (name === 'user' && email === 'asd@asd.com' && phone === 123456789) { //check the credentials introduced
       this.auth.setLogged(true);                                             // if correct, values set and navigation made
       this.auth.setUser(name);
@@ -686,7 +686,7 @@ export class AccessService {
     }
   }
 
-  logoff() {                                   //remove the values, set logged to false and redirected to access view
+  logoff(): void {                                   //remove the values, set logged to false and redirected to access view
       this.auth.setLogged(false);
       this.auth.setUser('');
       this.router.navigate(['access']);
@@ -706,10 +706,10 @@ export class AccessComponent implements OnInit {
   constructor(private router: Router,
               private accessService: AccessService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  submitAccess(formValue) {
+  submitAccess(formValue): void {
     this.accessService.login(formValue.value.name, formValue.value.email, formValue.value.phone);
     formValue.reset();
   }
@@ -737,7 +737,7 @@ export class AppComponent {
   constructor(private auth: AuthService,
               private accesService: AccessService) {}
 
-  logoff() {
+  logoff(): void {
     this.accesService.logoff();
   }
 
@@ -778,14 +778,14 @@ export class CodeViewerComponent implements OnInit {
               private auth: AuthService,
               private codeService: CodeViewerService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.codeService.getCode().subscribe((data: string) => {
       this.code = data;
     });
     this.name = this.auth.getUser();
   }
 
-  navigateQueue() {
+  navigateQueue(): void {
     this.router.navigate(['queue']);
   }
 }
@@ -833,17 +833,19 @@ export class QueueViewerComponent implements OnInit {
   constructor(private router: Router,
               private queueService: QueueViewerService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.queueService.getQueuers().subscribe( (data) => {
       this.queuers = data;
     });
   }
 
-  navigateCode() {
+  navigateCode(): void {
     this.router.navigate(['code']);
   }
 
 }
 ----
+
+At the moment, we have a functional application working exclusively with mock data, and we want to connect to a real back-end server to make call and consume its services to have more realistic data, the way we implemented our components are completely adapted to read mock data or real server data, that is why we use services, to isolate the origin of the logic and the data from the component. Is the code of our services what is going to change, and we will going to see it now.
 
 == Making calls to server
