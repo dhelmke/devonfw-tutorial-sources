@@ -156,7 +156,7 @@ In order to make the task easier, we are going to avoid the removal of unused co
 
 Now we have a fully functional blank project, all we have to do now is just create the components and services which will compose the application.
 
-First, we are going to develop the views of the app, trough its components, and then we will create the services with the logic, security and back-end connection.
+First, we are going to develop the views of the app, through its components, and then we will create the services with the logic, security and back-end connection.
 
 === Creating components
 
@@ -244,7 +244,7 @@ Once this done, our app should have a header and the "app works!" should remain 
 
 image::images/oasp4js/3.BuildYourOwn/root_header.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/root_header.JPG"]
 
-The thing is the body of the Root component should be the *output of the router*, so now it is time to prepare the routing system.
+To make a step further, we have to modify the body of the Root component because it should be the *output of the router*, so now it is time to prepare the routing system.
 
 First we need to create a component to show as default, that will be our access view, later on we will modify it on it's section of this tutorial, but for now we just need to have it: stop the `ng serve` and run `ng generate component access`. It will add a folder to our project with all the files needed for a component. Now we can move on to the router task again. Run `ng serve` again to continue the development.
 
@@ -284,13 +284,13 @@ Finally, we remove the "{{title}}" from _app.component.html_ and in its place we
 
 image::images/oasp4js/3.BuildYourOwn/root_router.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/root_router.JPG"]
 
-As you can see, now what is in the body is the html of *AccessComponent*, this is because we told the Router to redirect to Access when the path is /access, but also, redirect to it as default if any of the other routes match with the path introduced.
+As you can see, now the body content is the html of *AccessComponent*, this is because we told the Router to redirect to Access when the path is /access, but also, redirect to it as default if any of the other routes match with the path introduced.
 
-We will definitely going to modify the header in the future to add some options like log-out or navigation arrows but, for the moment, this is all regarding Root Component.
+We will definitely going to modify the header in the future to add some options like log-out but, for the moment, this is all regarding Root Component.
 
 ==== AccessComponent
 
-As we have already created this component from the section before, let's move on to the creation of the access view.
+As we have already created this component from the section before, let's move on to building the template of the access view.
 
 First, we need to add the Covalent Layout and the card:
 
@@ -303,7 +303,7 @@ First, we need to add the Covalent Layout and the card:
 </td-layout>
 ----
 
-This will add a grey background to the view and a card on of it with the title: "Access", now that we have the basic structure of the view, lets add the form with the information to access to our queue number:
+This will add a grey background to the view and a card on top of it with the title: "Access", now that we have the basic structure of the view, lets add the form with the information to access to our queue number:
 
 * Name of the person
 * Email
@@ -347,7 +347,7 @@ So the final code with the form added will look like this:
 </td-layout>
 ----
 
-This forms contains three input container from Material and inside of them, the input with the properties to make them from each type listed above and to be all required.
+This forms contains three input container from Material and inside of them, the input with the properties listed above and making all required.
 
 Also, we need to add the button to send the information and redirect to code viewer or show an error if something went wrong in the process, but for the moment, as we neither have another component nor the auth service yet, we will implement the button visually and the validator to disable it if the form is not correct, but not the click event, we will come back later to make this working.
 
@@ -373,9 +373,9 @@ const routes: Routes = [
   { path: '**', redirectTo: '/access', pathMatch: 'full' }];
 ----
 
-With two components already created we need to use the router to navigate between them. Following the application flow of events, we are going to add a navigate function to the submit button of our access form button, so when we press it, we will be redirected our code viewer.
+With two components already created we need to use the router to navigate between them. Following the application flow of events, we are going to add a navigate function to the submit button of our access form button, so when we press it, we will be redirected to our code viewer.
 
-Turning back to _access.component.html_ we add this to the code:
+Turning back to _access.component.html_ we have to add this code:
 
 [source, html]
 ----
@@ -395,11 +395,11 @@ This means that when the user press enter or click the button, ngSubmit will sen
   }
 ----
 
-We inject an instance of Router object and declare it into the name _router_ in order to use it into the code, as we did on submitAccess(), using the navigate function and redirecting to the next view, in our case, the code-viewer we just created using the route we defined in _app.routes.ts_.
+We need to inject an instance of Router object and declare it into the name _router_ in order to use it into the code, as we did on submitAccess(), using the navigate function and redirecting to the next view, in our case, the code-viewer using the route we defined in _app.routes.ts_.
 
-Now we have a minimum of navigation flow into our application, this specific navigation will be secured later on to check the access data and to forbid any navigation trough the URL of the browser.
+Now we have a minimum of navigation flow into our application, this specific path will be secured later on to check the access data and to forbid any navigation trough the URL of the browser.
 
-Let's move on to _code-viewer_ to made the template of the component. We need a big code in the middle and a button to move to the queue:
+Let's move on to _code-viewer_ to made the template of the component. We need a big code number in the middle and a button to move to the queue:
 
 [source, html]
 ----
@@ -464,7 +464,7 @@ For our last view component we are going to use a component from Covalent Terada
 
 As always: `ng generate component queue-viewer` and add a route in _app.routes.ts_ to that component `{ path: 'queue', component: QueueViewerComponent},`
 
-Now we have the component created, let's take a bit of time to complete `navigateQueue()`function in code-viewer to point to this new component: 
+Now we have the component created, let's take a bit of time to complete `navigateQueue()` function in code-viewer to point to this new component: 
 
 [source, typescript]
 ----
@@ -500,7 +500,7 @@ Back to our recently created component, it will be quite similar to the 2 others
 Learn more about Teradata data tables in OASP4Js link:AngularComponents#teradata-data-table[HERE]
 ====
 
-What we did here is create the component by its selector, and give the needed inputs to build the table: *columns* to read in the data object and labels to show in the view of the table, and *data* to show. Also, a button to return to the code view has been added following the same system as the navigation in code, but pointing to code:
+What we did here is create the component by its selector, and give the needed inputs to build the table: *columns* to display names and establish concordance with the data, and some *data* to show. Also, a button to return to the code view has been added following the same system as the navigation in code, but pointing to 'code':
 
 [source, typescript]
 ----
@@ -579,7 +579,7 @@ export class AuthService {
 }
 ----
 
-When the access service will be done, it will call for this setters to set them with real information, and when we log off, this information will be set accordingly.
+When the access service will be done, it will call for this setters to set them with real information, and when we log off, this information will be removed accordingly.
 
 As an example of use of this information service, we will move to _app.component.ts_ and will add in the constructor the AuthService to inject it and have access to its methods.
 
@@ -590,6 +590,8 @@ Now on the template we are going to use and special property from Angular *ngIf*
 <button *ngIf="auth.isLogged()" md-icon-button mdTooltip="Log out"><md-icon>exit_to_app</md-icon></button>
 ----
 
+This property will hide the log-off icon button when the user is not logged and show it when it is logged.
+
 [NOTE]
 ====
 Learn more about authentication in OASP4Js link:AngularServices#authentication[HERE]
@@ -597,9 +599,9 @@ Learn more about authentication in OASP4Js link:AngularServices#authentication[H
 
 ==== Guard service
 
-With AuthService we have a service providing information about the state of the session for a user, so we can now establish a guard checking if the user can pass or not trough the login page. We create it exactly the same way than the AuthService: `ng generate service shared\authentication\auth-guard`.
+With AuthService we have a service providing information about the state of the session, so we can now establish a guard checking if the user can pass or not trough the login page. We create it exactly the same way than the AuthService: `ng generate service shared\authentication\auth-guard`.
 
-This services will be a bit different, because we have to implement an interface called CanActivate, which has a method call canActivate returning a boolean, this method will be called when navigating to a specified routes and depending on the return of this implemented method, the navigation will be done or rejected.
+This service will be a bit different, because we have to implement an interface called CanActivate, which has a method called canActivate returning a boolean, this method will be called when navigating to a specified routes and depending on the return of this implemented method, the navigation will be done or rejected.
 
 [NOTE]
 ====
@@ -664,14 +666,14 @@ If you save all the changes, you will realize you can not go trough access anymo
 
 As we need to have this service in order to access again to our application, this will be the first service to be created. As always, `ng generate service access/shared/access` will do the job. Also remember to *add the service to providers in app module*.
 
-This service will contain two functions, one for login when the button is pressed and other to log off when the icon button in the header is pressed. This functions will manage to set the values of the session and navigate properly. For now we are going to use a simple if to check if the user credentials are correct, in the future a server will do this for us.
+This service will contain two functions, one for login when the button is pressed and other to log off when the icon button in the header is pressed. This functions will manage to set the values of the session and navigate properly. For now we are going to use a simple `if` to check if the user credentials are correct, in the future a server will do this for us.
 
 [source, typescript]
 ----
 export class AccessService {
 
   constructor(private auth: AuthService,
-              public snackBar: MdSnackBar,  // Angular Material component to show when an error ocurred
+              public snackBar: MdSnackBar,  // Angular Material snackbar component to show when an error ocurred
               private router: Router) { }
 
   login(name, email, phone): void {
@@ -697,14 +699,13 @@ export class AccessService {
 
 image::images/oasp4js/3.BuildYourOwn/login_error.JPG[,width="250", link="images/oasp4js/3.BuildYourOwn/login_error.JPG"]
 
-Now we have to inject this service in out AccessComponent in order to consume it. We inject the dependency into the component and we change our submit function to get the values from the form and to call the service instead of just redirecting anyway:
+Now we have to inject this service in our AccessComponent in order to consume it. We inject the dependency into the component and we change our submit function to get the values from the form and to call the service instead of just always redirecting:
 
 [source, typescript]
 ----
 export class AccessComponent implements OnInit {
 
-  constructor(private router: Router,
-              private accessService: AccessService) { }
+  constructor(private accessService: AccessService) { }
 
   ngOnInit(): void {
   }
@@ -726,9 +727,16 @@ This also has to be added to the template in order to pass the parameter into th
 
 ngSubmit now passes as parameter the ngForm with the values introduced by the user.
 
-Having this working should be enough to have again working our access component and grant access to the code and queue viewer if we introduce the correct credentials and we do not, the error message would be shown and the access not permitted, staying still in the access view.
+Having this working should be enough to have again working our access component and grant access to the code and queue viewer if we introduce the correct credentials and if we do not, the error message would be shown and the navigation not permitted, staying still in the access view.
 
-Last thing to do regarding security is to make functional our log-off icon button in the header, we move to _app.component.html_ and add the correspondent (click) event calling for a function, in my case, called "logoff()". The name has to correspond with the one used in _app.component.ts_, where we inject AccessService so we can call its logoff function where the one from this components is called:
+Last thing to do regarding security is to make functional our log-off icon button in the header, we move to _app.component.html_ and add the correspondent (click) event calling for a function, in my case, called "logoff()".
+
+[source, html]
+----
+    <button *ngIf="auth.isLogged()" (click)="logoff()"  md-icon-button mdTooltip="Log out"><md-icon>exit_to_app</md-icon></button>
+----
+
+The name has to correspond with the one used in _app.component.ts_, where we inject AccessService so we can call its logoff function where the one from this components is called:
 
 [source, typescript]
 ----
@@ -744,7 +752,7 @@ export class AppComponent {
 }
 ----
 
-Once all of this finished and saved, we should have all the workflow and navigation of the app working fine. Now it is time to receive the data of the user from a service in order to, in the future, call a server for this information.
+Once all of this is finished and saved, we should have all the workflow and navigation of the app working fine. Now it is time to receive the data of the application from a service in order to, in the future, call a server for this information.
 
 ==== Code Service
 
@@ -758,12 +766,14 @@ export class CodeViewerService {
 
   constructor() { }
 
-  getCode(): Observable<string> {  //later, this will make a call to the server and return an Observable
+  getCode(): Observable<string> {  //later, this will make a call to the server
     return Observable.of('Q06');   //but, for now, this Observable will do the work
   }
 
 }
 ----
+
+We return an Observable because when we implement calls to the server, we will use Http, and they return observables, so the best way to be prepared to this connection is having a simulation of the return of this Http calls.
 
 It is time to inject it in the component and change a bit the variables to show in the template to get their vale from auth and our code-viewer service:
 
@@ -846,6 +856,6 @@ export class QueueViewerComponent implements OnInit {
 }
 ----
 
-At the moment, we have a functional application working exclusively with mock data, and we want to connect to a real back-end server to make call and consume its services to have more realistic data, the way we implemented our components are completely adapted to read mock data or real server data, that is why we use services, to isolate the origin of the logic and the data from the component. Is the code of our services what is going to change, and we will going to see it now.
+At the moment, we have a functional application working exclusively with mock data, but we want to connect to a real back-end server to make calls and consume its services to have more realistic data, the way we implemented our components are completely adapted to read mock data or real server data, that is why we use services, to isolate the origin of the logic and the data from the component. Is the code of our services what is going to change, and we will going to see it now.
 
 == Making calls to server
