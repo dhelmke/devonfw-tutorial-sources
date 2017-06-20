@@ -20,3 +20,27 @@ In the case that you are unable to set up the extensions using the method mentio
 
 === Node.js
 Go to the https://nodejs.org/en/[node.js] official page and download the version you like the most, the LTS or the Current as you wish.
+
+=== Typescript
+Let’s install what is going to be the main language during development: TypeScript. This is a ES6 superset that will help us to get a final clean and distributable JavaScript code. This is installed globally with https://www.npmjs.com/[npm], the package manager used to install and create javascript modules in Node.js, that is installed along with Node, so for install typescript you don’t have to install npm explicitly, only run this command:
+
+`npm install –g typescript`
+
+=== Yarn
+As npm, https://yarnpkg.com/en/[Yarn] is a package manager, the differences are that Yarn is quite more faster and usable, so we decided to use it to manage the dependencies of OASP4Fn projects.
+
+To install it you only have to go to https://yarnpkg.com/en/docs/install[the official installation page] and follow the instructions.
+
+Even though, if you feel more confortable with npm, you can remain using npm, there is no problem regarding this point.
+
+=== Serverless
+Lastly, we gonna install the serverless framework, that gonna help us deploying our handlers in our provider we have chosen.
+
+`npm install –g serverless`
+
+== Starting our project through a template
+To start with the tutorial we gonna use the https://github.com/oasp/oasp4fn-application-template[oasp4fn application template], so use the following command to clone it in your local machine:
+
+`git clone https://github.com/oasp/oasp4fn-application-template.git jumpTheQueue`
+
+This template comes with the structure that has to have an oasp4fn application and the skeleton of some handlers. This handlers are stored on event folders, which we can add or remove adjusting to our needs, so how we only gonna use http events, we gonna access to the cloned folder an remove the s3 folder inside the handlers folder: 
