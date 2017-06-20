@@ -43,4 +43,20 @@ To start with the tutorial we gonna use the https://github.com/oasp/oasp4fn-appl
 
 `git clone https://github.com/oasp/oasp4fn-application-template.git jumpTheQueue`
 
-This template comes with the structure that has to have an oasp4fn application and the skeleton of some handlers. This handlers are stored on event folders, which we can add or remove adjusting to our needs, so how we only gonna use http events, we gonna access to the cloned folder an remove the s3 folder inside the handlers folder: 
+This template comes with the structure that has to have an OASP4Fn application and the skeleton of some handlers. This handlers are stored on event folders, which we can add or remove adjusting to our needs, so how we only gonna use http events, we gonna access to the cloned folder an remove the s3 folder inside the handlers and test folders:
+
+`cd jumpTheQueue\
+rm handlers\S3\ -r
+rm test\S3\ -r`
+
+Only remains to install the base dependencies of our code using yarn, so we only have to run:
+
+`yarn`
+
+== Local database set up 
+The database we gonna use during this tutorial is https://aws.amazon.com/dynamodb/[dynamodb], the noSQL database provided by AWS, which is supported by OASP4Fn.
+First you have to download and start it following the amazon http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html#DynamoDBLocal.DownloadingAndRunning[official documentation], once you have downloaded and started, open the dynamodb shell in this local endpoint:
+
+http://localhost:8000/shell/
+
+And an interactive shell will be opened in your default browser like this:
