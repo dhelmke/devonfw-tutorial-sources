@@ -84,7 +84,10 @@ image::images/oasp4j/4.Components/mythaistar_component_core1.png[width="250", li
 
 Basically an _Entity_ is simply a https://en.wikipedia.org/wiki/Plain_old_Java_object[POJO] that will be mapped to a table in the data base, and that reflects each table column with a suitable property.
 
-image::images/oasp4j/4.Components/mythaistar_component_core2.png[, link="images/oasp4j/4.Components/mythaistar_component_core2.png"] 
+image::images/oasp4j/4.Components/mythaistar_component_core2.png[, link="images/oasp4j/4.Components/mythaistar_component_core2.png"]
 
 == Create your component
 
+After you have completed link:BuildOASP4Japplication[your own OASP4J app] creation, we are going to create our first app component.
+
+Going back to our example application [TODO: *LINK TO JumpTheQueue Reference*] _Jump the Queue_ we need to provide two
