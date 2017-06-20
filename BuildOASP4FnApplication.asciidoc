@@ -45,9 +45,9 @@ To start with the tutorial we gonna use the https://github.com/oasp/oasp4fn-appl
 
 This template comes with the structure that has to have an OASP4Fn application and the skeleton of some handlers. This handlers are stored on event folders, which we can add or remove adjusting to our needs, so how we only gonna use http events, we gonna access to the cloned folder an remove the s3 folder inside the handlers and test folders:
 
-`cd jumpTheQueue\
+```cd jumpTheQueue\
 rm handlers\S3\ -r
-rm test\S3\ -r`
+rm test\S3\ -r```
 
 Only remains to install the base dependencies of our code using yarn, so we only have to run:
 
@@ -60,3 +60,26 @@ First you have to download and start it following the amazon http://docs.aws.ama
 http://localhost:8000/shell/
 
 And an interactive shell will be opened in your default browser like this:
+
+image::images/oasp4fn/3.BuildYourOwn/dynamo_db_shell.PNG[, link="images/oasp4fn/3.BuildYourOwn/dynamo_db_shell.PNG"]
+
+Now we gonna create a table called Queue with the opened shell, to do that write "createTable" in the text pane sited at the left side of the screen and press Ctrl + Space, this will generate a template object specifying the properties that has to be passed to the create function, so we have to modify that object, having at the end something like this:
+
+image::images/oasp4fn/3.BuildYourOwn/createTable.PNG[, link="images/oasp4fn/3.BuildYourOwn/createTable.PNG"]
+
+Finally press Ctrl + Enter, and if we have specified the properties properly an output with table description will be displayed at the left side console:
+
+image::images/oasp4fn/3.BuildYourOwn/table_description.PNG[, link="images/oasp4fn/3.BuildYourOwn/table_description.PNG"]
+
+== Adding Typings
+The template we have cloned comes with a declaration types at the root of the handlers folder with typings for AWS lambda service and events, but must add more types for the data we gonna manage, so we gonna export a interface Visitor in our declaration file, that will look like this:
+
+image::images/oasp4fn/3.BuildYourOwn/visitor_interface.PNG[, link="images/oasp4fn/3.BuildYourOwn/visitor_interface.PNG"]
+
+== Start the development
+Now that we already have finish the set up of our project, we gonna add our handlers based on our design: 
+
+* One that will add the visitor to the queue
+* And other to get your position in the queue
+
+Both of the handlers will be triggered by http events with a post method, so we should delete the rest of the methods than don't gonna use, both in the handlers and test folders. So once we have done that we gonna modify our initial handler in the template, first of all renaming it to _register-handler.ts_.
