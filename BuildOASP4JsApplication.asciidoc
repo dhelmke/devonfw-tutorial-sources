@@ -806,13 +806,13 @@ export class CodeViewerComponent implements OnInit {
 Learn more about Observables and RxJs in OASP4Js link:AngularServices#server-communication[HERE]
 ====
 
-Now if we log-in in the application, the name we introduce in the form will be the name displayed in the code-viewer view and the code is the one set in the service.
+Now if we log in the application, the name we introduce in the form will be the name displayed in the code-viewer view. And the queue code will be the one we set in the service.
 
 ==== Queue service
 
 Last element to create in our application, as always: `ng generate service queue-viewer/shared/queue-viewer` and then add the service in providers at _app.module.ts_.
 
-This services will work the same way code-viewer, will simulate an observable that return the data displayed in the data table of Covalent Teradata:
+This service will work the same way code-viewer, it will simulate an observable that returns the data that will be displayed in the data table of Covalent Teradata:
 
 [source, typescript]
 ----
@@ -827,7 +827,7 @@ export class CodeViewerService {
 }
 ----
 
-And the _queue.component.ts_ will be modified the same way:
+And the _queue-viewer.component.ts_ will be modified the same way:
 
 [source, typescript]
 ----
