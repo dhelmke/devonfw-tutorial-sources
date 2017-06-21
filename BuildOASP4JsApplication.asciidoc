@@ -451,7 +451,7 @@ Finally, we are going to add an icon button to the header to log out, we are not
 ----
   <div layout="row" layout-align="center center" td-toolbar-content flex>
     Jump The Queue
-    <span flex></span>
+    <span flex></span> //Fill empty space to put the icon in the right of the header
     <button md-icon-button mdTooltip="Log out"><md-icon>exit_to_app</md-icon></button>
   </div>
 ----
