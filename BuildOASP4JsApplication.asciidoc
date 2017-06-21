@@ -803,7 +803,7 @@ export class CodeViewerComponent implements OnInit {
 
 [NOTE]
 ====
-Learn more about Observables and RxJs in OASP4Js link:AngularServices#RxJS[HERE]
+Learn more about Observables and RxJs in OASP4Js link:AngularServices#server-communication[HERE]
 ====
 
 Now if we log-in in the application, the name we introduce in the form will be the name displayed in the code-viewer view and the code is the one set in the service.
