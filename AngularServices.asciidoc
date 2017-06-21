@@ -37,6 +37,36 @@ For more information: https://angular.io/guide/dependency-injection[Angular DI]
 
 Security or other global services will be stored in a shared folder at the same level of the rest of the components, but the services that are specific of a certain component will be in a shared folder too, but inside of that certain component. We can indicate the path to create our services when creating them using angular/cli
 
+`ng generate service <path>/<service-name>`
+
 == Authentication
+
+Authentication is a special service created to maintain user session in the application, in the tutorial case is serves just as a indicator of the logged state and the name of the user, but it can be extended to store tokens, validate permission of roles and so on.
+
+Basically is a service created with the objective of manage what the user can or can not see depending on their actions in the application.
+
 == Guards
-== RxJS
+
+https://angular.io/guide/router#milestone-5-route-guards[Guards] are services that implements an interface called *CanActivate*, this interface forces to implement a canActivate method which returns a boolean. Is up to you decide what conditions are you going to implement to forbid the navigation to a certain component, but the fact is you can implement it there and then return if the navigation can be done returning true or can not be done returning false.
+
+Guards are strongly related to Router, because are the routes who will consume them adding the property `canActivate:[GuardServiceName]` to each route to be protected, you can create as much guards as you want to secure every single component as desired.
+
+If your application will have a login process, or special areas not accessible to everyone. We encourage to use Guards, because even if you hide the button to navigate, the user can modify the URL in the browser and have access to the component, with guards implemented, this navigation will be forbidden and you app not compromised.
+
+== Server communication
+
+Angular uses https://angular.io/guide/http#http[HTTP] to communicate with the server, but what the call return is an object from the library http://reactivex.io/rxjs/[RxJS], which is a third party library endorsed by Angular to manage asynchronous calls based on the Observable pattern.
+
+You do not have to install the package because it comes with the creation of the project with the angular/cli, you just have to import the correct operators and modules to use it correctly.
+
+Observables work as follows:
+
+1. First you make a HTTP call to your server URL calling for a service, the server will return an Observable that you can work with it using methods that you can find in the API, the most common is `.map` to convert the response to JSON and have easy access to data the server may sent to you. 
+
+2. When already implemented all the operators to the Observable, the function should return the whole Observable in order to the component that consume the service, can subscribe to this function to obtain the data.
+
+3. The component call to this service function subscribing to the Observable returned. Subscribe is a function that accept three properties, the first one is a function with the data if everything went correctly, the second one is a failure function that will execute is something failed and one last event that triggers when the Observable finished.
+
+This is the most common workflow with Observables. Take into account that if you put some code after the Subscribe, it will be probably executed before the subscribe ends, if you need something to be executed before the subscribe function, you should put it inside.
+
+https://angular.io/guide/http#rxjs-library[Here] you can will find more information about RxJs and Observables coming from the main page of Angular.
