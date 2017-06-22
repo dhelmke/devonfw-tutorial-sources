@@ -92,15 +92,21 @@ image::images/oasp4j/4.Components/mythaistar_component_core2.png[, link="images/
 
 After you have completed link:BuildOASP4Japplication[your own OASP4J app] creation, we are going to create our first app component.
 
-Going back to our example application, link:JumpTheQueueDesign[Jump the Queue], we need to provide two basic functionalities: register a user (returning an access code) and show the registered queue members. To accomplish that we are going to work over two entities: _Visitor_ and _AccessCode_.
+Going back to our example application, link:JumpTheQueueDesign[Jump the Queue], we need to provide two basic functionalities:
+
+- register a user (returning an access code).
+
+- show the registered queue members.
+
+To accomplish that we are going to work over two entities: _Visitor_ and _AccessCode_.
 
 image::images/oasp4j/4.Components/visitor-accesscode.png[width="250", link="images/oasp4j/4.Components/visitor-accesscode.png"]
 
-The _Visitor_ that will be defined with: _name_, _email_ and _phone_.
+The _Visitor_ will be defined with: _name_, _email_ and _phone_.
 
-And the _Access Code_ that will represent a _code_ and the _date_.
+The _Access Code_ will be represented as a _code_ and a _date_.
 
-In addition we will have to represent the https://en.wikipedia.org/wiki/One-to-one_(data_model)[one to one] relation between both entities.
+In addition, we will have to represent the https://en.wikipedia.org/wiki/One-to-one_(data_model)[one to one] relation between both entities.
 
 Now is the moment to decide the components of our app. The complexity of the functionality would allow us to create only one component for managing both entities. But ,in order to clarify the example, we are going to create also two components, one for _Visitors_ and other for _Access Codes_.
 
@@ -111,7 +117,7 @@ However if you feel more comfortable managing both entities in a single componen
 
 === The data base
 
-In the projects created with the _Oasp4j_ archetype we already have a complete data base schema that we can use as a model to create our own. By default we are going to work over the http://www.h2database.com/html/main.html[H2] database engine provided in the _Oasp4j_ applications, although you can use other database alternatives for this exercise. 
+In the projects created with the _Oasp4j_ archetype, we already have a complete data base schema that we can use as a model to create our own. By default we are going to work over the http://www.h2database.com/html/main.html[H2] database engine provided in the _Oasp4j_ applications, although you can use other database alternatives for this exercise. 
 
 Open the `/jumpthequeue-core/src/main/resources/db/migration/h2/V0001__R001_Create_schema.sql` and delete all the tables (except _BinaryObject_ and _RevInfo_, that are used internally by default).
 
@@ -132,7 +138,7 @@ CREATE TABLE Visitor(
 );
 ----
 
-- _id_: the id for each visitor
+- _id_: the id for each visitor.
 
 - _modificationCounter_: used internally by https://en.wikipedia.org/wiki/Java_Persistence_API[JPA] to take care of the https://en.wikipedia.org/wiki/Optimistic_concurrency_control[optimistic locking] for us.
 
@@ -161,7 +167,7 @@ CREATE TABLE AccessCode(
 );
 ----
 
-- _id_: the id for each visitor
+- _id_: the id for each code.
 
 - _modificationCounter_: used internally by https://en.wikipedia.org/wiki/Java_Persistence_API[JPA] to take care of the https://en.wikipedia.org/wiki/Optimistic_concurrency_control[optimistic locking] for us.
 
@@ -202,9 +208,9 @@ The name for this component will be `visitormanagement` and for the entity `Visi
 From the root package of the project create the following packages:
 
 ----
-* visitormanagement
-** dataaccess
-*** api
+- visitormanagement
+-- dataaccess
+--- api
 ---- 
 
 image::images/oasp4j/4.Components/visitor_component_packages1.png[ link="images/oasp4j/4.Components/visitor_component_packages1.png"]
@@ -456,15 +462,16 @@ With this we have finished preparing the core of our components. Now we can star
 
 Once we have finished creating the _core_ of our components we could continue creating all the structure and elements manually, but we are going to show how using _Cobigen_ for those tasks we can save a significant amount of time and effort.
 
-Before start using _Cobigen_ we need to import into our project the _CobiGenTemplates_. To do so we only need to use the Eclipse's menu _File > Import > Existing Projects into Workspace_ and browsing for `workspaces/main/CobiGen_Templates` directory. Then click _Finish_ button and you should have the _CobiGenTemplates_ as a new project in Eclipse's workspace.
+==== Importing Cobigen templates
+
+Before start using _Cobigen_ we need to import into our project the _CobiGenTemplates_. To do so, we only need to use the Eclipse's menu _File > Import > Existing Projects into Workspace_ and browse to select the `workspaces/main/CobiGen_Templates` directory. Then click _Finish_ button and you should have the _CobiGenTemplates_ as a new project in Eclipse's workspace.
 
 image::images/oasp4j/4.Components/cobigen_templates.png[width="250", link="images/oasp4j/4.Components/cobigen_templates.png"]
 
-==== _Visitor_ component structure
 
-[NOTE]
-====
-*Cobigen Health Check*: The first time we use Cobigen is recommended to check the health of the tool. To do so, right-click over an entity and select _Health Check_
+==== Cobigen Health Check
+
+The first time we use Cobigen is recommended to check the health of the tool. To do so, right-click over an entity and select _Health Check_
 
 image::images/oasp4j/4.Components/cobigen0.png[link="images/oasp4j/4.Components/cobigen0.png"]
 
@@ -473,13 +480,16 @@ The next dialogs will show us if there are outdated templates. In that case we c
 image::images/oasp4j/4.Components/cobigen_health1.png[width="350",link="images/oasp4j/4.Components/cobigen_health1.png"]
 
 image::images/oasp4j/4.Components/cobigen_health2.png[width="350",link="images/oasp4j/4.Components/cobigen_health2.png"]
-====
+
+==== _Visitor_ component structure
 
 To create the whole structure of a component with _Cobigen_ we only need to right-clicking over our component core entity, select _Cobigen > Generate_
 
 image::images/oasp4j/4.Components/cobigen1.png[link="images/oasp4j/4.Components/cobigen1.png"]
 
-Now we have to choose which packages we want to generate with the tool. The options are:
+Now we have to choose which packages we want to generate with the tool.
+
+The options are:
 
 * _CRUD DAO's_: generates the implementation of CRUD operations in the data access layer.
 
@@ -493,7 +503,7 @@ image::images/oasp4j/4.Components/cobigen2_crud_rest.png[link="images/oasp4j/4.C
 
 image::images/oasp4j/4.Components/cobigen2_crud_logic_withusecases.png[link="images/oasp4j/4.Components/cobigen2_crud_logic_withusecases.png"]
 
-* _CRUD logic (all in one)_: is same as previous option but with the implementation of the logic layer in only one class instead of different use-cases classes.
+* _CRUD logic (all in one)_: does the same as previous option but with the implementation of the logic layer in only one class instead of different use-cases classes.
 
 image::images/oasp4j/4.Components/cobigen2_crud_logic_allinone.png[link="images/oasp4j/4.Components/cobigen2_crud_logic_allinone.png"]
 
@@ -505,7 +515,7 @@ image::images/oasp4j/4.Components/cobigen2_entityinfrastructure.png[link="images
 
 image::images/oasp4j/4.Components/cobigen2_tos.png[link="images/oasp4j/4.Components/cobigen2_tos.png"]
 
-To generate all the needed functionalities of our component we are going to select the following packages to be generated
+To generate all the needed functionalities of our component we are going to select the following packages to be generated *at the same time*
 
 image::images/oasp4j/4.Components/cobigen3_allpackages.png[link="images/oasp4j/4.Components/cobigen3_allpackages.png"]
 
