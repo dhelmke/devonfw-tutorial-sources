@@ -29,7 +29,6 @@
 *** link:BuildOASP4JsApplication[Build your own OASP4Js application]
 *** link:AngularComponents[The Angular Components]
 *** link:AngularServices[The Angular Services]
-*** link:AngularServerConnection[Connection with backend]
 *** link:AngularDeployment[Deployment]
 
 
