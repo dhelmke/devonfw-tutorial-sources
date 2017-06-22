@@ -859,3 +859,8 @@ export class QueueViewerComponent implements OnInit {
 At the moment, we have a functional application working exclusively with mock data, but we want to connect to a real back-end server to make calls and consume its services to have more realistic data, the way we implemented our components are completely adapted to read mock data or real server data, that is why we use services, to isolate the origin of the logic and the data from the component. Is the code of our services what is going to change, and we will going to see it now.
 
 == Making calls to server
+
+
+That is all regarding how to build your own OASP4Js application example, now is up to you add features, change styles and do everything you could imagine. Just one final step to complete the tutorial, run the tutorial outside your local machine: Deployment.
+
+=== link:AngularDeployment[Next chapter: Deploy your OASP4Js app]

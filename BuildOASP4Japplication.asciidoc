@@ -181,3 +181,5 @@ image::images/oasp4j/3.BuildYourOwn/emptyapp_security.png[ width="650", link="im
 * Unit test support and model
 
 image::images/oasp4j/3.BuildYourOwn/emptyapp_test.png[ width="650", link="images/oasp4j/3.BuildYourOwn/emptyapp_test.png"]
+
+=== link:OASP4jComponents[Next chapter: Add a component to your app]
