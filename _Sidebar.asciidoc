@@ -20,6 +20,7 @@
 *** link:OASP4FnIntroduction[OASP4Fn intro]
 *** link:AnOASP4FnApplication[An OASP4Fn application]
 *** link:BuildOASP4FnApplication[Build your own OASP4Fn application]
+*** link:OASP4FnTesting[Testing]
 *** link:OASP4FnDeployment[Deployment]
 
 * **OASP Frontend Technologies**
