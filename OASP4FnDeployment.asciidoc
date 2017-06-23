@@ -4,7 +4,7 @@ toc::[]
 = Deployment of OASP4Fn applications
 The deployment is performed by the serverless framework and it's quite simple, you only have to run the following command to deploy the full service:
 
-```sls deploy```
+`sls deploy`
 
 [IMPORTANT]
 ====
@@ -17,7 +17,7 @@ image::images/oasp4fn/3.BuildYourOwn/sls_deploy.PNG[, link="images/oasp4fn/3.Bui
 
 In the case that you have a lot of handlers to deploy, and you make a little change to a handler, there is no necessary to deploy again all the handlers, only the modified one using this command:
 
-```sls deploy function -f <your_function_name>```
+`sls deploy function -f <your_function_name>`
 
 [NOTE]
 ====
