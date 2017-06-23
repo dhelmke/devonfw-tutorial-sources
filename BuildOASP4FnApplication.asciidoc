@@ -225,11 +225,11 @@ export async function search (event: HttpEvent, context: Context, callback: Func
 == Generating the configuration files
 In this part we gonna learn how to generate the configuration files that we gonna use to build and deploy our handlers. The first step, is to add the configuration in the _oasp4fn.config.js_ file, but how isn't necessary more configuration than the default one in this tutorial, we gonna remove that file:
 
-```rm oasp4fn.config.js```
+`rm oasp4fn.config.js`
 
 Finally we can execute the command:
 
-```yarn fun```
+`yarn fun`
 
 And is all goes well, two files, _serverless.yml_ and webpack.config.json will be generated and we will see this command line output:
 
@@ -238,7 +238,7 @@ image::images/oasp4fn/3.BuildYourOwn/fun_output.PNG[, link="images/oasp4fn/3.Bui
 == Build and run your handlers locally
 To execute our handlers locally we will make use of the https://github.com/dherault/serverless-offline[serverless-offline] plugin, that emulates a local API-gateway that let you build your handlers through webpack and send http requests to them, so run:
 
-```yarn offline```
+`yarn offline`
 
 [IMPORTANT]
 ====
