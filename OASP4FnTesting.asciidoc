@@ -51,7 +51,7 @@ Now is time to call the function and check his behavior, first of all execute `y
 
 [IMPORTANT]
 ====
-Keep in mind that if you don't have the instace of the database running, as is specified in link:BuildOASP4FnApplication/Local database set up[this section], the tests won't pass.
+Keep in mind that if you don't have the instace of the database running, as is specified in link:BuildOASP4FnApplication#local-database-set-up[this section], the tests won't pass.
 ====
 
 [source, typescript]
