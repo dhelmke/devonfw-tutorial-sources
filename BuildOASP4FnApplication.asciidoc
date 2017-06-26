@@ -64,7 +64,7 @@ Only remains to install the base dependencies of our code using yarn, so we only
 
 `yarn`
 
-== Local database set up 
+==Local database set up 
 The database we gonna use during this tutorial is https://aws.amazon.com/dynamodb/[dynamodb], the noSQL database provided by AWS, which is supported by OASP4Fn.
 First you have to download and start it following the amazon http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html#DynamoDBLocal.DownloadingAndRunning[official documentation], once you have downloaded and started, open the dynamodb shell in this local endpoint:
 
@@ -131,7 +131,7 @@ Finally, it's worth saying that there are more ways to pass the credentials to t
 http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html[official documentation].
 
 == Adding Typings
-The template we have cloned comes with a declaration types at the root of the handlers folder with typings for AWS lambda service and events, but must add more types for the data we gonna manage, so we gonna export a interface Visitor in our declaration file, that will look like this:
+The template we have cloned comes with a declaration types at the root of the handlers folder with typings for AWS lambda service and events, but must add more types for the data we gonna manage, so we gonna export a interface Visitor and a interface Code in our declaration file, that will look like this:
 
 [source, typescript]
 ----
@@ -139,6 +139,11 @@ export interface Visitor {
     name: string;
     email: string;
     phone: string;
+} 
+
+export interface Code {
+    code: string;
+    dateAndTime: number;
 } 
 ----
 
@@ -151,7 +156,7 @@ Now that we already have finish the set up of our project, we gonna add our hand
 Both of the handlers will be triggered by http events with a post method, so we should delete the rest of the methods than don't gonna use, both in the handlers and test folders. So once we have done that we gonna modify our initial handler in the template following the next steps:
 
 1. Rename the template handler to _register-handler.ts_
-2. Install the _crypto-random-string_ and _lodash_ packages through ```yarn add <package_name>``` and import them.
+2. Install the _lodash_ package through ```yarn add <package_name>``` and import it.
 3. Import the _fn-dynamo_ adapter.
 4. Add our _Visitor_ interface we add to the _types.d.ts_ file.
 5. Ser the dynamo adapter to oasp4fn as the database adapter.
@@ -159,7 +164,30 @@ Both of the handlers will be triggered by http events with a post method, so we 
 7. Rename the handler.
 8. Write the logic of our function with the the imported adapter.
 
-So the handler that will register the user to the queue will be able to take the visitor information, generata a unique code with the _crypto-random-string_ package, insert it into our data base, along with the generated code and return that code with the hour to the visit, so the resulting handler will look like this:
+But before write the logic of our handler, as we need to generate a string code, to perform that, we gona add a function to the _utils.ts_ file at the root of our _handlers_ folder, and export it, so that function will return a alpha-numeric string code based on passed length:
+
+[source, typescript]
+----
+import * as _ from 'lodash';
+
+const ALPHABET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+
+export let getRandomCode = (len: number) => {
+	if (!Number.isFinite(len) || len < 1) {
+		throw new TypeError('Invalid code lenght');
+	}
+
+    let str = '';
+    while(len > 0) {
+        str += ALPHABET[_.random(Number.MAX_SAFE_INTEGER) % ALPHABET.length];
+        --len;
+    }
+
+	return str;
+};
+----
+
+So the handler that will register the user to the queue will be able to take the visitor information, generata a unique code with the above function package, insert it into our data base, along with the result of the handler, the generated code and the hour to the visit, so the resulting handler will look like this:
 
 [source, typescript]
 ----
@@ -257,5 +285,5 @@ After this, test your other handler, sending a void object with the POST http re
 
 image::images/oasp4fn/3.BuildYourOwn/postman_search.PNG[, link="images/oasp4fn/3.BuildYourOwn/postman_search.PNG"]
 
-=== link:OASP4FnDeployment[Next chapter: Deploy your OASP4Fn app]
+=== link:OASP4FnTesting[Next chapter: Test your OASP4Fn app]
 
