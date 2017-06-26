@@ -160,7 +160,7 @@ CREATE TABLE AccessCode(
   id BIGINT NOT NULL AUTO_INCREMENT,
   modificationCounter INTEGER NOT NULL,
   code VARCHAR(5),
-  dateAndTime timestamp,
+  dateAndTime TIMESTAMP,
   idVisitor BIGINT,
   CONSTRAINT PK_AccessCode PRIMARY KEY(id),
   CONSTRAINT FK_AccessCode_idVisitor FOREIGN KEY(idVisitor) REFERENCES Visitor(id)
@@ -188,8 +188,8 @@ INSERT INTO Visitor (id, modificationCounter, name, email, phone, idCode) VALUES
 INSERT INTO Visitor (id, modificationCounter, name, email, phone, idCode) VALUES (2, 1, 'Peter', 'peter@mail.com', '789101', 2);
 
 
-INSERT INTO AccessCode (id, modificationCounter, code, dateAndTime, idVisitor) VALUES (1, 1, 'A01','2018-08-01', 1);
-INSERT INTO AccessCode (id, modificationCounter, code, dateAndTime, idVisitor) VALUES (2, 1, 'A02','2018-08-02', 2);
+INSERT INTO AccessCode (id, modificationCounter, code, dateAndTime, idVisitor) VALUES (1, 1, 'A01', CURRENT_TIMESTAMP + (60 * 60 * 24 * 5), 1);
+INSERT INTO AccessCode (id, modificationCounter, code, dateAndTime, idVisitor) VALUES (2, 1, 'A02', CURRENT_TIMESTAMP + (60 * 60 * 24 * 5), 2);
 ----
 
 
@@ -383,7 +383,7 @@ And the content of the _AccessCodeEntity_ before start using _Cobigen_ will be
 ----
 package com.cap.jumpthequeue.accesscodemanagement.dataaccess.api;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -399,7 +399,7 @@ public class AccessCodeEntity {
   private String code;
 
   @Temporal(TemporalType.TIMESTAMP)
-  private Date dateAndTime;
+  private Timestamp dateAndTime;
 
   private VisitorEntity visitor;
 
@@ -422,7 +422,7 @@ public class AccessCodeEntity {
   /**
    * @return dateAndTime
    */
-  public Date getDateAndTime() {
+  public Timestamp getDateAndTime() {
 
     return this.dateAndTime;
   }
@@ -430,7 +430,7 @@ public class AccessCodeEntity {
   /**
    * @param dateAndTime new value of {@link #getdateAndTime}.
    */
-  public void setDateAndTime(Date dateAndTime) {
+  public void setDateAndTime(Timestamp dateAndTime) {
 
     this.dateAndTime = dateAndTime;
   }
@@ -533,7 +533,7 @@ image::images/oasp4j/4.Components/cobigen5_expected_errors.png[link="images/oasp
 
 Now we are going to repeat the same process using _Cobigen_ with our other _AccessCode_ component.
 
-Once the process has finished you may see that we need to also adjust manually some imports related to _Date_ type in:
+Once the process has finished you may see that we need to also adjust manually some imports related to _Timestamp_ type in:
 
 - `accesscodemanagement/common/api/AccessCode.java`
 
@@ -542,8 +542,6 @@ Once the process has finished you may see that we need to also adjust manually s
 - `accesscodemanagement/dataaccess/impl/dao/AccessCodeDaoImpl.java`
 
 - `accesscodemanagement/logic/api/to/AccessCodeEto.java`
-
-image::images/oasp4j/4.Components/cobigen6_manual_import.png[link="images/oasp4j/4.Components/cobigen6_manual_import.png"]
 
 Solve it manually using the Eclipse helpers and finally go to `visitormanagement/logic/api/to/VisitorCto.java` and resolve our last compilation error related to `AccessCodeEto`, that has been already created.
 
