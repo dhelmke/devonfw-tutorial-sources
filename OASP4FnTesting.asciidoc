@@ -131,7 +131,7 @@ after(async () => {
 });
 ----
 
-Keep in mind that the variable _code_ is the property code located in the returned object of the handler _visitor_ that you should store it when the visitor callback return it, so once said this, at the end of the road we have this test file:
+Keep in mind that the variable _code_ is the property code located in the returned object of the handler _register_ that you should store, when his callback return it, so once said this, at the end of the road we have this test file:
 
 [source, typescript]
 ----
