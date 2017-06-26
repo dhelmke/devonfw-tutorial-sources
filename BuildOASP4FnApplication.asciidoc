@@ -164,7 +164,7 @@ Both of the handlers will be triggered by http events with a post method, so we 
 7. Rename the handler.
 8. Write the logic of our function with the the imported adapter.
 
-But before write the logic of our handler, as we need to generate a string code, to perform that, we gona add a function to the _utils.ts_ file at the root of our _handlers_ folder, and export it, so that function will return a alpha-numeric string code based on passed length:
+But before write the logic of our handler, as we need to generate a string code, to perform that, we gonna add a function to the _utils.ts_ file at the root of our _handlers_ folder, and export it, so that function will return an alpha-numeric string code based on passed length:
 
 [source, typescript]
 ----
