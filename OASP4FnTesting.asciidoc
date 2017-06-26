@@ -2,3 +2,15 @@
 toc::[]
 
 = Testing of OASP4Fn applications
+In this chapter we are going to learn how to tests applications in OASP4Fn using the http://mochajs.org/[mocha] framework and the http://chaijs.com/[chai] assertion library.
+
+= Install global dependencies
+As the title says in this section we're going to specify the global dependencies that we need to run our tests, that only are the test framework and the typescript interpreter:
+
+```
+yarn global add mocha
+yarn global add ts-node
+```
+
+No more dependencies are needed, because we start our project with the oasp4fn application template and the local part of the test dependencies are specified as dev-dependencies at the _package.json_.
+
