@@ -1,0 +1,115 @@
+:toc: macro
+toc::[]
+
+= OASP4J adding custom functionality
+
+In the link:OASP4JLayers[previous chapter] we have seen that using _Cobigen_ we can generate in a few _clicks_ all the structure and functionality of an _Oasp4j_ component.
+
+In this chapter we are going to show how to add custom functionalities in our projects that are out of the scope of the code that _Cobigen_ is able to cover.
+
+== The requirement
+
+The _Jump the Queue_ design defines a link:JumpTheQueueDesign#user-story-register[User Story]in which a visitor can register into an event and obtain an access code to avoid a queue.
+
+In our _standard_ implementation of the _Jump the queue_ app we have used _Cobigen_ to generate the components so we have a default implementation of the services where saving a visitor returns the visitor data as confirmation.
+
+We are going to create a new service `/register`, to register a visitor and return both the visitor data and the access code.
+
+We also are going to create the logic to generate the access code.
+
+== Creating the service
+
+To add the new service we need to add the definition to the `visitormanagement/service/api/rest/VisitormanagementRestService.java`. We are going to create a new `/register` _REST_ resource bound to a method that we will call _registerVisitor_.
+
+[NOTE]
+====
+We could also re-write the current _saveVisitor_ method, but for clarity sake we are generating a new service.
+====
+
+[source,java]
+----
+  @POST
+  @Path("/register/")
+  public VisitorCto registerVisitor(VisitorEto visitor);
+----
+
+Then we need to implement the new _registerVisitor_ method in `visitormanagement/service/impl/rest/VisitormanagementRestServiceImpl.java` class.
+
+[source,java]
+----
+  @Override
+  public VisitorCto registerVisitor(VisitorEto visitor) {
+    return this.visitormanagement.registerVisitor(visitor);
+  }
+----
+
+[NOTE]
+====
+The compilation error that we get in _this.visitormanagement.registerVisitor_ is because the logic for the new functionality is not added yet. We are going to fix it in the next step.
+====
+
+== Adding the logic
+
+Now we need to create the logic for the new _registerVisitor_ method. To do so, as always, we must add the definition to `visitormanagement/logic/api/Visitormanagement.java` class
+
+[source,java]
+----
+VisitorCto registerVisitor(VisitorEto visitor);
+----
+
+and then implement the method in `visitormanagement/logic/impl/VisitormanagementImpl.java`
+
+[source,java]
+----
+  @Override
+  public VisitorCto registerVisitor(VisitorEto visitor) {
+
+    Objects.requireNonNull(visitor, "visitor");
+    VisitorEntity visitorEntity = getBeanMapper().map(visitor, VisitorEntity.class);
+    // initialize, validate visitorEntity here if necessary
+    AccessCodeEntity code = new AccessCodeEntity();
+    code.setCode(generateCode(new Random(), 3));
+    code.setDateAndTime(Timestamp.from(Instant.now().plus(1, ChronoUnit.DAYS)));
+    visitorEntity.setCode(code);
+    VisitorEntity savedVisitor = getVisitorDao().save(visitorEntity);
+
+    VisitorCto cto = new VisitorCto();
+    cto.setVisitor(getBeanMapper().map(savedVisitor, VisitorEto.class));
+    cto.setCode(getBeanMapper().map(this.accesscode.findAccessCode(savedVisitor.getCodeId()), AccessCodeEto.class));
+    return cto;
+  }
+----
+
+[NOTE]
+====
+we are using `java.sql.Timestamp` for _Timestamp_ and `java.util.Random` for _Random_
+====
+
+To solve the compilation errors we need to inject the _accesscode_ component
+
+[source,java]
+----
+  @Inject
+  private Accesscodemanagement accesscode;
+----
+
+and add the implementation to generate the code. *The details about the code generation are not important*, you can implement it with your own preferences. We have created a simple generation code that returns 3 random characters.
+
+[source,java]
+----
+  private static String generateCode(Random rng, int length) {
+
+    String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    char[] text = new char[length];
+    for (int i = 0; i < length; i++) {
+      text[i] = characters.charAt(rng.nextInt(characters.length()));
+    }
+    return new String(text);
+  }
+----
+
+As _date and Time_ we are setting the current date plus one day. Again, *that details are not important* for the goal of the exercise, do it in other way if you feel more comfortable.
+
+In addition to that we are defining a _VisitorCto_ to handle the response. The _Cto_ object only has the relation to the other _Eto_ objects (_VisitorEto_ and _AccessCodeEto_), so we can manage the data that we want to add to the response. We are using the _Oasp4j_ mapper to automate the mappings to that objects, saving the _visitor entity_ and finally returning the _VisitorCto_ object that contains info about both the _visitor_ and the _access code_.
+
+We are using the default `save` method, so we don't need to add any extra implementation to the _dataaccess_ layer.

@@ -184,7 +184,7 @@ In this layer we will store all the custom implementations to resolve the requir
 
 - authorizations.
 
-In this layer we must avoid including code related to services or data access, we must delegate those tasks in the suitable layer.
+Within the _logic_ layer we must avoid including code related to services or data access, we must delegate those tasks in the suitable layer.
 
 
 ==== Logic layer definition
@@ -261,7 +261,17 @@ In the above _My Thai Star_ logic layer example we can see:
 
 In the code examples of the _logic_ layer section you may have seen a _BookingCto_ object. This is one of the https://github.com/oasp/oasp4j/wiki/guide-transferobject[Transfer Objects] defined in _Oasp4j_ to be used as transfer data element between layers.
 
-==== Entity Tranfer Object (ETO)
+Main benefits of using _TO's_:
+
+- Avoid inconsistent data (when entities are sent across the app changes tend to take place in multiple places).
+
+- Define how much data to transfer (relations lead to transferring too much data).
+
+- Hide internal details.
+
+In _Oasp4j_ we can find two different _Transfer Objects:
+
+==== Entity Transfer Object (ETO)
 
 - Same data-properties as entity.
 
@@ -279,47 +289,221 @@ In the code examples of the _logic_ layer section you may have seen a _BookingCt
 
 - Easy to manually map reusing ETO's and CTO's.
 
+
 === Data Access layer
 
-////
-TO DO
-////
+The third, and last, layer of the _Oasp4j_ architecture is the one responsible for store all the code related to connection and access to data base.
+
+For mapping java objects to the data base _Oasp4j_ use the http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html[Java Persistence API(JPA)]. And as _JPA_ implementation _Oasp4j_ use http://hibernate.org/orm/[hibernate].
+
+Apart from the _Entities_ of the component, in the _dataaccess_ layer we are going to find the same elements that we saw in the other layers: definition (an _interface_) and implementation (a class that implements that interface).
+
+However, in this layer the implementation is slightly different, the `[Target]DaoImpl` extends `general.dataaccess.base.dao.ApplicationDaoImpl` that provides us (through `io.oasp.module.jpa`) with the basic implementation _dataaccess_ methods: `save(Entity)`, `findOne(id)`, `findAll(ids)`, `delete(id)`, etc.
+
+Because of that, in the `[Target]DaoImpl` implementation of the layer we only need to add the _custom_ methods that are not implemented yet. Following the _My Thai Star_ component example (_bookingmanagement_) we will find only the paginated _findBookings_ implementation.
+
+==== Data Access layer definition
+
+[source,java]
+----
+public interface BookingDao extends ApplicationDao<BookingEntity> {
+  PaginatedListTo<BookingEntity> findBookings(BookingSearchCriteriaTo criteria);
+}
+----
+
+==== Data Access layer implementation
+
+[source,java]
+----
+@Named
+public class BookingDaoImpl extends ApplicationDaoImpl<BookingEntity> implements BookingDao {
+
+  @Override
+  public PaginatedListTo<BookingEntity> findBookings(BookingSearchCriteriaTo criteria) {
+    
+    BookingEntity booking = Alias.alias(BookingEntity.class);
+    EntityPathBase<BookingEntity> alias = Alias.$(booking);
+    JPAQuery query = new JPAQuery(getEntityManager()).from(alias);
+
+    ...
+
+  }
+}
+----
+
+The implementation of the _findBookings_ uses http://www.querydsl.com/[queryDSL] to manage the dynamic queries.
+
 
 === Layers of the Jump the Queue application
 
 All the above sections describe the main elements of the layers of the _Oasp4j_ components. If you have completed the link:OAPS4jComponents[exercise of the previous chapter] you may have noticed that all those components are already created for us by _Cobigen_.
 
 Take a look to our application structure
-////
-IMAGE
-////
 
-Our components have all the layers defined and implemented following the _Oasp4j_ principles. 
+image::images/oasp4j/5.Layers/jumpthequeue_structure.png[,width="350", link="images/oasp4j/5.Layers/jumpthequeue_structure.png"]
 
-==== show jtq working
+*visitor component*
 
-////
-- deshabilitar seguridad para poder usar un servicio
-- mostrar cómo se guarda un visitante --> guay pero no nos devuelve el código --> customicemos nuestra app
+- 1. definition for _dataaccess_ layer.
 
-EN OTRA PÁGINA DISTINTA (?) --> "CUSTOMIZATIONS"
+- 2. the entity that we created to be used by _Cobigen_ to generate the component structure.
 
-- añadimos la lógica de creación del código
+- 3. implementation of _dataaccess_ layer
 
-- añadimos un nuevo servicio que devuelve el código tras registrar un usuario
+- 4. _Transfer Objects_ located in the _logic_ layer.
 
-- servicio de listado de visitantes
+- 5. definition of the _logic_ layer.
 
-- acepta cualquier tipo de insert --> cómo añadir validaciones (email, phone)
+- 6. implementation of the _logic_ layer.
+
+- 7. definition of the _rest service_ of the component.
+
+- 8. implementation of the _rest service_.
+
+For the _access code_ component you will find a similar structure.
+
+So, as you can see, our components have all the layers defined and implemented following the _Oasp4j_ principles.
+
+Using _Cobigen_ we have created a complete and functional _Oasp4j_ application without the necessity of any manual implementation.
+
+Let's see the application running and let's try to use the REST service to save a new visitor.
+
+=== Jump the Queue running
+
+As we already mentioned, for this tutorial we are using https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop[Postman] for Chome, but you can use any other similar tool to test your API.
+
+First, open your _Jump the Queue_ project in Eclipse and run the app (right click over the _SpringBootApp.java class > Run as > Java application)
+
+==== Simple call
+
+If you remember link:OASP4jComponents#mock-data[we added some mock data] to have some visitors info available, let's try to retrieve a visitor's information using our _visitormanagement service_.
+
+Call the service (GET) `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor/1` to obtain the data of the visitor with _id_ 1.
+
+image::images/oasp4j/5.Layers/jumpthequeue_simpeGet1.png[, link="images/oasp4j/5.Layers/jumpthequeue_simpeGet1.png"]
+
+Instead of receiving the visitor's data we get a response with the login form. This is because the _Oasp4j_ applications, by default, implement the _Spring Security_ so we would need to log in to access to the services.
+
+To ease the example we are going to disable the security of our application. To do it we only need to exclude from _Build Path_ or delete the following classes:
+
+- `general/service/impl/config/BaseWebSecurityConfig.java`
+
+- `general/service/impl/config/WebSecurityConfig.java`
+
+- `general/common/impl/security/BaseUserDetailsService.java`
+
+- `general/service/impl/config/TestWebSecurityConfig.java`
+
+Now run again the app and try again the same call. We should obtain the data of the visitor
+
+image::images/oasp4j/5.Layers/jumpthequeue_simpeGet2.png[, link="images/oasp4j/5.Layers/jumpthequeue_simpeGet2.png"]
 
 
+==== Paginated response
 
-PÁGINA PARA UNIT TESTS
+_Cobigen_ has created for us a complete services related to our entities so we can access to a paginated list of the visitors without any extra implementation.
 
-- una vez tenemos el componente ver cómo lo testeamos
+We are going to use the following service defined in `visitormanagement/service/api/rest/VisitormanagementRestService.java`
+[source,java]
+----
+  @Path("/visitor/search")
+  @POST
+  public PaginatedListTo<VisitorEto> findVisitorsByPost(VisitorSearchCriteriaTo searchCriteriaTo);
+----
 
-PÁGINA PARA DESPLIEGUE
+The service definition states that we will need to provide a _Search Criteria Transfer Object_. This object will work as a filter for the search as you can see in `visitormanagement/dataaccess/impl/dao/VisitorDaoImpl.java` in _findVisitors_ method.
 
-- todo ok --> vamos a empaquetar la app y desplegar en el tomcat de la distribución.
+If the _Search Criteria_ is empty we will retrieve all the visitors, in other case the result will be filtered.
 
-Finally we will have a _common.api_ package with common elements such as common interfacesthe cross-cutting functionalities such as security, logging or exception handling.
+Call (POST) `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor/search`
+
+in the body we need to define the _Searc Criteria_ object, that will be empty in this case
+
+----
+{}
+----
+
+[NOTE]
+====
+You can see the definition of the _SearchCriteriaTo_ in `visitormanagement/logic/api/to/VisitorSearchCriteriaTo.java`
+====
+
+The result will be something like
+
+image::images/oasp4j/5.Layers/jumpthequeue_paginated1.png[, link="images/oasp4j/5.Layers/jumpthequeue_paginated1.png"]
+
+If we want to filter the results we can define a _criteria_ object in the body. Instead of previous empty criteria, if we provide an object like
+
+----
+{
+  "name": "Jason"
+}
+----
+
+we will filter the results to find only visitors with name _Jason_. If now we repeat the request the result will be
+
+image::images/oasp4j/5.Layers/jumpthequeue_paginated2.png[, link="images/oasp4j/5.Layers/jumpthequeue_paginated2.png"]
+
+We could customize the filter editing the `visitormanagement/dataaccess/impl/dao/VisitorDaoImpl.java` class.
+
+==== Saving a visitor
+
+To fit the requirements of the related https://github.com/oasp/oasp-tutorial-sources/wiki/JumpTheQueueDesign#user-story-register[user story] we need to register a _visitor_ and return an _access code_.
+
+By default _Cobigen_ has generated for us all the _CRUD_ operations related to the visitor _entity_, so we already are able save a visitor in our database without extra implementation.
+
+We only need to add the `@Transactional` (_org.springframework.transaction.annotation.Transactional_) annotation to our _logic_ layer, to delegate in _Spring_ to manage the _transactions_.
+
+[source,java]
+----
+@Named
+@Transactional
+public class VisitormanagementImpl extends AbstractComponentFacade implements Visitormanagement {
+  ...
+}
+----
+
+See the _service_ definition in our _visitor_ component (`visitormanagement/service/api/rest/VisitormanagementRestService.java`)
+
+[source,java]
+----
+@Path("/visitormanagement/v1")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public interface VisitormanagementRestService {
+
+...
+
+  @POST
+  @Path("/visitor/")
+  public VisitorEto saveVisitor(VisitorEto visitor);
+
+}
+----
+
+To save a visitor we only need to use the _REST_ resource `/services/rest/visitormanagement/v1/visitor` and provide in the body the visitor definition for the _VisitorEto_.
+
+So, call (POST) `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor` providing in the body a _Visitor_ object like
+
+----
+{
+	"name": "Mary",
+	"email": "mary@mail.com",
+	"phone": "1234567"
+}
+----
+
+[NOTE]
+====
+You can see the definition for _VisitorEto_ in `visitormanagement/logic/api/to/VisitorEto.java`
+====
+
+We will get a result like the following
+
+image::images/oasp4j/5.Layers/jumpthequeue_saveVisitor.png[, link="images/oasp4j/5.Layers/jumpthequeue_saveVisitor.png"]
+
+In the body of the response we can see the default content for a successful service response: the data of the new visitor. This is the default implementation when saving a new _entity_ with _Oasp4j_ applications. However, the _Jump the Queue_ design defines that the response must be the _access code_ created for the user, so we will need to change the logic of our application to fit this requirement.
+
+In the next chapter we will see how we can customize the code generated by _Cobigen_ to adapt it to our necessities.
+
+=== link:OASP4jAddingCustomFunctionality[Next chapter: Customizing an Oasp4j project]

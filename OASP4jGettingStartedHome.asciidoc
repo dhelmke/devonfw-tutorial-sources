@@ -14,6 +14,8 @@
 
 == link:OASP4jLayers[OASP4J layers]
 
+== link:OASP4jAddingCustomFunctionality[OASP4J adding custom functionality]
+
 ---
 
 == link:OASP4jServiceLayer[The Service Layer]
