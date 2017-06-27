@@ -459,6 +459,7 @@ Call (POST) `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/
 
 in the body we need to define the _Searc Criteria_ object, that will be empty in this case
 
+[source,json]
 ----
 {}
 ----
@@ -474,6 +475,7 @@ image::images/oasp4j/5.Layers/jumpthequeue_paginated1.png[, link="images/oasp4j/
 
 If we want to filter the results we can define a _criteria_ object in the body. Instead of previous empty criteria, if we provide an object like
 
+[source,json]
 ----
 {
   "name": "Jason"
@@ -525,6 +527,7 @@ To save a visitor we only need to use the _REST_ resource `/services/rest/visito
 
 So, call (POST) `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor` providing in the body a _Visitor_ object like
 
+[source,json]
 ----
 {
 	"name": "Mary",
