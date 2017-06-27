@@ -68,7 +68,7 @@ and then implement the method in `visitormanagement/logic/impl/Visitormanagement
     VisitorEntity visitorEntity = getBeanMapper().map(visitor, VisitorEntity.class);
     // initialize, validate visitorEntity here if necessary
     AccessCodeEntity code = new AccessCodeEntity();
-    code.setCode(generateCode(new Random(), 3));
+    code.setCode(this.accesscode.generateCode(new Random(), 3));
     code.setDateAndTime(Timestamp.from(Instant.now().plus(1, ChronoUnit.DAYS)));
     visitorEntity.setCode(code);
     VisitorEntity savedVisitor = getVisitorDao().save(visitorEntity);
@@ -85,19 +85,23 @@ and then implement the method in `visitormanagement/logic/impl/Visitormanagement
 we are using `java.sql.Timestamp` for _Timestamp_ and `java.util.Random` for _Random_
 ====
 
-To solve the compilation errors we need to inject the _accesscode_ component
+To solve the compilation errors we need to add the implementation to generate the code in the _accesscodemanagement_ component. *The details about the code generation are not important* you can implement it with your own preferences. We have created a simple generation code that returns 3 random characters.
 
+The definition:
+
+.Accesscodemanagement.java
 [source,java]
 ----
-  @Inject
-  private Accesscodemanagement accesscode;
+String generateCode(Random rng, int length);
 ----
 
-and add the implementation to generate the code. *The details about the code generation are not important*, you can implement it with your own preferences. We have created a simple generation code that returns 3 random characters.
+The implementation:
 
+.AccesscodemanagementImpl.java:
 [source,java]
 ----
-  private static String generateCode(Random rng, int length) {
+  @Override
+  public String generateCode(Random rng, int length) {
 
     String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     char[] text = new char[length];
@@ -108,8 +112,62 @@ and add the implementation to generate the code. *The details about the code gen
   }
 ----
 
+and finally we need to inject the _accesscode_ component in the `VisitormanagementImpl.java` class.
+
+[source,java]
+----
+  @Inject
+  private Accesscodemanagement accesscode;
+----
+
 As _date and Time_ we are setting the current date plus one day. Again, *that details are not important* for the goal of the exercise, do it in other way if you feel more comfortable.
 
-In addition to that we are defining a _VisitorCto_ to handle the response. The _Cto_ object only has the relation to the other _Eto_ objects (_VisitorEto_ and _AccessCodeEto_), so we can manage the data that we want to add to the response. We are using the _Oasp4j_ mapper to automate the mappings to that objects, saving the _visitor entity_ and finally returning the _VisitorCto_ object that contains info about both the _visitor_ and the _access code_.
+In addition to that we are defining a _VisitorCto_ to handle the response. We need to provide the _access code_ in the response. In the previous chapter we talked about the link:OASP4jLayers#transfer-objects[Transfer Objects]. In this case the _VisitorEto_ has this defintion:
+
+[source,java]
+----
+  private String name;
+
+  private String email;
+
+  private String phone;
+
+  private Long codeId;
+----
+
+So instead of the _AccessCode_ object we only have the _id_ as reference and we can not use this object in the response. 
+
+Now take a look at the _VisitorCto_ definition:
+
+[source,java]
+----
+  private VisitorEto visitor;
+
+  private AccessCodeEto code;
+----
+
+In this case we have the complete _AccessCodeEto_ object available to be part of the response.
+
+For that reason we are returning a _VisitorCto_ object, because it can contain the complete _code_ data in addition to the _visitor's_ data.
+
+We are using the _Oasp4j_ mapper to automate the mappings to that objects, saving the _visitor entity_ in the database and finally returning the _VisitorCto_.
 
 We are using the default `save` method, so we don't need to add any extra implementation to the _dataaccess_ layer.
+
+== Testing the new functionality
+
+Run the app using Eclipse (_SpringBootApp.java > Right click > Java Application_).
+
+Call our new registration service (POST) `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/register` providing in the body a _Visitor_ object again
+
+----
+{
+	"name": "Mary",
+	"email": "mary@mail.com",
+	"phone": "1234567"
+}
+----
+
+Now the response includes the _Access Code_ info
+
+image::images/oasp4j/6.Customizations/jumpthequeue_accesscode.png[, link="images/oasp4j/6.Customizations/jumpthequeue_accesscode.png"]

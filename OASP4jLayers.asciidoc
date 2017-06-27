@@ -384,6 +384,45 @@ image::images/oasp4j/5.Layers/jumpthequeue_simpeGet1.png[, link="images/oasp4j/5
 
 Instead of receiving the visitor's data we get a response with the login form. This is because the _Oasp4j_ applications, by default, implement the _Spring Security_ so we would need to log in to access to the services.
 
+To ease the example we are going to "open" the application to avoid the security filter and we are going to enable the https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[CORS] filter to allow requests from clients (Angular).
+
+In the file `general/service/impl/config/BaseWebSecurityConfig.java`:
+
+- change property _corsEnabled_ to true
+[source,java]
+----
+@Value("${security.cors.enabled}")
+boolean corsEnabled = true;
+----
+
+- add _REST_ operations path `"/services/rest/**"` to the unsecured resources
+
+[source,java]
+----
+String[] unsecuredResources = new String[] { ..., "/services/rest/**"};
+----
+
+- comment the call to CsrfRequestMatcher
+
+[source,java]
+----
+// .csrf().requireCsrfProtectionMatcher(new CsrfRequestMatcher()).and() 
+----
+
+- just after that disable _csrf_
+
+[source,java]
+----
+.csrf().disable()
+----
+
+Finally in the file `/jumpthequeue-core/src/main/resources/application.properties` set `security.cors.enabled` to true
+
+----
+security.cors.enabled=true
+----
+
+////
 To ease the example we are going to disable the security of our application. To do it we only need to exclude from _Build Path_ or delete the following classes:
 
 - `general/service/impl/config/BaseWebSecurityConfig.java`
@@ -393,6 +432,7 @@ To ease the example we are going to disable the security of our application. To 
 - `general/common/impl/security/BaseUserDetailsService.java`
 
 - `general/service/impl/config/TestWebSecurityConfig.java`
+////
 
 Now run again the app and try again the same call. We should obtain the data of the visitor
 
