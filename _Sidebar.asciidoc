@@ -7,13 +7,16 @@
 
 * **OASP Backend Technologies**
 ** link:OASP4jGettingStartedHome[OASP4J Getting Started]
+*** link:OASPintro[OASP intro]
 *** link:OASP4J-overview[Oasp4j overview]
-*** link:devonfwintro[devonfw intro (alternate)]
+*** link:devonfwintro[devonfw intro]
 *** link:AnOASP4jApplication[An OASP4J application]
-*** link:OASP4jServiceLayer[The Service Layer]
-*** link:OASP4jBusinessLayer[The Business Layer]
-*** link:OASP4jDataLayer[The Data Layer]
-*** link:OASP4jWithCobigen[Cobigen]
+*** link:BuildOASP4Japplication[Build your own OASP4J application]
+*** link:OASP4jComponents[OASP4J application components]
+*** link:OASP4jLayers[OASP4J layers]
+*** link:OASP4jAddingCustomFunctionality[OASP4J adding custom functionality]
+*** link:OASP4jValidations[OASP4J validations]
+*** link:OASP4jTesting[OASP4J testing]
 *** link:OASP4jDeployment[Deployment]
 
 ** link:OASP4FnGettingStartedHome[OASP4Fn Getting Started]
