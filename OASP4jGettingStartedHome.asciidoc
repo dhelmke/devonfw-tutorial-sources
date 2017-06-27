@@ -16,6 +16,12 @@
 
 == link:OASP4jAddingCustomFunctionality[OASP4J adding custom functionality]
 
+== link:OASP4jValidations[OASP4J validations]
+
+== link:OASP4jTesting[OASP4J testing]
+
+== link:OASP4jDeployment[Deployment]
+
 ---
 
 == link:OASP4jServiceLayer[The Service Layer]
@@ -25,7 +31,5 @@
 == link:OASP4jDataLayer[The Data Layer]
 
 == link:OASP4jWithCobigen[Cobigen]
-
-== link:OASP4jDeployment[Deployment]
 
 
