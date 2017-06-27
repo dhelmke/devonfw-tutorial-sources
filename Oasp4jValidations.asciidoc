@@ -55,8 +55,7 @@ private Integer assistants;
 
 - `@Digits` checks the format of an integer.
 
-- `@Email` is the standard validator for email accounts. In this case that standard is not checking the domain of the email so for _My Thai Star_ we added a custom validator called '@EmailExtended' that is defined in a new 'general/common/api/validation/EmailExtended.java` class
-In next section we will see it in more detail.
+- `@Email` is the standard validator for email accounts. In this case the standard validator is not checking the domain of the email, so for _My Thai Star_ we added a custom validator called '@EmailExtended' that is defined in a new 'general/common/api/validation/EmailExtended.java` class. In the next section we will see it in more detail.
 
 == Add your validations
 
@@ -72,7 +71,7 @@ When registering a visitor the client provides:
 
 === Name validation
 
-So the name of the visitor must be not null, to do so Hibernate Validator provides us with the already mentioned `@NotNull` annotation (_javax.validation.constraints.NotNull_).
+As we have just mentioned the name of the visitor must be not null, to do so Hibernate Validator provides us with the already mentioned `@NotNull` annotation (_javax.validation.constraints.NotNull_).
 
 We are going to add the annotation in the 'visitormanagement/dataaccess/api/VisitorEntity.java' just before the field _name_
 
@@ -144,7 +143,7 @@ Now we can annotate the _email_ field in with `@NotNull` and `@EmailExtended` to
 private String email;
 ----
 
-Now, if we try to register a user with a null email we get the _ValidationError_ with message _"{email=[may not be null]}"_
+Then, if we try to register a user with a null email we get the _ValidationError_ with message _"{email=[may not be null]}"_
 
 image::images/oasp4j/7.Validations/jumpthequeue_validation_nullemail.png[, link="images/oasp4j/7.Validations/jumpthequeue_validation_nullemail.png"]
 
@@ -208,7 +207,6 @@ However, if we provide a valid phone the process should end successfully
 image::images/oasp4j/7.Validations/jumpthequeue_validation_validphone.png[, link="images/oasp4j/7.Validations/jumpthequeue_validation_validphone.png"]
 
 
-
-In this chapter we have seen how easy is to add validations in the server side of our _Oasp4j_ applications. In the next chapter we will show how to test our components using Spring Test and Oasp4j's test module.
+In this chapter we have seen how easy is to add validations in the server side of our _Oasp4j_ applications. In the next chapter we will show how to test our components using _Spring Test_ and _Oasp4j_'s test module.
 
 === link:OASP4jTesting[Next chapter: Testing in Oasp4j]
