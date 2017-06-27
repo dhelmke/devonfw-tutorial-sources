@@ -9,9 +9,9 @@ In this chapter we are going to show how to add custom functionalities in our pr
 
 == The requirement
 
-The _Jump the Queue_ design defines a link:JumpTheQueueDesign#user-story-register[User Story]in which a visitor can register into an event and obtain an access code to avoid a queue.
+The _Jump the Queue_ design defines a link:JumpTheQueueDesign#user-story-register[User Story] in which a visitor can register into an event and obtain an access code to avoid a queue.
 
-In our _standard_ implementation of the _Jump the queue_ app we have used _Cobigen_ to generate the components so we have a default implementation of the services where saving a visitor returns the visitor data as confirmation.
+In our _standard_ implementation of the _Jump the queue_ app we have used _Cobigen_ to generate the components, so we have a default implementation of the services where saving a visitor returns the visitor data as confirmation that the process ended successfully.
 
 We are going to create a new service `/register`, to register a visitor and return both the visitor data and the access code.
 
@@ -150,7 +150,9 @@ In this case we have the complete _AccessCodeEto_ object available to be part of
 
 For that reason we are returning a _VisitorCto_ object, because it can contain the complete _code_ data in addition to the _visitor's_ data.
 
-We are using the _Oasp4j_ mapper to automate the mappings to that objects, saving the _visitor entity_ in the database and finally returning the _VisitorCto_.
+The `getBeanMapper().map()` is the _Oasp4j_ mapper to automate the mappings to that objects. 
+
+As last implementation steps we are saving the _visitor entity_ in the database and finally returning the _VisitorCto_.
 
 We are using the default `save` method, so we don't need to add any extra implementation to the _dataaccess_ layer.
 
@@ -171,3 +173,7 @@ Call our new registration service (POST) `http://localhost:8081/jumpthequeue/ser
 Now the response includes the _Access Code_ info
 
 image::images/oasp4j/6.Customizations/jumpthequeue_accesscode.png[, link="images/oasp4j/6.Customizations/jumpthequeue_accesscode.png"]
+
+In this chapter we have seen how easy is extend a _Oasp4j_ application, with few steps you can add new services to your backend app to fit the functional requirements of your projects.
+
+=== link:OASP4jValidations[Next chapter: Validations in Oasp4j]
