@@ -17,7 +17,7 @@ No more dependencies are needed, because we start our project with the oasp4fn a
 == Writing the tests
 Once we have all the dependencies installed, it's time to put hands on the tests.
 
-First of all we gonna import all the handlers we gonna test in our file/s (in our case only in test/Http/Post.ts), our typings and the every time useful _lodash_ package, so the head of our test file will look like this:
+First of all we are going to import all the handlers we are going to test in our file/s (in our case only in test/Http/Post.ts), our typings and the every time useful _lodash_ package, so the head of our test file will look like this:
 
 [source, typescript]
 ----
@@ -28,7 +28,7 @@ import { expect } from 'chai';
 import * as _ from 'lodash';
 ----
 
-Next we gonna define our tests to the _register_ handler, that specify the behavior of our handler, like isn't really complex, we gonna specify that should return an object with, and we will have something like this:
+Next we are going to define our tests to the _register_ handler, that specify the behavior of our handler, like isn't really complex, we are going to specify that should return an object with, and we will have something like this:
 
 [source, typescript]
 ----
@@ -89,7 +89,7 @@ describe('register', () => {
 });
 ----
 
-Note that we declare an instantiate an HttpEvent an only declare the Context, that's why we don't use the context variable inside our handlers but our event variable yes.
+Note that we declare and instantiate a HttpEvent and only declare the Context, that's why we don't use the context variable inside our handlers but our event variable yes.
 
 Once we have tested the _register_ handler, we have to add tests for the _search_ handler, so you have to repeat the last process until you have something like this:
 
@@ -117,7 +117,7 @@ describe('search', () => {
 });
 ----
 
-Finally, it's worth to point that we are inserting test data into our database, so we should erase them if it's necessary after executing the test, for do this, we gonna add a hook that will execute at the end of our tests, and will erase a visitor if we had inserted any, using OASP4Fn, so for that we gonna import OASP4Fn in our file, store the code of the inserted visitor and delete it if it had been inserted successfully, so our hook will look like this:
+Finally, it's worth to point that we are inserting test data into our database, so we should erase them if it's necessary after executing the test, for do this, we are going to add a hook that will execute at the end of our tests, and will erase a visitor if we had inserted any, using OASP4Fn, so for that we are going to import OASP4Fn in our file, store the code of the inserted visitor and delete it if it had been inserted successfully, so our hook will look like this:
 
 [source, typescript]
 ----
