@@ -860,6 +860,113 @@ At the moment, we have a functional application working exclusively with mock da
 
 == Making calls to server
 
+At this point we are going to assume you have finished the OASP4J JumpTheQueue tutorial or, at least, you have downloaded the project and *have it running locally at localhost:8081*.
+
+With a real server running and prepared to receive calls from our services, we are going to modify a bit more our application in order to adjust to this new status.
+
+First, some configurations and modifications must be done to synchronize with how server works:
+
+1. Now our _Authentication.ts_ should have the parameter "code" along with its getters and setters, which will be the queue code of the user, this has been moved here because this information comes from the register call when we access, not when we load the code view.
+
+2. Completely remove shared service from _code-viewer_ folder, because, at this moment, the only purpose of that folder was to store a service which loads the queue-code of the user, as it is not used anymore, this service has no sense and the code-viewer.component now loads its code variable from `auth.getCode()` function.
+
+3. Create a file called _config.ts_ in _app_ folder, this config will store useful global information, in our case, the basePath to the server, so we can have it in one place and access it from everywhere, and even better, if the url changes, we only need to change it here:
+
+[source, typescript]
+----
+export const config: any = {
+    basePath: 'http://localhost:8081/jumpthequeue/services/rest/',
+};
+----
+
+Once done all the preparations, lets move to _acces.service.ts_, here we had a simple `if` to check if the user inputs are what we expected, now we are going to call the server and it will manage all this logic to finally return us the information we need.
+
+To call the server to are going to import Angular Http class from @Angular/http, this class is the standard used by angular to make Http calls, so we are going to use it. The register call demands 3 objects: name, email and phone, so we are going to build a post call and send that information to the proper URL of that server service, it will return an observable and we have already worked with them: first we map the result and then we subscribe to have all the response data available, also we implement the error function in case something went wrong. The new register function should be as follows:
+
+[source, typescript]
+----
+  register(name, email, phone): void {
+    this.http.post(`${config.basePath}visitormanagement/v1/register`, {name: name, email: email, phone: phone})
+             .map(res => res.json())
+             .subscribe( (res) => {
+                this.auth.setLogged(true);
+                this.auth.setUser(name);
+                this.auth.setCode(res.code.code);
+                this.router.navigate(['code']);
+             }, (err) => {
+                this.snackBar.open(err.json().message, 'OK', {
+                  duration: 2000,
+                });
+             });
+  }
+----
+
+As we can see, and mentioned before, our preparations to this server calls we have done previously let us avoid changing anything in access component or template, everything should be working only doing that changes.
+
+Our queue-viewer will need some modifications as well, in this case, both component and services will be slightly modified. _queue_viewer.service_ will make a call to the server services as we done in _access.service_ but in this case we are not going to implement a subscription, that will be components task. So `getQueuer()` should look like this:
+
+[source, typescript]
+----
+  getQueuers(): Observable<any> {
+    return this.http.post(`${config.basePath}visitormanagement/v1/visitor/search`, {}) // the post usually demands some parameters to paginate or make
+          .map(res => res.json());                                                     // filtering, but in this case we do not need nothing to filter, so we send an empty object
+  }
+----
+
+Regarding _queue-viewer.component_ we need to modify the columns to fit with the data received from the server and the template will be modified to use *async pipe* to subscribe the data directly and a loader to show meanwhile.
+
+About the columns, the server sends us the data array composed by two objects: _visitor_ with the queue member information and _code_ with all the code information. As we are using the name of the queuer, the time it is expected to enter and its code, the column code should be like this:
+
+[source, typescript]
+----
+  columns: ITdDataTableColumn[] = [
+    { name: 'visitor.name', label: 'Name'},
+    { name: 'code.dateAndTime', label: 'Hour', format: ( (v: string) => moment(v).format('LLL') ) },
+    { name: 'code.code',  label: 'Code'}];
+  }
+----
+
+Additionally, server sends us the date and time as timestamp, so we need to use *moment.js* to format that data to something readable, to make that, just use the format property from Teradata Covalent columns.
+
+Finally, to adapt to async pipe, `ngOnInit()` now does not subscribe, in its place, we equal the queuers variable directly to the Observable so we can load it using the `*ngIf - else` structure to show the loading bar from Material and load the queuers in the template:
+
+[source, typescript]
+----
+<td-layout>
+  <md-card *ngIf="queuers | async as queuersList; else loading"> // load queuers and asign the result to the name queuersList and only show this card if the queuers are loaded
+    <img md-card-image src="assets/images/jumptheq.png">
+    <md-card-title>Queue view:</md-card-title>
+
+    <td-data-table
+      [data]="queuersList.result"
+      [columns]="columns">
+      <ng-template tdDataTableTemplate="visitor.name" let-value="value" let-row="row" let-column="column"> // Covalent check for column values
+        <div layout="row">
+          <span *ngIf="value === auth.getUser(); else normal" flex><b>{{value}}</b></span>
+          <ng-template #normal>
+            <span flex>{{value}}</span>
+          </ng-template>
+        </div>
+      </ng-template>
+    </td-data-table>
+    
+    <div class="text-center pad-lg">
+      <button md-raised-button (click)="navigateCode()" color="primary" class="text-upper">Go back</button>
+    </div>
+
+  </md-card>
+    
+  <ng-template #loading> // template to show when the async pipe is loading data
+    <md-progress-bar
+      color="accent"
+      mode="indeterminate">
+    </md-progress-bar>
+  </ng-template>
+
+</td-layout>
+----
+
+Also, to make easier to the user read what is his position, Covalent Teradata provides with a functionality to check columns and modify the value shown, we used that to make bold the name of the user which corresponds with the user who is registered at the moment.
 
 That is all regarding how to build your own OASP4Js application example, now is up to you add features, change styles and do everything you could imagine. Just one final step to complete the tutorial, run the tutorial outside your local machine: Deployment.
 
