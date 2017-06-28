@@ -44,36 +44,43 @@ And then it includes the https://docs.spring.io/spring-boot/docs/current/referen
 
 ----
 
-////
 == Running the app with Maven
 
 So thanks to _Spring Boot_ and the `spring-boot-maven-plugin` we can run our app using Maven. To do so just open a command line with access to _Maven_ (in Devonfw we can do it using the _console.bat_). And:
 
-1.- install the `jumpthequeue/core` project in our local _Maven_ repository
+1.- As is explained in https://github.com/devonfw/devon/wiki/getting-started-understanding-oasp4j-spring-boot-config#step-2-including-properties[devon documentation] the `application.properties` used for packaging is `/src/main/resources/application.properties`. So we need to edit the app properties to access to the app. In `/jumpthequeue-core/src/main/resources/application.properties` configure the properties
+
+----
+server.port=8081
+server.context-path=/jumpthequeue
+----
+
+2.- install the `jumpthequeue/core` project in our local _Maven_ repository
 
 ----
 D:\Devon-dist\...\jumpthequeue>mvn install
 ----
 
-2. Go to the `jumpthequeue/server` project and execute the command `mvn spring-boot:run -Drun.jvmArguments='-Dserver.port=8081'`
+3. Go to the `jumpthequeue/server` project and execute the command `mvn spring-boot:run`
 
 ----
-D:\Devon-dist\...\jumpthequeue\server>mvn spring-boot:run -Drun.jvmArguments='-Dserver.port=8081'
+D:\Devon-dist\...\jumpthequeue\server>mvn spring-boot:run
 ----
 
 The app should be launched in the _Spring Boot_ embedded Tomcat server. Wait a few seconds until you see a console message like
 
 ----
-[L: org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer] - [M: Tomcat starte
-d on port(s): 8081 (http)]
-[L: com.cap.jumpthequeue.SpringBootApp] - [M: Started SpringBootApp in 17.908 seconds (JVM running for 1
-9.148)]
+[L: org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer] - [M: Tomcat started on port(s): 8081 (http)]
+[L: com.cap.jumpthequeue.SpringBootApp] - [M: Started SpringBootApp in 17.908 seconds (JVM running for 19.148)]
 ----
-////
+
+Now we can try to access to the app resource (GET)`http://localhost:8080/jumpthequeue/services/rest/visitormanagement/v1/visitor/1` we can verify that the app is running fine
+
+image::images/oasp4j/9.Deployment/jumpthequeue_simpleget1.png[, link="images/oasp4j/9.Deployment/jumpthequeue_simpleget1.png"]
 
 == Packaging the app with Maven
 
-So thanks to _Spring Boot_ and the `spring-boot-maven-plugin`, using _Maven_ we can package our project in a _.war_ file. To do so just open a command line with access to _Maven_ (in Devonfw we can do it with the _console.bat_ script) and execute the command `mvn clean package` in the project root directory
+In the same way, using _Maven_ we can package our project in a _.war_ file. As in the previous section, open a command line with access to _Maven_ (in Devonfw _console.bat_ script) and execute the command `mvn clean package` in the project root directory
 
 ----
 D:\Devon-dist\...\jumpthequeue>mvn clean package
@@ -129,9 +136,9 @@ The app will be available in the url `http://localhost:8080/{war-file-name}`
 
 [NOTE]
 ====
-The access to the server is done through port `8080`. As is explained in https://github.com/devonfw/devon/wiki/getting-started-understanding-oasp4j-spring-boot-config#step-2-including-properties[devon documentation] the `application.properties` used for packaging is `/src/main/resources/application.properties`. If you want the app to be available through other port edit it in the `D:\Devon-dist\software\tomcat\conf\server.xml` file.
+The access to the server is done by default through port `8080`. If you want the app to be available through other port edit it in the `D:\Devon-dist\software\tomcat\conf\server.xml` file.
 ====
 
 Now, if we try to access to the app with the simplest resource (GET)`http://localhost:8080/jumpthequeue/services/rest/visitormanagement/v1/visitor/1` we can verify that the app has been successfully deployed on _Tomcat_
 
-image::images/oasp4j/9.Deployment/jumpthequeue_simpleget.png[, link="images/oasp4j/9.Deployment/jumpthequeue_simpleget.png"]
+image::images/oasp4j/9.Deployment/jumpthequeue_simpleget2.png[, link="images/oasp4j/9.Deployment/jumpthequeue_simpleget2.png"]
