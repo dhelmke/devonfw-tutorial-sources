@@ -17,6 +17,7 @@ No more dependencies are needed, because we start our project with the oasp4fn a
 == Writing the tests
 Once we have all the dependencies installed, it's time to put hands on the tests.
 
+=== Setting up file
 First of all we are going to import all the handlers we are going to test in our file/s (in our case only in test/Http/Post.ts), our typings and the every time useful _lodash_ package, so the head of our test file will look like this:
 
 [source, typescript]
@@ -38,7 +39,7 @@ import { search } from '../../handlers/Http/POST/search-handler';
 import { expect } from 'chai'; 
 import * as _ from 'lodash';
 
-describe('register', () => {
+describe('register', function () {
     it('The register should return an object, with the code and dateAndTime properties');
 });
 ----
@@ -47,6 +48,7 @@ If we execute this test with `yarn test` we should see that we only have one tes
 
 image::images/oasp4fn/3.BuildYourOwn/yarn_test1.PNG[, link="images/oasp4fn/3.BuildYourOwn/yarn_test1.PNG"]
 
+=== Add tests of the handlers
 Now is time to call the function and check his behavior, first of all execute `yarn test:auto` to watch for changes and execute the tests automatically, next write your test:
 
 [IMPORTANT]
@@ -72,7 +74,8 @@ const EVENT = {
 
 let context: Context;
 
-describe('register', () => {
+describe('register', function () {
+    this.timeout(6000);
     it('The register should return an object, with the code and dateAndTime properties', (done: Function) => {
         let event =  <HttpEvent>_.assign({ body: { "name": "David", "email": "somenthing@something.com", "phone": "658974145"}}, EVENT);
         register(event, context, (err: Error, res: Code) => {
@@ -91,11 +94,14 @@ describe('register', () => {
 
 Note that we declare and instantiate a HttpEvent and only declare the Context, that's why we don't use the context variable inside our handlers but our event variable yes.
 
+Also, realise that we have modified the mocha default timeout (that is 2000ms) to 6000ms, and we change it to match the default AWS lambda timeout. Be careful here, and look that the function passed to the _describe_ is not an arrow function, that's because the scope of an arrow function is bounded when it's created not when it's called, so if that function would been an arrow function we couldn't have acces to the mocha methods and properties.
+
 Once we have tested the _register_ handler, we have to add tests for the _search_ handler, so you have to repeat the last process until you have something like this:
 
 [source, typescript]
 ----
-describe('search', () => {
+describe('search', function () {
+    this.timeout(6000);
     it('The search should return an array with the items of the table Queue', (done: Function) => {
         search(EVENT, context, (err: Error, res: object[]) => {
             try {
@@ -117,6 +123,7 @@ describe('search', () => {
 });
 ----
 
+=== Add an after hook
 Finally, it's worth to point that we are inserting test data into our database, so we should erase them if it's necessary after executing the test, for do this, we are going to add a hook that will execute at the end of our tests, and will erase a visitor if we had inserted any, using OASP4Fn, so for that we are going to import OASP4Fn in our file, store the code of the inserted visitor and delete it if it had been inserted successfully, so our hook will look like this:
 
 [source, typescript]
@@ -131,7 +138,10 @@ after(async () => {
 });
 ----
 
-Keep in mind that the variable _code_ is the property code located in the returned object of the handler _register_ that you should store, when his callback return it, so once said this, at the end of the road we have this test file:
+Keep in mind that the variable _code_ is the property code located in the returned object of the handler _register_ that you should store, when his callback return it. 
+
+=== Final result
+So, at the end of the road we have this test file:
 
 [source, typescript]
 ----
@@ -206,4 +216,4 @@ And the output console look like this:
 
 image::images/oasp4fn/3.BuildYourOwn/yarn_test2.PNG[, link="images/oasp4fn/3.BuildYourOwn/yarn_test2.PNG"]
 
-=== link:OASP4FnDeployment[Next chapter: Deploy your OASP4Fn app]
+= link:OASP4FnDeployment[Next chapter: Deploy your OASP4Fn app]

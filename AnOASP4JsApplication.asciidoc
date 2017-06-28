@@ -137,4 +137,4 @@ Now yo can go to your browser to: `localhost:4200` and there will be MyThaiStar 
 
 Now we know what can be done with OASP4Js, we are going to see step by step how to make from scratch your own app, explaining every process to create components, services, routing and each element of the application.
 
-=== link:BuildOASP4JsApplication[Next chapter: Create your own OASP4Js app]
+= link:BuildOASP4JsApplication[Next chapter: Create your own OASP4Js app]
