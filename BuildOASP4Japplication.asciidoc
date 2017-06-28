@@ -3,15 +3,7 @@ toc::[]
 
 = Build your own OASP4J application
 
-In this chapter we are going to show how to create a new _Oasp4j_ application from scratch. The app that we are going to create is _Jump the Queue_ a simple app to avoid queues with following flow:
-
-image::images/jumpthequeue/JumpTheQueueFlow.png[width="250", link="images/jumpthequeue/JumpTheQueueFlow.png"]
-
-
-[NOTE]
-====
-TODO: add link to Jump The Queue reference page 
-====
+In this chapter we are going to show how to create a new _Oasp4j_ application from scratch. The app that we are going to create is _Jump the Queue_, a simple app to avoid the queue in an event registering a visitor and obtaining an _access code_. You can read all the details of the app in the link:JumpTheQueueDesign[Jump the Queue Design] page.
 
 == Getting Devonfw distribution
 

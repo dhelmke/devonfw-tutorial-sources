@@ -22,14 +22,4 @@
 
 == link:OASP4jDeployment[Deployment]
 
----
-
-== link:OASP4jServiceLayer[The Service Layer]
-
-== link:OASP4jBusinessLayer[The Business Layer]
-
-== link:OASP4jDataLayer[The Data Layer]
-
-== link:OASP4jWithCobigen[Cobigen]
-
 
