@@ -74,7 +74,7 @@ The app should be launched in the _Spring Boot_ embedded Tomcat server. Wait a f
 [L: com.cap.jumpthequeue.SpringBootApp] - [M: Started SpringBootApp in 17.908 seconds (JVM running for 19.148)]
 ----
 
-Now we can try to access to the app resource (GET)`http://localhost:8080/jumpthequeue/services/rest/visitormanagement/v1/visitor/1` we can verify that the app is running fine
+Now we can try to access to the app resource (GET)`http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor/1` we can verify that the app is running fine
 
 image::images/oasp4j/9.Deployment/jumpthequeue_simpleget1.png[, link="images/oasp4j/9.Deployment/jumpthequeue_simpleget1.png"]
 
