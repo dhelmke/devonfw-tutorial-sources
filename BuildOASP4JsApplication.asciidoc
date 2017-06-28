@@ -742,7 +742,7 @@ The name has to correspond with the one used in _app.component.ts_, where we inj
 ----
 export class AppComponent {
 
-  constructor(private auth: AuthService,
+  constructor(public auth: AuthService,
               private accesService: AccessService) {}
 
   logoff(): void {
