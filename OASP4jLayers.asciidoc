@@ -382,7 +382,7 @@ Call the service (GET) `http://localhost:8081/jumpthequeue/services/rest/visitor
 
 image::images/oasp4j/5.Layers/jumpthequeue_simpeGet1.png[, link="images/oasp4j/5.Layers/jumpthequeue_simpeGet1.png"]
 
-Instead of receiving the visitor's data we get a response with the login form. This is because the _Oasp4j_ applications, by default, implement the _Spring Security_ so we would need to log in to access to the services.
+Instead of receiving the visitor's data we get a response with the login form. This is because the _Oasp4j_ applications, by default, implements the _Spring Security_ so we would need to log in to access to the services.
 
 To ease the example we are going to "open" the application to avoid the security filter and we are going to enable the https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[CORS] filter to allow requests from clients (Angular).
 
@@ -395,25 +395,19 @@ In the file `general/service/impl/config/BaseWebSecurityConfig.java`:
 boolean corsEnabled = true;
 ----
 
-- add _REST_ operations path `"/services/rest/**"` to the unsecured resources
+- edit the `configure(HttpSecurity http)` method to allow access to the app to any request and add the _cors filter_:
 
 [source,java]
 ----
-String[] unsecuredResources = new String[] { ..., "/services/rest/**"};
-----
+@Override
+public void configure(HttpSecurity http) throws Exception {
 
-- comment the call to CsrfRequestMatcher
+  http.authorizeRequests().anyRequest().permitAll().and().csrf().disable();
 
-[source,java]
-----
-// .csrf().requireCsrfProtectionMatcher(new CsrfRequestMatcher()).and() 
-----
-
-- just after that disable _csrf_
-
-[source,java]
-----
-.csrf().disable()
+  if (this.corsEnabled) {
+    http.addFilterBefore(getCorsFilter(), CsrfFilter.class);
+  }
+}
 ----
 
 Finally in the file `/jumpthequeue-core/src/main/resources/application.properties` set `security.cors.enabled` to true
@@ -421,18 +415,6 @@ Finally in the file `/jumpthequeue-core/src/main/resources/application.propertie
 ----
 security.cors.enabled=true
 ----
-
-////
-To ease the example we are going to disable the security of our application. To do it we only need to exclude from _Build Path_ or delete the following classes:
-
-- `general/service/impl/config/BaseWebSecurityConfig.java`
-
-- `general/service/impl/config/WebSecurityConfig.java`
-
-- `general/common/impl/security/BaseUserDetailsService.java`
-
-- `general/service/impl/config/TestWebSecurityConfig.java`
-////
 
 Now run again the app and try again the same call. We should obtain the data of the visitor
 
