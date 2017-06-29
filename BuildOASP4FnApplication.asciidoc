@@ -174,9 +174,9 @@ import { Visitor } from './types';
 const ALPHABET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
 export let getRandomCode = (len: number) => {
-	if (!Number.isFinite(len) || len < 1) {
-		throw new TypeError('Invalid code lenght');
-	}
+    if (!Number.isFinite(len) || len < 1) {
+	throw new TypeError('Invalid code lenght');
+    }
 
     let str = '';
     while(len > 0) {
@@ -188,7 +188,7 @@ export let getRandomCode = (len: number) => {
 };
 
 export let validateVisitor = (visitor: Visitor) => {
-	let ok = true;
+    let ok = true;
 
     _.some(visitor, (value, key) => {
         switch (key) {
@@ -202,7 +202,7 @@ export let validateVisitor = (visitor: Visitor) => {
         return !ok;
     })
 
-	return ok;
+    return ok;
 };
 
 export let isVisitor = (object: any): object is Visitor => {
