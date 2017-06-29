@@ -15,11 +15,14 @@ When the deploy is finish with no errors, you will have a command line output wi
 
 image::images/oasp4fn/3.BuildYourOwn/sls_deploy.PNG[, link="images/oasp4fn/3.BuildYourOwn/sls_deploy.PNG"]
 
-In the case that you have a lot of handlers to deploy, and you make a little change to a handler, there is no necessary to deploy again all the handlers, only the modified one using this command:
+Note that until now we have been working locally, so if we gonna deploy our handlers and make them work, we should change the endpoint of our services:
 
-`sls deploy function -f <your_function_name>`
+[source, typescript]
+----
+oasp4fn.setDB(dynamo, {endpoint: 'https://dynamodb.us-west-2.amazonaws.com'});
+----
 
 [NOTE]
 ====
-You can get more information about the deployment in the https://serverless.com/framework/docs/providers/aws/cli-reference/deploy/[serverless documentation].
+You can get more information about the deployment in the https://serverless.com/framework/docs/providers/aws/cli-reference/deploy/[serverless documentation], but be aware that OASP4Fn doesn't support the deployment of a single function.
 ====
