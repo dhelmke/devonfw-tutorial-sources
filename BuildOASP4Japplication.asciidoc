@@ -34,7 +34,7 @@ Now you should see the _conf_ directory and the Eclipse launchers.
 
 [NOTE]
 ====
-Learn more about _Devonfw_ initialization TODO:[*LINK TO DEVONFW INITIALIZATION (COOKBOOK?)*]
+Learn more about _Devonfw_ initialization https://github.com/devonfw/devon/wiki/getting-started-download-and-install#prepare-the-workspace[here]
 ====
 
 == Create the server project
@@ -66,9 +66,9 @@ Once you see the `BUILD SUCCESS` info message your new app is ready.
 ====
 You can also create new projects:
 
-- manually from command line *see how* (TODO: link to new app creation with command line).
+- manually from command line https://github.com/devonfw/devon/wiki/getting-started-creating-new-devonfw-application#using-command-line[see how]
 
-- from Eclipse *see how* (TODO: link to new app creation with Eclipse).
+- from Eclipse https://github.com/devonfw/devon/wiki/getting-started-creating-new-devonfw-application#from-eclipse[see how]
 
 ====
 

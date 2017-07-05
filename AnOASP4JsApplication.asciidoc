@@ -4,7 +4,7 @@ toc::[]
 = An OASP4Js Application
 
 == My Thai Star basics
-As an example of how an OASP4J application is built we are going to show the _My Thai Star_ application frontend project, that can be found https://github.com/devonfw/my-thai-star[in github].
+As an example of how an OASP4J application is built we are going to show the _My Thai Star_ application frontend project, that can be found https://github.com/oasp/my-thai-star[in github].
 
 _My Thai Star_ application is a solution for managing the online booking and orders of a restaurant, it is addressed as a showcase app but designed with real requirements and, moreover, trying to serve as an example of common use cases in web apps (Routing with and without guards, use of flex-box, theming, re-usable components, mock back end...).
 
@@ -26,7 +26,7 @@ What we have shown in the previous section is the aspect of a My Thai Star clien
 
 From now on we are going to focus on the implementation of the components, services and directives to show how is it formed and how you can create your own _Oasp4js_ client project with Devon framework.
 
-My Thai Star project is hosted https://github.com/devonfw/my-thai-star[on github] and includes different technologies such as _Java_, _.Net_ and _Node_ for backend solutions and _Angular_ and _Xamarin_ as default clients.
+My Thai Star project is hosted https://github.com/oasp/my-thai-star[on github] and includes different technologies such as _Java_, _.Net_ and _Node_ for backend solutions and _Angular_ and _Xamarin_ as default clients.
 
 === The Oasp4js project
 
