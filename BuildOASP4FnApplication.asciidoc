@@ -174,9 +174,9 @@ import { Visitor } from './types';
 const ALPHABET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
 export let getRandomCode = (len: number) => {
-	if (!Number.isFinite(len) || len < 1) {
-		throw new TypeError('Invalid code lenght');
-	}
+    if (!Number.isFinite(len) || len < 1) {
+	throw new TypeError('Invalid code lenght');
+    }
 
     let str = '';
     while(len > 0) {
@@ -188,12 +188,12 @@ export let getRandomCode = (len: number) => {
 };
 
 export let validateVisitor = (visitor: Visitor) => {
-	let ok = true;
+    let ok = true;
 
     _.some(visitor, (value, key) => {
         switch (key) {
             case 'phone':
-                ok = /(\d+\s)+\d+|\d+/.test(value);
+                ok = /^(\d+\s?)+\d+$/.test(value);
                 break;
             case 'email':
                 ok = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value);
@@ -202,12 +202,12 @@ export let validateVisitor = (visitor: Visitor) => {
         return !ok;
     })
 
-	return ok;
+    return ok;
 };
 
 export let isVisitor = (object: any): object is Visitor => {
     return 'name' in object && 'phone' in object && 'email' in object;
-}
+} 
 ----
 
 So the handler that will register the user to the queue will be able to take the visitor information, generata a unique code with the above function package, insert it into our data base, along with the result of the handler, the generated code and the hour to the visit, so the resulting handler will look like this:
@@ -216,7 +216,7 @@ So the handler that will register the user to the queue will be able to take the
 ----
 import oasp4fn from '@oasp/oasp4fn';
 import dynamo from '@oasp/oasp4fn/dist/adapters/fn-dynamo';
-import { HttpEvent, Context } from '../../types';
+import { HttpEvent, Context, Visitor } from '../../types';
 import * as _ from 'lodash';
 import { getRandomCode, validateVisitor, isVisitor } from '../../utils';
 
@@ -227,7 +227,7 @@ export async function register (event: HttpEvent, context: Context, callback: Fu
     try {
         let visitor = event.body;
 
-        if(!isVisitor(visitor) && !validateVisitor(visitor))
+        if(!isVisitor(visitor) || !validateVisitor(visitor))
             throw new Error();
 
         let date = new Date();
@@ -246,7 +246,7 @@ export async function register (event: HttpEvent, context: Context, callback: Fu
         callback(null, result);
     }
     catch(err){
-        callback({message: 'Cannot register the visitor to the queue'});
+        callback(new Error('[500] Cannot register the visitor to the queue'));
     }
 } 
 ----
@@ -271,7 +271,7 @@ export async function search (event: HttpEvent, context: Context, callback: Func
         callback(null, res);
     }
     catch(err){
-        callback({message: 'Cannot get the queue'});
+        callback(new Error('[500] Cannot get the queue'));
     }
 }
 ----
