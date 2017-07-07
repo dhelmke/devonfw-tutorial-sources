@@ -66,7 +66,7 @@ As we already saw in the previous chapter, Angular architecture is based on thre
 
 In this section we are going to focus on the _components_. We can distinguish them because they all are named with the extension *.component.ts*.
 
-Components are a single element of the application, but it can have, at the same time, more components in them, this is the case for the components that are _main views_: *app*(main component of the app), *home*, *menu*, *book-table*, *cockpit-area* or the components for the dialogs. This views have their own layout from Covalent Teradata to organize its contents as well as other components or tags to be displayed.
+Components are a single element of the application, but it can have, at the same time, more components in them, this is the case for the components that are _main views_: *app*(main component of the app), *home*, *menu*, *book-table*, *cockpit-area* or the components for the dialogs. These views have their own layout from Covalent Teradata to organize its contents as well as other components or tags to be displayed.
 
 [source, typescript]
 ----
@@ -83,7 +83,7 @@ export class MenuComponent implements OnInit {
 
 ----
 
-Even though, there are also components that are an element of a template that have a complete meaning by themselves and can be reused multiple times and/or in multiple places, this is the case of components like, *sidenav*, *header* or *menu-card*, which is an element that accepts an input data with the menu information and displays it as a card, this component will be repeated for every single dish on the menu, so the better way to handle this is to isolate its logic and template in a component so the menu view just have to know about the existence of the component and the data it needs to work.
+Even though, there are also components that are an element of a template that has a complete meaning by themselves and can be reused multiple times and/or in multiple places, this is the case of components like, *sidenav*, *header* or *menu-card*, which is an element that accepts an input data with the menu information and displays it as a card, this component will be repeated for every single dish on the menu, so the better way to handle this is to isolate its logic and template in a component so the menu view just have to know about the existence of the component and the data it needs to work.
 
 [source, typescript]
 ----
@@ -92,7 +92,7 @@ Even though, there are also components that are an element of a template that ha
 
 image::images/oasp4js/2.Example_app/menu_cards.JPG[, link="images/oasp4js/2.Example_app/menu_cards.JPG"]
 
-To interact and navigate between the main views, Angular provides a *Router* that provides with functionalities to move between URL's in the same app, in addition, it provides an HTML tag `<router-outlet></router-outlet>` that will show the component that has been navigated to. This router tag is placed in the main app component, at the same level as the sidenav and the header, this means that this two components are on top of whatever the router shows, that is why we can always see the header no matter what component we are displaying through the router.
+To interact and navigate between the main views, Angular provides a *Router* that provides with functionalities to move between URL's in the same app, in addition, it provides an HTML tag `<router-outlet></router-outlet>` that will show the component that has been navigated to. This router tag is placed in the main app component, at the same level as the sidenav and the header, this means that these two components are on top of whatever the router shows, that is why we can always see the header no matter what component we are displaying through the router.
 
 Also, Angular Material provides a _tab_ component, which can show content depending on which tab you clicked, but they are in the same component, an example of usage of this kind of components can be seen in the book-table view:
 
@@ -107,7 +107,7 @@ MyThaiStar components consume this services, as could be the price-calculator wh
 
 image::images/oasp4js/2.Example_app/price_calculator.JPG[, link="images/oasp4js/2.Example_app/price_calculator.JPG"]
 
-There are two excepcional cases in MyThaiStar of services that serve with a different proposal than serve to a specific component: *Authentication and AuthGuard* and *HttpClient*.
+There are two exceptional cases in MyThaiStar of services that serve with a different proposal than serve to a specific component: *Authentication and AuthGuard* and *HttpClient*.
 
 To secure the access to waiter cockpit, which is a forbidden area to anyone who is not a waiter, MyThaiStar counts with a service of authentication and a Router Guard.
 
@@ -115,7 +115,7 @@ image::images/oasp4js/2.Example_app/authentication.JPG[, link="images/oasp4js/2.
 
 Guards are services that implements _CanActivate_ function which returns a Boolean indicating if the navigation is valid or forbidden. If is forbidden, the router stands still where it is, and if it is valid, it navigates correctly. The authentication service serves as a storage and a validator of certain data regarding username, role, permissions and JWT token.
 
-HttpClient is an envelop of Http that implement the management of headers. The workflow is exact the same as the standard Http but as the project needed to incorporate a token to every call to a specific secured services, then, this token needed to be added and removed depending on call to the server, also, it has been extended to handle the error in case the token has expired or corrupted.
+HttpClient is an envelope of Http that implement the management of headers. The workflow is exact the same as the standard Http but as the project needed to incorporate a token to every call to a specific secured services, then, this token needed to be added and removed depending on call to the server, also, it has been extended to handle the error in case the token has expired or corrupted.
 
 image::images/oasp4js/2.Example_app/authorization_header.JPG[, link="images/oasp4js/2.Example_app/authorization_header.JPG"]
 
@@ -127,13 +127,13 @@ image::images/oasp4js/2.Example_app/waiter_cockpit.JPG[, link="images/oasp4js/2.
 Through modules you can encapsulate whole functionalities or part of the application. All Angular apps have, at least, one module: _app.module_. But Angular encourages the use of more modules to organize all the components and services. In MyThaiStar every component and service is inside a module, making the _app.module_ composed only by other smaller modules.
 
 == Running MyThaiStar client
-To run MyThaiStar you will have to have installed globally https://nodejs.org/en/[Node] and https://github.com/angular/angular-cli[Angular CLI]. Once you have installed this dependencies, you can go to project folder and run `yarn install`, when finished, you are ready to run the client with: `ng serve`.
+To run MyThaiStar you will have to have installed globally https://nodejs.org/en/[Node] and https://github.com/angular/angular-cli[Angular CLI]. Once you have installed these dependencies, you can go to project folder and run `yarn install`, when finished, you are ready to run the client with: `ng serve`.
 
 If everything goes well, the console output will be something like this:
 
 image::images/oasp4js/2.Example_app/webpack.JPG[, link="images/oasp4js/2.Example_app/webpack.JPG"]
 
-Now yo can go to your browser to: `localhost:4200` and there will be MyThaiStar client runnning.
+Now yo can go to your browser to: `localhost:4200` and there will be MyThaiStar client running.
 
 Now we know what can be done with OASP4Js, we are going to see step by step how to make from scratch your own app, explaining every process to create components, services, routing and each element of the application.
 
