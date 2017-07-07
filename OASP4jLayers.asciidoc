@@ -336,7 +336,7 @@ The implementation of the _findBookings_ uses http://www.querydsl.com/[queryDSL]
 
 === Layers of the Jump the Queue application
 
-All the above sections describe the main elements of the layers of the _Oasp4j_ components. If you have completed the link:OAPS4jComponents[exercise of the previous chapter] you may have noticed that all those components are already created for us by _Cobigen_.
+All the above sections describe the main elements of the layers of the _Oasp4j_ components. If you have completed the link:OASP4jComponents[exercise of the previous chapter] you may have noticed that all those components are already created for us by _Cobigen_.
 
 Take a look to our application structure
 
