@@ -52,6 +52,6 @@ image::images/oasp4js/1.Intro/theming.png[, link="images/oasp4js/1.Intro/theming
 
 image::images/oasp4js/1.Intro/flex_box.jpeg[, link="images/oasp4js/1.Intro/flex_box.jpeg"]
 
-In the following chapters we are going to see an example of a finished Oasp4Js application, how to build your own Oasp4Js app from the scratch and all you need to know about about each part of the architecture in order to start building your own applications.
+In the following chapters we are going to see an example of a finished Oasp4Js application, how to build your own Oasp4Js app from the scratch and all you need to know about each part of the architecture in order to start building your own applications.
 
 = link:AnOASP4JsApplication[Next chapter: An OASP4Js application]
