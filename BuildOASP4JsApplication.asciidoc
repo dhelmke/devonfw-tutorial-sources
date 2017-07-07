@@ -45,7 +45,7 @@ As npm, https://yarnpkg.com/en/[Yarn] is a package manager, the differences are 
 
 To install it you only have to go to https://yarnpkg.com/en/docs/install[the official installation page] and follow the instructions.
 
-Even though, if you feel more confortable with npm, you can remain using npm, there is no problem regarding this point.
+Even though, if you feel more comfortable with npm, you can remain using npm, there is no problem regarding this point.
 
 === Angular/CLI
 CLI specially built for make Angular projects easier to develop, maintain and deploy, so we are going to make use of it.
@@ -60,7 +60,7 @@ In addition, you can set Yarn as the default package manager to use with Angular
 
 `ng set --global packageManager=yarn`
 
-Finally, once all this tools have been installed successfully, you are ready to create a new project.
+Finally, once all these tools have been installed successfully, you are ready to create a new project.
 
 == Creating basic new project
 
@@ -106,7 +106,7 @@ image::images/oasp4js/3.BuildYourOwn/installedpackages.JPG[, link="images/oasp4j
 
 Now let's continue to make some config modifications to have all the styles and modules imported to use Material and Teradata:
 
-1. Angular Material need this two modules to work: `MaterialModule`, `BrowserAnimationsModule`. So make sure you import them in the _imports array_ inside of _app.module.ts_. Coming from @angular/material and @angular/platform-browser/animations respectively.
+1. Angular Material needs this two modules to work: `MaterialModule`, `BrowserAnimationsModule`. So make sure you import them in the _imports array_ inside of _app.module.ts_. Coming from @angular/material and @angular/platform-browser/animations respectively.
 
 2. Create theming.scss, a file to config themes on the app, we will use one _primary_ color, one secondary, called _accent_ and another one for _warning_. Also Teradata accepts a foreground and background color. Go to _/src_ into the project and create a file called *theme.scss* and it content will be like this:
 
@@ -165,7 +165,7 @@ First, we are going to develop the views of the app, through its components, and
 Learn more about creating new components in OASP4Js link:AngularComponents#create-a-new-component[HERE]
 ====
 
-The app consists in 3 main views:
+The app consists of 3 main views:
 
 * Access
 * Code viewer
@@ -303,7 +303,7 @@ First, we need to add the Covalent Layout and the card:
 </td-layout>
 ----
 
-This will add a grey background to the view and a card on top of it with the title: "Access", now that we have the basic structure of the view, lets add the form with the information to access to our queue number:
+This will add a grey background to the view and a card on top of it with the title: "Access", now that we have the basic structure of the view, let's add the form with the information to access to our queue number:
 
 * Name of the person
 * Email
@@ -347,7 +347,7 @@ So the final code with the form added will look like this:
 </td-layout>
 ----
 
-This forms contains three input container from Material and inside of them, the input with the properties listed above and making all required.
+This form contains three input container from Material and inside of them, the input with the properties listed above and making all required.
 
 Also, we need to add the button to send the information and redirect to code viewer or show an error if something went wrong in the process, but for the moment, as we neither have another component nor the auth service yet, we will implement the button visually and the validator to disable it if the form is not correct, but not the click event, we will come back later to make this working.
 
@@ -399,7 +399,7 @@ We need to inject an instance of Router object and declare it into the name _rou
 
 Now we have a minimum of navigation flow into our application, this specific path will be secured later on to check the access data and to forbid any navigation trough the URL of the browser.
 
-Let's move on to _code-viewer_ to made the template of the component. We need a big code number in the middle and a button to move to the queue:
+Let's move on to _code-viewer_ to make the template of the component. We need a big code number in the middle and a button to move to the queue:
 
 [source, html]
 ----
@@ -500,7 +500,7 @@ Back to our recently created component, it will be quite similar to the 2 others
 Learn more about Teradata data tables in OASP4Js link:AngularComponents#teradata-data-table[HERE]
 ====
 
-What we did here is create the component by its selector, and give the needed inputs to build the table: *columns* to display names and establish concordance with the data, and some *data* to show. Also, a button to return to the code view has been added following the same system as the navigation in code, but pointing to 'code':
+What we did here is to create the component by its selector, and give the needed inputs to build the table: *columns* to display names and establish concordance with the data, and some *data* to show. Also, a button to return to the code view has been added following the same system as the navigation in code, but pointing to 'code':
 
 [source, typescript]
 ----
@@ -729,7 +729,7 @@ ngSubmit now passes as parameter the ngForm with the values introduced by the us
 
 Having this working should be enough to have again working our access component and grant access to the code and queue viewer if we introduce the correct credentials and if we do not, the error message would be shown and the navigation not permitted, staying still in the access view.
 
-Last thing to do regarding security is to make functional our log-off icon button in the header, we move to _app.component.html_ and add the correspondent (click) event calling for a function, in my case, called "logoff()".
+The last thing to do regarding security is to make functional our log-off icon button in the header, we move to _app.component.html_ and add the correspondent (click) event calling for a function, in my case, called "logoff()".
 
 [source, html]
 ----
@@ -810,7 +810,7 @@ Now if we log in the application, the name we introduce in the form will be the 
 
 ==== Queue service
 
-Last element to create in our application, as always: `ng generate service queue-viewer/shared/queue-viewer` and then add the service in providers at _app.module.ts_.
+The last element to create in our application, as always: `ng generate service queue-viewer/shared/queue-viewer` and then add the service in providers at _app.module.ts_.
 
 This service will work the same way code-viewer, it will simulate an observable that returns the data that will be displayed in the data table of Covalent Teradata:
 
@@ -856,15 +856,15 @@ export class QueueViewerComponent implements OnInit {
 }
 ----
 
-At the moment, we have a functional application working exclusively with mock data, but we want to connect to a real back-end server to make calls and consume its services to have more realistic data, the way we implemented our components are completely adapted to read mock data or real server data, that is why we use services, to isolate the origin of the logic and the data from the component. Is the code of our services what is going to change, and we will going to see it now.
+At the moment, we have a functional application working exclusively with mock data, but we want to connect to a real back-end server to make calls and consume its services to have more realistic data, the way we implemented our components are completely adapted to read mock data or real server data, that is why we use services, to isolate the origin of the logic and the data from the component. Is the code of our services what is going to change, and we will go to see it now.
 
 == Making calls to server
 
-At this point we are going to assume you have finished the OASP4J JumpTheQueue tutorial or, at least, you have downloaded the project and *have it running locally at localhost:8081*.
+At this point we are going to assume you have finished the OASP4J JumpTheQueue tutorial or, at least, you have downloaded the project and *have it running locally on localhost:8081*.
 
 With a real server running and prepared to receive calls from our services, we are going to modify a bit more our application in order to adjust to this new status.
 
-First, some configurations and modifications must be done to synchronize with how server works:
+First, some configurations and modifications must be done to synchronize with how the server works:
 
 1. Now our _Authentication.ts_ should have the parameter "code" along with its getters and setters, which will be the queue code of the user, this has been moved here because this information comes from the register call when we access, not when we load the code view.
 
@@ -879,7 +879,7 @@ export const config: any = {
 };
 ----
 
-Once done all the preparations, lets move to _acces.service.ts_, here we had a simple `if` to check if the user inputs are what we expected, now we are going to call the server and it will manage all this logic to finally return us the information we need.
+Once done all the preparations, let's move to _acces.service.ts_, here we had a simple `if` to check if the user inputs are what we expected, now we are going to call the server and it will manage all this logic to finally return us the information we need.
 
 To call the server to are going to import Angular Http class from @Angular/http, this class is the standard used by angular to make Http calls, so we are going to use it. The register call demands 3 objects: name, email and phone, so we are going to build a post call and send that information to the proper URL of that server service, it will return an observable and we have already worked with them: first we map the result and then we subscribe to have all the response data available, also we implement the error function in case something went wrong. The new register function should be as follows:
 
@@ -901,7 +901,7 @@ To call the server to are going to import Angular Http class from @Angular/http,
   }
 ----
 
-As we can see, and mentioned before, our preparations to this server calls we have done previously let us avoid changing anything in access component or template, everything should be working only doing that changes.
+As we can see, and mentioned before, our preparations to this server call we have done previously let us avoid changing anything in access component or template, everything should be working only doing that changes.
 
 Our queue-viewer will need some modifications as well, in this case, both component and services will be slightly modified. _queue_viewer.service_ will make a call to the server services as we done in _access.service_ but in this case we are not going to implement a subscription, that will be components task. So `getQueuer()` should look like this:
 
@@ -915,7 +915,7 @@ Our queue-viewer will need some modifications as well, in this case, both compon
 
 Regarding _queue-viewer.component_ we need to modify the columns to fit with the data received from the server and the template will be modified to use *async pipe* to subscribe the data directly and a loader to show meanwhile.
 
-About the columns, the server sends us the data array composed by two objects: _visitor_ with the queue member information and _code_ with all the code information. As we are using the name of the queuer, the time it is expected to enter and its code, the column code should be like this:
+About the columns, the server sends us the data array composed of two objects: _visitor_ with the queue member information and _code_ with all the code information. As we are using the name of the queuer, the time it is expected to enter and its code, the column code should be like this:
 
 [source, typescript]
 ----
@@ -966,7 +966,7 @@ Finally, to adapt to async pipe, `ngOnInit()` now does not subscribe, in its pla
 </td-layout>
 ----
 
-Also, to make easier to the user read what is his position, Covalent Teradata provides with a functionality to check columns and modify the value shown, we used that to make bold the name of the user which corresponds with the user who is registered at the moment.
+Also, to make easier to the user read what is his position, Covalent Teradata provides with a functionality to check columns and modify the value shown, we used that to make bold the name of the user which corresponds to the user who is registered at the moment.
 
 That is all regarding how to build your own OASP4Js application example, now is up to you add features, change styles and do everything you could imagine. Just one final step to complete the tutorial, run the tutorial outside your local machine: Deployment.
 
