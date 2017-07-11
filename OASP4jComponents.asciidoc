@@ -192,6 +192,10 @@ INSERT INTO AccessCode (id, modificationCounter, code, dateAndTime, idVisitor) V
 INSERT INTO AccessCode (id, modificationCounter, code, dateAndTime, idVisitor) VALUES (2, 1, 'A02', CURRENT_TIMESTAMP + (60 * 60 * 24 * 5), 2);
 ----
 
+[NOTE]
+====
+You can delete the scripts `V0003__R001_Add_blob_table_and_data.sql` and `V0004__R001_Add_batch_tables.sql` as we are not going to use them.
+====
 
 === The _core_ of the components
 
