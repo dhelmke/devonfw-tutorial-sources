@@ -462,6 +462,11 @@ public class AccessCodeEntity {
 
 With this we have finished preparing the core of our components. Now we can start using _Cobigen_ to generate all the remaining structure (services, layers, dao's, etc.).
 
+[NOTE]
+====
+Now we can solve the compilation errors related to `AccessCodeEntity` in the `VisitorEntity.java` class.
+====
+
 === The component's structure with _Cobigen_
 
 Once we have finished creating the _core_ of our components we could continue creating all the structure and elements manually, but we are going to show how using _Cobigen_ for those tasks we can save a significant amount of time and effort.
