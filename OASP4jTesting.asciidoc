@@ -35,7 +35,7 @@ If we open one of the test classes we will find something like this
 
 [source,java]
 ----
-@SpringApplicationConfiguration(classes = SpringBootApp.class)
+@SpringBootTest(classes = SpringBootApp.class)
 @WebAppConfiguration
 public class DishmanagementTest extends ComponentTest {
 
@@ -56,7 +56,7 @@ public class DishmanagementTest extends ComponentTest {
 }
 ----
 
-- `@SpringApplicationConfiguration` and `@WebAppConfiguration` are _Spring Test_ annotations to load the context of our application. So we will have the application running like in a _real_ situation.
+- `@SpringBootTest` and `@WebAppConfiguration` are _Spring Test_ annotations to load the context of our application. So we will have the application running like in a _real_ situation.
 
 - extending the _Oasp4j_ test class `ComponentTest` will inject in our test class functionalities like http://joel-costigliola.github.io/assertj/[Assertions]
 
@@ -87,7 +87,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import com.cap.jumpthequeue.SpringBootApp;
 import io.oasp.module.test.common.base.ComponentTest;
 
-@SpringApplicationConfiguration(classes = SpringBootApp.class)
+@SpringBootTest(classes = SpringBootApp.class)
 @WebAppConfiguration
 public class VisitormanagementTest extends ComponentTest {
   @Inject
@@ -182,7 +182,7 @@ Doing this our test class would be as follows
 
 [source,java]
 ----
-@SpringApplicationConfiguration(classes = SpringBootApp.class)
+@SpringBootTest(classes = SpringBootApp.class)
 @WebAppConfiguration
 public class VisitormanagementTest extends ComponentTest {
 
