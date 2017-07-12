@@ -48,14 +48,14 @@ And then it includes the https://docs.spring.io/spring-boot/docs/current/referen
 
 So thanks to _Spring Boot_ and the `spring-boot-maven-plugin` we can run our app using Maven. To do so just open a command line with access to _Maven_ (in Devonfw we can do it using the _console.bat_). And:
 
-1.- As is explained in https://github.com/devonfw/devon/wiki/getting-started-understanding-oasp4j-spring-boot-config#step-2-including-properties[devon documentation] the `application.properties` used for packaging is `/src/main/resources/application.properties`. So we need to edit the app properties to access to the app. In `/jumpthequeue-core/src/main/resources/application.properties` configure the properties
+1. As is explained in https://github.com/devonfw/devon/wiki/getting-started-understanding-oasp4j-spring-boot-config#step-2-including-properties[devon documentation] the `application.properties` used for packaging is `/src/main/resources/application.properties`. So we need to edit the app properties to access to the app. In `/jumpthequeue-core/src/main/resources/application.properties` configure the properties
 
 ----
 server.port=8081
 server.context-path=/jumpthequeue
 ----
 
-2.- install the `jumpthequeue/core` project in our local _Maven_ repository
+2. install the `jumpthequeue/core` project in our local _Maven_ repository
 
 ----
 D:\Devon-dist\...\jumpthequeue>mvn install
