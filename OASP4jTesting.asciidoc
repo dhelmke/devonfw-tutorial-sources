@@ -81,17 +81,18 @@ In the `VisitormanagementTest` class we are going to add the annotations to run 
 
 [source,java]
 ----
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.web.WebAppConfiguration;
+import javax.inject.Inject;
+import org.junit.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import com.cap.jumpthequeue.SpringBootApp;
+import com.cap.jumpthequeue.visitormanagement.logic.api.Visitormanagement;
 import io.oasp.module.test.common.base.ComponentTest;
 
 @SpringBootTest(classes = SpringBootApp.class)
-@WebAppConfiguration
 public class VisitormanagementTest extends ComponentTest {
+
   @Inject
   private Visitormanagement visitormanagement;
-}
 ----
 
 Now we can start adding our first test. In link:JumpTheQueueDesign[Jump the Queue] we have two main functionalities:
@@ -182,7 +183,6 @@ Doing this our test class would be as follows
 [source,java]
 ----
 @SpringBootTest(classes = SpringBootApp.class)
-@WebAppConfiguration
 public class VisitormanagementTest extends ComponentTest {
 
   @Inject
