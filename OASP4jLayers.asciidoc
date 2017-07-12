@@ -474,7 +474,7 @@ We could customize the filter editing the `visitormanagement/dataaccess/impl/dao
 
 To fit the requirements of the related https://github.com/oasp/oasp-tutorial-sources/wiki/JumpTheQueueDesign#user-story-register[user story] we need to register a _visitor_ and return an _access code_.
 
-By default _Cobigen_ has generated for us all the _CRUD_ operations related to the visitor _entity_, so we already are able save a visitor in our database without extra implementation.
+By default _Cobigen_ has generated for us all the _CRUD_ operations related to the visitor _entity_, so we already are able to save a visitor in our database without extra implementation.
 
 We only need to add the `@Transactional` (_org.springframework.transaction.annotation.Transactional_) annotation to our _logic_ layer, to delegate in _Spring_ to manage the _transactions_.
 
