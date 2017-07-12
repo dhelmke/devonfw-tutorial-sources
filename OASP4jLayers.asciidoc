@@ -476,7 +476,7 @@ To fit the requirements of the related https://github.com/oasp/oasp-tutorial-sou
 
 By default _Cobigen_ has generated for us all the _CRUD_ operations related to the visitor _entity_, so we already are able to save a visitor in our database without extra implementation.
 
-We only need to add the `@Transactional` (_org.springframework.transaction.annotation.Transactional_) annotation to our _logic_ layer, to delegate in _Spring_ to manage the _transactions_.
+To delegate in _Spring_ to manage the _transactions_ we only need to add the `@Transactional` (_org.springframework.transaction.annotation.Transactional_) annotation to our _logic_ layer implementations. Since _Devonfw 2.2.0_ _Cobigen_ adds this annotations automatically, so we don't need them manually. Check your logic implementation classes and add the annotation in case it is not present.
 
 [source,java]
 ----
