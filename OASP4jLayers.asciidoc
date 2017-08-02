@@ -370,7 +370,7 @@ Let's see the application running and let's try to use the REST service to save 
 
 === Jump the Queue running
 
-As we already mentioned, for this tutorial we are using https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop[Postman] for Chome, but you can use any other similar tool to test your API.
+As we already mentioned, for this tutorial we are using https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop[Postman] for Chrome, but you can use any other similar tool to test your API.
 
 First, open your _Jump the Queue_ project in Eclipse and run the app (right click over the _SpringBootApp.java class > Run as > Java application)
 
