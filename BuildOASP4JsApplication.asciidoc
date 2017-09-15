@@ -86,7 +86,7 @@ image::images/oasp4js/3.BuildYourOwn/appnew.JPG[, link="images/oasp4js/3.BuildYo
 
 First, we are going to add *Google Material* to project dependencies running the following commands:
 
-  `yarn add @angular/material`
+  `yarn add @angular/material @angular/cdk`
 
 Then we are going to add animations:
 
