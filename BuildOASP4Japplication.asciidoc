@@ -98,7 +98,7 @@ image::images/oasp4j/3.BuildYourOwn/newapp4.png[, link="images/oasp4j/3.BuildYou
 
 Click `Finish` and wait while the dependencies of the project are resolved to complete the import process.
 
-Now let's change the _server context path_ of our application. Open `/jumpthequeue-core/src/main/resources/config/application.properties` and set the `server.context.path` property to _/jumpthequeue_
+Now let's change the _server context path_ of our application. Open `/jumpthequeue-core/src/main/resources/config/application.properties` and set the `server.context-path` property to _/jumpthequeue_
 
 ----
 server.context-path=/jumpthequeue
