@@ -204,11 +204,17 @@ Remember that we need to add to _app.module_ every component of Covalent Teradat
   ],
   imports: [
     BrowserModule,
-    CovalentLayoutModule, // Covalent Teradata Layout Module
-    MaterialModule,
-    BrowserAnimationsModule,
     FormsModule,
-    HttpModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatCardModule,            // Angular Material modules we are going to use
+    MatInputModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatIconModule,
+    MatSnackBarModule,
+    CovalentLayoutModule,     // Covalent Teradata Layout Module
+    CovalentCommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -248,29 +254,41 @@ To make a step further, we have to modify the body of the Root component because
 
 First we need to create a component to show as default, that will be our access view, later on we will modify it on it's section of this tutorial, but for now we just need to have it: stop the `ng serve` and run `ng generate component access`. It will add a folder to our project with all the files needed for a component. Now we can move on to the router task again. Run `ng serve` again to continue the development.
 
-Let's create the file when the Router check for routes to navigate between components.
+Let's create the module when the Router check for routes to navigate between components.
 
-1. Create a file called _app.routes.ts_ and add the following code:
+1. Create a file called _app-routing.module.ts_ and add the following code:
 
 [source, typescript]
 ----
 imports...
 
-const routes: Routes = [  // Routes string, where Router will check the navigation and its properties.
+const appRoutes: Routes = [  // Routes string, where Router will check the navigation and its properties.
   { path: 'access', component: AccessComponent},               // Redirect if url path is /access.
   { path: '**', redirectTo: '/access', pathMatch: 'full' }];  // Redirect if url path do not match with any other route.
 
-export const appRoutes: ModuleWithProviders = RouterModule.forRoot(routes); // Export of the routing module.
+@NgModule({
+  imports: [
+    RouterModule.forRoot(
+      appRoutes, {
+        enableTracing: true
+      }, // <-- debugging purposes only
+    ),
+  ],
+  exports: [
+    RouterModule,
+  ],
+})
+export class AppRoutingModule {} // Export of the routing module.
 ----
 
-Time to add this _appRoutes_ routing module to the app module:
+Time to add this _AppRoutingModule_ routing module to the app module:
 
 [source, typescript]
 ----
 ...
   imports: [
     BrowserModule,
-    appRoutes,
+    AppRoutingModule,
     CovalentLayoutModule,
 ...
 ----
@@ -297,9 +315,9 @@ First, we need to add the Covalent Layout and the card:
 [source, html]
 ----
 <td-layout>
-  <md-card>
-    <md-card-title>Access</md-card-title>
-  </md-card>
+  <mat-card>
+    <mat-card-title>Access</mat-card-title>
+  </mat-card>
 </td-layout>
 ----
 
@@ -320,30 +338,30 @@ So the final code with the form added will look like this:
 [source, html]
 ----
 <td-layout>
-  <md-card>
-    <img md-card-image src="assets/images/jumptheq.png">
-    <md-card-title>Access</md-card-title>
+  <mat-card>
+    <img mat-card-image src="assets/images/jumptheq.png">
+    <mat-card-title>Access</mat-card-title>
     <form layout="column" class="pad" #accessForm="ngForm">
 
-      <md-input-container>
-        <input mdInput placeholder="Name" ngModel name="name" required>
-      </md-input-container>
+      <mat-form-field>
+        <input matInput placeholder="Name" ngModel name="name" required>
+      </mat-form-field>
 
-      <md-input-container>
-        <input mdInput placeholder="Email" ngModel email name="email" required>
-      </md-input-container>
+      <mat-form-field>
+        <input matInput placeholder="Email" ngModel email name="email" required>
+      </mat-form-field>
       <span class="text-sm">Filling this, I acccept to receive commercial information.</span>
 
-      <md-input-container>
-        <input mdInput placeholder="Phone" type="number" ngModel name="phone" required>
-      </md-input-container>
+      <mat-form-field>
+        <input matInput placeholder="Phone" type="number" ngModel name="phone" required>
+      </mat-form-field>
 
-    <md-card-actions>
-      <button md-raised-button color="primary" [disabled]="!accessForm.form.valid" class="text-upper">Request it</button>
-    </md-card-actions>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [disabled]="!accessForm.form.valid" class="text-upper">Request it</button>
+    </mat-card-actions>
 
     </form>
-  </md-card>
+  </mat-card>
 </td-layout>
 ----
 
@@ -363,11 +381,11 @@ image::images/oasp4js/3.BuildYourOwn/access_form.JPG[,width="250", link="images/
 Now lets continue with the second component: Code viewer.
 
 ==== Code viewer component
-Our first step will be create the component in the exact same way we did with the access component: `ng generate component code-viewer` and we add the route in the app.routes.ts:
+Our first step will be create the component in the exact same way we did with the access component: `ng generate component code-viewer` and we add the route in the app-routing.module.ts:
 
 [source, typescript]
 ----
-const routes: Routes = [
+const appRoutes: Routes = [
   { path: 'access', component: AccessComponent},
   { path: 'code', component: CodeViewerComponent}, //code-viewer route added
   { path: '**', redirectTo: '/access', pathMatch: 'full' }];
@@ -381,7 +399,7 @@ Turning back to _access.component.html_ we have to add this code:
 ----
 <form layout="column" class="pad" (ngSubmit)="submitAccess()" #accessForm="ngForm"> // added a ngSubmit event
  ...
-<button md-raised-button type="submit" color="primary" ... </button> // added type="submit"
+<button mat-raised-button type="submit" color="primary" ... </button> // added type="submit"
 ----
 
 This means that when the user press enter or click the button, ngSubmit will send an event to the function `submitAccess()` that should be in the _access.component.ts_, which is going to be created now:
@@ -404,17 +422,17 @@ Let's move on to _code-viewer_ to make the template of the component. We need a 
 [source, html]
 ----
 <td-layout>
-  <md-card>
-    <img md-card-image src="assets/images/jumptheq.png">
-    <md-card-title>Queue code for {{name}} is:</md-card-title> // interpolation of the variable name which corresponds with the person who requested the code
+  <mat-card>
+    <img mat-card-image src="assets/images/jumptheq.png">
+    <mat-card-title>Queue code for {{name}} is:</mat-card-title> // interpolation of the variable name which corresponds with the person who requested the code
 
     <h1 style="font-size: 100px" class="text-center text-xxl push-lg">{{code}}</h1> // queue code for that person
 
     <div class="text-center pad-bottom-lg">
-      <button md-raised-button (click)="navigateQueue()" color="primary" class="text-upper">Watch the queue</button> // navigation function like access
+      <button mat-raised-button (click)="navigateQueue()" color="primary" class="text-upper">Watch the queue</button> // navigation function like access
     </div>
 
-  </md-card>
+  </mat-card>
 </td-layout>
 ----
 
@@ -452,7 +470,7 @@ Finally, we are going to add an icon button to the header to log out, we are not
   <div layout="row" layout-align="center center" td-toolbar-content flex>
     Jump The Queue
     <span flex></span> //Fill empty space to put the icon in the right of the header
-    <button md-icon-button mdTooltip="Log out"><md-icon>exit_to_app</md-icon></button>
+    <button mat-icon-button mdTooltip="Log out"><mat-icon>exit_to_app</mat-icon></button>
   </div>
 ----
 
@@ -478,9 +496,9 @@ Back to our recently created component, it will be quite similar to the 2 others
 [source, html]
 ----
 <td-layout>
-  <md-card>
-    <img md-card-image src="assets/images/jumptheq.png">
-    <md-card-title>Queue view:</md-card-title>
+  <mat-card>
+    <img mat-card-image src="assets/images/jumptheq.png">
+    <mat-card-title>Queue view:</mat-card-title>
 
     <td-data-table
       [data]="queuers"
@@ -488,10 +506,10 @@ Back to our recently created component, it will be quite similar to the 2 others
     </td-data-table>
 
     <div class="text-center pad-lg">
-      <button md-raised-button (click)="navigateCode()" color="primary" class="text-upper">Go back</button>
+      <button mat-raised-button (click)="navigateCode()" color="primary" class="text-upper">Go back</button>
     </div>
 
-  </md-card>
+  </mat-card>
 </td-layout>
 ----
 
@@ -587,7 +605,7 @@ Now on the template we are going to use and special property from Angular *ngIf*
 
 [source, html]
 ----
-<button *ngIf="auth.isLogged()" md-icon-button mdTooltip="Log out"><md-icon>exit_to_app</md-icon></button>
+<button *ngIf="auth.isLogged()" mat-icon-button mdTooltip="Log out"><mat-icon>exit_to_app</mat-icon></button>
 ----
 
 This property will hide the log-off icon button when the user is not logged and show it when it is logged.
@@ -649,11 +667,11 @@ Now we have to add them to our _app.module.ts_ providers array:
 ...
 ----
 
-Finally, we have to specify what routes are secured by this guard, so we move to _app.routes.ts_ and add the option "canActivate" to the paths to code-viewer and queue-viewer:
+Finally, we have to specify what routes are secured by this guard, so we move to _app-routing.module.ts_ and add the option "canActivate" to the paths to code-viewer and queue-viewer:
 
 [source, typescript]
 ----
-const routes: Routes = [
+const appRoutes: Routes = [
   { path: 'access', component: AccessComponent},
   { path: 'code', component: CodeViewerComponent, canActivate: [AuthGuard]},
   { path: 'queue', component: QueueViewerComponent, canActivate: [AuthGuard]},
@@ -733,7 +751,7 @@ The last thing to do regarding security is to make functional our log-off icon b
 
 [source, html]
 ----
-    <button *ngIf="auth.isLogged()" (click)="logoff()"  md-icon-button mdTooltip="Log out"><md-icon>exit_to_app</md-icon></button>
+    <button *ngIf="auth.isLogged()" (click)="logoff()"  mat-icon-button mdTooltip="Log out"><mat-icon>exit_to_app</mat-icon></button>
 ----
 
 The name has to correspond with the one used in _app.component.ts_, where we inject AccessService so we can call its logoff function where the one from this components is called:
@@ -881,25 +899,26 @@ export const config: any = {
 
 Once done all the preparations, let's move to _acces.service.ts_, here we had a simple `if` to check if the user inputs are what we expected, now we are going to call the server and it will manage all this logic to finally return us the information we need.
 
-To call the server to are going to import Angular Http class from @Angular/http, this class is the standard used by angular to make Http calls, so we are going to use it. The register call demands 3 objects: name, email and phone, so we are going to build a post call and send that information to the proper URL of that server service, it will return an observable and we have already worked with them: first we map the result and then we subscribe to have all the response data available, also we implement the error function in case something went wrong. The new register function should be as follows:
+To call the server to are going to import _Angular HttpClient_ class from _@angular/common/http_, this class is the standard used by angular to make Http calls, so we are going to use it. The register call demands 3 objects: name, email and phone, so we are going to build a post call and send that information to the proper URL of that server service, it will return an observable and we have already worked with them: first we map the result and then we subscribe to have all the response data available, also we implement the error function in case something went wrong. The new register function should be as follows:
 
 [source, typescript]
 ----
   register(name, email, phone): void {
-    this.http.post(`${config.basePath}visitormanagement/v1/register`, {name: name, email: email, phone: phone})
-             .map(res => res.json())
+    this.http.post<any>(`${config.basePath}visitormanagement/v1/register`, {name: name, email: email, phone: phone})
              .subscribe( (res) => {
                 this.auth.setLogged(true);
                 this.auth.setUser(name);
                 this.auth.setCode(res.code.code);
                 this.router.navigate(['code']);
              }, (err) => {
-                this.snackBar.open(err.json().message, 'OK', {
-                  duration: 2000,
+                this.snackBar.open(err.error.message, 'OK', {
+                  duration: 5000,
                 });
              });
   }
 ----
+
+*Important:* As we can see in the code the request is mapped with the type _any_. This is made for this tutorial purposes, but in a real scenario this _any_ should be changed by the correct type (interface or class) that fits with the Http response. 
 
 As we can see, and mentioned before, our preparations to this server call we have done previously let us avoid changing anything in access component or template, everything should be working only doing that changes.
 
@@ -908,8 +927,9 @@ Our queue-viewer will need some modifications as well, in this case, both compon
 [source, typescript]
 ----
   getQueuers(): Observable<any> {
-    return this.http.post(`${config.basePath}visitormanagement/v1/visitor/search`, {}) // the post usually demands some parameters to paginate or make
-          .map(res => res.json());                                                     // filtering, but in this case we do not need nothing to filter, so we send an empty object
+    return this.http.post<any>(`${config.basePath}visitormanagement/v1/visitor/search`, {}) 
+    // the post usually demands some parameters to paginate or make
+    // in this case we do not need nothing to do more
   }
 ----
 
@@ -933,9 +953,9 @@ Finally, to adapt to async pipe, `ngOnInit()` now does not subscribe, in its pla
 [source, typescript]
 ----
 <td-layout>
-  <md-card *ngIf="queuers | async as queuersList; else loading"> // load queuers and asign the result to the name queuersList and only show this card if the queuers are loaded
-    <img md-card-image src="assets/images/jumptheq.png">
-    <md-card-title>Queue view:</md-card-title>
+  <mat-card *ngIf="queuers | async as queuersList; else loading"> // load queuers and asign the result to the name queuersList and only show this card if the queuers are loaded
+    <img mat-card-image src="assets/images/jumptheq.png">
+    <mat-card-title>Queue view:</mat-card-title>
 
     <td-data-table
       [data]="queuersList.result"
@@ -951,16 +971,16 @@ Finally, to adapt to async pipe, `ngOnInit()` now does not subscribe, in its pla
     </td-data-table>
     
     <div class="text-center pad-lg">
-      <button md-raised-button (click)="navigateCode()" color="primary" class="text-upper">Go back</button>
+      <button mat-raised-button (click)="navigateCode()" color="primary" class="text-upper">Go back</button>
     </div>
 
-  </md-card>
+  </mat-card>
     
   <ng-template #loading> // template to show when the async pipe is loading data
-    <md-progress-bar
+    <mat-progress-bar
       color="accent"
       mode="indeterminate">
-    </md-progress-bar>
+    </mat-progress-bar>
   </ng-template>
 
 </td-layout>
