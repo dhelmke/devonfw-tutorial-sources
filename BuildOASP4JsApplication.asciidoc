@@ -106,9 +106,9 @@ image::images/oasp4js/3.BuildYourOwn/installedpackages.JPG[, link="images/oasp4j
 
 Now let's continue to make some config modifications to have all the styles and modules imported to use Material and Teradata:
 
-1. Angular Material needs this two modules to work: `MaterialModule`, `BrowserAnimationsModule`. So make sure you import them in the _imports array_ inside of _app.module.ts_. Coming from @angular/material and @angular/platform-browser/animations respectively.
+1. Angular Material and Covalent need the following modules to work: `CdkTableModule`, `BrowserAnimationsModule` and *every Covalent and Material Module* used in the application. So make sure you import them in the _imports array_ inside of _app.module.ts_. These modules come from `@angular/material`, `@angular/cdk`, `@angular/platform-browser/animations` and `@covalent/core`.
 
-2. Create theming.scss, a file to config themes on the app, we will use one _primary_ color, one secondary, called _accent_ and another one for _warning_. Also Teradata accepts a foreground and background color. Go to _/src_ into the project and create a file called *theme.scss* and it content will be like this:
+2. Create `theming.scss`, a file to config themes on the app, we will use one _primary_ color, one secondary, called _accent_ and another one for _warning_. Also Teradata accepts a foreground and background color. Go to _/src_ into the project and create a file called *theme.scss* and it content will be like this:
 
 [source, javascript]
 ----
@@ -194,7 +194,7 @@ Learn more about layouts in OASP4Js link:AngularComponents#teradata-layouts[HERE
 
 As we do not really need nothing more than a header we are going to use the simplest layout: *nav view*
 
-Remember that we need to add to _app.module_ every component of Covalent Teradata we use, for layouts it is CovalentLayoutModule:
+Remember that we need to import in _app.module_ every component of *Angular Material* and *Covalent Teradata* we use, for layouts it is CovalentLayoutModule:
 
 [source, javascript]
 ----
