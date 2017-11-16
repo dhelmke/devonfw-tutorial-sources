@@ -108,7 +108,7 @@ Now let's continue to make some config modifications to have all the styles and 
 
 1. Angular Material and Covalent need the following modules to work: `CdkTableModule`, `BrowserAnimationsModule` and *every Covalent and Material Module* used in the application. So make sure you import them in the _imports array_ inside of _app.module.ts_. These modules come from `@angular/material`, `@angular/cdk`, `@angular/platform-browser/animations` and `@covalent/core`.
 
-2. Create `theming.scss`, a file to config themes on the app, we will use one _primary_ color, one secondary, called _accent_ and another one for _warning_. Also Teradata accepts a foreground and background color. Go to _/src_ into the project and create a file called *theme.scss* and it content will be like this:
+2. Create `theming.scss`, a file to config themes on the app, we will use one _primary_ color, one secondary, called _accent_ and another one for _warning_. Also Teradata accepts a foreground and background color. Go to _/src_ into the project and create a file called *theme.scss* whose content will be like this:
 
 [source, javascript]
 ----
@@ -212,6 +212,7 @@ Remember that we need to import in _app.module_ every component of *Angular Mate
     MatButtonModule,
     MatButtonToggleModule,
     MatIconModule,
+    MatProgressBarModule,
     MatSnackBarModule,
     CovalentLayoutModule,     // Covalent Teradata Layout Module
     CovalentCommonModule,
