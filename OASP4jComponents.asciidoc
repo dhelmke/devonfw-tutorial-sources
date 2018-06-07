@@ -115,11 +115,11 @@ Now is the moment to decide the components of our app. The complexity of the fun
 However if you feel more comfortable managing both entities in a single component you can also do it in that way. The results will be the same and the only difference will be related with the structure of the elements and the distribution of the code.
 ====
 
-=== The data base
+=== The database
 
 In the projects created with the _Oasp4j_ archetype, we already have a complete data base schema that we can use as a model to create our own. By default we are going to work over the http://www.h2database.com/html/main.html[H2] database engine provided in the _Oasp4j_ applications, although you can use other database alternatives for this exercise. 
 
-Open the `/jumpthequeue-core/src/main/resources/db/migration/h2/V0001__R001_Create_schema.sql` and delete all the tables (except _BinaryObject_ and _RevInfo_, that are used internally by default).
+We have the `/jumpthequeue-core/src/main/resources/db/type/h2/V0001_Create_Sequence.sql, `V0002_Create_RevInfo.sql` and `V0003__Create_BinaryObject.sql` this table are used internally by default so don't delete it. We also have `/jumpthequeue-core/src/main/resources/db/migration/1.0/V0004_Add_blob_data.sql`. You can create your own schema table that your required. For e.g. `V0005_Create_Visitor.sql`
 
 ==== _Visitor_ table
 
