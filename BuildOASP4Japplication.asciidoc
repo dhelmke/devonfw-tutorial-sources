@@ -149,7 +149,7 @@ image::images/oasp4j/3.BuildYourOwn/devcon_oasp4j_project_exp.PNG[ width="250", 
 * Mock data schema
 * Database version control with Flyway
 
-image::images/oasp4j/3.BuildYourOwn/devcon_oasp4j_flyway.PNG[ width="650", link="images/oasp4j/3.BuildYourOwn/devcon_oasp4j_flyway.PNG"]
+image::images/oasp4j/3.BuildYourOwn/devcon_oasp4j_flyway.PNG[ width="250", link="images/oasp4j/3.BuildYourOwn/devcon_oasp4j_flyway.PNG"]
 
 
 * Bean mapper ready
