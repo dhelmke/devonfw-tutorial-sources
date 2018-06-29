@@ -19,13 +19,7 @@ image::images/devon/devon_dist.png[width="450", link="images/devon/devon_dist.pn
 
 == Initialize the distribution
 
-Before creating our first project you must initialize the distribution. To do so execute the scripts
-----
-create-or-update-workspace.bat
-----
-
-and then
-
+Before creating our first project you must initialize the distribution. To do so execute the script
 ----
 update-all-workspaces.bat
 ----
