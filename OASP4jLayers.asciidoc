@@ -388,13 +388,6 @@ To ease the example we are going to "open" the application to avoid the security
 
 In the file `general/service/impl/config/BaseWebSecurityConfig.java`:
 
-- change property _corsEnabled_ to true
-[source,java]
-----
-@Value("${security.cors.enabled}")
-boolean corsEnabled = true;
-----
-
 - edit the `configure(HttpSecurity http)` method to allow access to the app to any request and add the _cors filter_:
 
 [source,java]
