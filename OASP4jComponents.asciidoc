@@ -113,7 +113,7 @@ However if you feel more comfortable managing both entities in a single componen
 In the projects created with the _Oasp4j_ archetype, we already have a complete data base schema that we can use as a model to create our own. By default we are going to work over the http://www.h2database.com/html/main.html[H2] database engine provided in the _Oasp4j_ applications, although you can use other database alternatives for this exercise. 
 
 We have the `/jumpthequeue-core/src/main/resources/db/type/h2/V0001__Create_Sequence.sql` , `V0002__Create_RevInfo.sql` and 
-`V0003_Create__BinaryObject.sql` this table are already used by default so don't delete it. We therefore also have `/jumpthequeue-core/src/main/resources/db/migration/1.0/V0004__Add_blob_data.sql`. You can create your own schema table that your required. For e.g. `V0005__Create_Visitor.sql`
+`V0003_Create__BinaryObject.sql` this table are already used by default so don't delete it. We therefore also have `/jumpthequeue-core/src/main/resources/db/migration/1.0/V0004__Add_blob_data.sql`. You can create your own schema table that your required. For e.g. `db/type/h2/V0005__Create_Visitor.sql`
 
 ==== _Visitor_ table
 
@@ -174,7 +174,7 @@ CREATE TABLE AccessCode(
 
 ==== Mock data
 
-Finally we can provide a certain amount of mock data to start our app. Add a new sql script `/jumpthequeue-core/src/main/resources/db/migration/1.0/V0005__Master_data.sql` adding sample data:
+Finally we can provide a certain amount of mock data to start our app. Add a new sql script `/jumpthequeue-core/src/main/resources/db/migration/1.0/V0007__Master_data.sql` adding sample data:
 
 [source,sql]
 ----
