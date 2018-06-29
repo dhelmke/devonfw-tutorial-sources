@@ -174,7 +174,7 @@ CREATE TABLE AccessCode(
 
 ==== Mock data
 
-Finally we can provide a certain amount of mock data to start our app. In the `/jumpthequeue-core/src/main/resources/db/migration/V0002__R001_Master_data.sql` script replace the current _inserts_ with ours
+Finally we can provide a certain amount of mock data to start our app. Add a new sql script `/jumpthequeue-core/src/main/resources/db/migration/1.0/V0005__Master_data.sql` adding sample data:
 
 [source,sql]
 ----
@@ -185,11 +185,6 @@ INSERT INTO Visitor (id, modificationCounter, name, email, phone, idCode) VALUES
 INSERT INTO AccessCode (id, modificationCounter, code, dateAndTime, idVisitor) VALUES (1, 1, 'A01', CURRENT_TIMESTAMP + (60 * 60 * 24 * 5), 1);
 INSERT INTO AccessCode (id, modificationCounter, code, dateAndTime, idVisitor) VALUES (2, 1, 'A02', CURRENT_TIMESTAMP + (60 * 60 * 24 * 5), 2);
 ----
-
-[NOTE]
-====
-You can delete the scripts `V0003__R001_Add_blob_table_and_data.sql` and `V0004__R001_Add_batch_tables.sql` as we are not going to use them.
-====
 
 === The _core_ of the components
 
