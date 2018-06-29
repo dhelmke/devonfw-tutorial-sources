@@ -33,7 +33,8 @@ Learn more about _Devonfw_ initialization https://github.com/devonfw/devon/wiki/
 
 == Create the server project
 
-First, in the _workspaces_ directory of the distribution create a new folder _jumpthequeue_ and go into it
+First, in the _workspaces_ directory of the distribution create a new folder _jumpthequeue_ and go into it.
+Execute console.bat to get a console initialized with the provided software served in the `software` folder.
 
 ----
 D:\Devon\workspaces>mkdir jumpthequeue
