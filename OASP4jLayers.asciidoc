@@ -432,12 +432,14 @@ If the _Search Criteria_ is empty we will retrieve all the visitors, in other ca
 
 Call (POST) `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor/search`
 
-in the body we need to define the _Searc Criteria_ object, that will be empty in this case
+in the body we need to define the _SearchCriteria_ object, that will be empty in this case
 
 [source,json]
 ----
 {}
 ----
+
+Make sure, the header `Content-Type: application/json` is passed as well indicating the server to interprete the body in JSON format. Otherwise, you may face an 415 unsuported type error.
 
 [NOTE]
 ====
