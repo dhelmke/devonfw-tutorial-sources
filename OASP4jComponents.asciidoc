@@ -464,7 +464,7 @@ Once we have finished creating the _core_ of our components we could continue cr
 
 ==== Importing Cobigen templates
 
-Before start using _Cobigen_ we need to import into our project the _CobiGenTemplates_. To do so, we only need to use the Eclipse's menu _File > Import > Existing Projects into Workspace_ and browse to select the `workspaces/main/CobiGen_Templates` directory. Then click _Finish_ button and you should have the _CobiGenTemplates_ as a new project in Eclipse's workspace.
+Before start using _Cobigen_ we need to import into our project the `CobiGen_Templates` from the `main` workspace. To do so, we only need to use the Eclipse's menu _File > Import > Existing Projects into Workspace_ and browse to select the `workspaces/main/CobiGen_Templates` directory. Then click _Finish_ button and you should have the `CobiGen_Templates` as a new project in Eclipse's workspace.
 
 image::images/oasp4j/4.Components/cobigen_templates.png[width="250", link="images/oasp4j/4.Components/cobigen_templates.png"]
 
