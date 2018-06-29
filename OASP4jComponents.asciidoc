@@ -25,13 +25,6 @@ The benefits of dividing our application in components are:
 
 - Data consistency, a component is responsible for its data and changes to this data shall only happen via the component.
 
-=== Naming
-
-In _Oasp4j_, as a convention, we will name our components with the name of the target entity followed by `management` term.
-----
-Foomanagement
-----
-
 == OASP4j component example
 
 _My Thai Star_ is an application of a restaurant that allows *booking* tables, and *order* different *dishes* so the main _Oasp4j_ components are:
