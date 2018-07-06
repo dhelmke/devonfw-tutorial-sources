@@ -21,7 +21,7 @@ include::JumpTheQueueDesign[]
 :leveloffset: 1
 include::OASPintro[]
 
-inlcude::OASP4J-overview[]
+inlcude::OASP4JOverview[]
 
 include::devonfwintro[]
 
@@ -37,7 +37,7 @@ include::OASP4jAddingCustomFunctionality[]
 
 include::OASP4jValidations[]
 
-include:OASP4jTesting[]
+include::OASP4jTesting[]
 
 include::OASP4jDeployment[]
 
