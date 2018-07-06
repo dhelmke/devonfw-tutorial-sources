@@ -21,7 +21,7 @@ include::JumpTheQueueDesign[]
 :leveloffset: 1
 include::OASPintro[]
 
-inlcude::OASP4JOverview[]
+include::OASP4JOverview[]
 
 include::devonfwintro[]
 
