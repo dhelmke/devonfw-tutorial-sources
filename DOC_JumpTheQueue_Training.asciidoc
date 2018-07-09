@@ -10,23 +10,23 @@ This document contains high-level documentation of the components of devonfw to 
 
 While the document a comprehensive overview, the following links should provide you a step by step navigation to follow the tutorial. The document is structured in an alternating fashion documenting general explanation of the different components followed by the guide of developing the *Jump The Queue* application. The links provided in the following will just point at the beginning of the guide of each section as a shortcut. If you are unsure about anything, please scroll some pages back to find further explanation on the architecture and contents or don't hesitate to ask your trainer if you are currently in a training.
 
-xref:JumpTheQueueDesign#introduction[Jump the Queue introduction and requirements description]
+link:JumpTheQueueDesign#introduction[Jump the Queue introduction and requirements description]
 
 *Building the server*
 
-. xref:BuildOASP4Japplication#buildyourownoasp4japplication[Create your own OASP4J application]
-. xref:OASP4jComponents#createyourcomponents[Create your components]
-. xref:OASP4jLayers#layersofthejumpthequeueapplication[Layers of the application]
-. xref:OASP4jLayers#jumpthequeuerunning[Run the application]
-. xref:OASP4jAddingCustomFunctionality#returntheaccesscode[Customize the application]
-. xref:OASP4jTesting#testingourapplication[Testing the application]
+. link:BuildOASP4Japplication#buildyourownoasp4japplication[Create your own OASP4J application]
+. link:OASP4jComponents#createyourcomponents[Create your components]
+. link:OASP4jLayers#layersofthejumpthequeueapplication[Layers of the application]
+. link:OASP4jLayers#jumpthequeuerunning[Run the application]
+. link:OASP4jAddingCustomFunctionality#returntheaccesscode[Customize the application]
+. link:OASP4jTesting#testingourapplication[Testing the application]
 
 *Building the client*
 
-. xref:BuildOASP4JsApplication#goalofjumpthequeue[Create your own OASP4JS application]
-. xref:BuildOASP4JsApplication#creatingcomponents[Create your components]
-. xref:BuildOASP4JsApplication#creatingservices[Create services]
-. xref:BuildOASP4JsApplication#makingcallstoserver[Make calls to the server]
+. link:BuildOASP4JsApplication#goalofjumpthequeue[Create your own OASP4JS application]
+. link:BuildOASP4JsApplication#creatingcomponents[Create your components]
+. link:BuildOASP4JsApplication#creatingservices[Create services]
+. link:BuildOASP4JsApplication#makingcallstoserver[Make calls to the server]
 
 :leveloffset: 1
 include::JumpTheQueueDesign[]
