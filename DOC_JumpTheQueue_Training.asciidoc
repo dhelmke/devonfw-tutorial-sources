@@ -19,6 +19,7 @@ link:JumpTheQueueDesign#introduction[Jump the Queue introduction and requirement
 . link:OASP4jLayers#layersofthejumpthequeueapplication[Layers of the application]
 . link:OASP4jLayers#jumpthequeuerunning[Run the application]
 . link:OASP4jAddingCustomFunctionality#returntheaccesscode[Customize the application]
+. link:Oasp4jValidations#addyourvalidations[Add validation]
 . link:OASP4jTesting#testingourapplication[Testing the application]
 
 *Building the client*
