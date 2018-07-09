@@ -10,7 +10,23 @@ This document contains high-level documentation of the components of devonfw to 
 
 While the document a comprehensive overview, the following links should provide you a step by step navigation to follow the tutorial. The document is structured in an alternating fashion documenting general explanation of the different components followed by the guide of developing the *Jump The Queue* application. The links provided in the following will just point at the beginning of the guide of each section as a shortcut. If you are unsure about anything, please scroll some pages back to find further explanation on the architecture and contents or don't hesitate to ask your trainer if you are currently in a training.
 
-xref:JumpTheQueueDesign#Introduction[Indtroduction]
+xref:JumpTheQueueDesign#Introduction[Jump the Queue introduction and requirements description]
+
+*Building the server*
+
+. xref:BuildOASP4Japplication#Build-your-own-OASP4J-application[Create your own OASP4J application]
+. xref:OASP4jComponents#create-your-components[Create your components]
+. xref:OASP4jLayers#layers-of-the-jump-the-queue-application[Layers of the application]
+. xref:OASP4jLayers#jump-the-queue-running[Run the application]
+. xref:OASP4jAddingCustomFunctionality#return-the-access-code[Customize the application]
+. xref:OASP4jTesting#testing-our-application[Testing the application]
+
+*Building the client*
+
+. xref:BuildOASP4JsApplication#goal-of-jump-the-queue[Create your own OASP4JS application]
+. xref:BuildOASP4JsApplication#creating-components[Create your components]
+. xref:BuildOASP4JsApplication#creating-services[Create services]
+. xref:BuildOASP4JsApplication#making-calls-to-server[Make calls to the server]
 
 :leveloffset: 1
 include::JumpTheQueueDesign[]
