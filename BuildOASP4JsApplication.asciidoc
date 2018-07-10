@@ -98,9 +98,9 @@ Finally, some material components need gestures support, so we need to add this 
 
 That is all regarding Angular/Material. We are now going to install *Covalent Teradata* dependency:
 
-`yarn add @covalent/core@1.0.1` 
+`yarn add @covalent/core@2.0.0-beta.1` 
 
-Now that we have all dependencies we can check in the project's package.json file if everything has been correctly added:
+Now that we have all dependencies we can check in the project's package.json file if everything has been correctly added (the following dependencies section is shown as it was at the time of writing this document):
 
 [source, json]
 ----
