@@ -168,14 +168,6 @@ $background: map-get($theme, background);
 
 With all of this finally done, we are ready to start the development.
 
-== OASP4JS Application Template
-
-Another option to get this basic project structure with all its dependencies and styles already set is to clone the develop branch of https://github.com/oasp/oasp4js-application-template[OASP4JS Application Template].
-
-Once you have cloned it, move to the project root folder and run a `yarn` to install all dependencies from package.json. The project serves as an example which also comes with some common functionalities already implemented if you want to use them.
-
-In order to make the task easier, we are going to avoid the removal of unused components, so we will use the project created on the previous point to build the app.
-
 == Start the development
 
 Now we have a fully functional blank project, all we have to do now is just create the components and services which will compose the application.
