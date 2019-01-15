@@ -7,7 +7,7 @@ In this chapter we are going to see how to build a new DEVON4ng from scratch. Th
 == Goal of Jump The Queue
 This mock-up images shows what you are going to have as a result when the tutorial is finished. An app to manage codes assigned to queuers in order to easy the management of the queue, with a code, you can jump positions in queue and know everywhere which is your position.
 
-image::images/devon4ng/3.BuildYourOwn/mockups.png[,width="250", link="images/devon4ng/3.BuildYourOwn/mockups.png"]
+image::images/devon4ng/3.BuildYourOwn/mockups.png[,width="500", link="images/devon4ng/3.BuildYourOwn/mockups.png"]
 
 So, hands on it, let's configure the environment and build this app!
 
