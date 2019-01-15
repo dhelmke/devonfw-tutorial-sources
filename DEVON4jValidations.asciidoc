@@ -1,9 +1,9 @@
 :toc: macro
 toc::[]
 
-= OASP4J Validations
+= DEVON4j Validations
 
-For validations _Oasp4j_ includes the http://hibernate.org/validator/[Hibernate Validator] as one of the available libraries in the _pom.xml_ file
+For validations _DEVON4j_ includes the http://hibernate.org/validator/[Hibernate Validator] as one of the available libraries in the _pom.xml_ file
 
 [source,xml]
 ----
