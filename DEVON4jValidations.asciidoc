@@ -207,7 +207,7 @@ Then we only need to apply the new validation to our _phone_ field in 'visitorma
 ----
 @NotNull
 @Phone
-private String phone;
+private String phoneNumber;
 ----
 
 As last step we can test our new validation. Call again the service defining a wrong phone, the response should be a _ValidationError_ like the following

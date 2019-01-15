@@ -164,7 +164,7 @@ create table Visitor(
 
 ==== _Daily Queue_ table
 
-As second table we will represent the _Daily Queue_ that will be formed by _name_, _logo_, _currentNumber_, _attentionTime_, _minAttentionTime_, _active_ and the _customers_. This table will be created at  in `db/type/h2/V0006__Create_Queue.sql`:
+As second table we will represent the _Daily Queue_ that will be formed by _name_, _logo_, _currentNumber_, _attentionTime_, _minAttentionTime_, _active_ and the _customers_. This table will be created at `db/type/h2/V0006__Create_Queue.sql`:
 
 [source, sql]
 ----
@@ -202,7 +202,7 @@ create table DailyQueue(
 
 ==== _Access Code_ table
 
-As third table we will represent the _Access Code_ that will be formed by the _ticketNumber_, _creationTime_, _startTime_ and the _endTime_. This table will be created at  in `db/type/h2/V0007__Create_Access_Code.sql`
+As third table we will represent the _Access Code_ that will be formed by the _ticketNumber_, _creationTime_, _startTime_ and the _endTime_. This table will be created at `db/type/h2/V0007__Create_Access_Code.sql`
 
 [source, sql]
 ----
@@ -790,15 +790,15 @@ The options are:
 
 * _CRUD SpringData Repository_: generates the entity repository(that contains the CRUD operations) in the data access layer.
 
-image::images/devon4j/4.Components/cobigen2_crud_springdata_repository.png[link="images/devon4j/4.Components/cobigen2_crud_rest_services_cto.png"]
+image::images/devon4j/4.Components/cobigen2_crud_springdata_repository.png[link="images/devon4j/4.Components/cobigen2_crud_springdata_repository.png"]
 
 * _CRUD REST services_: generates a complete service layer with CRUD operations for our entity exposed as a REST service.
 
-image::images/devon4j/4.Components/cobigen2_crud_rest_services.png[link="images/devon4j/4.Components/cobigen2_crud_rest_services_cto.png"]
+image::images/devon4j/4.Components/cobigen2_crud_rest_services.png[link="images/devon4j/4.Components/cobigen2_crud_rest_services.png"]
 
 * _CRUD UC logic_: generates the logic layer dividing the implementation in different use cases.
 
-image::images/devon4j/4.Components/cobigen2_crud_uc_logic.png[link="images/devon4j/4.Components/cobigen2_crud_uc_logic_cto.png"]
+image::images/devon4j/4.Components/cobigen2_crud_uc_logic.png[link="images/devon4j/4.Components/cobigen2_crud_uc_logic.png"]
 
 * _Entity infrastructure_: creates the entity main interface and edits (by a merge) the current entity to extend the devon classes
 
@@ -806,7 +806,7 @@ image::images/devon4j/4.Components/cobigen2_entity_infrastructure.png[link="imag
 
 * _TO's_: generates the related _Transfer Objects_, that we will explain in next chapters of this tutorial
 
-image::images/devon4j/4.Components/cobigen2_to.png[link="images/devon4j/4.Components/cobigen2_cto.png"]
+image::images/devon4j/4.Components/cobigen2_to.png[link="images/devon4j/4.Components/cobigen2_to.png"]
 
 To generate all the needed functionalities of our component we are going to select the following packages to be generated *at the same time*
 

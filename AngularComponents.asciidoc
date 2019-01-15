@@ -87,3 +87,5 @@ If you are going to use a layout in one page, is recommended to use a layout on 
 Nowadays almost every application has data to show to the user, so is not strange to have an implementation of a table, you can make use of the html table tag, but this means you will have to implement all the interactions by hand. Covalent Teradata created their own link:https://teradata.github.io/covalent/#/components/data-table[Data Table] and offered as a component, so you can use it and all its functionalities in order to avoid the implementation of a working data table from scratch.
 
 The data table from Covalent works with inputs and output events, it needs, at least, the data to be shown and an array of columns, which has to be composed by a name that corresponds to the object in data and a label to show in the component. From this moment you have a function data table, now you can add events like sorting, paging, searching and so on, all the docs are link:https://teradata.github.io/covalent/#/components/data-table[Here]
+
+= link:AngularServices[Next chapter: Angular Services]

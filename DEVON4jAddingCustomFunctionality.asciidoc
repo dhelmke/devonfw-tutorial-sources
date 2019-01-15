@@ -15,7 +15,7 @@ In our _standard_ implementation of the _Jump the queue_ app we have used _Cobig
 
 === Creating the usecasemanage
 
-In the api(`jtqj-api`) inside the package `accesscodemanagement/log/api/usecase/` we are going to create a new interface called `UcManageAccessCode`, where we will define the save and delete methods.
+In the api(`jtqj-api`) inside the package `accesscodemanagement/logic/api/usecase/` we are going to create a new interface called `UcManageAccessCode`, where we will define the save and delete methods.
 
 [source,java]
 ----
@@ -48,7 +48,7 @@ public interface UcManageAccessCode {
 }
 ----
 
-Then in the core(`jtqj-core`) inside the package `accesscodemanagement/logic/impl` we are going to create a class called `UcManageAccessCodeImpl` implementing the definition we just made and extending `AbstractAccessCodeUc`, this will allow us to have access to the repository. Also, Here is the part where we will add the needed extra features (in this case we are going to add/remove a customer when saveing/removing an accesscode)
+Then in the core(`jtqj-core`) inside the package `accesscodemanagement/logic/impl/usecase` we are going to create a class called `UcManageAccessCodeImpl` implementing the definition we just made and extending `AbstractAccessCodeUc`, this will allow us to have access to the repository. Also, Here is the part where we will add the needed extra features (in this case we are going to add/remove a customer when saveing/removing an accesscode)
 
 [source,java]
 ----
@@ -198,7 +198,7 @@ public class UcManageAccessCodeImpl extends AbstractAccessCodeUc implements UcMa
 }
 ----
 
-Finally, since we are injecting the class `UcFindAccessCodeImpl.java` both in the `AccescodemanagementImpl.java` and in the `UcManageAccessCodeImpl.java` then we need to add a tag (`@Primary`) to the class `accesscodemanagement/logic/impl/usecase/UcFindAccessCodeImpl`in order to avoid having bean injection problems:
+Finally, since we are injecting the class `UcFindAccessCodeImpl.java` both in the `AccescodemanagementImpl.java` and in the `UcManageAccessCodeImpl.java` then we need to add a tag (`@Primary`) to the class `accesscodemanagement/logic/impl/usecase/UcFindAccessCodeImpl` in order to avoid having bean injection problems:
 
 [source,java]
 ----

@@ -70,3 +70,5 @@ Observables work as follows:
 This is the most common workflow with Observables. Take into account that if you put some code after the Subscribe, it will be probably executed before the subscribe ends, if you need something to be executed after the subscribe function, you should put it inside of the subscription.
 
 link:https://angular.io/guide/http#rxjs-library[Here] you can find more information about RxJs and Observables coming from the main page of Angular.
+
+= link:BuildDEVON4ngApplication[Next chapter: Build your own DEVON4ng application]
