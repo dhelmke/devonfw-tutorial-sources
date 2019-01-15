@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Deployment of DEVON4J applications
+= Deployment of DEVON4j applications
 
 As we already mentioned when link:AnDEVON4jApplication#the-devon4j-project[introducing the devon4j projects], the apps created with the _Devon4j_ archetype are going to provide, apart from the _core_ project and _api_ project, a _server_ project that will configure the packaging of the app. 
 
