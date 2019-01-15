@@ -53,7 +53,7 @@ image::images/devon4j/3.BuildYourOwn/newapp1.png[width="450", link="images/devon
 
 Then we only need to define our server app _path_ (for the location of the app select our just created _jumpthequeue_ directory), _name_, _groupid_, _package_ and _version_. Finally click on _Start_ button.
 
-image::images/devon4j/3.BuildYourOwn/devcon_devon4j_create.PNG[width="450", link="images/devon4j/3.BuildYourOwn/devcon_devon4j_create.PNG"]
+image::images/devon4j/3.BuildYourOwn/devcon_devon4j_create.png[width="450", link="images/devon4j/3.BuildYourOwn/devcon_devon4j_create.png"]
 
 Once you see the `BUILD SUCCESS` info message your new app is ready.
 
