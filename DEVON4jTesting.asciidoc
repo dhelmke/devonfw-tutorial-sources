@@ -159,7 +159,7 @@ We can do it simply adding more _asserts_ to check the _result_ object
 
 [source,java]
 ----
-assertThat(result.getVisitor().getName()).isEqualTo("Mary");
+assertThat(visitorEtoResult.getName()).isEqualTo("Mary");
 ----
 
 Now running again the test we should obtain the expected result

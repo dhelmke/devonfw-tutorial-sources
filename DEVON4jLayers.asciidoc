@@ -456,9 +456,9 @@ _Cobigen_ has created for us a complete services related to our entities so we c
 We are going to use the following service defined in `visitormanagement/service/api/rest/VisitormanagementRestService.java`
 [source,java]
 ----
-	@Path("/visitor/cto/search")
+	@Path("/visitor/search")
 	@POST
-	public Page<VisitorCto> findVisitorCtos(VisitorSearchCriteriaTo searchCriteriaTo);
+	public Page<VisitorEto> findVisitors(VisitorSearchCriteriaTo searchCriteriaTo);
 ----
 
 The service definition states that we will need to provide a _Search Criteria Transfer Object_. This object will work as a filter for the search as you can see in `visitormanagement/dataaccess/api/repo/VisitorRepository.java` in _findByCriteria_ method.
