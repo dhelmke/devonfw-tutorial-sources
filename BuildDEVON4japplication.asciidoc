@@ -38,7 +38,9 @@ Execute console.bat to get a console initialized with the provided software serv
 
 ----
 D:\Devon\workspaces>mkdir jumpthequeue
-D:\Devon\workspaces> cd jumpthequeue
+D:\Devon\workspaces>cd jumpthequeue
+D:\Devon\workspaces>mkdir java
+D:\Devon\workspaces>cd java
 ----
 
 We are going to generate the new _Devon4j_ project using _Devcon_. To launch the tool run the 'console.bat' script, in the new opened command line window execute the command

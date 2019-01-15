@@ -125,7 +125,7 @@ You can create your own schema table that your required. For e.g. `db/type/h2/V0
 
 ==== _Visitor_ table
 
-Now we can add our first table _Visitor_. In the case of _Jump the Queue_, the visitors will provide: _username_, _name_, _password_, _phoneNumber_, _acceptedCommercial_ and _acceptedTerms_ to obtain an _access code_. So we need to represent that data in our table 
+Now we can add our first table _Visitor_ in `db/type/h2/V0005__Create_Visitor.sql`. In the case of _Jump the Queue_, the visitors will provide: _username_, _name_, _password_, _phoneNumber_, _acceptedCommercial_ and _acceptedTerms_ to obtain an _access code_. So we need to represent that data in our table:
 
 [source, sql]
 ----
@@ -162,47 +162,9 @@ create table Visitor(
 - _userType_: the type of user.
 
 
-==== _Access Code_ table
-
-As second table we will represent the _Access Code_ that will be formed by the _ticketNumber_, _creationTime_, _startTime_ and the _endTime_. 
-
-[source, sql]
-----
-CREATE TABLE AccessCode(
-  id BIGINT NOT NULL AUTO_INCREMENT,
-  modificationCounter INTEGER NOT NULL,
-  ticketNumber VARCHAR(5),
-  creationTime TIMESTAMP,
-  startTime TIMESTAMP,
-  endTime TIMESTAMP,
-  idVisitor BIGINT NOT NULL,
-  idQueue BIGINT NOT NULL,
-  CONSTRAINT PK_AccessCode PRIMARY KEY(id),
-  CONSTRAINT FK_AccessCode_idVisitor FOREIGN KEY(idVisitor) REFERENCES Visitor(id),
-  CONSTRAINT FK_AccessCode_idQueue FOREIGN KEY(idQueue) REFERENCES DailyQueue(id),
-);
-----
-
-- _id_: the id for each code.
-
-- _modificationCounter_: used internally by https://en.wikipedia.org/wiki/Java_Persistence_API[JPA] to take care of the https://en.wikipedia.org/wiki/Optimistic_concurrency_control[optimistic locking] for us.
-
-- _ticketNumber_: the number of the ticket for a queue.
-
-- _creationTime_: the date related to the creation.
-
-- _startTime_: the date related to the start.
-
-- _endTime_: the date related to the end.
-
-- _idVisitor_: the relation with the _Visitor_ entity.
-
-- _idQueue_: the relation with the _DailyQueue_ entity.
-
-
 ==== _Daily Queue_ table
 
-As third table we will represent the _Daily Queue_ that will be formed by _name_, _logo_, _currentNumber_, _attentionTime_, _minAttentionTime_, _active_ and the _customers_. 
+As second table we will represent the _Daily Queue_ that will be formed by _name_, _logo_, _currentNumber_, _attentionTime_, _minAttentionTime_, _active_ and the _customers_. This table will be created at  in `db/type/h2/V0006__Create_Queue.sql`:
 
 [source, sql]
 ----
@@ -237,6 +199,43 @@ create table DailyQueue(
 - _active_: boolean to know if the queue is active.
 
 - _customer_: the queue's total number of customers.
+
+==== _Access Code_ table
+
+As third table we will represent the _Access Code_ that will be formed by the _ticketNumber_, _creationTime_, _startTime_ and the _endTime_. This table will be created at  in `db/type/h2/V0007__Create_Access_Code.sql`
+
+[source, sql]
+----
+CREATE TABLE AccessCode(
+  id BIGINT NOT NULL AUTO_INCREMENT,
+  modificationCounter INTEGER NOT NULL,
+  ticketNumber VARCHAR(5),
+  creationTime TIMESTAMP,
+  startTime TIMESTAMP,
+  endTime TIMESTAMP,
+  idVisitor BIGINT NOT NULL,
+  idQueue BIGINT NOT NULL,
+  CONSTRAINT PK_AccessCode PRIMARY KEY(id),
+  CONSTRAINT FK_AccessCode_idVisitor FOREIGN KEY(idVisitor) REFERENCES Visitor(id),
+  CONSTRAINT FK_AccessCode_idQueue FOREIGN KEY(idQueue) REFERENCES DailyQueue(id),
+);
+----
+
+- _id_: the id for each code.
+
+- _modificationCounter_: used internally by https://en.wikipedia.org/wiki/Java_Persistence_API[JPA] to take care of the https://en.wikipedia.org/wiki/Optimistic_concurrency_control[optimistic locking] for us.
+
+- _ticketNumber_: the number of the ticket for a queue.
+
+- _creationTime_: the date related to the creation.
+
+- _startTime_: the date related to the start.
+
+- _endTime_: the date related to the end.
+
+- _idVisitor_: the relation with the _Visitor_ entity.
+
+- _idQueue_: the relation with the _DailyQueue_ entity.
 
 ==== Mock data
 
