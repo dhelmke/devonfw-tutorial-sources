@@ -845,7 +845,7 @@ image::images/devon4j/4.Components/cobigen5_manual_import.png[link="images/devon
 
 We repeat the process with _AccessCode_ but in this case, since its an entity with relations, we are going to have to select different cobigen options:
 
-image::images/devon4j/4.Components/cobigen3_allpackages.png[link="images/devon4j/4.Components/cobigen3_allpackages_cto.png"]
+image::images/devon4j/4.Components/cobigen3_allpackages_cto.png[link="images/devon4j/4.Components/cobigen3_allpackages_cto.png"]
 
 After letting cobigen finish generating and fixing the imports like in the last step there will be some errors left, this is because we have a relation (dependency) with some of the _Queue_ and _Visitor_ component elements, that are still not created. We will solve this compilation errors in next steps.
 
