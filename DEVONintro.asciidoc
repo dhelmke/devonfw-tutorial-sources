@@ -13,8 +13,3 @@ So DEVON is not only a framework but a combination of IDEs, plugins, libraries a
 - https://github.com/devonfw/devon4j[_Devon4j_]: server implemented with Java. The DEVON platform provides an implementation for Java based on https://spring.io/[Spring] and https://projects.spring.io/spring-boot/[Spring Boot].
 
 - https://github.com/devonfw/devon4ng[_Devon4ng_]: client implemented with JavaScript. DEVON also provides a solution for client apps based on https://angular.io/[Angular] framework.
-
-Upcoming technologies:
-
-- https://github.com/devonfw/devon4node[_Devon4node_]: serverless implementation based on https://nodejs.org/en/[node.js].
-- https://github.com/devonfw/devon4net[_Devon4net_]: .NET implementation.
