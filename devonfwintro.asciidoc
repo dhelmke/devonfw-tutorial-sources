@@ -35,17 +35,17 @@ The list of software pre-installed with Devonfw distributions is:
 
 == server solutions
 
-For backend solutions _Devonfw_ provides the https://github.com/oasp/oasp4j[_Oasp4j_] platform as main implementation. With _Oasp4j_, users will find a standardized architecture blueprint for a Java applications based on _Spring_, and a set of best-of-breed technologies alongside a compendium of best practices and code conventions to build solid and reliable web applications.
+For backend solutions _Devonfw_ provides the https://github.com/devonfw/devon4j[_Devon4j_] platform as main implementation. With _Devon4j_, users will find a standardized architecture blueprint for a Java applications based on _Spring_, and a set of best-of-breed technologies alongside a compendium of best practices and code conventions to build solid and reliable web applications.
 
-With _Devonfw_/_Oasp4j_ developers have at their disposal an archetype to generate new server projects with all _Oasp4j_ modules and pre-configurations ready to start to develop applications in a fully functional environment. 
+With _Devonfw_/_Devon4j_ developers have at their disposal an archetype to generate new server projects with all _Devon4j_ modules and pre-configurations ready to start to develop applications in a fully functional environment. 
 
 == client solutions
 
 For client applications _Devonfw_ includes two possible solutions, both based on _JavaScript_:
 
-- https://github.com/oasp/oasp4js-ng-project-seed[oasp4js]: the _OASP_ implementation based on https://angular.io/[Angular] framework.
+- https://github.com/devonfw/devon4ng[devon4ng]: the _OASP_ implementation based on https://angular.io/[Angular] framework.
 
-- https://github.com/devonfw/devon4sencha[devon4sencha]: a client solution based on the https://www.sencha.com/[Sencha] framework.
+// - https://github.com/devonfw/devon4sencha[devon4sencha]: a client solution based on the https://www.sencha.com/[Sencha] framework.
 
 == custom tools
 

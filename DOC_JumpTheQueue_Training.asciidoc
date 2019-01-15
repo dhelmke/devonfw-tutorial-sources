@@ -14,62 +14,62 @@ link:JumpTheQueueDesign#introduction[Jump the Queue introduction and requirement
 
 *Building the server*
 
-. link:BuildOASP4Japplication#buildyourownoasp4japplication[Create your own OASP4J application]
-. link:OASP4jComponents#createyourcomponents[Create your components]
-. link:OASP4jLayers#layersofthejumpthequeueapplication[Layers of the application]
-. link:OASP4jLayers#jumpthequeuerunning[Run the application]
-. link:OASP4jAddingCustomFunctionality#returntheaccesscode[Customize the application]
-. link:Oasp4jValidations#addyourvalidations[Add validation]
-. link:OASP4jTesting#testingourapplication[Testing the application]
+. link:BuildDEVON4japplication#buildyourownDEVON4japplication[Create your own DEVON4j application]
+. link:DEVON4jComponents#createyourcomponents[Create your components]
+. link:DEVON4jLayers#layersofthejumpthequeueapplication[Layers of the application]
+. link:DEVON4jLayers#jumpthequeuerunning[Run the application]
+. link:DEVON4jAddingCustomFunctionality#returntheaccesscode[Customize the application]
+. link:DEVON4jValidations#addyourvalidations[Add validation]
+. link:DEVON4jTesting#testingourapplication[Testing the application]
 
 *Building the client*
 
-. link:BuildOASP4JsApplication#goalofjumpthequeue[Create your own OASP4JS application]
-. link:BuildOASP4JsApplication#creatingcomponents[Create your components]
-. link:BuildOASP4JsApplication#creatingservices[Create services]
-. link:BuildOASP4JsApplication#makingcallstoserver[Make calls to the server]
+. link:BuildDEVON4ngApplication#goalofjumpthequeue[Create your own DEVON4ng application]
+. link:BuildDEVON4ngApplication#creatingcomponents[Create your components]
+. link:BuildDEVON4ngApplication#creatingservices[Create services]
+. link:BuildDEVON4ngApplication#makingcallstoserver[Make calls to the server]
 
 :leveloffset: 1
 include::JumpTheQueueDesign[]
 
 :leveloffset: 0
-= OASP4J Getting Started
+= DEVON4j Getting Started
 
 :leveloffset: 1
-include::OASPintro[]
+include::DEVONintro[]
 
-include::OASP4JOverview[]
+include::DEVON4jOverview[]
 
 include::devonfwintro[]
 
-include::AnOASP4jApplication[]
+include::AnDEVON4jApplication[]
 
-include::BuildOASP4Japplication[]
+include::BuildDEVON4japplication[]
 
-include::OASP4jComponents[]
+include::DEVON4jComponents[]
 
-include::OASP4jLayers[]
+include::DEVON4jLayers[]
 
-include::OASP4jAddingCustomFunctionality[]
+include::DEVON4jAddingCustomFunctionality[]
 
-include::OASP4jValidations[]
+include::DEVON4jValidations[]
 
-include::OASP4jTesting[]
+include::DEVON4jTesting[]
 
-include::OASP4jDeployment[]
+include::DEVON4jDeployment[]
 
 :leveloffset: 0
-= OASP4JS Getting Started
+= DEVON4ng Getting Started
 
 :leveloffset: 1
 
-include::OASPIntro[]
+include::DEVONintro[]
 
-include::OASP4JsIntroduction[]
+include::DEVON4ngIntroduction[]
 
-include::AnOASP4JsApplication[]
+include::AnDEVON4ngApplication[]
 
-include::BuildOASP4JsApplication[]
+include::BuildDEVON4ngApplication[]
 
 include::AngularComponents[]
 

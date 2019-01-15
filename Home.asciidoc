@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= OASP Tutorial sources
+= DEVON Tutorial sources
 
 == Jump The Queue 
 
@@ -11,15 +11,15 @@ toc::[]
 
 == Backend Technologies
 
-- link:OASP4jGettingStartedHome[OASP4J Getting Started]
-- link:OASP4FnGettingStartedHome[OASP4Fn Getting Started]
+- link:DEVON4jGettingStartedHome[DEVON4j Getting Started]
+- link:OASP4FnGettingStartedHome[OASP4Fn Getting Started] DEPRECATED
 
 == Frontend Technologies
 
-- link:OASP4jsGettingStartedHome[OASP4Js Getting Started]
+- link:DEVON4ngGettingStartedHome[DEVON4ng Getting Started]
 
 == General concept
 
 The idea of the Getting Started Guides is to function as an introduction & tutorial. 
 
-The idea is to show how a real applciation, _My Thai Star_, is built up. From general overview & architecture to detailing individual layers, _My Thai Star_ is shown to hightlight how to create a devonfw app. For each part a practical part is included. This is based on a(n extremely) minimal application, "snatch-a-snack". This app consists of a single view offering a single function, doing a single db operation. 
+The idea is to show how a real application, _My Thai Star_, is built up. From general overview & architecture to detailing individual layers, _My Thai Star_ is shown to hightlight how to create a devonfw app. For each part a practical part is included. This is based on a(n extremely) minimal application, "snatch-a-snack". This app consists of a single view offering a single function, doing a single db operation. 

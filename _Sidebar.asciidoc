@@ -1,23 +1,23 @@
 * link:Home[Home]
 
-* link:OASPintro[OASP intro]
+* link:DEVONintro[DEVON intro]
 
 * **Jump The Queue**
 ** link:JumpTheQueueDesign[Jump The Queue Design]
 
-* **OASP Backend Technologies**
-** link:OASP4jGettingStartedHome[OASP4J Getting Started]
-*** link:OASPintro[OASP intro]
-*** link:OASP4J-overview[Oasp4j overview]
+* **DEVON Backend Technologies**
+** link:DEVON4jGettingStartedHome[DEVON4j Getting Started]
+*** link:DEVONintro[DEVON intro]
+*** link:DEVON4j-overview[DEVON4j overview]
 *** link:devonfwintro[devonfw intro]
-*** link:AnOASP4jApplication[An OASP4J application]
-*** link:BuildOASP4Japplication[Build your own OASP4J application]
-*** link:OASP4jComponents[OASP4J application components]
-*** link:OASP4jLayers[OASP4J layers]
-*** link:OASP4jAddingCustomFunctionality[OASP4J adding custom functionality]
-*** link:OASP4jValidations[OASP4J validations]
-*** link:OASP4jTesting[OASP4J testing]
-*** link:OASP4jDeployment[Deployment]
+*** link:AnDEVON4jApplication[An DEVON4j application]
+*** link:BuildDEVON4japplication[Build your own DEVON4j application]
+*** link:DEVON4jComponents[DEVON4j application components]
+*** link:DEVON4jLayers[DEVON4j layers]
+*** link:DEVON4jAddingCustomFunctionality[DEVON4j adding custom functionality]
+*** link:DEVON4jValidations[DEVON4j validations]
+*** link:DEVON4jTesting[DEVON4j testing]
+*** link:DEVON4jDeployment[Deployment]
 
 ** link:OASP4FnGettingStartedHome[OASP4Fn Getting Started]
 *** link:OASP4FnIntroduction[OASP4Fn intro]
@@ -27,12 +27,12 @@
 *** link:OASP4FnDeployment[Deployment]
 
 * **OASP Frontend Technologies**
-** link:OASP4jsGettingStartedHome[OASP4Js Getting Started]
-*** link:OASP4JsIntroduction[OASP4Js intro]
-*** link:AnOASP4JsApplication[An OASP4Js application]
-*** link:BuildOASP4JsApplication[Build your own OASP4Js application]
+** link:DEVON4ngGettingStartedHome[DEVON4ng Getting Started]
+*** link:DEVON4ngIntroduction[DEVON4ng intro]
+*** link:AnDEVON4ngApplication[An DEVON4ng application]
 *** link:AngularComponents[The Angular Components]
 *** link:AngularServices[The Angular Services]
+*** link:BuildDEVON4ngApplication[Build your own DEVON4ng application]
 *** link:AngularDeployment[Deployment]
 
 

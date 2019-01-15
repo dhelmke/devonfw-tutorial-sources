@@ -1,5 +1,10 @@
 = OASP4Fn Getting Started
 
+[NOTE]
+====
+OASP4FN IS DEPRECATED, WILL BE UPDATED IN THE FUTURE
+====
+
 Table of contents of this tutorial for understanding, creating from scratch and deploying apps based on OASP4Fn.
 
 == link:OASPIntro[OASP intro]
