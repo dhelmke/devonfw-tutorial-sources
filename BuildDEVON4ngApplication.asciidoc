@@ -12,18 +12,17 @@ image::images/devon4ng/3.BuildYourOwn/mockups.png[,width="500", link="images/dev
 So, hands on it, let's configure the environment and build this app!
 
 == Installing global tools
+
+WARNING: If you got the DEVON distribution, the only thing you need to do in this step is intall the `devonfw Platform Extension Pack` in visual studio. After that, you can skip the rest and continue from link:#creating-basic-new-project-with-devcon[Here] 
+
 === Visual Code: 
 To install the editor download the installer from https://code.visualstudio.com/Download[the official page] and install it.
 
 Once installed, the first thing you should do is install the extensions that will help you during the development, to do that follow this steps:
 
-1. Install Settings Sync extension.
+1. Go to the extension panel and search in the market place by devon.
 
-2. Open the command palette (Ctrl+Shift+P) and introduce the command: *Sync: Download Settings*.
-
-Provide GIST ID: *3b1d9d60e842f499fc39334a1dd28564*.
-
-In the case that you are unable to set up the extensions using the method mentioned, you can also use the scripts provided in https://github.com/devonfw/devonfw-extension-pack-vscode[this repository].
+2. Install the `devonfw Platform Extension Pack`
 
 === Node.js
 
@@ -87,6 +86,11 @@ image::images/devon4ng/3.BuildYourOwn/appnew.png[, link="images/devon4ng/3.Build
 == 2.- Creating basic new project with Devcon
 
 Once the devcon has loaded, we go to devon4ng->create. Then we fill the clientname with the name of your project and then browse the folder where we want to create the project in. Once that is done, you can push the create button.
+
+[NOTE]
+====
+If you are using the DEVON distribution, we recommend the use of the workspaces_vs as a folder to create the project. Since the folder will be in a new place and not inside the one we created for the backend, we recomend to switch the name appropriately. Once you finished generating the project with `Devcon`, execute the script `update-all-workspaces.bat` and it will include a script in the root of the DEVON dist with your new workspace for visual studio.
+====
 
 Once devcon has finished you should see something like this:
 

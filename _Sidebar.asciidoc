@@ -26,7 +26,7 @@
 *** link:OASP4FnTesting[Testing]
 *** link:OASP4FnDeployment[Deployment]
 
-* **OASP Frontend Technologies**
+* **DEVON Frontend Technologies**
 ** link:DEVON4ngGettingStartedHome[DEVON4ng Getting Started]
 *** link:DEVON4ngIntroduction[DEVON4ng intro]
 *** link:AnDEVON4ngApplication[An DEVON4ng application]
