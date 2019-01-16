@@ -13,7 +13,7 @@ So, hands on it, let's configure the environment and build this app!
 
 == Installing global tools
 
-WARNING: If you got the DEVON distribution, the only thing you need to do in this step is intall the `devonfw Platform Extension Pack` in visual studio. After that, you can skip the rest and continue from link:#creating-basic-new-project-with-devcon[Here] 
+WARNING: If you got the DEVON distribution, the only thing you need to do in this step is intall the `devonfw Platform Extension Pack` in visual studio. After that, you can skip the rest and continue from link:#2-creating-basic-new-project-with-devcon[Here] 
 
 === Visual Code: 
 To install the editor download the installer from https://code.visualstudio.com/Download[the official page] and install it.
