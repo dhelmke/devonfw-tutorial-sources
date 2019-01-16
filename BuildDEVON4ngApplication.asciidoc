@@ -455,11 +455,9 @@ import { CoreModule } from './shared/core.module';
 ----
 ...
   imports: [
-    FormLoginComponent,
     CoreModule,
     BrowserModule,
     AppRoutingModule,
-    CovalentLayoutModule,
 ...
 ----
 
@@ -525,7 +523,7 @@ Now lets continue with the second component: login.
 
 ==== Login component
 
-Our first step will be to create the component in the exact same way we did with the `FormLogin` component, but this time we are going to generate it in a new folder called components inside formlogin. Putting every child component on that folder will allow us to keep a good and clear structure. We use the command: `ng generate component form-login/components/login` inside the components folder we created. After `angularCli` has finished generating the module, we gotta create two modules, one for the form-login and one for the login:
+Our first step will be to create the component in the exact same way we did with the `FormLogin` component, but this time we are going to generate it in a new folder called components inside formlogin. Putting every child component on that folder will allow us to keep a good and clear structure. In order to do this, we use the command: `ng generate component form-login/components/login`. After `angularCli` has finished generating the component, we gotta create two modules, one for the form-login and one for the login:
 
   1.- We create a new file called `login-module.ts` in the login root:
 
@@ -536,7 +534,6 @@ import { CommonModule } from '@angular/common';
 import { CoreModule } from 'src/app/shared/core.module';
 import { LoginAdapter } from './services/login.adapter';
 import { LoginComponent } from './login.component';
-import { LoginService } from './services/login.service';
 
 @NgModule({
   imports: [CommonModule, CoreModule],
@@ -574,8 +571,7 @@ imports: [
   BrowserModule,
   FormLoginModule,
   CoreModule,
-  AppRoutingModule,
-  HttpClientModule,
+  AppRoutingModule
 ]
 ----
 
@@ -653,6 +649,9 @@ This means that when the user clicks the button, `(click)` will send an event to
 
 [source, typescript]
 ----
+  ...
+  import { Router } from '@angular/router';
+  ...
   constructor(private router: Router) { }
 
   onRegisterClick(): void {
@@ -756,6 +755,8 @@ export class Visitor {
 }
 ----
 
+If we take a closer look, we can see that id has a `?` behind it, this allows to mark that the id is optional.
+
 [NOTE]
 ====
 At this point we are going to assume you have finished the DEVON4j JumpTheQueue tutorial or, at least, you have downloaded the project and have it running locally on localhost:8081.
@@ -771,11 +772,9 @@ export const environment: {production: boolean, baseUrlRestServices: string} = {
 };
 ----
 
-
 Now in the service, we are going to add a `registerVisitor` method.
 
 To call the server in this method we are going to import Angular HttpClient class from @angular/common/http, this class is the standard used by angular to make Http calls, so we are going to use it. The register call demands a `Visitor` model  that we created in the `interfaces` file, so we are going to build a post call and send that information to the proper URL of that server service, it will return an observable.
-
 
 [source, typescript]
 ----
@@ -850,7 +849,7 @@ export class RegisterComponent implements OnInit {
 ----
 
 
-In this file, we injected `RegisterService` and `Router` to use them, then inside the method `submitRegister` we created a visitor that we are going to pass to the service. we called the service method `registerVisitor` we passed visitor and we subscribed to the `Observer<Visitor>` that we returned from the service. This subscription allows us to control three things: 
+In this file, we injected `RegisterService` and `Router` to use them, then inside the method `submitRegister` we created a visitor that we are going to pass to the service. we called the service method `registerVisitor` we passed visitor and we subscribed to the `Observable<Visitor>` that we returned from the service. This subscription allows us to control three things: 
 
   1.- What to do when the data is received.
 
@@ -876,7 +875,7 @@ Now that we registered a `Visitor`, its time to create the `AuthService`, `AuthG
 
 [NOTE]
 ====
-To keep the simplicity of this tutorial, we are going to make the password check in the client side. !THIS IS NOT A CORRECT! Normally you would send the username and password to the backend, check that the values are correct and corresponding then create a token that you would pass in the header and use it on the `AuthService` checking with some interceptors that the token is both on the `AuthService` and in the url. This might be explained in the future.
+To keep the simplicity of this tutorial, we are going to make the password check in the client side. !THIS IS NOT A CORRECT! Normally you would send the username and password to the backend, check that the values are correct and corresponding then create a token that you would pass in the header and use it on the `AuthService` checking with some interceptors that the token is both on the `AuthService` and in the request. This might be explained in the future.
 ====
 
 We are going to create 3 services with `ng generate service path`:
@@ -891,7 +890,7 @@ After generating them, we are going to start by modyfing the interfaces. In `sha
 ----
 export class FilterVisitor {
     pageable: Pageable;
-    username: string;
+    username? : string;
     password?: string;
 }
 
@@ -925,10 +924,10 @@ export class Role {
 
 [NOTE]
 ====
-As you can see, we added a `Pageable`, since a lot of the search methods in the backend are using `SearchCriterias`. These need pageables, which specify a `paseSize` and `pageNumber`. Also, we can see that in this case `FilterVisitor` uses a pageable and adds parameters as a filter (`username` and `password` which is optional).
+As you can see, we added a `Pageable`, since a lot of the search methods in the backend are using `SearchCriterias`. These need pageables, which specify a `paseSize` and `pageNumber`. Also, we can see that in this case `FilterVisitor` uses a pageable and adds parameters as a filter (`username` and `password` which are optional).
 ====
 
-Then we are going to create a `config.ts` file in the root (`/app`). We are going to use that file to set up default config variables, for example: role names with their permission number, default pagination setting etc. For now we are just adding the roles:
+Then we are going to create a `config.ts` file in the root (`/app`). We are going to use that file to set up default config variables, for example: role names with their permission number, default pagination settings etc. For now we are just adding the roles:
 
 [source, typescript]
 ----
@@ -1043,6 +1042,7 @@ export class AuthGuardService implements CanActivate {
 
     if (!this.authService.isLogged()) { // if its not logged in
       console.log('Error login');
+      this.router.navigate(['/login']);
     }
 
     if (this.router.url === '/') {  // if the router is the app route
@@ -1307,7 +1307,7 @@ const appRoutes: Routes = [
   { path: 'FormLogin', component: FormLoginComponent},  // Redirect if url path is /FormLogin.
   { path: 'Register', component: RegisterComponent},    // Redirect if url path is /Register.
   { path: 'ViewQueue', component: ViewQueueComponent,
-  canActivate: [AuthGuardService]},  // Redirect if url path is /ViewQueue, check if can activate with the AuthGuardService.
+  canActivate: [AuthGuardService]},  // Redirect if url path is /ViewQueue, check if canActivate() with the AuthGuardService.
   { path: '**', redirectTo: '/FormLogin', pathMatch: 'full' }  // Redirect if url path do not match with any other route.
 ];
 ....
@@ -1324,7 +1324,7 @@ First we are going to add the necessary interfaces. We modify `/shared/backendMo
 
 [source, typescript]
 ----
-
+....
 export class FilterAccessCode {
     pageable: Pageable;
     visitorId: Number;
@@ -1528,7 +1528,7 @@ If you watch closely, the starting `td-layout` has an `*ngIf` inside it. This `*
   In this case, since we are using http and the calls are finite, there wouldnt be any problems if you dont `unsubscribe()` from their corresponding observables. However, if for example, we use a observable to keep track of an input and we `subscribe()` to it but we dont control the `unsubcribe()` the app could end up doing a memory leak, since everytime that we visit the component with the input, its going to create another subscription without unsubscribing the last one.
 ====
 
-Finally, to adapt to async pipe, inside `view-queue.component.ts` the method ngOnInit() now does not subscribe to the observers, in its place, we equal the queuers variable directly to the Observable so we can load it using the *ngIf.
+Finally, to adapt to async pipe, inside `view-queue.component.ts` the method ngOnInit() now does not subscribe to the observable, in its place, we equal the queuers variable directly to the Observable so we can load it using the *ngIf.
 
 [souce, typescript]
 ----
