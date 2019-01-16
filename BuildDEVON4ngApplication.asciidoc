@@ -96,6 +96,11 @@ Even though this tutorial is going to start with the second option. At this poin
 
 === Adding Google Material and Covalent Teradata
 
+[NOTE]
+====
+If you dont have the latest angular version install the corresponding version of the dependencies to your angular version. To do so, add @`version` behind. Example: npm install @angular/material@7.1.2 or yarn add @angular/material@7.1.2
+====
+
 First, we are going to add *Google Material* to project dependencies running the following commands:
 
 `yarn add @angular/material @angular/cdk`
