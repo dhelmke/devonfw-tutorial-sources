@@ -1436,7 +1436,7 @@ export class AccessCodeService {
 }
 ----
 
-In the methods `getCurrentlyAttendedAccessCode` and `getVisitorAccessCode` we can see the use of `Pageable` and `FilterAccessCode` to match the `Criteria` in the backend like we explained in previous steps.
+In the methods `getCurrentlyAttendedAccessCode` and `getVisitorAccessCode` we can see the use of `Pageable` and `FilterAccessCode` to match the `Criteria` in the backend like we explained in previous steps. In this case, the `getVisitorAccessCode` method will be used to see if the visitor has a AccessCode and the `getCurrentlyAttendedAccessCode` is going to recover the first `AccessCode` of the queue.
 
 For the `QueueService` we are only going to need to find the active queue:
 
@@ -1520,7 +1520,7 @@ Now, we are going to make the template that will use them and we will also intro
 </td-layout>
 ----
 
-If you watch closely, the starting `td-layout` has an `*ngIf` inside it. This `*ngIf`, allows us to pipe async the observables that we will asign in the next steps. This solution avoids having to use subscribe(as it subscribes automaticly) and, as a result, we dont have to worry about where to `unsubscribe()` from the observables.
+If you watch closely, the starting `td-layout` has an `*ngIf` inside it. This `*ngIf`, allows us to pipe async the observables that we will asign in the next steps. This solution avoids having to use subscribe(as it subscribes automaticly) and, as a result, we dont have to worry about where to `unsubscribe()` from the observables. In this html, we give `*ngif` another use, we use it to hide certain panels, using `accessCodeVisitor` we hide your ticket number panel and leave the queue button and show the button to join the queue or the contrary, we hide the ticket number and the leave the queue button and show only the join the queue button.
 
 [NOTE]
 ====
@@ -1569,7 +1569,7 @@ export class ViewQueueComponent implements OnInit {
 }
 ----
 
-As you can see, by assigning null to the observables, we are able to update the template when we need to get rid of a `Observable`.
+In this last component, we assign the `Observables` when the component is initiated. After that, when clicking the join queue button we assign a new `Observable` `AccessCode` to the `accessCodeVisitor$`. Finally, when we leave the queue we delete the AccessCode we set the `accessCodeVisitor` to null. Since we are using an async pipe, everytime we modify the status of the `Observables` they are going to update the template.
 
 image::images/devon4ng/3.BuildYourOwn/withCodeAccess.png[,width="250", link="images/devon4ng/3.BuildYourOwn/withCodeAccess.png"]
 
