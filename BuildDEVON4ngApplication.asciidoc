@@ -734,7 +734,7 @@ Now, we are going to imitate the `form-login` to make our `register.component.ht
 Learn more about services in DEVON4ng link:AngularServices[HERE]
 ====
 
-Now we have a minimum of navigation flow into our application, we are going to generate out first service using the command `ng generate service register/services/register`. This will create a folder services inside register and create the service. Services are where we keep the logic that connects to our db and are going to be used by our `component.ts`. In order to use the service we are going to create some interface models, lets create a folder called backendModels inside shared and inside a file called `interface.ts`, in here we are going to add the model interfaces that will match our backend:
+Now we have a minimum of navigation flow into our application, we are going to generate out first service using the command `ng generate service register/services/register`. This will create a folder services inside register and create the service. Services are where we keep the logic that connects to our db and are going to be used by our `component.ts`. In order to use the service we are going to create some interface models, lets create a folder called backendModels inside shared and inside a file called `interfaces.ts`, in here we are going to add the model interfaces that will match our backend:
 
 [NOTE]
 ====
@@ -794,7 +794,7 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   registerVisitor(visitor: Visitor): Observable<Visitor> {
-    return this.http.post<Visitor>(`${this.baseUrl}` + '/visitormanagement/v1/visitor/search', visitor);
+    return this.http.post<Visitor>(`${this.baseUrl}` + '/visitormanagement/v1/visitor', visitor);
   }
 }
 ----
@@ -875,7 +875,7 @@ Now that we registered a `Visitor`, its time to create the `AuthService`, `AuthG
 
 [NOTE]
 ====
-To keep the simplicity of this tutorial, we are going to make the password check in the client side. !THIS IS NOT A CORRECT! Normally you would send the username and password to the backend, check that the values are correct and corresponding then create a token that you would pass in the header and use it on the `AuthService` checking with some interceptors that the token is both on the `AuthService` and in the request. This might be explained in the future.
+To keep the simplicity of this tutorial, we are going to make the password check in the client side. !THIS IS NOT CORRECT! Normally you would send the username and password to the backend, check that the values are correct and corresponding then create a token that you would pass in the header and use it on the `AuthService` checking with some interceptors that the token is both on the `AuthService` and in the request. This might be explained in the future.
 ====
 
 We are going to create 3 services with `ng generate service path`:
@@ -1326,7 +1326,8 @@ First we are going to add the necessary interfaces. We modify `/shared/backendMo
 ....
 export class FilterAccessCode {
     pageable: Pageable;
-    visitorId: Number;
+    visitorId?: Number;
+    endTime?: string;
 }
 
 export class FilterQueue {
@@ -1374,7 +1375,7 @@ import { HttpClient } from '@angular/common/http';
 import { AccessCode, Pageable, FilterAccessCode } from 'src/app/shared/backendModels/interfaces';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { map, filter } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -1389,16 +1390,24 @@ export class AccessCodeService {
     const filters: FilterAccessCode = new FilterAccessCode();
     const pageable: Pageable = new Pageable();
 
+    filters.endTime = null;
     pageable.pageNumber = 0;
     pageable.pageSize = 1;
     filters.pageable = pageable;
     return this.http.post<AccessCode>(`${this.baseUrl}` + '/accesscodemanagement/v1/accesscode/cto/search', filters)
     .pipe(
         map(accesscodes => {
-          if (!accesscodes['content'][0]) {
-            throw new Error('Value expected!');
+          if (!accesscodes['content'][0]) {  // if theres no response it means theres noone in the queue
+            return null;
+          } else {
+            if (accesscodes['content'][0]['accessCode'].startTime != null) {
+              // if start time is not null it means that hes being attended
+              return accesscodes['content'][0]['accessCode'];
+            } else {
+              // noone being attended
+              return null;
+            }
           }
-          return accesscodes['content'][0]['accessCode'];
         }),
      );
   }
@@ -1533,9 +1542,9 @@ Finally, to adapt to async pipe, inside `view-queue.component.ts` the method ngO
 ----
 import { Component, OnInit } from '@angular/core';
 import { AccessCode, Queue } from '../shared/backendModels/interfaces';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { AccessCodeService } from './services/access-code.service';
-import { tap, catchError } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { AuthService } from '../core/authentication/auth.service';
 import { QueueService } from './services/queue.service';
 
@@ -1553,7 +1562,13 @@ export class ViewQueueComponent implements OnInit {
   constructor(private accessCodeService: AccessCodeService, private queueService: QueueService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.accessCodeAttended$ = this.accessCodeService.getCurrentlyAttendedAccessCode();
+     // Every minute we are going to update accessCodeAttended$ starting instantly
+    this.accessCodeAttended$ = timer(0, 60000).pipe(
+      // we switchMap and give it the value necesary from the accessCodeService
+      switchMap(() => {
+        return this.accessCodeService.getCurrentlyAttendedAccessCode();
+      })
+    );
     this.accessCodeVisitor$ = this.accessCodeService.getVisitorAccessCode(this.authService.getUserId());
     this.queue$ = this.queueService.getActiveQueue();
   }
