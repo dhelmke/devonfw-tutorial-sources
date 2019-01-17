@@ -1172,7 +1172,7 @@ After that, we are going to add the `AuthGuard` and the `Auth` into the `share/c
 ....
 ----
 
-Finally, we modify the `login.component.html` to send the form values to the `login.component.ts` like we did with the register form and finally, when the visitor registers, we can login automaticly to avoid any nusiances in `register.components.ts`.
+Finally, we modify the `login.component.html` to send the form values to the `login.component.ts` like we did with the register form and finally, afterwards, we are going to modify the `register.components.ts` when the visitor registers, we can login automaticly to avoid any nusiances. Let's start with the `login.component.html` : 
 
 [source, html]
 ----
@@ -1200,7 +1200,7 @@ Finally, we modify the `login.component.html` to send the form values to the `lo
 </form>
 ----
 
-Here we just added the values to the `ngSubmit` allowing us to call the method `submitLogin` on the logic sending the `loginForm.form.values` which are the form values.
+As you can see, in the form we just added the values to the `ngSubmit` allowing us to call the method `submitLogin` on the logic, sending the `loginForm.form.values` which are the form values. Next step we are going to modify the `login.components.ts`, adding the the submitLogin method that calls the `LoginService` giving the service the necessary values from the form(`loginFormValues`).
 
 [source, typescript]
 ----
@@ -1233,10 +1233,13 @@ export class LoginComponent implements OnInit {
 }
 ----
 
-In the `register.components.ts` we added the submitLogin method that calls the `LoginService` giving the service the necessary values from the form(`loginFormValues`).
+Finally, in the `register.components.ts` we are going to inject the `LoginService` and use it to login the visitor after registering him. This will also send the user to the `ViewQueue` that we will create and secure later in the tutorial.
 
 [source, typescript]
 ----
+...
+constructor(private registerService: RegisterService, private router: Router, public snackBar: MatSnackBar,
+    private loginService: LoginService) { } 
 ...
     this.registerService.registerVisitor(visitor).subscribe(
       (visitorResult: Visitor) => {
@@ -1249,8 +1252,6 @@ In the `register.components.ts` we added the submitLogin method that calls the `
   }
 ....
 ----
-
-Here instead of directly redirecting, we call the `LoginService` to login the visitor after registering him. This will also send the use to the `ViewQueue` that we will create and secure later in the tutorial.
 
 ==== Separating the header to the layout
 
@@ -1278,7 +1279,7 @@ Jump The Queue
 </button>
 ----
 
-In the header logic we are simply going to inject the `AuthService` and `LoginService`, then we are going call logout from `LoginService` in the `OnClickLogout()`.
+In the header logic (`header.component.ts`) we are simply going to inject the `AuthService` and `LoginService` then, we are going call logout from `LoginService` in the `OnClickLogout()`. Finally, the `AuthService` is needed because its being used by the html template to control if the user is logged in with `isLogged()`.
 
 [source, typescript]
 ----
