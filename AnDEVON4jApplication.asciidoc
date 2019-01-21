@@ -83,7 +83,7 @@ To show the backend services results we are going to use https://www.getpostman.
 
 Now, with _Postman_, we can do a simple _GET_ request to obtain the info of a _dish_ with _id=1_ (`http://localhost:8081/mythaistar/services/rest/dishmanagement/v1/dish/1`). And we obtain a result like this
 
-image::images/devon4j/2.Example_app/get_request.png[,width="450", link="images/devon4j/2.Example_app/get_request.png"]
+image::images/devon4j/2.Example_app/get_request.png[, link="images/devon4j/2.Example_app/get_request.png"]
 
 == Creating your own Devon4j backend app
 
