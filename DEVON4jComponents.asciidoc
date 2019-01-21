@@ -780,8 +780,6 @@ image::images/devon4j/4.Components/cobigen_health2.png[width="350",link="images/
 
 In order to create the whole structure of a component with _Cobigen_ we only need to right-clicking over our component core entity, select _Cobigen > Generate_
 
-To create the whole structure of a component with _Cobigen_ we only need to right-clicking over our component core entity, select _Cobigen > Generate_
-
 image::images/devon4j/4.Components/cobigen1.png[link="images/devon4j/4.Components/cobigen1.png"]
 
 Now we have to choose which packages we want to generate with the tool.

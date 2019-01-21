@@ -62,7 +62,7 @@ As can be seen in this image:
 image::images/devon4ng/2.Example_app/app_structure.JPG[, link="images/devon4ng/2.Example_app/app_structure.JPG"]
 
 === Components
-As we already saw in the previous chapter, Angular architecture is based on three types of elements: Components, Services, Modules and Directives.
+As we already saw in the previous chapter, Angular architecture is based on four types of elements: Components, Services, Modules and Directives.
 
 In this section we are going to focus on the _components_. We can distinguish them because they all are named with the extension *.component.ts*.
 

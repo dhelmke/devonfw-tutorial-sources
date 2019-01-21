@@ -79,7 +79,7 @@ Started SpringBootApp in 15.985 seconds (JVM running for 16.833)
 
 we can start consuming our _Java_ backend.
 
-To show the backend services results we are going to use https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop[Postman] plugin for _Chrome_, although you can use any other similar application.
+To show the backend services results we are going to use https://www.getpostman.com/[Postman] app for desktop, although you can use any other similar application.
 
 Now, with _Postman_, we can do a simple _GET_ request to obtain the info of a _dish_ with _id=1_ (`http://localhost:8081/mythaistar/services/rest/dishmanagement/v1/dish/1`). And we obtain a result like this
 

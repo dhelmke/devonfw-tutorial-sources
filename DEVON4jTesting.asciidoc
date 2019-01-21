@@ -105,9 +105,9 @@ Now we can start adding our first test. In link:JumpTheQueueDesign[Jump the Queu
 
 Let's add a test to check the first one.
 
-We are going to create a method called with a descriptive name, _registerVisitorTest_, and we are going to add to it the `@Test` annotation.
+We are going to create a method called with a descriptive name, _saveVisitorTest_, and we are going to add to it the `@Test` annotation.
 
-Inside this test we are going to verify the registration process of our app. To do so we only need to call the _registerVisitor_ method of the component and provide a _VisitorEto_ object. After the method is called we are going the check the response of the method to verify that the expected business logic has been executed successfully.
+Inside this test we are going to verify the registration process of our app. To do so we only need to call the _saveVisitor_ method of the component and provide a _VisitorEto_ object. After the method is called we are going the check the response of the method to verify that the expected business logic has been executed successfully.
 
 [source,java]
 ----
