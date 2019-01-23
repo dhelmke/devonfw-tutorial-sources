@@ -1,15 +1,15 @@
 :toc: macro
 toc::[]
 
-= Testing with DEVON4J
+= Testing with devon4j
 
-Testing our applications is one of the most important parts of the development. The _Devon4j_ documentation provides a detailed information about the https://github.com/devonfw/devon4j/wiki/guide-testing[testing principles]. In addition to that, in both the DevonfwGuide.pdf (_Write Unit Test Cases_) and in the https://github.com/devonfw/devon/wiki/getting-started-writing-unittest-cases[Devon documentation] you can find information about testing explained, on a more practical way.
+Testing our applications is one of the most important parts of the development. The _devon4j_ documentation provides a detailed information about the https://github.com/devonfw/devon4j/wiki/guide-testing[testing principles]. In addition to that, in both the DevonfwGuide.pdf (_Write Unit Test Cases_) and in the https://github.com/devonfw/devon/wiki/getting-started-writing-unittest-cases[Devon documentation] you can find information about testing explained, on a more practical way.
 
-In this chapter we are going to focus on showing some test examples, and explain briefly how to start testing our _Devon4j_ apps.
+In this chapter we are going to focus on showing some test examples, and explain briefly how to start testing our _devon4j_ apps.
 
 == My Thai Star testing example
 
-In all the _Devon4j_ projects (based on _Maven_ and _Spring_) we are going to find a dedicated package for testing.
+In all the _devon4j_ projects (based on _Maven_ and _Spring_) we are going to find a dedicated package for testing.
 
 image::images/devon4j/8.Testing/mythaistar_testing_structure.png[width="250", link="images/devon4j/8.Testing/mythaistar_testing_structure.png"]
 
@@ -17,7 +17,7 @@ In addition to this the testing part of the project has also its own _resources_
 
 We should incorporate the https://en.wikipedia.org/wiki/Unit_testing[unit test] as one of the main efforts during the development, considering even approaches like https://martinfowler.com/bliki/TestDrivenDevelopment.html[TDD].
 
-The tests in our applications should cover a significant amount of functionality, however in this part of the tutorial we are going to focus in the test of our _Devon4j_ components.
+The tests in our applications should cover a significant amount of functionality, however in this part of the tutorial we are going to focus in the test of our _devon4j_ components.
 
 As you have seen in the previous snapshot, each component of our application should have a dedicated package for testing in the test _package_. Inside each testing package we will create the related test classes that should follow the naming convention
 
@@ -27,7 +27,7 @@ As you have seen in the previous snapshot, each component of our application sho
 
 This is because we are going to use _Maven_ to launch the tests of our application and _Maven_ will look for test classes that end with _Test_ word.
 
-Testing with _Devon4j_ means that we have already available _Spring Test_ and _Devon4j_ test module which means that we will find a significant amount of annotations and implementations that are going to provide us with all the needed libraries and tools to create tests in a really simply way.
+Testing with _devon4j_ means that we have already available _Spring Test_ and _devon4j_ test module which means that we will find a significant amount of annotations and implementations that are going to provide us with all the needed libraries and tools to create tests in a really simply way.
 
 Focusing on the components test means that we are going to test the implementation of the logic layer of our applications. Because of this, you can see in our test structure that our test classes are inside the `[component].logic.impl` package.
 
@@ -57,7 +57,7 @@ public class DishmanagementTest extends ComponentTest {
 
 - `@SpringBootTest` is the _Spring Test_ annotation to load the context of our application. So we will have the application running like in a _real_ situation.
 
-- extending the _Devon4j_ test class `ComponentTest` will inject in our test class functionalities like http://joel-costigliola.github.io/assertj/[Assertions]
+- extending the _devon4j_ test class `ComponentTest` will inject in our test class functionalities like http://joel-costigliola.github.io/assertj/[Assertions]
 
 - _Spring Test_ gives us the option for dependency injection, so we are going to be able to `@Inject` our components to test them.
 
@@ -74,7 +74,7 @@ image::images/devon4j/8.Testing/jumpthequeue_testing_structure.png[width="250", 
 
 [NOTE]
 ====
-You can see that we already have some test packages in the `src/test/java/com.devonfw.application.jtqj.general` package. Those tests are from the _Devon4j_ archetype and we can use them as model for some tests in our apps. 
+You can see that we already have some test packages in the `src/test/java/com.devonfw.application.jtqj.general` package. Those tests are from the _devon4j_ archetype and we can use them as model for some tests in our apps. 
 ====
 
 In the `VisitormanagementTest` class we are going to add the annotations to run the app context when executing the tests, extend the `ComponentTest` class to obtain the assertions and inject our `visitormanagement` component.
@@ -97,7 +97,7 @@ public class VisitormanagementTest extends ComponentTest{
 }
 ----
 
-Now we can start adding our first test. In link:JumpTheQueueDesign[Jump the Queue] we have two main functionalities:
+Now we can start adding our first test. In link:jump-the-queue-design[Jump the Queue] we have two main functionalities:
 
 - register a visitor returning an _access code_.
 
@@ -188,7 +188,7 @@ image::images/devon4j/8.Testing/jumpthequeue_testing_result3.png[ link="images/d
 
 === Extra functionalities
 
-The _Devon4j_ test module provide us with some extra functionalities that we can use to create tests in an easier way.
+The _devon4j_ test module provide us with some extra functionalities that we can use to create tests in an easier way.
 
 Extending _ComponentTest_ class we also have available the _doSetUp()_ and _doTearDown()_ methods, that we can use to initialize and release resources in our test classes.
 
@@ -247,7 +247,7 @@ public class VisitormanagementTest extends ComponentTest{
 
 == Running the tests with Maven
 
-We can use _Maven_ to automate the testing of our project. To do it we simply need to open the _Devonfw_ console (_console.bat_ script) or a command line with access to _Maven_ and, in the project, execute the command `mvn clean test`. With this command _Maven_ will scan for classes named with the _Test_ word and will execute all the tests included in these classes.
+We can use _Maven_ to automate the testing of our project. To do it we simply need to open the _devonfw_ console (_console.bat_ script) or a command line with access to _Maven_ and, in the project, execute the command `mvn clean test`. With this command _Maven_ will scan for classes named with the _Test_ word and will execute all the tests included in these classes.
 
 If we do it with _Jump the Queue_ project
 ----
@@ -260,6 +260,6 @@ image::images/devon4j/8.Testing/jumpthequeue_testing_maven.png[ link="images/dev
 
 Even though the test that we have made created finished correctly since theres more tests that devon4j generated automaticly, theres going to be one error related to role assignment. In this tutorial we are going to do only the visitor side so we havent implemented role restriction. We encourage you that after finishing the tutorial you add code and try to make your own.
 
-After that we have seen how to create tests in _Devonfw_, in the next chapter we are going to show how to package and deploy our project.
+After that we have seen how to create tests in _devonfw_, in the next chapter we are going to show how to package and deploy our project.
 
-=== link:DEVON4jDeployment[Next chapter: Deployment with Devonfw]
+=== link:devon4j-deployment[Next chapter: Deployment with devonfw]

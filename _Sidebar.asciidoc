@@ -1,23 +1,21 @@
-* link:Home[Home]
+* link:home[Home]
 
-* link:DEVONintro[DEVON intro]
+* link:devonfw-intro[devonfw intro]
 
 * **Jump The Queue**
-** link:JumpTheQueueDesign[Jump The Queue Design]
+** link:jump-the-queue-design[Jump The Queue Design]
 
-* **DEVON Backend Technologies**
-** link:DEVON4jGettingStartedHome[DEVON4j Getting Started]
-*** link:DEVONintro[DEVON intro]
-*** link:DEVON4jOverview[DEVON4j overview]
-*** link:devonfwintro[devonfw intro]
-*** link:AnDEVON4jApplication[An DEVON4j application]
-*** link:BuildDEVON4japplication[Build your own DEVON4j application]
-*** link:DEVON4jComponents[DEVON4j application components]
-*** link:DEVON4jLayers[DEVON4j layers]
-*** link:DEVON4jAddingCustomFunctionality[DEVON4j adding custom functionality]
-*** link:DEVON4jValidations[DEVON4j validations]
-*** link:DEVON4jTesting[DEVON4j testing]
-*** link:DEVON4jDeployment[Deployment]
+* **devonfw Backend Technologies**
+** link:devon4j-getting-started-home[devon4j Getting Started]
+*** link:devon4j-overview[devon4j overview]
+*** link:an-devon4j-application[An devon4j application]
+*** link:build-devon4j-application[Build your own devon4j application]
+*** link:devon4j-components[devon4j application components]
+*** link:devon4j-layers[devon4j layers]
+*** link:devon4j-adding-custom-functionality[devon4j adding custom functionality]
+*** link:devon4j-validations[devon4j validations]
+*** link:devon4j-testing[devon4j testing]
+*** link:devon4j-deployment[Deployment]
 
 ** link:OASP4FnGettingStartedHome[OASP4Fn Getting Started]
 *** link:OASP4FnIntroduction[OASP4Fn intro]
@@ -26,13 +24,13 @@
 *** link:OASP4FnTesting[Testing]
 *** link:OASP4FnDeployment[Deployment]
 
-* **DEVON Frontend Technologies**
-** link:DEVON4ngGettingStartedHome[DEVON4ng Getting Started]
-*** link:DEVON4ngIntroduction[DEVON4ng intro]
-*** link:AnDEVON4ngApplication[An DEVON4ng application]
-*** link:AngularComponents[The Angular Components]
-*** link:AngularServices[The Angular Services]
-*** link:BuildDEVON4ngApplication[Build your own DEVON4ng application]
-*** link:AngularDeployment[Deployment]
+* **devonfw Frontend Technologies**
+** link:devon4ng-getting-started-home[devon4ng Getting Started]
+*** link:devon4ng-introduction[devon4ng intro]
+*** link:an-devon4ng-application[An devon4ng application]
+*** link:angular-components[The Angular Components]
+*** link:angular-services[The Angular Services]
+*** link:build-devon4ng-application[Build your own devon4ng application]
+*** link:angular-deployment[Deployment]
 
 

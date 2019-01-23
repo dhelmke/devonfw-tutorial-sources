@@ -1,13 +1,13 @@
 :toc: macro
 toc::[]
 
-== DEVON4ng
+== devon4ng
 
-Created to support the development of Angular applications, https://github.com/devonfw/devon4ng[_DEVON4ng_] includes Google Material Design as main visual language to take at maximum the advantage of Angular possibilities and Material components, making possible the building of modular, well-designed, responsive front-end applications.
+Created to support the development of Angular applications, https://github.com/devonfw/devon4ng[_devon4ng_] includes Google Material Design as main visual language to take at maximum the advantage of Angular possibilities and Material components, making possible the building of modular, well-designed, responsive front-end applications.
 
-=== Devon4ng Technology stack
+=== devon4ng Technology stack
 
-DEVON4ng works on top of Angular but also, it provides several tools, libraries and code conventions to make your Angular apps easier to develop based on the following technologies:
+devon4ng works on top of Angular but also, it provides several tools, libraries and code conventions to make your Angular apps easier to develop based on the following technologies:
 
 - http://angular.io/[Angular Framework] as the main development framework
 
@@ -26,7 +26,7 @@ The main advantages of this technologies are:
 - Google Material component library is composed by a number of fancy components like tabs, cards, buttons...
 - Yarn is quite faster than NPM and provides some more functionalities to manage dependencies.
 
-=== Devon4ng tools
+=== devon4ng tools
 
 ==== IDE
 There is no integrated IDE with the framework, that means you are free to work with whatever IDE fits better with you. Event though, we fully recommend the use of https://code.visualstudio.com/[Visual Studio Code], along with a https://github.com/devonfw/devonfw-extension-pack-vscode[Guide of the most interesting plugins] to make even easier your development with Typescript and Angular.
@@ -37,8 +37,8 @@ This https://github.com/angular/angular-cli[CLI] helps the developer to automati
 ==== Testing
 Testing helps the developers to be sure that all the typescript in services and components works properly, but also, it can test HTML tags and properties. There are many options to test an Angular app, the default option is https://github.com/karma-runner/karma[Karma] and https://github.com/jasmine/jasmine[Jasmine].
 
-=== Devon4ng architecture overview
-As Angular is the main framework for Devon4ng, the architecture of the applications that is going to be used is the same as https://angular.io/docs/ts/latest/guide/architecture.html[Angular]:
+=== devon4ng architecture overview
+As Angular is the main framework for devon4ng, the architecture of the applications that is going to be used is the same as https://angular.io/docs/ts/latest/guide/architecture.html[Angular]:
 
 image::images/devon4ng/1.Intro/architecture_overview.png[, link="images/devon4ng/1.Intro/architecture_overview.png"]
 
@@ -52,6 +52,6 @@ image::images/devon4ng/1.Intro/theming.png[, link="images/devon4ng/1.Intro/themi
 
 image::images/devon4ng/1.Intro/flex_box.jpeg[, link="images/devon4ng/1.Intro/flex_box.jpeg"]
 
-In the following chapters we are going to see an example of a finished Devon4ng application, how to build your own Devon4ng app from the scratch and all you need to know about each part of the architecture in order to start building your own applications.
+In the following chapters we are going to see an example of a finished devon4ng application, how to build your own devon4ng app from the scratch and all you need to know about each part of the architecture in order to start building your own applications.
 
-= link:AnDEVON4ngApplication[Next chapter: An DEVON4ng application]
+= link:an-devon4ng-application[Next chapter: An devon4ng application]

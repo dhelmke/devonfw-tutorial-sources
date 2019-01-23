@@ -3,11 +3,11 @@ toc::[]
 
 = Components
 
-== DEVON4j Components
+== devon4j Components
 
 image::images/devon4j/4.Components/devon4j_architecture.png[width="450", link="images/devon4j/4.Components/devon4j_architecture.png"]
 
-When working with _Devon4j_ the recommended approach for the design of the applications is the _Component Oriented Design_. Each component will represent a significant part (or feature) of our application related to _CRUD_ operations. Internally, the components will be divided in three layers (_service_, _logic_, and _dataaccess_) and will communicate in two directions: service with database or, in the _logic_ layer, a component with other component.
+When working with _devon4j_ the recommended approach for the design of the applications is the _Component Oriented Design_. Each component will represent a significant part (or feature) of our application related to _CRUD_ operations. Internally, the components will be divided in three layers (_service_, _logic_, and _dataaccess_) and will communicate in two directions: service with database or, in the _logic_ layer, a component with other component.
 
 === Principles
 
@@ -25,9 +25,9 @@ The benefits of dividing our application in components are:
 
 - Data consistency, a component is responsible for its data and changes to this data shall only happen via the component.
 
-== DEVON4j component example
+== devon4j component example
 
-_My Thai Star_ is an application of a restaurant that allows *booking* tables, and *order* different *dishes* so the main _Devon4j_ components are:
+_My Thai Star_ is an application of a restaurant that allows *booking* tables, and *order* different *dishes* so the main _devon4j_ components are:
 
 image::images/devon4j/4.Components/mythaistar_components.png[width="250", link="images/devon4j/4.Components/mythaistar_components.png"]
 
@@ -47,9 +47,9 @@ Apart from that components we will have other _packages_ for the cross-cutting c
 
 - mailservice: with this service we will provide the functionality for sending email notifications. This is a shared service between different app components such as _bookingmanagement_ or _ordercomponent_.
 
-=== DEVON4j component structure
+=== devon4j component structure
 
-The component will be formed by one package for each one of the three layers that are defined by the _Devon4j_ architecture: _service_, _logic_ and _dataaccess_.
+The component will be formed by one package for each one of the three layers that are defined by the _devon4j_ architecture: _service_, _logic_ and _dataaccess_.
 
 image::images/devon4j/4.Components/mythaistar_component_structure.png[width="250", link="images/devon4j/4.Components/mythaistar_component_structure.png"]
 
@@ -61,13 +61,13 @@ image::images/devon4j/4.Components/mythaistar_component_structure.png[width="250
 
 Apart from that the components will have a fourth package _common.api_ to store the common elements that will be used by the different layers of the component. This is the place will contain common _interfaces_, constants, exceptions or _enums_.
 
-=== DEVON4j component core
+=== devon4j component core
 
 As we mentioned earlier, each component will be related to a functionality and this functionality will be represented in code by an _Entity_ that will define all the properties needed to wrap the logic of that feature.
 
 This _Entity_, that represents the _core_ of the component, will be located in the `dataaccess.api` package.
 
-The naming convention in _Devon4j_ for these entities is
+The naming convention in _devon4j_ for these entities is
 
 ----
 [Target]Entity
@@ -83,9 +83,9 @@ image::images/devon4j/4.Components/mythaistar_component_core2.png[, link="images
 
 == Create your components
 
-After you have completed link:BuildDEVON4Japplication[your own DEVON4J app] creation, we are going to create our first app component.
+After you have completed link:build-devon4j-application[your own devon4j app] creation, we are going to create our first app component.
 
-Going back to our example application, link:JumpTheQueueDesign[Jump the Queue], we need to provide two basic functionalities:
+Going back to our example application, link:jump-the-queue-design[Jump the Queue], we need to provide two basic functionalities:
 
 - register a user (returning an access code).
 
@@ -116,7 +116,7 @@ However if you feel more comfortable managing the entities in a single component
 
 === The database
 
-In the projects created with the _Devon4j_ archetype, we already have a complete data base schema that we can use as a model to create our own. By default we are going to work over the http://www.h2database.com/html/main.html[H2] database engine provided in the _Devon4j_ applications, although you can use other database alternatives for this exercise. 
+In the projects created with the _devon4j_ archetype, we already have a complete data base schema that we can use as a model to create our own. By default we are going to work over the http://www.h2database.com/html/main.html[H2] database engine provided in the _devon4j_ applications, although you can use other database alternatives for this exercise. 
 
 We have the `/jtqj-core/src/main/resources/db/type/h2/V0001__Create_Sequence.sql, V0002__Create_RevInfo.sql` and `V0003__Create_BinaryObject.sql`
 these tables are already used by default so don't delete them. We therefore also have `/jtqj-core/src/main/resources/db/migration/1.0/V0004__Add_blob_data.sql`. 
@@ -856,6 +856,6 @@ Finally we are going to repeat the same process using _Cobigen_ with our other _
 
 If all compilation errors are solved run the app ( _SpringBootApp.java right click > Run as > Java application_ ). The app should be launched without errors.
 
-Congratulations you have created your first _Devon4j_ components. In the next chapter we will explain and show in detail each of the created elements
+Congratulations you have created your first _devon4j_ components. In the next chapter we will explain and show in detail each of the created elements
 
-=== link:DEVON4jLayers[Next chapter: Devon4j Layers]
+=== link:devon4j-layers[Next chapter: devon4j Layers]

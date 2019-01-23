@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= Deploy an DEVON4ng application
+= Deploy an devon4ng application
 
 When you have a finished version of your application and you want to deploy it somewhere you just make sure you have all your test running correctly and your app compiles. Then, run this Angular/cli command in your project root folder:
 

@@ -1,9 +1,9 @@
 :toc: macro
 toc::[]
 
-= DEVON4j Validations
+= devon4j Validations
 
-For validations _DEVON4j_ includes the http://hibernate.org/validator/[Hibernate Validator] as one of the available libraries in the _pom.xml_ file
+For validations _devon4j_ includes the http://hibernate.org/validator/[Hibernate Validator] as one of the available libraries in the _pom.xml_ file
 
 [source,xml]
 ----
@@ -216,6 +216,6 @@ image::images/devon4j/7.Validations/jumpthequeue_validation_wrongphone.png[, lin
 
 However, if we provide a valid phone the process should end successfully
 
-In this chapter we have seen how easy is to add validations in the server side of our _Devon4j_ applications. In the next chapter we will show how to test our components using _Spring Test_ and _Devon4j_'s test module.
+In this chapter we have seen how easy is to add validations in the server side of our _devon4j_ applications. In the next chapter we will show how to test our components using _Spring Test_ and _devon4j_'s test module.
 
-=== link:DEVON4jTesting[Next chapter: Testing in Devon4j]
+=== link:devon4j-testing[Next chapter: Testing in devon4j]

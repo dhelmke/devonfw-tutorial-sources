@@ -1,17 +1,17 @@
 :toc: macro
 toc::[]
 
-= Build your own DEVON4J application
+= Build your own devon4j application
 
-In this chapter we are going to show how to create a new _Devon4j_ application from scratch. The app that we are going to create is _Jump the Queue_, a simple app to avoid the queue in an event registering a visitor and obtaining an _access code_. You can read all the details of the app in the link:JumpTheQueueDesign[Jump the Queue Design] page.
+In this chapter we are going to show how to create a new _devon4j_ application from scratch. The app that we are going to create is _Jump the Queue_, a simple app to avoid the queue in an event registering a visitor and obtaining an _access code_. You can read all the details of the app in the link:jump-the-queue-design[Jump the Queue Design] page.
 
-== Getting Devonfw distribution
+== Getting devonfw distribution
 
-The recommended way to start developing _Devon4j_ applications is to get the last _Devonfw_ distribution to have a _ready-to-start_ development environment.
+The recommended way to start developing _devon4j_ applications is to get the last _devonfw_ distribution to have a _ready-to-start_ development environment.
 
-You can download _Devonfw_ distributions from https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[TeamForge].
+You can download _devonfw_ distributions from https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[TeamForge].
 
-To see what is included in a _Devonfw_ please visit the link:devonfwintro[Devonfw intro section.]
+To see what is included in a _devonfw_ please visit the link:devonfw-intro[devonfw intro section.]
 
 Once the download is done extract the _zip_ file and you will get the distribution's content.
 
@@ -28,7 +28,7 @@ Now you should see the _conf_ directory and the Eclipse launchers.
 
 [NOTE]
 ====
-Learn more about _Devonfw_ initialization https://github.com/devonfw/devon/wiki/getting-started-download-and-install#prepare-the-workspace[here]
+Learn more about _devonfw_ initialization https://github.com/devonfw/devon/wiki/getting-started-download-and-install#prepare-the-workspace[here]
 ====
 
 == Create the server project
@@ -43,7 +43,7 @@ D:\Devon\workspaces>mkdir java
 D:\Devon\workspaces>cd java
 ----
 
-We are going to generate the new _Devon4j_ project using _Devcon_. To launch the tool run the 'console.bat' script, in the new opened command line window execute the command
+We are going to generate the new _devon4j_ project using _Devcon_. To launch the tool run the 'console.bat' script, in the new opened command line window execute the command
 
 ----
 devcon -g
@@ -71,7 +71,7 @@ You can also create new projects:
 
 == Import and run the app
 
-As last step we can import the project we just created into the Eclipse IDE provided with _Devonfw_. Although our new _Devon4j_ based app is still empty we are going to show how to run it with _Spring Boot_ simply to check that everything is ok.
+As last step we can import the project we just created into the Eclipse IDE provided with _devonfw_. Although our new _devon4j_ based app is still empty we are going to show how to run it with _Spring Boot_ simply to check that everything is ok.
 
 We could use the _eclipse-main.bat_ or the _eclipse-examples.bat_ launchers (that you should see on your distribution's root directory) but we are going to create a new _Eclipse_ launcher related to our new project.
 
@@ -123,12 +123,12 @@ image::images/devon4j/3.BuildYourOwn/login.png[, link="images/devon4j/3.BuildYou
 
 [NOTE]
 ====
-You are redirected to the login screen because, by default, the new _Devon4j_ applications provide a basic security set up.
+You are redirected to the login screen because, by default, the new _devon4j_ applications provide a basic security set up.
 ====
 
 == Empty app structure
 
-Creating _Devon4j_ based apps we get the following main features _out-of-the-box_:
+Creating _devon4j_ based apps we get the following main features _out-of-the-box_:
 
 * _Maven_ project with _api_ project, _core_ project and _server_ project:
 
@@ -163,4 +163,4 @@ image::images/devon4j/3.BuildYourOwn/emptyapp_security.png[ width="650", link="i
 
 image::images/devon4j/3.BuildYourOwn/emptyapp_test.png[ width="650", link="images/devon4j/3.BuildYourOwn/emptyapp_test.png"]
 
-=== link:DEVON4jComponents[Next chapter: Add a component to your app]
+=== link:devon4j-components[Next chapter: Add a component to your app]

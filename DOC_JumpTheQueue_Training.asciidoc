@@ -10,70 +10,68 @@ This document contains high-level documentation of the components of devonfw to 
 
 While the document a comprehensive overview, the following links should provide you a step by step navigation to follow the tutorial. The document is structured in an alternating fashion documenting general explanation of the different components followed by the guide of developing the *Jump The Queue* application. The links provided in the following will just point at the beginning of the guide of each section as a shortcut. If you are unsure about anything, please scroll some pages back to find further explanation on the architecture and contents or don't hesitate to ask your trainer if you are currently in a training.
 
-link:JumpTheQueueDesign#introduction[Jump the Queue introduction and requirements description]
+link:jump-the-queue-design#introduction[Jump the Queue introduction and requirements description]
 
 *Building the server*
 
-. link:BuildDEVON4japplication#buildyourownDEVON4japplication[Create your own DEVON4j application]
-. link:DEVON4jComponents#createyourcomponents[Create your components]
-. link:DEVON4jLayers#layersofthejumpthequeueapplication[Layers of the application]
-. link:DEVON4jLayers#jumpthequeuerunning[Run the application]
-. link:DEVON4jAddingCustomFunctionality#returntheaccesscode[Customize the application]
-. link:DEVON4jValidations#addyourvalidations[Add validation]
-. link:DEVON4jTesting#testingourapplication[Testing the application]
+. link:build-devon4j-application#build-your-own-devon4j-application[Create your own devon4j application]
+. link:devon4j-components#create-your-components[Create your components]
+. link:devon4j-layers#layers-of-the-jump-the-queue-application[Layers of the application]
+. link:devon4j-layers#jump-the-queue-running[Run the application]
+. link:devon4j-adding-custom-functionality#return-the-access-code[Customize the application]
+. link:devon4j-validations#add-your-validations[Add validation]
+. link:devon4j-testing#testing-our-application[Testing the application]
 
 *Building the client*
 
-. link:BuildDEVON4ngApplication#goalofjumpthequeue[Create your own DEVON4ng application]
-. link:BuildDEVON4ngApplication#creatingcomponents[Create your components]
-. link:BuildDEVON4ngApplication#creatingservices[Create services]
-. link:BuildDEVON4ngApplication#makingcallstoserver[Make calls to the server]
+. link:build-devon4ng-application#goal-of-jump-the-queue[Create your own devon4ng application]
+. link:build-devon4ng-application#creating-components[Create your components]
+. link:build-devon4ng-application#creating-services[Create services]
+. link:build-devon4ng-application#making-calls-to-server[Make calls to the server]
 
 :leveloffset: 1
-include::JumpTheQueueDesign[]
+include::jump-the-queue-design[]
 
 :leveloffset: 0
-= DEVON4j Getting Started
+= devon4j Getting Started
 
 :leveloffset: 1
-include::DEVONintro[]
+include::devonfw-intro[]
 
-include::DEVON4jOverview[]
+include::devon4j-overview[]
 
-include::devonfwintro[]
+include::an-devon4j-application[]
 
-include::AnDEVON4jApplication[]
+include::build-devon4j-application[]
 
-include::BuildDEVON4japplication[]
+include::devon4j-components[]
 
-include::DEVON4jComponents[]
+include::devon4j-layers[]
 
-include::DEVON4jLayers[]
+include::devon4j-adding-custom-functionality[]
 
-include::DEVON4jAddingCustomFunctionality[]
+include::devon4j-validations[]
 
-include::DEVON4jValidations[]
+include::devon4j-testing[]
 
-include::DEVON4jTesting[]
-
-include::DEVON4jDeployment[]
+include::devon4j-deployment[]
 
 :leveloffset: 0
-= DEVON4ng Getting Started
+= devon4ng Getting Started
 
 :leveloffset: 1
 
-include::DEVONintro[]
+include::devonfw-intro[]
 
-include::DEVON4ngIntroduction[]
+include::devon4ng-introduction[]
 
-include::AnDEVON4ngApplication[]
+include::an-devon4ng-application[]
 
-include::BuildDEVON4ngApplication[]
+include::build-devon4ng-application[]
 
-include::AngularComponents[]
+include::angular-components[]
 
-include::AngularServices[]
+include::angular-services[]
 
-include::AngularDeployment[]
+include::angular-deployment[]
 

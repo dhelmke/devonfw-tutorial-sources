@@ -1,1 +1,0 @@
-= Generating DEVON4J applications with Cobigen

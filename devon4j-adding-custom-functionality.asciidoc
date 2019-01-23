@@ -1,15 +1,15 @@
 :toc: macro
 toc::[]
 
-= DEVON4J adding custom functionality
+= devon4j adding custom functionality
 
-In the link:DEVON4JLayers[previous chapter] we have seen that using _Cobigen_ we can generate in a few _clicks_ all the structure and functionality of an _Devon4j_ component.
+In the link:devon4j-layers[previous chapter] we have seen that using _Cobigen_ we can generate in a few _clicks_ all the structure and functionality of an _devon4j_ component.
 
 In this chapter we are going to show how to add custom functionalities in our projects that are out of the scope of the code that _Cobigen_ is able to cover.
 
 == Return the Access Code
 
-The _Jump the Queue_ design defines a link:JumpTheQueueDesign#user-story-register[User Story] in which a visitor can register into an event and obtain an access code to avoid a queue.
+The _Jump the Queue_ design defines a link:jump-the-queue-design#user-story-register[User Story] in which a visitor can register into an event and obtain an access code to avoid a queue.
 
 In our _standard_ implementation of the _Jump the queue_ app we have used _Cobigen_ to generate the components, so we have a default implementation of the services. Since _AccessCode_ component is more complex and needs the use of _CTOs_ we need to create our own _usecasemanage_ and the methods save and delete.
 
@@ -349,8 +349,8 @@ image::images/devon4j/6.Customizations/jumpthequeue_accesscode.png[, link="image
 
 To test the delete, you can send a delete to this url http://localhost:8081/jumpthequeue/services/rest/accesscodemanagement/v1/accesscode/{id} using the id found either on the save or on the search.
 
-In this chapter we have seen how easy is extend a _Devon4j_ application, with few steps you can add new services to your backend app to fit the functional requirements of your projects or edit them to adapt the default implementation to your needs.
+In this chapter we have seen how easy is extend a _devon4j_ application, with few steps you can add new services to your backend app to fit the functional requirements of your projects or edit them to adapt the default implementation to your needs.
 
 In the next chapter we will show how easy is to add validations for the data that we receive from the client.
 
-=== link:DEVON4jValidations[Next chapter: Validations in Devon4j]
+=== link:devon4j-validations[Next chapter: Validations in devon4j]

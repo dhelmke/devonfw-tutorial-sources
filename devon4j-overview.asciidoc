@@ -1,15 +1,15 @@
 :toc: macro
 toc::[]
 
-= DEVON4J
+= devon4j
 
-For _Java_ based backend solutions, _DEVON_ includes https://github.com/devonfw/devon4j/wiki/architecture[DEVON 4 Java_](DEVON4J) that provides a standardized architecture blueprint, an open best-of-breed technology stack as well as industry proven best practices and code conventions for a cloud ready _Spring_ based server.
+For _Java_ based backend solutions, _devonfw_ includes https://github.com/devonfw/devon4j/wiki/architecture[devon 4 Java_](devon4j) that provides a standardized architecture blueprint, an open best-of-breed technology stack as well as industry proven best practices and code conventions for a cloud ready _Spring_ based server.
 
-Included in _Devon_ framework as default server solution, https://github.com/devonfw/devon4j[_DEVON4j_] is the result of applying DEVON principles in a Java based technology stack. With _DEVON4J_ developers are able to create web application backends in a fast and reliable way, generating web services (REST, SOAP) that web clients can consume.
+Included in _devonfw_ framework as default server solution, https://github.com/devonfw/devon4j[_devon4j_] is the result of applying devonfw principles in a Java based technology stack. With _devon4j_ developers are able to create web application backends in a fast and reliable way, generating web services (REST, SOAP) that web clients can consume.
 
-== Devon4j Technology stack
+== devon4j Technology stack
 
-As mentioned before, Devon4j is not only a framework but a set of tools and conventions. Devon4j provides a Java backend solution based on the following technologies:
+As mentioned before, devon4j is not only a framework but a set of tools and conventions. devon4j provides a Java backend solution based on the following technologies:
 
 - https://spring.io/[Spring framework] as the main development framework
 
@@ -32,7 +32,7 @@ Some of the main features of _Spring Boot_ are
 
 - No requirement for XML configuration
 
-For _persistence_ and _data access_ Devon4j implements:
+For _persistence_ and _data access_ devon4j implements:
 - https://en.wikipedia.org/wiki/Java_Persistence_API[JPA] and http://hibernate.org/[Hibernate]
 - http://www.querydsl.com/[QueryDsl] as query manager
 - http://www.h2database.com/html/main.html[H2] instance embedded as _out-of-the-box_ database that is launched each time the application is started so the developers are able to start working with a real data access from scratch.
@@ -43,21 +43,21 @@ As service framework
 ** REST services through https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services[JAX-RS]
 ** SOAP services through https://en.wikipedia.org/wiki/Java_API_for_XML_Web_Services[JAX-WS]
 
-== Devon4j tools
+== devon4j tools
 
 === IDE
-As part of the _Devon_ framework Devon4j projects are integrated in a customized Eclipse instance that provides pre-configurations and pre-installed plugins focusing on code quality and productivity boosting.
+As part of the _devonfw_ framework devon4j projects are integrated in a customized Eclipse instance that provides pre-configurations and pre-installed plugins focusing on code quality and productivity boosting.
 
-=== Devon Tools
-Apart from all the methodologies regarding the mentioned frameworks, inside the Devon ecosystem there are another tools that are crucial for boosting the productivity and enhance the managing of the Java projects.
+=== devonfw Tools
+Apart from all the methodologies regarding the mentioned frameworks, inside the devonfw ecosystem there are another tools that are crucial for boosting the productivity and enhance the managing of the Java projects.
 
 - Cobigen: a generic incremental generator for end to end code generation that will allow us to automate the generation of the main parts of the components of our apps. Starting from an Entity, Cobigen can generate all its CRUD functionality for us, starting from the service and ending up in the persistance data layer.
 
-- Devcon: a Devon internal tool to manage Devon based projects. Among many other tasks, it can create, run or deploy Devon4j applications avoiding users to do it manually.
+- Devcon: a devonfw internal tool to manage devonfw based projects. Among many other tasks, it can create, run or deploy devon4j applications avoiding users to do it manually.
 
-== Devon4j architecture overview
+== devon4j architecture overview
 
-Devon4j provides a solution for industrialized web apps based on _components_ and a three-layers architecture.
+devon4j provides a solution for industrialized web apps based on _components_ and a three-layers architecture.
 
 image::images/devon4j/1.Overview/devon4j_architecture.png[,width="450", link="images/devon4j/1.Overview/devon4j_architecture.png"]
 
@@ -71,6 +71,6 @@ Each component will be divided in three layers: _service_, _logic_ and _dataaces
 
 - Data Access Layer: the layer to communicate with the data base.
 
-Finally the _Devon4j_ applications provide a _general_ package to locate the cross-cutting functionalities such as _security_, _logging_ or _exception handling_.
+Finally the _devon4j_ applications provide a _general_ package to locate the cross-cutting functionalities such as _security_, _logging_ or _exception handling_.
 
-In the next chapters you can find all the details about the implementation of each layer and how to develop all the relevant parts of a web app based on _Devon_ framework and _Devon4j_.
+In the next chapters you can find all the details about the implementation of each layer and how to develop all the relevant parts of a web app based on _devonfw_ framework and _devon4j_.

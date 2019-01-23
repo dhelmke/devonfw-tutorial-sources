@@ -9,15 +9,15 @@ http://devonfw.github.io/index.html[Devon framework] is a development platform a
 
 == everything in a zip file
 
-The Devonfw distributions can be obtained from the https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[TeamForge releases library] and are packaged in a _zip_ file that includes all the needed tools, software and configurations.
+The devonfw distributions can be obtained from the https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[TeamForge releases library] and are packaged in a _zip_ file that includes all the needed tools, software and configurations.
 
 == no need of installation, nor configuration
 
-Having all the dependencies serf-contained in the distribution's _zip_ file, users don't need to install or configure anything. Just extracting the _zip_ content is enough to have a fully functional _Devonfw_.
+Having all the dependencies serf-contained in the distribution's _zip_ file, users don't need to install or configure anything. Just extracting the _zip_ content is enough to have a fully functional _devonfw_.
 
 == pre installed software
 
-The list of software pre-installed with Devonfw distributions is:
+The list of software pre-installed with devonfw distributions is:
 
 - _Eclipse_: pre-configured and fully functional IDE to develop Java based apps.
 
@@ -27,7 +27,7 @@ The list of software pre-installed with Devonfw distributions is:
 
 - _Node_: a Node js environment configured and ready to be used within the distribution.
 
-- _Sencha_: Devonfw also includes a installation of the _Sencha Cmd_ tool.
+- _Sencha_: devonfw also includes a installation of the _Sencha Cmd_ tool.
 
 - _Sonarqube_: a code quality tool.
 
@@ -35,13 +35,13 @@ The list of software pre-installed with Devonfw distributions is:
 
 == server solutions
 
-For backend solutions _Devonfw_ provides the https://github.com/devonfw/devon4j[_Devon4j_] platform as main implementation. With _Devon4j_, users will find a standardized architecture blueprint for a Java applications based on _Spring_, and a set of best-of-breed technologies alongside a compendium of best practices and code conventions to build solid and reliable web applications.
+For backend solutions _devonfw_ provides the https://github.com/devonfw/devon4j[_devon4j_] platform as main implementation. With _devon4j_, users will find a standardized architecture blueprint for a Java applications based on _Spring_, and a set of best-of-breed technologies alongside a compendium of best practices and code conventions to build solid and reliable web applications.
 
-With _Devonfw_/_Devon4j_ developers have at their disposal an archetype to generate new server projects with all _Devon4j_ modules and pre-configurations ready to start to develop applications in a fully functional environment. 
+With _devonfw_/_devon4j_ developers have at their disposal an archetype to generate new server projects with all _devon4j_ modules and pre-configurations ready to start to develop applications in a fully functional environment. 
 
 == client solutions
 
-For client applications _Devonfw_ includes two possible solutions, both based on _JavaScript_:
+For client applications _devonfw_ includes two possible solutions, both based on _JavaScript_:
 
 - https://github.com/devonfw/devon4ng[devon4ng]: the _OASP_ implementation based on https://angular.io/[Angular] framework.
 
@@ -51,7 +51,7 @@ For client applications _Devonfw_ includes two possible solutions, both based on
 
 === Devcon
 
-For project management and other life-cycle related tasks, _Devonfw_ provides also https://github.com/devonfw/devcon[Devcon], a command line and graphic user interface cross platform tool.
+For project management and other life-cycle related tasks, _devonfw_ provides also https://github.com/devonfw/devcon[Devcon], a command line and graphic user interface cross platform tool.
 
 With _Devcon_ users can automate the creation of new projects (both server and client), build and run those and even, for server projects, deploy locally on Tomcat.
 
@@ -61,13 +61,13 @@ All those tasks can be done manually using _Maven_, _Tomcat_, _Sencha Cmd_, _Bow
 
 === Cobigen
 
-_Cobigen_ is a code generator included in the context of _Devonfw_ that allows users to generate all the structure and code of the components, helping to save a lot of time waisted in repetitive tasks.
+_Cobigen_ is a code generator included in the context of _devonfw_ that allows users to generate all the structure and code of the components, helping to save a lot of time waisted in repetitive tasks.
 
 image::images/devon/cobigen.png[,width="450", link="images/devon/cobigen.png"]
 
 == ip modules
 
-As part of the goal of productivity boosting, _Devonfw_ provides also to developers a set of _modules_, created from real projects requirements, that can be connected to projects saving all the work of a new implementation.
+As part of the goal of productivity boosting, _devonfw_ provides also to developers a set of _modules_, created from real projects requirements, that can be connected to projects saving all the work of a new implementation.
 
 The current available modules are:
 
