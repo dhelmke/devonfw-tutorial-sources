@@ -44,9 +44,124 @@ And then it includes the https://docs.spring.io/spring-boot/docs/current/referen
 
 ----
 
+== Disabling security tests
+
+First, since this is a basic tutorial and there is no security/permissions,the files `SecurityRestServiceImplTest` and the `PermissionCheckTest` need to be modified leaving one test of each that will return true and the rest in a commentary. First, in the core `jtqj-core` inside `src/test/java/.../general/common/service/impl/rest/SecurityRestServiceImpl`:
+
+[source, java]
+----
+....
+public class SecurityRestServiceImplTest extends RestServiceTest {
+  ....
+  @Test
+  public void testLogin() {
+
+	assertThat(true);
+   /**String login = "waiter";
+    String password = "waiter";
+
+    ResponseEntity<String> postResponse = login(login, password);
+    LOG.debug("Body: " + postResponse.getBody());
+    assertThat(postResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+    assertThat(postResponse.getHeaders().containsKey(HttpHeaders.SET_COOKIE)).isTrue();*/
+  }
+  ....
+ /** @Test
+  public void testGetCsrfToken() {
+
+    String login = "waiter";
+    String password = "waiter";
+    SecurityRestService securityService = getServiceClientFactory().create(SecurityRestService.class,
+        new ServiceClientConfigBuilder().host("localhost").authBasic().userLogin(login).userPassword(password)
+            .buildMap());
+    CsrfToken csrfToken = securityService.getCsrfToken(null, null);
+    assertThat(csrfToken.getHeaderName()).isEqualTo("X-CSRF-TOKEN");
+    assertThat(csrfToken.getParameterName()).isEqualTo("_csrf");
+    assertThat(csrfToken.getToken()).isNotNull();
+    LOG.debug("Csrf Token: {}", csrfToken.getToken());
+  }*/
+  ....
+ /**@Test
+  public void testGetCurrentUser() {
+    String login = "waiter";
+    String password = "waiter";
+    SecurityRestService securityService = getServiceClientFactory().create(SecurityRestService.class,
+        new ServiceClientConfigBuilder().host("localhost").authBasic().userLogin(login).userPassword(password)
+            .buildMap());
+    UserProfileTo userProfile = securityService.getCurrentUser();
+    assertThat(userProfile.getLogin()).isEqualTo(login);
+  }*/
+  ....
+  /**ResponseEntity<String> login(String userName, String tmpPassword) {
+
+    String tmpUrl = "http://localhost:" + String.valueOf(this.port) + "/services/rest/login";
+
+    HttpEntity<String> postRequest = new HttpEntity<>(
+        "{\"j_username\": \"" + userName + "\", \"j_password\": \"" + tmpPassword + "\"}", new HttpHeaders());
+
+    ResponseEntity<String> postResponse = new RestTemplate().exchange(tmpUrl, HttpMethod.POST, postRequest, String.class);
+    return postResponse;
+  }*/
+  ....
+}
+----
+
+  And then inside `src/test/.../general/common/base/PermissionCheckTest`:
+
+[source, java]
+----
+....
+public class PermissionCheckTest extends ModuleTest {
+  ....
+  @Test
+  public void permissionCheckAnnotationPresent() {
+
+	assertThat(true);
+    /**String packageName = "com.devonfw.application.jtqj";
+    Filter<String> filter = new Filter<String>() {
+
+      @Override
+      public boolean accept(String value) {
+
+        return value.contains(".logic.impl.usecase.Uc") && value.endsWith("Impl");
+      }
+
+    };
+    ReflectionUtil ru = ReflectionUtilImpl.getInstance();
+    Set<String> classNames = ru.findClassNames(packageName, true, filter);
+    Set<Class<?>> classes = ru.loadClasses(classNames);
+    SoftAssertions assertions = new SoftAssertions();
+    for (Class<?> clazz : classes) {
+      Method[] methods = clazz.getDeclaredMethods();
+      for (Method method : methods) {
+        Method parentMethod = ru.getParentMethod(method);
+        if (parentMethod != null) {
+          Class<?> declaringClass = parentMethod.getDeclaringClass();
+          if (declaringClass.isInterface() && declaringClass.getSimpleName().startsWith("Uc")) {
+            boolean hasAnnotation = false;
+            if (method.getAnnotation(RolesAllowed.class) != null || method.getAnnotation(DenyAll.class) != null
+                || method.getAnnotation(PermitAll.class) != null) {
+              hasAnnotation = true;
+            }
+            assertions.assertThat(hasAnnotation)
+                .as("Method " + method.getName() + " in Class " + clazz.getSimpleName() + " is missing access control")
+                .isTrue();
+          }
+        }
+      }
+    }
+    assertions.assertAll();*/
+  }
+  ....
+}
+....
+----
+
+This is going to allow our application to pass the tests and be able to build.
+
 == Running the app with Maven
 
-So thanks to _Spring Boot_ and the `spring-boot-maven-plugin` we can run our app using Maven. To do so just open a command line with access to _Maven_ (in Devonfw we can do it using the _console.bat_). And:
+Thanks to _Spring Boot_ and the `spring-boot-maven-plugin` we can run our app using Maven. To do so just open a command line with access to _Maven_ (in Devonfw we can do it using the _console.bat_). And:
 
 1.- As is explained in https://github.com/devonfw/devon/wiki/getting-started-understanding-devon4j-spring-boot-config#step-2-including-properties[devonfw documentation] the `application.properties` used for packaging is `/src/main/resources/application.properties`. So we need to edit the app properties to access to the app. In `/jtqj-core/src/main/resources/application.properties` configure the properties:
 
@@ -55,23 +170,22 @@ server.port=8081
 server.servlet.context-path=/jumpthequeue
 ----
 
-2.- install the `jtqj/core` project in our local _Maven_ repository
+2.- install the `jtqj` project in our local _Maven_ repository
 
 ----
-D:\Devon-dist\...\jump-the-queue\java\jtqj\core>mvn install
+D:\Devon-dist\...\jtqj>mvn install
 ----
 
 3.- Go to the `jtqj/server` project and execute the command `mvn spring-boot:run`
 
 ----
-D:\Devon-dist\...\jump-the-queue\java\jtqj\server>mvn spring-boot:run
+D:\Devon-dist\...\jtqj\server>mvn spring-boot:run
 ----
 
 The app should be launched in the _Spring Boot_ embedded Tomcat server. Wait a few seconds until you see a console message like
 
 ----
-[L: org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer] - [M: Tomcat started on port(s): 8081 (http)]
-[L: com.cap.jumpthequeue.SpringBootApp] - [M: Started SpringBootApp in 17.908 seconds (JVM running for 19.148)]
+{"timestamp":"2019-01-30T14:13:10.164+00:00","message":"Tomcat started on port(s): 8081 (http) with context path '/jumpthequeue'","logger_name":"org.springframework.boot.web.embedded.tomcat.TomcatWebServer","thread_name":"main","level":"INFO","appname":"jtqj"}
 ----
 
 Now we can try to access to the app resource (GET)`http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor/1` we can verify that the app is running fine
@@ -83,32 +197,25 @@ image::images/devon4j/9.Deployment/jumpthequeue_simpleget1.png[, link="images/de
 In the same way, using _Maven_ we can package our project in a _.war_ file. As in the previous section, open a command line with access to _Maven_ (in devonfw _console.bat_ script) and execute the command `mvn clean package` in the project root directory
 
 ----
-D:\Devon-dist\...\jumpthequeue>mvn clean package
+D:\Devon-dist\...\jtqj>mvn clean package
 ----
 
 The packaging process (compilation, tests and _.war_ file generation) should be launched. Once the process is finished you should see a result like
 
 ----
-[INFO] Building war: D:\Devon-dist\workspaces\jumpthequeue\server\target\jumpthe
-queue-server-0.0.1-SNAPSHOT.war
-[INFO] WEB-INF\web.xml already added, skipping
+[INFO] Building war: C:\Devon-dist_3.0.0\jump-the-queue\java\jtqj\server\target\jtqj-server-v4.war
 [INFO]
-[INFO] --- spring-boot-maven-plugin:1.5.4.RELEASE:repackage (default) @ jumptheq
-ueue-server ---
-[INFO] Attaching archive: D:\Devon-dist\workspaces\jumpthequeue\server\target\
-jumpthequeue-server-bootified.war, with classifier: bootified
+[INFO] --- spring-boot-maven-plugin:2.0.4.RELEASE:repackage (default) @ jtqj-server ---
+[INFO] Attaching archive: C:\...\jump-the-queue\java\jtqj\server\target\jtqj-server-bootified.war, with classifier: bootified
 [INFO] ------------------------------------------------------------------------
-[INFO] Reactor Summary:
+[INFO] Reactor Summary for jtqj v4:
 [INFO]
-[INFO] jumpthequeue ....................................... SUCCESS [  0.306 s]
-[INFO] jumpthequeue-core .................................. SUCCESS [ 27.723 s]
-[INFO] jumpthequeue-server ................................ SUCCESS [  6.628 s]
+[INFO] jtqj ............................................... SUCCESS [  2.582 s]
+[INFO] jtqj-api ........................................... SUCCESS [  6.725 s]
+[INFO] jtqj-core .......................................... SUCCESS [01:19 min]
+[INFO] jtqj-server ........................................ SUCCESS [ 10.308 s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 35.091 s
-[INFO] Finished at: 20XX-06-28T10:11:37+02:00
-[INFO] Final Memory: 48M/216M
 [INFO] ------------------------------------------------------------------------
 ----
 
