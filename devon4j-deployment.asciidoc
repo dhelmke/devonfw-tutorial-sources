@@ -106,7 +106,9 @@ public class SecurityRestServiceImplTest extends RestServiceTest {
 }
 ----
 
+
   And then inside `src/test/.../general/common/base/PermissionCheckTest`:
+
 
 [source, java]
 ----
