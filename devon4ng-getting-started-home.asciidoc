@@ -2,7 +2,7 @@
 
 Table of contents of this tutorial for understanding, creating from scratch and deploying apps based on devon4ng. Using Angular as front-end framework using Google Material as visual language.
 
-== link:devonfw-intro[devon intro]
+== link:devonfw-intro[devonfw intro]
 
 == link:devon4ng-introduction[devon4ng intro]
 

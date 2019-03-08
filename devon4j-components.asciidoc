@@ -850,7 +850,7 @@ image::images/devon4j/4.Components/cobigen6_expected_errors.png[link="images/dev
 
 ==== _Visitor_ component structure (Entity without relations)
 
-Finally we are going to repeat the same process using _Cobigen_ with our other _Visitor_ component. Once cobigen has finished we can fix one of the compilation error in `AccessCodeCto` and `UcFindAccessCodeImpl` related to `VisitorEto` by manual importing like we learned in the last step.
+Finally we are going to repeat the same process that was used with the _Queue_ component but this time, using _Cobigen_ with our other _Visitor_ component. Once cobigen has finished we can fix one of the compilation error in `AccessCodeCto` and `UcFindAccessCodeImpl` related to `VisitorEto` by manual importing like we learned in the last step.
 
 ==== Run the app
 
