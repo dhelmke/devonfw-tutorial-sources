@@ -5,11 +5,11 @@ toc::[]
 
 image::images/devon/devonfw.png[,width="250", link="images/devon/devonfw.png"]
 
-http://devonfw.github.io/index.html[Devon framework] is a development platform aiming for standardization of processes and productivity boost, that provides an architecture blueprint for Java/JavaScript applications, alongside a set of tools to provide a fully functional _out-of-the-box_ development environment.
+http://www.devonfw.com/[devonfw] is a development platform aiming for standardization of processes and productivity boost, that provides an architecture blueprint for Java/JavaScript applications, alongside a set of tools to provide a fully functional _out-of-the-box_ development environment.
 
 == everything in a zip file
 
-The devonfw distributions can be obtained from the https://coconet.capgemini.com/sf/frs/do/listReleases/projects.apps2_devon/frs.devon_distribution[TeamForge releases library] and are packaged in a _zip_ file that includes all the needed tools, software and configurations.
+The devonfw distributions can be obtained from the http://de-mucevolve02/files/devonfw/current/[Releases Site] and are packaged in a _zip_ file that includes all the needed tools, software and configurations.
 
 == no need of installation, nor configuration
 
