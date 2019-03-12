@@ -28,7 +28,7 @@ Now you should see the _conf_ directory and the Eclipse launchers.
 
 [NOTE]
 ====
-Learn more about _devonfw_ initialization https://github.com/devonfw/devon/wiki/getting-started-download-and-install#prepare-the-workspace[here]
+Learn more about _devonfw_ initialization https://github.com/devonfw/devon/wiki/getting-started-download-and-setup#setup-the-workspace[here]
 ====
 
 == Create the server project
@@ -36,6 +36,12 @@ Learn more about _devonfw_ initialization https://github.com/devonfw/devon/wiki/
 First, in the _workspaces_ directory of the distribution create a new folder _jumpthequeue_ and go into it.
 Execute console.bat to get a console initialized with the provided software served in the `software` folder.
 
+[NOTE]
+====
+Even though this tutorial is following an structure similar to https://github.com/devonfw/my-thai-star[MyThaiStar]. If you are using the devonfw distribution, we recommend the use of the workspaces as a folder to create the project. We recomend to adapt the parameters appropriately. Once you finished generating the project, execute the script `update-all-workspaces.bat` and it will include a script in the root of the devonfw dist with your new workspace for eclipse.
+====
+
+[source]
 ----
 D:\Devon\workspaces>mkdir jumpthequeue
 D:\Devon\workspaces>cd jumpthequeue
@@ -53,7 +59,7 @@ You should see the _Devcon_'s graphic interface. Select `devon4j` and `create`
 
 image::images/devon4j/3.BuildYourOwn/newapp1.png[width="450", link="images/devon4j/3.BuildYourOwn/newapp1.png"]
 
-Then we only need to define our server app _path_ (for the location of the app select our just created _jumpthequeue_ directory), _name_, _groupid_, _package_ and _version_. Finally click on _Start_ button.
+Then we only need to define our server app _serverpath_ (for the location of the app select our just created _jumpthequeue_ directory), _servername_, _packagename_, _groupid_, _version_ and _dbtype_. Finally click on _Start_ button.
 
 image::images/devon4j/3.BuildYourOwn/devcon_devon4j_create.png[width="450", link="images/devon4j/3.BuildYourOwn/devcon_devon4j_create.png"]
 
@@ -63,9 +69,9 @@ Once you see the `BUILD SUCCESS` info message your new app is ready.
 ====
 You can also create new projects:
 
-- manually from command line https://github.com/devonfw/devon/wiki/getting-started-creating-new-devonfw-application#using-command-line[see how]
+- manually from command line https://github.com/devonfw/devon/wiki/getting-started-creating-new-devonfw-devon4j-application#using-the-command-line[see how]
 
-- from Eclipse https://github.com/devonfw/devon/wiki/getting-started-creating-new-devonfw-application#from-eclipse[see how]
+- from Eclipse https://github.com/devonfw/devon/wiki/getting-started-creating-new-devonfw-devon4j-application#using-the-eclipse[see how]
 
 ====
 

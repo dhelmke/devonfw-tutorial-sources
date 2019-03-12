@@ -177,15 +177,28 @@ $background: map-get($theme, background);
 @include covalent-theme($theme);
 ----
 
-2. Now we have to add these styles in angular/CLI config. Go to _angular.json_ in the root folder, then search both of the "styles" arrays and add theme and Covalent platform.css to make it look like this:
+2. Now we have to add these styles in angular/CLI config. Go to _angular.json_ in the root folder, then search both of the "styles" arrays (inside build and test) and add theme and Covalent platform.css to make it look like this:
 
 [source, json]
 ----
-      "styles": [
-        "src/styles.css",
-        "src/theme.scss",
-        "node_modules/@covalent/core/common/platform.css"
-      ],
+....
+            "styles": [
+              "src/styles.css",
+              "src/theme.scss",
+              "node_modules/@covalent/core/common/platform.css"
+            ],
+....
+----
+
+3. In the same file than previous step, the `hammer` library is going to be added. In order to do so, we add inside both "scripts" arrays (inside build and test) the minimified script:
+
+[source,json]
+----
+....
+            "scripts": [
+              "node_modules/hammerjs/hammer.min.js"
+            ]
+....
 ----
 
 == Start the development
@@ -244,7 +257,6 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import 'hammerjs';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -425,7 +437,7 @@ Let's create the module when the Router check for routes to navigate between com
 
 [NOTE]
 ====
-If you used Angular CLI to generate the project this app-routing.module.ts and chose yes in the option to create Angular routing, this file is created automaticly.
+If Angular CLI was used to generate the project and yes was chosen in the option to create Angular routing, this file (`app-routing.module.ts`) is created automaticly and only modification is needed.
 ====
 
 [source, typescript]
@@ -578,6 +590,8 @@ As you can see, the `LoginModule` is already added to the `FormLoginModule`. Onc
 [source, typescript]
 ----
 ....
+import { FormLoginModule } from './form-login/form-login-module';
+....
   declarations: [
     AppComponent,
   ]
@@ -588,6 +602,7 @@ As you can see, the `LoginModule` is already added to the `FormLoginModule`. Onc
     CoreModule,
     AppRoutingModule
   ]
+....
 ----
 
 [NOTE]
@@ -654,11 +669,11 @@ With two components already created we need to use the router to navigate betwee
 
 First we are going to generate the register component `ng generate component register` will create our component so we can start working on it.
 
-Turning back to _login.component.html_ we have to add this code:
+Turning back to _login.component.html_ we have to modify these lines of code:
 
 [source, html]
 ----
-<form layout="column" class="pad" (ngSubmit)="submitLogin()" #loginForm="ngForm">
+<form (ngSubmit)="submitLogin()" #loginForm="ngForm" layout-padding>
 ... 
 <button mat-raised-button type="submit" [disabled]="!loginForm.form.valid">Login</button>
 ...       
@@ -691,11 +706,15 @@ Learn more about Dependency Injection in devon4ng link:angular-services#dependen
 
 [source, typescript]
 ----
+....
+import { RegisterComponent } from './register/register.component';
+....
 const appRoutes: Routes = [
   { path: 'FormLogin', component: FormLoginComponent},               // Redirect if url path is /FormLogin.
   { path: 'Register', component: RegisterComponent},               // Redirect if url path is /Register.
   { path: '**', redirectTo: '/FormLogin', pathMatch: 'full' }  // Redirect if url path do not match with any other route.
 ];
+....
 ----
 
 Now, we are going to imitate the `login` to make our `register.component.html`:
@@ -816,6 +835,7 @@ export class RegisterService {
     return this.http.post<Visitor>(`${this.baseUrl}` + '/visitormanagement/v1/visitor', visitor);
   }
 }
+
 ----
 
 This method will send our model to the backend and return an Observable that we will use on the `component.ts`. Here you can see more info about the observables and RxJs in devon4ng.
@@ -858,13 +878,14 @@ export class RegisterComponent implements OnInit {
       (visitorResult: Visitor) => console.log(JSON.stringify(visitorResult)), // When call is received
       (err) =>  this.snackBar.open(err.error.message, 'OK', {
         duration: 5000,
-      }), //When theres an error
+      }), // When theres an error
     );
   }
 
   ngOnInit() {
   }
 }
+
 ----
 
 
@@ -1171,9 +1192,15 @@ Then we add to the `login-module.ts` and `LoginService`:
 
 [source, typescript]
 ----
+...
+import { LoginService } from './services/login.service';
+
+@NgModule({
   ...
   providers: [LoginService],
   ...
+})
+...
 ----
 
 After that, we are going to add the `AuthGuard` and the `Auth` into the `share/core-module.ts`. This will allow us to employ these two services when importing the core module, avoiding having to provide these services in every component:
@@ -1194,7 +1221,7 @@ Finally, we modify the `login.component.html` to send the form values to the `lo
 [source, html]
 ----
 ...
-<form layout-padding (ngSubmit)="submitLogin(loginForm.form.value)" #loginForm="ngForm">
+<form (ngSubmit)="submitLogin(loginForm.form.value)" #loginForm="ngForm" layout-padding>
 ...
 ----
 

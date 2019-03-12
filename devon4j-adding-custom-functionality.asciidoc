@@ -406,7 +406,7 @@ public class AccesscodemanagementImpl extends AbstractComponentFacade implements
 
 	@Override
 	public void deleteAccessCode(long accessCodeId) {
-		return this.ucManageAccessCode.deleteAccessCode(accessCodeId);
+		this.ucManageAccessCode.deleteAccessCode(accessCodeId);
 	}
 
 	@Override

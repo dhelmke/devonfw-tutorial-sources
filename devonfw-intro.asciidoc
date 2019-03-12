@@ -43,7 +43,7 @@ With _devonfw_/_devon4j_ developers have at their disposal an archetype to gener
 
 For client applications _devonfw_ includes two possible solutions, both based on _JavaScript_:
 
-- https://github.com/devonfw/devon4ng[devon4ng]: the _OASP_ implementation based on https://angular.io/[Angular] framework.
+- https://github.com/devonfw/devon4ng[devon4ng]: the _devonfw_ implementation based on https://angular.io/[Angular] framework.
 
 // - https://github.com/devonfw/devon4sencha[devon4sencha]: a client solution based on the https://www.sencha.com/[Sencha] framework.
 
