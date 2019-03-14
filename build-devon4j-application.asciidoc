@@ -59,7 +59,7 @@ You should see the _Devcon_'s graphic interface. Select `devon4j` and `create`
 
 image::images/devon4j/3.BuildYourOwn/newapp1.png[width="450", link="images/devon4j/3.BuildYourOwn/newapp1.png"]
 
-Then we only need to define our server app _serverpath_ (for the location of the app select our just created _jumpthequeue_ directory), _servername_, _packagename_, _groupid_, _version_ and _dbtype_. Finally click on _Start_ button.
+Then we only need to define our server app _serverpath_ (for the location of the app select our just created _jumpthequeue_/java directory), _servername_, _packagename_, _groupid_, _version_ and _dbtype_. Finally click on _Start_ button.
 
 image::images/devon4j/3.BuildYourOwn/devcon_devon4j_create.png[width="450", link="images/devon4j/3.BuildYourOwn/devcon_devon4j_create.png"]
 

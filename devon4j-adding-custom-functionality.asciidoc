@@ -63,28 +63,26 @@ public class UcManageQueueImpl extends AbstractQueueUc implements UcManageQueue 
 	....
 	@Override
 	public void decreaseQueueCustomer(long queueId) {
-		// Using the repository find method and queueId paremeter tthe queue is found
+		// Using the repository find method and queueId paremeter the queue is found
 		QueueEntity queueEntity = getQueueRepository().find(queueId);
 
 		// the customers gets reduced by one
 		queueEntity.setCustomers(queueEntity.getCustomers() - 1);
 
-		//Based on hibernate, the command save(Entity) is not required.
-
-		//the queueEntity gets saved
+		// Based on hibernate, the command save(Entity) is not strictly required, but it improves readibility.
+		// the queueEntity gets saved
 		getQueueRepository().save(queueEntity);
 	}
 
 	@Override
 	public void increaseQueueCustomer(long queueId) {
-		// Using the repository find method and queueId paremeter tthe queue is found
+		// Using the repository find method and queueId paremeter the queue is found
 		QueueEntity queueEntity = getQueueRepository().find(queueId);
 		// the customers gets increased by one
 		queueEntity.setCustomers(queueEntity.getCustomers() + 1);
 
-		//Based on hibernate, the command save(Entity) is not required.
-
-		//the queueEntity gets saved
+		// Based on hibernate, the command save(Entity) is not strictly required, but it improves readibility.
+		// the queueEntity gets saved
 		getQueueRepository().save(queueEntity);
 	}
 }

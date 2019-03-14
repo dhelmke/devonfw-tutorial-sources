@@ -103,7 +103,7 @@ The _Daily Queue_ will be defined with: _name_, _logo_, _password_, _currentNumb
 
 In addition, we will have to represent two relationships:
 
-  1. The https://en.wikipedia.org/wiki/One-to-one_(data_model)[one to one] relation between visitor and daily queue.
+  1. The https://en.wikipedia.org/wiki/One-to-one_(data_model)[one to one] relation between visitor and access code.
 
   2. The https://en.wikipedia.org/wiki/One-to-many_(data_model)[one to many] relation between daily queue and access code.
 
@@ -321,8 +321,6 @@ In the entity, we are going to add the fields to represent the data model, so ou
 [NOTE]
 ====
 We are not adding the _id_ nor the _modificationCounter_ because _Cobigen_ will solve this for us.
-
-The _AccessCodeEntity_ is throwing an error as it is not created yet. We will solve it in next step.
 ====
 
 Now we need to declare our entity as a JPA entity with `@Entity` annotation (_javax.persistence.Entity_) at class level.
