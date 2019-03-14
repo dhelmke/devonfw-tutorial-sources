@@ -69,7 +69,7 @@ public class UcManageQueueImpl extends AbstractQueueUc implements UcManageQueue 
 		// the customers gets reduced by one
 		queueEntity.setCustomers(queueEntity.getCustomers() - 1);
 
-		// Based on hibernate, the command save(Entity) is not strictly required, but it improves readibility.
+		// Based on hibernate, the command save(Entity) is not strictly required, but it improves readability.
 		// the queueEntity gets saved
 		getQueueRepository().save(queueEntity);
 	}
@@ -81,7 +81,7 @@ public class UcManageQueueImpl extends AbstractQueueUc implements UcManageQueue 
 		// the customers gets increased by one
 		queueEntity.setCustomers(queueEntity.getCustomers() + 1);
 
-		// Based on hibernate, the command save(Entity) is not strictly required, but it improves readibility.
+		// Based on hibernate, the command save(Entity) is not strictly required, but it improves readability.
 		// the queueEntity gets saved
 		getQueueRepository().save(queueEntity);
 	}
