@@ -6,7 +6,7 @@
 ** link:devonfw-intro[devonfw intro]
 
 * **Setting up the IDE**
-* link:devonfw-ide-setup[devonfw-ide-setup]
+** link:devonfw-ide-setup[devonfw-ide-setup]
 
 * **Jump The Queue**
 ** link:jump-the-queue-design[Jump The Queue Design]
