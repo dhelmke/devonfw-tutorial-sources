@@ -1,23 +1,24 @@
 = devon4j Getting Started
 
-== link:devonfw-intro[devonfw intro]
+== First Steps
+- link:devon4j-overview[devon4j overview]
+- link:an-devon4j-application[An devon4j application]
 
-== link:devon4j-overview[devon4j overview]
+== devon4j: Build your own Application
+- link:build-devon4j-application[Build your own devon4j application]
+- link:devon4j-components[application components]
 
-== link:an-devon4j-application[An devon4j application]
+== devon4j advanced knowledge
+- link:devon4j-layers[devon4j details]
 
-== link:build-devon4j-application[Build your own devon4j application]
+== devon4j expand your App
+- link:devon4j-adding-custom-functionality[adding custom functionality]
+- link:devon4j-validations[data validations]
 
-== link:devon4j-components[devon4j application components]
+== devon4j test and deploy your APP
+- link:devon4j-testing[testing]
+- link:devon4j-deployment[deployment]
 
-== link:devon4j-layers[devon4j layers]
 
-== link:devon4j-adding-custom-functionality[devon4j adding custom functionality]
-
-== link:devon4j-validations[devon4j validations]
-
-== link:devon4j-testing[devon4j testing]
-
-== link:devon4j-deployment[Deployment]
 
 

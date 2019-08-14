@@ -1,11 +1,12 @@
 * link:home[Home]
 
-* link:devonfw-intro[devonfw intro]
+
 
 * **Jump The Queue**
 ** link:jump-the-queue-design[Jump The Queue Design]
 
 * **devonfw Backend Technologies**
+
 ** link:devon4j-getting-started-home[devon4j Getting Started]
 *** link:devon4j-overview[devon4j overview]
 *** link:an-devon4j-application[An devon4j application]
@@ -17,12 +18,8 @@
 *** link:devon4j-testing[devon4j testing]
 *** link:devon4j-deployment[Deployment]
 
-** link:OASP4FnGettingStartedHome[OASP4Fn Getting Started]
-*** link:OASP4FnIntroduction[OASP4Fn intro]
-*** link:AnOASP4FnApplication[An OASP4Fn application]
-*** link:BuildOASP4FnApplication[Build your own OASP4Fn application]
-*** link:OASP4FnTesting[Testing]
-*** link:OASP4FnDeployment[Deployment]
+
+
 
 * **devonfw Frontend Technologies**
 ** link:devon4ng-getting-started-home[devon4ng Getting Started]

@@ -3,23 +3,38 @@ toc::[]
 
 = devonfw Tutorial sources
 
-== Jump The Queue 
+== - General concept
+
+The idea of the Getting Started Guides is to function as an introduction & tutorial. 
+
+The idea is to show how a real application, _My Thai Star_, is built up. From general overview & architecture to detailing individual layers, _My Thai Star_ is shown to hightlight how to create a devonfw app. For each part a practical part is included. This is based on a(n extremely) minimal application, "snatch-a-snack". This app consists of a single view offering a single function, doing a single db operation.
+
+== - devonfw-intro
+
+A short introduction to the devonfw distribution.
+
+- link:devonfw-intro[devonfw intro]
+
+== - Setting up the IDE
+
+A quick guide what to do to set the IDE up and run your first App.
+
+- link:devonfw-ide-setup[devonfw-ide-setup]
+
+== - Jump The Queue 
 
 **Jump The Queue** is the application that will be used as tutorial for the following Backend and Frontend technologies.
 
 - link:jump-the-queue-design[Jump The Queue Design] 
 
-== Backend Technologies
+
+== - Backend Technologies
 
 - link:devon4j-getting-started-home[devon4j Getting Started]
-- link:OASP4FnGettingStartedHome[OASP4Fn Getting Started] DEPRECATED
 
-== Frontend Technologies
+
+== - Frontend Technologies
 
 - link:devon4ng-getting-started-home[devon4ng Getting Started]
 
-== General concept
-
-The idea of the Getting Started Guides is to function as an introduction & tutorial. 
-
-The idea is to show how a real application, _My Thai Star_, is built up. From general overview & architecture to detailing individual layers, _My Thai Star_ is shown to hightlight how to create a devonfw app. For each part a practical part is included. This is based on a(n extremely) minimal application, "snatch-a-snack". This app consists of a single view offering a single function, doing a single db operation. 
+ 
