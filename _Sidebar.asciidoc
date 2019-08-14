@@ -1,6 +1,12 @@
 * link:home[Home]
 
+* **General concept**
 
+* **devonfw intro**
+** link:devonfw-intro[devonfw intro]
+
+* **Setting up the IDE**
+* link:devonfw-ide-setup[devonfw-ide-setup]
 
 * **Jump The Queue**
 ** link:jump-the-queue-design[Jump The Queue Design]
@@ -8,15 +14,20 @@
 * **devonfw Backend Technologies**
 
 ** link:devon4j-getting-started-home[devon4j Getting Started]
+** **1. first steps**
 *** link:devon4j-overview[devon4j overview]
-*** link:an-devon4j-application[An devon4j application]
-*** link:build-devon4j-application[Build your own devon4j application]
-*** link:devon4j-components[devon4j application components]
-*** link:devon4j-layers[devon4j layers]
-*** link:devon4j-adding-custom-functionality[devon4j adding custom functionality]
-*** link:devon4j-validations[devon4j validations]
-*** link:devon4j-testing[devon4j testing]
-*** link:devon4j-deployment[Deployment]
+*** link:an-devon4j-application[an devon4j application]
+** **2. devon4j build your own application**
+*** link:build-devon4j-application[build your own devon4j application]
+*** link:devon4j-components[application components]
+** **3. devon4j advanced knowledge**
+*** link:devon4j-layers[devon4j details]
+** **4. devon4j expand you app**
+*** link:devon4j-adding-custom-functionality[adding custom functionality]
+*** link:devon4j-validations[data validations]
+** **5. devon4j test and deploy you app**
+*** link:devon4j-testing[testing]
+*** link:devon4j-deployment[deployment]
 
 
 
