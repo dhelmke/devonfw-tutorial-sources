@@ -40,8 +40,8 @@ For _persistence_ and _data access_ devon4j implements:
 
 As service framework
 - http://cxf.apache.org/[Apache CXF] that provides support for
-** REST services through https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services[JAX-RS]
-** SOAP services through https://en.wikipedia.org/wiki/Java_API_for_XML_Web_Services[JAX-WS]
+** REST** services through https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services[JAX-RS]
+ SOAP services through https://en.wikipedia.org/wiki/Java_API_for_XML_Web_Services[JAX-WS]
 
 == devon4j tools
 

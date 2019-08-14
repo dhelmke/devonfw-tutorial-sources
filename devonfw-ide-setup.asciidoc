@@ -5,18 +5,18 @@ This Tutorial explains how to setup the development environment to work on and c
 We are using a pre-configured https://github.com/devonfw/devon-ide[devon-ide] for development. To get started follow these steps:
 
 . Get a Git client. For Windows use:
-* https://gitforwindows.org/
+* ** https://gitforwindows.org/ ** 
 +
 Important: install with option +Use Git from the Windows Command Prompts+ but without Windows Explorer integration.
 +
 image::https://raw.githubusercontent.com/schowalter0112/Prints-OASP4j-Tutorial/master/Git%20hub%20client/Use%20Git%20from%20the%20Windows%20Command%20Prompts.jpg[command]
-* Download TortoiseGit from https://tortoisegit.org/
+* Download TortoiseGit from ** https://tortoisegit.org/ **
 +
 . Download the distribution
-* If you are a member of Capgemini: download http://de-mucevolve02/files/devonfw/current/Devon-dist-current.zip[devonfw current distribution] (for devonfw please find the setup guide within the devon-dist).
+* If you are a member of Capgemini: download http://de-mucevolve02/files/devonfw/current/Devon-dist-current.zip[**devonfw current distribution**] (for devonfw please find the setup guide within the devon-dist).
 +
 image::images/devon4j/10.IdeSetup/devonfw-ide-setup-step02.png[width="813", high="390", align="center"]
-. Choose a project location for your project (e.g. `C:\projects\devonfw`, referred to with `$projectLoc` in this setup guides following steps). Avoid long paths and white spaces to prevent trouble. Extract the downloaded ZIP files via `Extract Here` (e.g. using http://www.7-zip.org/[7-Zip]). Do not use the Windows native ZIP tool to extract as this is not working properly on long paths and filenames.
+. Choose a project location for your project (e.g. `C:\projects\devonfw`, referred to with `$projectLoc` in this setup guides following steps). Avoid long paths and white spaces to prevent trouble. Extract the downloaded ZIP files via `Extract Here` (e.g. using http://www.7-zip.org/[**7-Zip**]). Do not use the Windows native ZIP tool to extract as this is not working properly on long paths and filenames.
 . Run the script `update-all-workspaces.bat` in `$projectLoc`.
 +
 image::https://raw.githubusercontent.com/schowalter0112/Prints-OASP4j-Tutorial/master/Git%20hub%20client/update.jpg[update]

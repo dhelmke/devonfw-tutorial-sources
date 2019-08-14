@@ -14,20 +14,20 @@
 * **devonfw Backend Technologies**
 
 ** link:devon4j-getting-started-home[devon4j Getting Started]
-** **1. first steps**
-*** link:devon4j-overview[devon4j overview]
-*** link:an-devon4j-application[an devon4j application]
-** **2. devon4j build your own application**
-*** link:build-devon4j-application[build your own devon4j application]
-*** link:devon4j-components[application components]
-** **3. devon4j advanced knowledge**
-*** link:devon4j-layers[devon4j details]
-** **4. devon4j expand you app**
-*** link:devon4j-adding-custom-functionality[adding custom functionality]
-*** link:devon4j-validations[data validations]
-** **5. devon4j test and deploy you app**
-*** link:devon4j-testing[testing]
-*** link:devon4j-deployment[deployment]
+*** **1. first steps**
+**** link:devon4j-overview[devon4j overview]
+**** link:an-devon4j-application[an devon4j application]
+*** **2. devon4j build your own application**
+**** link:build-devon4j-application[build your own devon4j application]
+**** link:devon4j-components[application components]
+*** **3. devon4j advanced knowledge**
+**** link:devon4j-layers[devon4j details]
+*** **4. devon4j expand you app**
+**** link:devon4j-adding-custom-functionality[adding custom functionality]
+**** link:devon4j-validations[data validations]
+*** **5. devon4j test and deploy you app**
+**** link:devon4j-testing[testing]
+**** link:devon4j-deployment[deployment]
 
 
 
