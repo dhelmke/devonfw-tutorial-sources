@@ -86,3 +86,5 @@ The current available modules are:
 - _winauth active directory_: a module to authenticate users against an _Active Directory_.
 
 - _winauth single sign on_: module that allows applications to authenticate the users by the Windows credentials.
+
+Next chapter: link:devonfw-ide-setup[**devonfw-ide-setup**]
