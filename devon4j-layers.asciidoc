@@ -1,7 +1,7 @@
 :toc: macro
 toc::[]
 
-= devon4j component layers
+= devon4j details : the component layers
 
 As we already mentioned in the link:devon4j-overview#devon4j-architecture-overview[introduction to devon4j] the components of our _Java_ backend apps will be divided in three layers: _service_, _logic_ and _dataaccess_.
 

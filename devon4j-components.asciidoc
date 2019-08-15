@@ -618,7 +618,7 @@ Finally, we are going to repeat the same process for our last entity _QueueEntit
 
 image::images/devon4j/4.Components/jumpthequeue_emptycomponents2.png[ link="images/devon4j/4.Components/jumpthequeue_emptycomponents2.png"]
 
-And the content of the _AccessCodeEntity_ before start using _Cobigen_ will be
+And the content of the _QueueEntity_ before start using _Cobigen_ will be
 
 [source,java]
 ----
@@ -755,7 +755,7 @@ With this we have finished preparing the core of our components. Now we can star
 
 [NOTE]
 ====
-Now we can solve the compilation errors related to `QueueEntity` in the `AccessCodeEntity.java` class.
+Now we can solve the compilation errors related to `QueueEntity` in the `AccessCodeEntity.java` class by using the suggestion of IDE. To get the suggestion just open the class `AccessCodeEntity.java` and leftclick on the little bulb on the left side. 
 ====
 
 === The component's structure with _Cobigen_
@@ -832,7 +832,7 @@ _CORE_
 
 - `queuemanagement.dataaccess.api.QueueEntity`
 
-We can fix the errors by manual importing ´java.sql.TimeStamp´:
+We can fix the errors manual with: `**import** java.sql.TimeStamp`.
 
 image::images/devon4j/4.Components/cobigen5_manual_import.png[link="images/devon4j/4.Components/cobigen5_manual_imports.png"]
 
@@ -840,7 +840,7 @@ image::images/devon4j/4.Components/cobigen5_manual_import.png[link="images/devon
 
 We repeat the process with _AccessCode_ but in this case, since its an entity with relations, we are going to have to select different cobigen options:
 
-image::images/devon4j/4.Components/cobigen3_allpackages_cto.png[link="images/devon4j/4.Components/cobigen3_allpackages_cto.png"]
+image::images/devon4j/4.Components/cobigen-accesscode-new.png[link="images/devon4j/4.Components/cobigen3_allpackages_cto.png"]
 
 After letting cobigen finish generating and fixing the imports like in the last step there will be some errors left, this is because we have a relation (dependency) with some of the _Queue_ and _Visitor_ component elements, that are still not created. We will solve this compilation errors in next steps.
 
@@ -856,4 +856,4 @@ If all compilation errors are solved run the app ( _SpringBootApp.java right cli
 
 Congratulations you have created your first _devon4j_ components. In the next chapter we will explain and show in detail each of the created elements
 
-=== link:devon4j-layers[Next chapter: devon4j Layers]
+=== link:devon4j-layers[Next chapter: devon4j details]
