@@ -854,6 +854,6 @@ Finally we are going to repeat the same process that was used with the _Queue_ c
 
 If all compilation errors are solved run the app ( _SpringBootApp.java right click > Run as > Java application_ ). The app should be launched without errors.
 
-Congratulations you have created your first _devon4j_ components. In the next chapter we will explain and show in detail each of the created elements
+Congratulations you have created your first _devon4j_ components. You should be able to access the login screen with link:http://localhost:8081/jumpthequeue[]. You can login with waiter/waiter. In the next chapter we will explain and show in detail each of the created elements
 
 === link:devon4j-layers[Next chapter: devon4j details]
