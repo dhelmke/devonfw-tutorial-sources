@@ -74,3 +74,5 @@ Each component will be divided in three layers: _service_, _logic_ and _dataaces
 Finally the _devon4j_ applications provide a _general_ package to locate the cross-cutting functionalities such as _security_, _logging_ or _exception handling_.
 
 In the next chapters you can find all the details about the implementation of each layer and how to develop all the relevant parts of a web app based on _devonfw_ framework and _devon4j_.
+
+Next chapter: link:an-devon4j-application[an devon4j application]

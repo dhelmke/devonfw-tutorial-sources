@@ -65,15 +65,6 @@ image::images/devon4j/3.BuildYourOwn/devcon_devon4j_create.png[width="450", link
 
 Once you see the `BUILD SUCCESS` info message your new app is ready.
 
-[NOTE]
-====
-You can also create new projects:
-
-- manually from command line https://github.com/devonfw/devon/wiki/getting-started-creating-new-devonfw-devon4j-application#using-the-command-line[see how]
-
-- from Eclipse https://github.com/devonfw/devon/wiki/getting-started-creating-new-devonfw-devon4j-application#using-the-eclipse[see how]
-
-====
 
 == Import and run the app
 

@@ -282,10 +282,8 @@ The name for this component will be `visitormanagement` and for the entity `Visi
 From the root package of the project create the following packages:
 
 ----
-- visitormanagement
--- dataaccess
---- api
----- 
+com.devonfw.application.jtqj.visitormanagement.dataaccess.api
+----
 
 image::images/devon4j/4.Components/visitor_component_packages1.png[ link="images/devon4j/4.Components/visitor_component_packages1.png"]
 
@@ -469,7 +467,13 @@ public class VisitorEntity{
 
 ==== _AccessCode_ component
 
-We are going to repeat the same process for the _AccessCode_ component. So we will end up with the following structure
+We are going to repeat the same process for the _AccessCode_ component. We create packages from the jtqj-core:
+
+
+`com.devonfw.application.jtqj.accesscodemanagement.dataaccess.api`
+
+
+And create a class called _AccessCodeEntity_. So we will end up with the following structure:
 
 image::images/devon4j/4.Components/jumpthequeue_emptycomponents.png[ link="images/devon4j/4.Components/jumpthequeue_emptycomponents.png"]
 
@@ -614,7 +618,11 @@ The compilation errors related to _QueueEntity_ will be solved when we create th
 
 ==== _Queue_ component
 
-Finally, we are going to repeat the same process for our last entity _QueueEntity_ component. So we will end up with the following structure:
+Finally, we are going to repeat the same process for our last entity _QueueEntity_ component. Create  packages:
+
+`com.devonfw.application.jtqj.queuemanagement.dataaccess.api` 
+
+And create the class _QueueEntity_. So we will end up with the following structure:
 
 image::images/devon4j/4.Components/jumpthequeue_emptycomponents2.png[ link="images/devon4j/4.Components/jumpthequeue_emptycomponents2.png"]
 
