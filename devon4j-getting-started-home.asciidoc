@@ -16,9 +16,9 @@ In these chapters you will get to know the extension app of _May-Thai-Star_ _Jum
 - link:devon4j-components[**application components**]
 
 == 3. devon4j advanced knowledge
-The structur of our devon4j project is shown here.
+The structure of our devon4j project is shown here.
 
-- link:devon4j-layers[**devon4j details**]
+- link:devon4j-layers[**devon4j structure**]
 
 == 4. devon4j expand your app
 We extend our app and test the functionallity with a tool. We will also prove that the data used meets the practice requirements.

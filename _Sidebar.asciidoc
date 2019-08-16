@@ -22,7 +22,7 @@
 **** link:build-devon4j-application[build your own devon4j application]
 **** link:devon4j-components[application components]
 *** **3. devon4j advanced knowledge**
-**** link:devon4j-layers[devon4j details]
+**** link:devon4j-layers[devon4j structure]
 *** **4. devon4j expand you app**
 **** link:devon4j-adding-custom-functionality[adding custom functionality]
 **** link:devon4j-validations[data validations]

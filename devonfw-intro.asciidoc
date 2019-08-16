@@ -87,4 +87,4 @@ The current available modules are:
 
 - _winauth single sign on_: module that allows applications to authenticate the users by the Windows credentials.
 
-Next chapter: link:devonfw-ide-setup[**devonfw-ide-setup**]
+=== Next chapter: link:devonfw-ide-setup[**devonfw-ide-setup**]

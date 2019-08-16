@@ -160,4 +160,4 @@ image::images/devon4j/3.BuildYourOwn/emptyapp_security.png[ width="650", link="i
 
 image::images/devon4j/3.BuildYourOwn/emptyapp_test.png[ width="650", link="images/devon4j/3.BuildYourOwn/emptyapp_test.png"]
 
-=== link:devon4j-components[Next chapter: Add a component to your app]
+=== Next chapter: link:devon4j-components[ Add a component to your app]

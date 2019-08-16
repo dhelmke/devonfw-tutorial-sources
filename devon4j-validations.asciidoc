@@ -218,4 +218,4 @@ However, if we provide a valid phone the process should end successfully
 
 In this chapter we have seen how easy is to add validations in the server side of our _devon4j_ applications. In the next chapter we will show how to test our components using _Spring Test_ and _devon4j_'s test module.
 
-=== link:devon4j-testing[Next chapter: Testing in devon4j]
+=== Next chapter: link:devon4j-testing[ Testing in devon4j]
