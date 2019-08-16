@@ -182,6 +182,7 @@ For the second functionality (finding visitors) we can add a new test with a ver
   }
 ----
 
+Use `*import* org.springframework.data.domain` to solve the errors.
 To run both tests (all the tests included in the class) we only need to do right click in any part of the class and select _Run As > JUnit Test_. All the methods annotated with `@Test` will be checked.
 
 image::images/devon4j/8.Testing/jumpthequeue_testing_result3.png[ link="images/devon4j/8.Testing/jumpthequeue_testing_result3.png"]
@@ -262,4 +263,4 @@ Even though the test that we have made created finished correctly since theres m
 
 After that we have seen how to create tests in _devonfw_, in the next chapter we are going to show how to package and deploy our project.
 
-=== link:devon4j-deployment[Next chapter: Deployment with devonfw]
+=== Next chapter: link:devon4j-deployment[Deployment with devonfw]
