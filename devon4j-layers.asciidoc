@@ -465,7 +465,7 @@ The service definition states that we will need to provide a _Search Criteria Tr
 
 If the _Search Criteria_ is empty we will retrieve all the visitors, in other case the result will be filtered.
 
-Call (POST) `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor/search`
+Call the service POST: `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor/search`
 
 in the body we need to define the _SearchCriteria_ object, that will have a pageable defined:
 
@@ -479,14 +479,14 @@ in the body we need to define the _SearchCriteria_ object, that will have a page
 }
 ----
 
-Make sure, the header `Content-Type: application/json` is passed as well indicating the server to interprete the body in JSON format. Otherwise, you may face an 415 unsuported type error.
+Make sure, the header `Content-Type: application/json` is passed as well indicating the server to interprete the body in JSON format and check "raw". Otherwise, you may face an 415 unsuported type error. 
 
 [NOTE]
 ====
 You can see the definition of the _SearchCriteriaTo_ in `visitormanagement/logic/api/to/VisitorSearchCriteriaTo.java`
 ====
 
-The result will be something like
+The result will be in the Headers section something like
 
 image::images/devon4j/5.Layers/jumpthequeue_paginated1.png[, link="images/devon4j/5.Layers/jumpthequeue_paginated1.png"]
 
@@ -515,7 +515,7 @@ To fit the requirements of the related https://github.com/devonfw/devonfw-tutori
 
 By default _Cobigen_ has generated for us the _Read_ operation in the _UcFindEntityImpl_ and rest of the _CRUD_ in _UcManageEntityImpl_. So we already are able to read, update, delete and create a visitor in our database without extra implementation.
 
-To delegate in _Spring_ to manage the _transactions_ we only need to add the `@Transactional` (_org.springframework.transaction.annotation.Transactional_) annotation to our _usecase_  implementations. Since _devonfw 2.2.0_ _Cobigen_ adds this annotation automatically, so we don't need to do it manually. Check your logic implementation classes and add the annotation in case it is not present.
+To delegate in _Spring_ to manage the _transactions_ we only need to add the `@Transactional` annotation to our _usecase_  implementations. Since _devonfw 2.2.0_ _Cobigen_ adds this annotation automatically, so we don't need to do it manually. Check your logic implementation classes and add the annotation in case it is not present.
 
 [source,java]
 ----
@@ -529,6 +529,12 @@ public class UcManageVisitorImpl extends AbstractVisitorUc implements UcManageVi
 ----
 
 To save a visitor we only need to use the _REST_ resource `/services/rest/visitormanagement/v1/visitor` and provide in the body the visitor definition for the _VisitorEto_.
+
+
+[NOTE]
+====
+You can see the definition for _VisitorEto_ in `visitormanagement/logic/api/to/VisitorEto.java`
+====
 
 So, call (POST) `http://localhost:8081/jumpthequeue/services/rest/visitormanagement/v1/visitor` providing in the body a _Visitor_ object like
 
@@ -545,10 +551,6 @@ So, call (POST) `http://localhost:8081/jumpthequeue/services/rest/visitormanagem
 }
 ----
 
-[NOTE]
-====
-You can see the definition for _VisitorEto_ in `visitormanagement/logic/api/to/VisitorEto.java`
-====
 
 We will get a result like the following
 

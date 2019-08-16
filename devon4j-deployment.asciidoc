@@ -46,7 +46,7 @@ And then it includes the https://docs.spring.io/spring-boot/docs/current/referen
 
 == Disabling security tests
 
-First, since this is a basic tutorial and there is no security/permissions,the files `SecurityRestServiceImplTest` and the `PermissionCheckTest` need to be modified leaving one test of each that will return true and the rest in a commentary. First, in the core `jtqj-core` inside `src/test/java/.../general/common/service/impl/rest/SecurityRestServiceImpl`:
+First, since this is a basic tutorial and there is no security/permissions,the files `SecurityRestServiceImplTest` and the `PermissionCheckTest` need to be modified leaving one test of each that will return true and the rest in a commentary. First, in the core `jtqj-core` inside `src/test/java/.../general/common/service/impl/rest/SecurityRestServiceImplTest`:
 
 [source, java]
 ----

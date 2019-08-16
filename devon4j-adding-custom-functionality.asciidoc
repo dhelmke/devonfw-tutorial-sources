@@ -16,7 +16,7 @@ It is also needed to add some methods to the _Queue_ component since when saving
 
 === Adding methods to the _Queue_ component
 
-In our case, two new methods are going to be needed, `decreaseQueueCustomer` and `increaseQueueCustomer`. In order to add those methods to the queuemanagement we need to do four steps:
+In our case, two new methods are going to be needed, `decreaseQueueCustomer` and `increaseQueueCustomer`. In order to add those methods to the queuemanagement we need to do three steps:
 
 	1. Modify the corresponding `usecase` interface adding the methods.
 
@@ -55,7 +55,7 @@ public interface UcManageQueue {
 
 ==== 2 Implementing the methods in  `UcManageQueueImpl`
 
-In the `jtqj-core/queuemanagement/log/api/usecase/UcManageQueueImpl` the implementation of the methods that were just added in the interface are going to be added.
+In the `jtqj-core/src/main/java/queuemanagement/logic/impl/usecase/UcManageQueueImpl` the implementation of the methods that were just added in the interface are going to be added.
 
 [source, java]
 ----
@@ -507,7 +507,7 @@ image::images/devon4j/6.Customizations/jumpthequeue_accesscode.png[, link="image
 
 In order to know if the new codeaccess has been succesfully created we can search all the ctos like we did in anterior steps, the new accesscode should be on the bottom:
 
-image::images/devon4j/6.Customizations/jumpthequeue_accesscode.png[, link="images/devon4j/6.Customizations/jumpthequeue_listwithcode.png"]
+image::images/devon4j/6.Customizations/jumpthequeue_listwithcode.png[, link="images/devon4j/6.Customizations/jumpthequeue_listwithcode.png"]
 
 To test the delete, you can send a delete to this url http://localhost:8081/jumpthequeue/services/rest/accesscodemanagement/v1/accesscode/{id} using the id found either on the save or on the search.
 
