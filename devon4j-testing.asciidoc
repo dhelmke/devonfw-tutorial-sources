@@ -263,4 +263,6 @@ Even though the test that we have made created finished correctly since theres m
 
 After that we have seen how to create tests in _devonfw_, in the next chapter we are going to show how to package and deploy our project.
 
-=== Next chapter: link:devon4j-deployment[Deployment with devonfw]
+'''
+
+*Next chapter*: link:devon4j-deployment[Deployment with devonfw]

@@ -93,7 +93,17 @@ image::images/tutorialsources/devcon-gui-project.png[width="813", high="390", al
 
 Now you know how to create a projevt with devon/devcon.
 
-Next chapter: link:jump-the-queue-design[**Jump The Queue Design**]
+[NOTE]
+====
+You can also create new projects:
+
+- from Eclipse https://github.com/devonfw/devon4j/wiki/tutorial-newapp#from-eclipse[see how]
+
+====
+
+'''
+
+*Next chapter*: link:jump-the-queue-design[**Jump The Queue Design**]
 
 
 

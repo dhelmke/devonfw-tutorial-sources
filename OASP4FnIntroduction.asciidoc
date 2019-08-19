@@ -129,5 +129,7 @@ Options:
   -h, --help            display the help
 ----
 
-= link:BuildOASP4FnApplication[Next chapter: Build your OASP4Fn app]
+'''
+
+*Next chapter*: link:BuildOASP4FnApplication[Build your OASP4Fn app]
  

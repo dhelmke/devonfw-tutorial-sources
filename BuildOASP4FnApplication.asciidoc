@@ -311,5 +311,7 @@ After this, test your other handler, sending a void object with the POST http re
 
 image::images/oasp4fn/3.BuildYourOwn/postman_search.PNG[, link="images/oasp4fn/3.BuildYourOwn/postman_search.PNG"]
 
-= link:OASP4FnTesting[Next chapter: Test your OASP4Fn app]
+'''
+
+*Next chapter*: link:OASP4FnTesting[Test your OASP4Fn app]
 
