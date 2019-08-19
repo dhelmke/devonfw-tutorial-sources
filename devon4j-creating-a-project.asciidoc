@@ -91,7 +91,7 @@ image::images/tutorialsources/devcon-gui-project.png[width="813", high="390", al
 
 * Eclipse instance should open.
 
-Now you know how to create a projevt with devon/devcon.
+Now you know how to create a project with devon/devcon.
 
 [NOTE]
 ====
