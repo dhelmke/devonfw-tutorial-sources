@@ -71,4 +71,6 @@ This is the most common workflow with Observables. Take into account that if you
 
 link:https://angular.io/guide/http#rxjs-library[Here] you can find more information about RxJs and Observables coming from the main page of Angular.
 
-= link:build-devon4ng-application[Next chapter: Build your own devon4ng application]
+'''
+
+*Next chapter*: link:build-devon4ng-application[ Build your own devon4ng application]

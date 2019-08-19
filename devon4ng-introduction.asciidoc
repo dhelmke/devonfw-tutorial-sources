@@ -54,4 +54,6 @@ image::images/devon4ng/1.Intro/flex_box.jpeg[, link="images/devon4ng/1.Intro/fle
 
 In the following chapters we are going to see an example of a finished devon4ng application, how to build your own devon4ng app from the scratch and all you need to know about each part of the architecture in order to start building your own applications.
 
-= link:an-devon4ng-application[Next chapter: An devon4ng application]
+'''
+
+*Next chapter*: link:an-devon4ng-application[An devon4ng application]
