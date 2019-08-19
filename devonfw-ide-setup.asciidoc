@@ -50,4 +50,6 @@ image::images/tutorialsources/devonfw-ide-setup-run.png[width="813", high="390",
 + 
 . Once started, the sample application runs on http://localhost:4200/restaurant[], login with waiter/waiter and have a look at the services list provided.
 
-=== Next chapter: link:creating-a-project[creating-a-project]
+'''
+
+*Next chapter*: link:devon4j-creating-a-project[creating a devon4j project]

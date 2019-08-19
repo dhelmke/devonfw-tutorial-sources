@@ -59,10 +59,7 @@ In addition, you can set Yarn as the default package manager to use with Angular
 
 Finally, once all these tools have been installed successfully, you are ready to create a new project. Theres two ways of creating a project:
 
-[NOTE]
-====
-If you are using the devonfw distribution, we recommend the use of the workspaces_vs as a folder to create the project. Since the folder will be in a new place and not inside the one we created for the backend, we recomend to switch the name appropriately. Once you finished generating the project, execute the script `update-all-workspaces.bat` and it will include a script in the root of the devonfw dist with your new workspace for visual studio.
-====
+
 
 == 1.- Creating basic new project with the Angular/CLI
 
@@ -96,7 +93,7 @@ Once devcon has finished you should see something like this:
 
 [NOTE]
 ====
-The result on this screenshot can differ from the result
+The result on this screenshot can differ from the result.
 ====
 
 image::images/devon4ng/3.BuildYourOwn/devcon4ng.png[, link="images/devon4ng/3.BuildYourOwn/devcon4ng.png"]
@@ -108,7 +105,12 @@ Even though this tutorial is going to start with the second option. At this poin
 [NOTE]
 ====
 If you dont have the latest angular version install the corresponding version of the dependencies to your angular version. To do so, add @`version` behind. Example: npm install @angular/material@7.1.2 or yarn add @angular/material@7.1.2
+
+If you are using the devonfw distribution, we recommend the use of the workspaces_vs as a folder to create the project. Since the folder will be in a new place and not inside the one we created for the backend, we recomend to switch the name appropriately. Once you finished generating the project, execute the script `update-all-workspaces.bat` and it will include a script in the root of the devonfw dist with your new workspace for visual studio.
 ====
+Execute: `update-all-workspaces.bat.`
+Goto the directory: `cd angular`. And run the following commands:
+
 
 First, we are going to add *Google Material* to project dependencies running the following commands:
 
@@ -1216,6 +1218,8 @@ After that, we are going to add the `AuthGuard` and the `Auth` into the `share/c
 ....
 ----
 
+You need to import the modules as well like shown earlier.
+
 Finally, we modify the `login.component.html` to send the form values to the `login.component.ts` like we did with the register form and finally, afterwards, we are going to modify the `register.components.ts` when the visitor registers, we can login automaticly to avoid any nusiances. Let's start with the `login.component.html` : 
 
 [source, html]
@@ -1310,7 +1314,7 @@ Separating components will allow us to keep the code clean and easy to work with
 
 As the last view, we are going to learn how to use our observables on the html template directly without having to `subscribe()` to them.
 
-First, we are going to generate the component: `ng generate component view-queue`. After that, we are going to include the component in the `app-routing.module.ts` adding also the guard, only allowing users that are `VISITOR` to see the component.
+First, we are going to generate the component: `ng generate component view-queue`. After that, we are going to include the component in the `app-routing.module.ts` adding also the guard, only allowing users that are `VISITOR` to see the component. It is important to insert the following code before the ` { path: '**', redirectTo: '/FormLogin', pathMatch: 'full' },  // Redirect if url path do not match with any other route.`.
 
 [source, typescript]
 ----

@@ -89,4 +89,6 @@ image::images/devon4j/2.Example_app/get_request.png[, link="images/devon4j/2.Exa
 
 Once we have seen what we can achieve using _devon4j_ as our backend solution, in next sections we are going to see how to create our own _devon4j_ project step by step, starting from how to create a new _devon4j_ project and explaining how to generate each element of the application.
 
-=== link:build-devon4j-application[Next chapter: Create your own devon4j app]
+'''
+
+*Next chapter*: link:build-devon4j-application[Create your own devon4j app]
