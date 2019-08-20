@@ -34,6 +34,9 @@ A quick guide to set the IDE up and run your first App.
 
 
 
+
+- link:devon4j-creating-a-project[**creating a devon4j project**]
+
 == Jump The Queue 
 
 **Jump The Queue** is the application that will be used as tutorial for the following Backend and Frontend technologies. Here you can read a bit about what it is.

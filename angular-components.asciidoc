@@ -91,3 +91,5 @@ The data table from Covalent works with inputs and output events, it needs, at l
 '''
 
 *Next chapter*: link:angular-services[ Angular Services]
+
+

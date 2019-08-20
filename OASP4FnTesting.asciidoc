@@ -208,4 +208,6 @@ And the output console look like this:
 
 image::images/oasp4fn/3.BuildYourOwn/yarn_test2.PNG[, link="images/oasp4fn/3.BuildYourOwn/yarn_test2.PNG"]
 
-= link:OASP4FnDeployment[Next chapter: Deploy your OASP4Fn app]
+'''
+
+*Next chapter*: link:OASP4FnDeployment[Deploy your OASP4Fn app]
