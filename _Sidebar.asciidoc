@@ -6,7 +6,8 @@
 ** link:devonfw-intro[devonfw intro]
 
 * **Setting up the IDE**
-** link:devonfw-ide-setup[devonfw-ide-setup]
+** link:devon4j-ide-setup[devon4j-ide-setup]
+** link:devon4ng-ide-setup[devon4ng-ide-setup]
 ** link:devon4j-creating-a-project[creating a devon4j project]
 
 * **Jump The Queue**
