@@ -49,7 +49,7 @@ You will install **Jump The Queue** and do some work with it like expanding it w
 
 Here you can find information about OASP4Fn. Remember that OASP4FN is deprecated:
 
-- link:OASP4FnGettingStartedHome[OASP4Fn Getting Started] DEPRECATED
+- link:OASP4FnGettingStartedHome[**OASP4Fn Getting Started**] **DEPRECATED**
 
 
 == Frontend Technologies

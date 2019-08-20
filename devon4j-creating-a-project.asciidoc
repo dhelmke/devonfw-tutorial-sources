@@ -104,7 +104,3 @@ You can also create new projects:
 '''
 
 *Next chapter*: link:jump-the-queue-design[**Jump The Queue Design**]
-
-
-
-
