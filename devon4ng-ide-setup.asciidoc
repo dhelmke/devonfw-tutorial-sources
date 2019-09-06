@@ -19,7 +19,7 @@ To get started follow these steps:
 +
 IMPORTANT: Install with the option `Use Git from the Windows Command Prompt` but *without* Windows Explorer integration!
 +
-image::images/gitforwindows-install.jpg[command]
+image::images/devon4ng/7.IdeSetup/gitforwindows-install.jpg[width="813", high="390", align="center"]
 +
 * For Windows Explorer integration install link:https://tortoisegit.org/[Tortoise Git] (optional)
 
@@ -29,7 +29,7 @@ image::images/gitforwindows-install.jpg[command]
 +
 * During installation activate the option for `Set JAVA_HOME variable`
 +
-image::images/adoptopenjdk-install.jpg[test]
+image::images/devon4ng/7.IdeSetup/adoptopenjdk-install.jpg[width="813", high="390", align="center"]
 +
 IMPORTANT: *Reboot* your PC to put the newly set JAVA_HOME variable into effect!
 
